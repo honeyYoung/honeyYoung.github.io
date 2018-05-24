@@ -74,8 +74,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2018%2F05%2F23%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    <title><![CDATA[初识HTML]]></title>
+    <url>%2F2018%2F05%2F20%2F%E5%88%9D%E8%AF%86HTML%2F</url>
+    <content type="text"><![CDATA[HTML基础 Hyper text markup language 超文本标记语言 超文本：网页中可以包含图片、文字、视频、音频、文本框等元素; 标记（标签）：在网页中给网页元素做标记（右键，查看网页源代码） 超链接：实现页面之间的跳转 Sublime常用快捷键 windows+D 返回桌面 windows+R 运行dos windows+E 打开我的电脑 Alt+Tab 切换软件 Ctrl+Tab 软件内部文档间切换 F2 重命名 Web标准 结构标准：HTML HyperText Mark Language 超文本标记语言 表现标准：CSS Casading Style Sheets 层次样式表 行为标准：javaScript ECMAScript javaScript标准 DOM Document Object Model 文档对象模型 BOM Browser Object Model 浏览器对象模型 浏览器简介浏览器涉及技术：浏览器内核，渲染引擎 SEO,Search Engine Optimization(搜索引擎优化)。 浏览器内核：分为两部分：渲染引擎和JS引擎，决定了浏览器如何显示网页的内容、页面格式等 ie trident firefox gecko chrome/safari webkit chrome blink opera persto 浏览器和服务器的那点事 http协议：超文本传输协议、浏览器和服务器之间的对话（通信的协议）。 https：加密的过程 url协议：规定url地址的格式 协议规定格式：scheme:定义因特网服务类型 host：定义域主机 端口：网页默认80端口 path：路径 filename： 文件名 HTML结构 注：文档的后缀名只能决定打开方式，不能修改文档类型 HTML标签的分类 单标签 &lt;! Doctype html&gt; &lt;img src=&quot;&quot; alt=&quot;&quot;/&gt; 双标签 &lt;html&gt;&lt;/html&gt; &lt;head&gt;&lt;/head&gt; &lt;title&gt;&lt;/title&gt; &lt;body&gt;&lt;/body&gt; …HTML关系 并列关系（同级） &lt;head&gt;&lt;/head&gt; 和 &lt;body&gt;&lt;/body&gt; 包含关系（嵌套） &lt;head&gt;&lt;title&gt;标题&lt;/title&gt;&lt;/head&gt;开发工具 DreamWeaver：很老的一个软件 偏设计师使用 Sublime:轻量级的软件，有很多好用的插件 WebStorm:重量级软件，功能强大 Sublime 常用的快捷键 html:xt + tab html结构 html:5 + tab html结构 Ctrl+shift+D 快速复制 Ctrl+shift+K 快速删除一行 Ctrl+shift+↑/↓ 快速上下移动一行 Tab 补全标签 Ctrl+鼠标左键 选中多行 Ctrl+L 选中一行 Ctrl+H 替换别的标签 Alt+shift+2 查看布局 Alt+V 显示/隐藏菜单栏 ctrl+shift+p + move指令 移动文件]]></content>
+      <categories>
+        <category>标签</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+      </tags>
   </entry>
 </search>
