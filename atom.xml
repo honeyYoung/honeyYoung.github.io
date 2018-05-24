@@ -30,12 +30,6 @@
       <category term="标签" scheme="http://yoursite.com/categories/%E6%A0%87%E7%AD%BE/"/>
     
     
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
-      <category term="github" scheme="http://yoursite.com/tags/github/"/>
-    
-      <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
-    
       <category term="Ajax" scheme="http://yoursite.com/tags/Ajax/"/>
     
       <category term="AngularJS" scheme="http://yoursite.com/tags/AngularJS/"/>
@@ -94,6 +88,10 @@
     
       <category term="git" scheme="http://yoursite.com/tags/git/"/>
     
+      <category term="github" scheme="http://yoursite.com/tags/github/"/>
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
       <category term="http" scheme="http://yoursite.com/tags/http/"/>
     
       <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
@@ -111,6 +109,8 @@
       <category term="net" scheme="http://yoursite.com/tags/net/"/>
     
       <category term="network" scheme="http://yoursite.com/tags/network/"/>
+    
+      <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
     
       <category term="nrm" scheme="http://yoursite.com/tags/nrm/"/>
     
