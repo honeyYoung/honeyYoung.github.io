@@ -498,8 +498,8 @@ code {
 code {
   padding: 2px 4px;
   word-wrap: break-word;
-  color: #555;
-  background: #eee;
+  color: #eaeaea;
+  background: #000;
   border-radius: 3px;
   font-size: 13px;
 }
