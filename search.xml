@@ -8,12 +8,13 @@
         <category>个人技能</category>
       </categories>
       <tags>
+        <tag>CSS</tag>
+        <tag>CSS3</tag>
+        <tag>js</tag>
         <tag>Ajax</tag>
         <tag>AngularJS</tag>
         <tag>BOM</tag>
         <tag>Bower</tag>
-        <tag>CSS</tag>
-        <tag>CSS3</tag>
         <tag>Cookie</tag>
         <tag>DOM</tag>
         <tag>EJS</tag>
@@ -42,7 +43,6 @@
         <tag>http</tag>
         <tag>ionic</tag>
         <tag>jQuery</tag>
-        <tag>js</tag>
         <tag>Grunt</tag>
         <tag>markdown</tag>
         <tag>mine</tag>
