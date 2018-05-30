@@ -4,8 +4,50 @@
 
     
   <url>
+    <loc>http://yoursite.com/2015/06/08/js%20Date%E3%80%81Math%E3%80%81%E5%8C%85%E8%A3%85%E5%AF%B9%E8%B1%A1%E3%80%81RegExp/</loc>
+    <lastmod>2018-05-30T06:24:00.674Z</lastmod>
+    <data>
+        <display>
+        <title>js Date、Math、包装对象、RegExp</title>
+        <pubTime>2015-06-07T16:00:00.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+         
+           
+             
+              <breadCrumb title="JS系列" url="http://yoursite.com/categories/JS%E7%B3%BB%E5%88%97/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2015/05/26/CSS%E6%A0%B7%E5%BC%8F%E8%A1%A8%E3%80%81CSS%E9%80%89%E6%8B%A9%E5%99%A8/</loc>
+    <lastmod>2018-05-30T06:13:11.984Z</lastmod>
+    <data>
+        <display>
+        <title>CSS样式表、CSS选择器</title>
+        <pubTime>2015-05-25T16:00:00.000Z</pubTime>
+        
+        <tag>CSS</tag>
+         
+        <tag>CSS3</tag>
+         
+         
+           
+             
+              <breadCrumb title="CSS系列" url="http://yoursite.com/categories/CSS%E7%B3%BB%E5%88%97/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2015/06/06/js%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/</loc>
-    <lastmod>2018-05-30T06:06:28.038Z</lastmod>
+    <lastmod>2018-05-30T06:10:33.422Z</lastmod>
     <data>
         <display>
         <title>js表达式和运算符</title>
@@ -137,28 +179,6 @@
            
              
               <breadCrumb title="HTML系列" url="http://yoursite.com/categories/HTML%E7%B3%BB%E5%88%97/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2015/05/26/CSS%E6%A0%B7%E5%BC%8F%E8%A1%A8%E3%80%81CSS%E9%80%89%E6%8B%A9%E5%99%A8/</loc>
-    <lastmod>2018-05-30T01:33:31.574Z</lastmod>
-    <data>
-        <display>
-        <title>CSS样式表、CSS选择器</title>
-        <pubTime>2015-05-25T16:00:00.000Z</pubTime>
-        
-        <tag>CSS</tag>
-         
-        <tag>CSS3</tag>
-         
-         
-           
-             
-              <breadCrumb title="CSS系列" url="http://yoursite.com/categories/CSS%E7%B3%BB%E5%88%97/"/>
           
         </display>
     </data>
