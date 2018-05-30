@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="Honey Young">
 <meta property="og:description" content="HTML基础 Hyper text markup language 超文本标记语言  超文本：网页中可以包含图片、文字、视频、音频、文本框等元素; 标记（标签）：在网页中给网页元素做标记（右键，查看网页源代码） 超链接：实现页面之间的跳转  Sublime常用快捷键 windows+D 返回桌面 windows+R 运行dos windows+E 打开我的电脑 Alt+Tab 切换软件 Ctrl+">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-29T07:30:36.568Z">
+<meta property="og:updated_time" content="2018-05-30T01:34:19.190Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初识HTML">
 <meta name="twitter:description" content="HTML基础 Hyper text markup language 超文本标记语言  超文本：网页中可以包含图片、文字、视频、音频、文本框等元素; 标记（标签）：在网页中给网页元素做标记（右键，查看网页源代码） 超链接：实现页面之间的跳转  Sublime常用快捷键 windows+D 返回桌面 windows+R 运行dos windows+E 打开我的电脑 Alt+Tab 切换软件 Ctrl+">
@@ -404,6 +404,7 @@
 <li><code>Ctrl+Tab</code> 软件内部文档间切换</li>
 <li><code>F2</code> 重命名</li>
 </ul>
+<a id="more"></a>
 <h2 id="Web标准"><a href="#Web标准" class="headerlink" title="Web标准"></a>Web标准</h2><ul>
 <li>结构标准：<code>HTML</code> HyperText Mark Language 超文本标记语言</li>
 <li>表现标准：<code>CSS</code> Casading Style Sheets 层次样式表</li>
@@ -414,7 +415,6 @@
 </ul>
 </li>
 </ul>
-<a id="more"></a>
 <h2 id="浏览器简介"><a href="#浏览器简介" class="headerlink" title="浏览器简介"></a>浏览器简介</h2><p>浏览器涉及技术：浏览器内核，渲染引擎 <code>SEO</code>,Search Engine Optimization(搜索引擎优化)。</p>
 <p>浏览器内核：分为两部分：渲染引擎和JS引擎，决定了浏览器如何显示网页的内容、页面格式等</p>
 <ul>
@@ -424,7 +424,7 @@
 <li>chrome <code>blink</code></li>
 <li>opera <code>persto</code></li>
 </ul>
-<h2 id="浏览器和服务器的那点事"><a href="#浏览器和服务器的那点事" class="headerlink" title="浏览器和服务器的那点事"></a>浏览器和服务器的那点事</h2><ul>
+<h3 id="浏览器和服务器的那点事"><a href="#浏览器和服务器的那点事" class="headerlink" title="浏览器和服务器的那点事"></a>浏览器和服务器的那点事</h3><ul>
 <li>http协议：超文本传输协议、浏览器和服务器之间的对话（通信的协议）。</li>
 <li>https：加密的过程</li>
 <li>url协议：规定url地址的格式</li>
@@ -435,7 +435,7 @@
 </ul>
 <h2 id="HTML结构"><a href="#HTML结构" class="headerlink" title="HTML结构"></a>HTML结构</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">!</span> <span class="attr">Doctype</span> <span class="attr">html</span>&gt;</span>   <span class="comment">&lt;!--声明文档类型--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span> <span class="comment">&lt;!--根标签--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span> <span class="comment">&lt;!--头部标签--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span> <span class="comment">&lt;!--网页标题标签--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">div</span>&gt;</span>网页主体<span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="comment">&lt;!--网页主体标签--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line">解析：</span><br><span class="line">  <span class="tag">&lt;<span class="name">!</span> <span class="attr">Doctype</span> <span class="attr">html</span>&gt;</span>    </span><br><span class="line">  <span class="tag">&lt;<span class="name">html</span>&gt;</span>             </span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span>          </span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span>    </span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span>   </span><br><span class="line">  <span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>注：文档的后缀名只能决定打开方式，不能修改文档类型</p>
-<h2 id="HTML标签的分类"><a href="#HTML标签的分类" class="headerlink" title="HTML标签的分类"></a>HTML标签的分类</h2><ul>
+<h3 id="HTML标签的分类"><a href="#HTML标签的分类" class="headerlink" title="HTML标签的分类"></a>HTML标签的分类</h3><ul>
 <li>单标签<ul>
 <li><code>&lt;! Doctype html&gt;</code></li>
 <li><code>&lt;img src=&quot;&quot; alt=&quot;&quot;/&gt;</code></li>
@@ -450,7 +450,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="HTML关系"><a href="#HTML关系" class="headerlink" title="HTML关系"></a>HTML关系</h2><ul>
+<h3 id="HTML关系"><a href="#HTML关系" class="headerlink" title="HTML关系"></a>HTML关系</h3><ul>
 <li>并列关系（同级）<ul>
 <li><code>&lt;head&gt;&lt;/head&gt;</code> 和 <code>&lt;body&gt;&lt;/body&gt;</code></li>
 </ul>
@@ -460,12 +460,12 @@
 </ul>
 </li>
 </ul>
-<h2 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h2><ul>
+<h3 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h3><ul>
 <li><code>DreamWeaver</code>：很老的一个软件 偏设计师使用</li>
 <li><code>Sublime</code>:轻量级的软件，有很多好用的插件</li>
 <li><code>WebStorm</code>:重量级软件，功能强大</li>
 </ul>
-<h2 id="Sublime-常用的快捷键"><a href="#Sublime-常用的快捷键" class="headerlink" title="Sublime 常用的快捷键"></a>Sublime 常用的快捷键</h2><ul>
+<h4 id="Sublime-常用的快捷键"><a href="#Sublime-常用的快捷键" class="headerlink" title="Sublime 常用的快捷键"></a>Sublime 常用的快捷键</h4><ul>
 <li><code>html:xt + tab</code> html结构</li>
 <li><code>html:5 + tab</code> html结构</li>
 <li><code>Ctrl+shift+D</code> 快速复制</li>
@@ -497,7 +497,7 @@
 </ul>
 </li>
 </ul>
-<p>###图片标签 <code>&lt;img src=&quot;Legolas.jpg&quot; alt=&quot;我的男神&quot; title=&quot;legolas&quot; width=&quot;500&quot; /&gt;</code></p>
+<h3 id="图片标签"><a href="#图片标签" class="headerlink" title="图片标签"></a>图片标签</h3><p><code>&lt;img src=&quot;Legolas.jpg&quot; alt=&quot;我的男神&quot; title=&quot;legolas&quot; width=&quot;500&quot; /&gt;</code></p>
 <p>仅指定宽或高时，等比例缩放。</p>
 <ul>
 <li><code>src</code> 图片来源（路径）, <code>alt</code> 替换文本.</li>
@@ -521,7 +521,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="超链接标签"><a href="#超链接标签" class="headerlink" title="超链接标签"></a>超链接标签</h2><p>超链接：<code>&lt;a href=&quot;06_test&quot; target=&quot;_blank&quot; title=&quot;气温高&quot;&gt;气温案例&lt;/a&gt;</code></p>
+<h3 id="超链接标签"><a href="#超链接标签" class="headerlink" title="超链接标签"></a>超链接标签</h3><p>超链接：<code>&lt;a href=&quot;06_test&quot; target=&quot;_blank&quot; title=&quot;气温高&quot;&gt;气温案例&lt;/a&gt;</code></p>
 <ul>
 <li><code>href</code> 去往的路径（连接的文档），必写属性。</li>
 <li><code>target=” _self”</code> 关闭自身串口，打开新窗口</li>
@@ -541,7 +541,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="特殊字符：段落标签的写法"><a href="#特殊字符：段落标签的写法" class="headerlink" title="特殊字符：段落标签的写法"></a>特殊字符：段落标签的写法</h2><h3 id="列表标签"><a href="#列表标签" class="headerlink" title="列表标签"></a>列表标签</h3><ul>
+<h3 id="特殊字符：段落标签的写法"><a href="#特殊字符：段落标签的写法" class="headerlink" title="特殊字符：段落标签的写法"></a>特殊字符：段落标签的写法</h3><h3 id="列表标签"><a href="#列表标签" class="headerlink" title="列表标签"></a>列表标签</h3><ul>
 <li>无序列表 <ul type="square"></ul><ul>
 <li>square 实心方块</li>
 <li>dick 默认实心小圆圈</li>
@@ -560,7 +560,7 @@
 <li>自定义列表</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1	<span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">2	  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>北京<span class="tag">&lt;/<span class="name">dt</span>&gt;</span>  <span class="comment">&lt;!--小标题--&gt;</span></span><br><span class="line">3	  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>昌平区<span class="tag">&lt;/<span class="name">dd</span>&gt;</span>  <span class="tag">&lt;<span class="name">!—标题的解释--</span>&gt;</span></span><br><span class="line">4	<span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="其他标签"><a href="#其他标签" class="headerlink" title="其他标签"></a>其他标签</h2><ul>
+<h3 id="其他标签"><a href="#其他标签" class="headerlink" title="其他标签"></a>其他标签</h3><ul>
 <li>音乐标签 embed 背景音乐 <code>&lt;embed src=&quot;BIGBANG - BAD BOY (Live).mp3&quot; hidden=&quot;false&quot; /&gt;</code><ul>
 <li>hidden = “ture” 影藏，默认是false，播放器</li>
 </ul>
@@ -799,7 +799,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sublime常用快捷键"><span class="nav-number">1.</span> <span class="nav-text">Sublime常用快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web标准"><span class="nav-number">2.</span> <span class="nav-text">Web标准</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器简介"><span class="nav-number">3.</span> <span class="nav-text">浏览器简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器和服务器的那点事"><span class="nav-number">4.</span> <span class="nav-text">浏览器和服务器的那点事</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML结构"><span class="nav-number">5.</span> <span class="nav-text">HTML结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML标签的分类"><span class="nav-number">6.</span> <span class="nav-text">HTML标签的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML关系"><span class="nav-number">7.</span> <span class="nav-text">HTML关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发工具"><span class="nav-number">8.</span> <span class="nav-text">开发工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sublime-常用的快捷键"><span class="nav-number">9.</span> <span class="nav-text">Sublime 常用的快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML标签"><span class="nav-number">10.</span> <span class="nav-text">HTML标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单标签"><span class="nav-number">10.1.</span> <span class="nav-text">单标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双标签"><span class="nav-number">10.2.</span> <span class="nav-text">双标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#超链接标签"><span class="nav-number">11.</span> <span class="nav-text">超链接标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊字符：段落标签的写法"><span class="nav-number">12.</span> <span class="nav-text">特殊字符：段落标签的写法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#列表标签"><span class="nav-number">12.1.</span> <span class="nav-text">列表标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他标签"><span class="nav-number">13.</span> <span class="nav-text">其他标签</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sublime常用快捷键"><span class="nav-number">1.</span> <span class="nav-text">Sublime常用快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web标准"><span class="nav-number">2.</span> <span class="nav-text">Web标准</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器简介"><span class="nav-number">3.</span> <span class="nav-text">浏览器简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器和服务器的那点事"><span class="nav-number">3.1.</span> <span class="nav-text">浏览器和服务器的那点事</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML结构"><span class="nav-number">4.</span> <span class="nav-text">HTML结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML标签的分类"><span class="nav-number">4.1.</span> <span class="nav-text">HTML标签的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML关系"><span class="nav-number">4.2.</span> <span class="nav-text">HTML关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发工具"><span class="nav-number">4.3.</span> <span class="nav-text">开发工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sublime-常用的快捷键"><span class="nav-number">4.3.1.</span> <span class="nav-text">Sublime 常用的快捷键</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML标签"><span class="nav-number">5.</span> <span class="nav-text">HTML标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单标签"><span class="nav-number">5.1.</span> <span class="nav-text">单标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双标签"><span class="nav-number">5.2.</span> <span class="nav-text">双标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片标签"><span class="nav-number">5.3.</span> <span class="nav-text">图片标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超链接标签"><span class="nav-number">5.4.</span> <span class="nav-text">超链接标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊字符：段落标签的写法"><span class="nav-number">5.5.</span> <span class="nav-text">特殊字符：段落标签的写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表标签"><span class="nav-number">5.6.</span> <span class="nav-text">列表标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他标签"><span class="nav-number">5.7.</span> <span class="nav-text">其他标签</span></a></li></ol></li></ol></div>
             
 
           </div>

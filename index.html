@@ -529,113 +529,14 @@
 
       
         
-          
-            <h2 id="样式表的书写位置"><a href="#样式表的书写位置" class="headerlink" title="样式表的书写位置"></a>样式表的书写位置</h2><p>写在 <code>&lt;head&gt;&lt;/head&gt;</code> 中, 样式：选择器{属性:值;属性:值; }<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">title</span>&gt;</span>样式表写法<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"texr/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">     	样式表内容</span></span><br><span class="line"><span class="undefined">  	 </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="样式表的常见属性"><a href="#样式表的常见属性" class="headerlink" title="样式表的常见属性"></a>样式表的常见属性</h3><ul>
-<li>width 宽度 width:200px;</li>
-<li>height 高度 height:200px;</li>
-<li>background-color 背景色 background-color:red;</li>
-<li>font-size 文字大小 font-size:20px;</li>
-<li>color 文本颜色(前景色) color:yellow;</li>
-<li>text-align 内容的水平对齐方式 text-align:left|center|right</li>
-<li>text-indent 首行缩进 text-indent:2em;（2个汉字的大小）</li>
-</ul>
-<h4 id="常见属性表格"><a href="#常见属性表格" class="headerlink" title="常见属性表格"></a>常见属性表格</h4><table>
-<thead>
-<tr>
-<th>属性</th>
-<th style="text-align:right">值</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>width</td>
-<td style="text-align:right">20px</td>
-<td style="text-align:center">宽</td>
-</tr>
-<tr>
-<td>height</td>
-<td style="text-align:right">300px</td>
-<td style="text-align:center">高</td>
-</tr>
-<tr>
-<td>background-color</td>
-<td style="text-align:right">red</td>
-<td style="text-align:center">背景色</td>
-</tr>
-<tr>
-<td>text-align</td>
-<td style="text-align:right">left/center/right</td>
-<td style="text-align:center">内容水平对齐方式</td>
-</tr>
-<tr>
-<td>text-indent</td>
-<td style="text-align:right">2em/px/%</td>
-<td style="text-align:center">首行缩进</td>
-</tr>
-<tr>
-<td>font-size</td>
-<td style="text-align:right">normal/bold</td>
-<td style="text-align:center">文本大小</td>
-</tr>
-<tr>
-<td>font-weight</td>
-<td style="text-align:right">100-900/bold</td>
-<td style="text-align:center">文本粗细</td>
-</tr>
-<tr>
-<td>font-style</td>
-<td style="text-align:right">normal/italic</td>
-<td style="text-align:center">文本风格</td>
-</tr>
-<tr>
-<td>font-family</td>
-<td style="text-align:right">宋体</td>
-<td style="text-align:center">字体</td>
-</tr>
-<tr>
-<td>line-height</td>
-<td style="text-align:right">1.5/2em/px/%</td>
-<td style="text-align:center">行高</td>
-</tr>
-</tbody>
-</table>
-<h4 id="行高"><a href="#行高" class="headerlink" title="行高"></a>行高</h4><p>行高 浏览器默认文字大小 div 1350px*18px</p>
-<ul>
-<li>行高=文本+上边距+下边距</li>
-<li>默认文字大小是16px</li>
-<li>默认行高大小是18px<br>一行文字，行高与父元素高度一致时，文本垂直居中对齐。</li>
-</ul>
-<p>行高的单位<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">行高值 文字大小  行高大小</span><br><span class="line">40px   20px      40px</span><br><span class="line">2em    20px      40px</span><br><span class="line">150%   20px      30px</span><br><span class="line">3      20px      60px</span><br></pre></td></tr></table></figure></p>
-<p>总结：</p>
-<p>当给父元素设置行高的时候，除了以px为单位以外，其他的值都与文字大小有关，是与文字大小的乘积, 行高是可以继承。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">父元素行高 父元素文字大小 子元素文字大小 子元素行高</span><br><span class="line">40px       20px           30px            40px</span><br><span class="line">2em        20px           30px            40px</span><br><span class="line">150%       20px           30px            30px</span><br><span class="line">3          20px           30px            90px</span><br></pre></td></tr></table></figure>
-<h4 id="文本基线"><a href="#文本基线" class="headerlink" title="文本基线"></a>文本基线</h4><h2 id="基础选择器"><a href="#基础选择器" class="headerlink" title="基础选择器"></a>基础选择器</h2><h3 id="标签选择器"><a href="#标签选择器" class="headerlink" title="标签选择器"></a>标签选择器</h3><ul>
-<li>写法：标签{属性值;}</li>
-<li><p>特点：标签选择器定义之后，会将页面所有的元素都执行这个样式<br>颜色的显示方式：</p>
-</li>
-<li><p>直接写颜色名称： 如： “red”；</p>
-</li>
-<li>16进制显示 由0-9和a-ff一共16个值组成；#ff0000;<ul>
-<li>#ff0000,前边2个数值对应的是红色,</li>
-<li>#00ff00,中间2个对应的是绿色,</li>
-<li>#0000ff,后边2个对应的是蓝色。</li>
-</ul>
-</li>
-<li>RGB表示颜色<ul>
-<li>如：span{color: rgb(23,23,23); }</li>
-<li>r代表红色，g绿色 b蓝色</li>
-</ul>
-</li>
-<li>rgba 表示不透明度<ul>
-<li>如：h1{width: 500px; height: 400px; color: rgba(121,232,108,0.5); }</li>
-<li>a代标alpha 0-1;</li>
-</ul>
-</li>
-</ul>
-<h3 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h3><h3 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h3><h3 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h3>
-          
+          <h2 id="样式表的书写位置"><a href="#样式表的书写位置" class="headerlink" title="样式表的书写位置"></a>样式表的书写位置</h2><p>写在 <code>&lt;head&gt;&lt;/head&gt;</code> 中, 样式：选择器{属性:值;属性:值; }<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">title</span>&gt;</span>样式表写法<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"texr/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">     	样式表内容</span></span><br><span class="line"><span class="undefined">  	 </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/05/26/CSS样式表、CSS选择器/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -775,7 +676,7 @@
       
         
           <h2 id="HTML5标签结构"><a href="#HTML5标签结构" class="headerlink" title="HTML5标签结构"></a>HTML5标签结构</h2><p>sublime 快捷键 <code>!+Tab</code> 可以写成HTML5结构</p>
-<h2 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h2><ul>
+<h3 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h3><ul>
 <li>ASCLL</li>
 <li>ansi</li>
 <li>unicode</li>
@@ -784,9 +685,6 @@
 <li>BIG5(只支持繁体字)</li>
 <li>UTF-8(国际通用编码)</li>
 </ul>
-<h2 id="meta标签"><a href="#meta标签" class="headerlink" title="meta标签"></a>meta标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">标签说明</span><br><span class="line">  <span class="comment">&lt;!--编码--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--关键字--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"keywords"</span> <span class="attr">content</span>=<span class="string">"java培训, ios"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--name 页面里面的关键词 content 里面是给SEO用的--&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--网页描述--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">content</span>=<span class="string">"给搜索引擎看的，可以看得到的内容"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--网页重定向--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"refresh"</span> <span class="attr">content</span>=<span class="string">"5;http:www.itcast.com"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="link标签"><a href="#link标签" class="headerlink" title="link标签"></a>link标签</h2><p>调用外部样式表：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1	<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"1.css"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>ico小图标，在网页显示时的标题的前面：(必用)<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1	<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"icon"</span> <span class="attr">href</span>=<span class="string">"../favicom.ico"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2015/05/22/HTML表格、表单、标签语义化/#more" rel="contents">
@@ -946,16 +844,6 @@
 <li><code>Alt+Tab</code> 切换软件</li>
 <li><code>Ctrl+Tab</code> 软件内部文档间切换</li>
 <li><code>F2</code> 重命名</li>
-</ul>
-<h2 id="Web标准"><a href="#Web标准" class="headerlink" title="Web标准"></a>Web标准</h2><ul>
-<li>结构标准：<code>HTML</code> HyperText Mark Language 超文本标记语言</li>
-<li>表现标准：<code>CSS</code> Casading Style Sheets 层次样式表</li>
-<li>行为标准：<code>javaScript</code><ul>
-<li>ECMAScript javaScript标准</li>
-<li><code>DOM</code> Document Object Model 文档对象模型</li>
-<li><code>BOM</code> Browser Object Model 浏览器对象模型</li>
-</ul>
-</li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">

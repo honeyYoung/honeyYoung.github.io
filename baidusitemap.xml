@@ -4,30 +4,8 @@
 
     
   <url>
-    <loc>http://yoursite.com/2015/05/26/CSS%E6%A0%B7%E5%BC%8F%E8%A1%A8%E3%80%81CSS%E9%80%89%E6%8B%A9%E5%99%A8/</loc>
-    <lastmod>2018-05-29T08:17:44.608Z</lastmod>
-    <data>
-        <display>
-        <title>CSS样式表、CSS选择器</title>
-        <pubTime>2015-05-25T16:00:00.000Z</pubTime>
-        
-        <tag>CSS</tag>
-         
-        <tag>CSS3</tag>
-         
-         
-           
-             
-              <breadCrumb title="CSS系列" url="http://yoursite.com/categories/CSS%E7%B3%BB%E5%88%97/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2015/05/22/HTML%E8%A1%A8%E6%A0%BC%E3%80%81%E8%A1%A8%E5%8D%95%E3%80%81%E6%A0%87%E7%AD%BE%E8%AF%AD%E4%B9%89%E5%8C%96/</loc>
-    <lastmod>2018-05-29T07:34:12.065Z</lastmod>
+    <lastmod>2018-05-30T01:34:45.523Z</lastmod>
     <data>
         <display>
         <title>HTML表格、表单、标签语义化</title>
@@ -47,7 +25,7 @@
     
   <url>
     <loc>http://yoursite.com/2015/05/20/%E5%88%9D%E8%AF%86HTML/</loc>
-    <lastmod>2018-05-29T07:30:36.568Z</lastmod>
+    <lastmod>2018-05-30T01:34:19.190Z</lastmod>
     <data>
         <display>
         <title>初识HTML</title>
@@ -59,6 +37,28 @@
            
              
               <breadCrumb title="HTML系列" url="http://yoursite.com/categories/HTML%E7%B3%BB%E5%88%97/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2015/05/26/CSS%E6%A0%B7%E5%BC%8F%E8%A1%A8%E3%80%81CSS%E9%80%89%E6%8B%A9%E5%99%A8/</loc>
+    <lastmod>2018-05-30T01:33:31.574Z</lastmod>
+    <data>
+        <display>
+        <title>CSS样式表、CSS选择器</title>
+        <pubTime>2015-05-25T16:00:00.000Z</pubTime>
+        
+        <tag>CSS</tag>
+         
+        <tag>CSS3</tag>
+         
+         
+           
+             
+              <breadCrumb title="CSS系列" url="http://yoursite.com/categories/CSS%E7%B3%BB%E5%88%97/"/>
           
         </display>
     </data>
