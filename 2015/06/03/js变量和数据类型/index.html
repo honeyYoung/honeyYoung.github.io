@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="hbge3GnQvk" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="js," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Honey Young" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="变量JavaScript是弱类型的语言，变量是松散的。所谓松散是可以保存任何类型的变量。即声明不同数据类型的变量使用同一个关键字 var，变量就是变化的量，变量的作用就是用来装数据的容器。声明变量的时候不用考虑类型，但是处理和计算的时候要考虑类型.">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js变量和数据类型">
+<meta property="og:url" content="http://yoursite.com/2015/06/03/js变量和数据类型/index.html">
+<meta property="og:site_name" content="Honey Young">
+<meta property="og:description" content="变量JavaScript是弱类型的语言，变量是松散的。所谓松散是可以保存任何类型的变量。即声明不同数据类型的变量使用同一个关键字 var，变量就是变化的量，变量的作用就是用来装数据的容器。声明变量的时候不用考虑类型，但是处理和计算的时候要考虑类型.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-30T03:24:56.410Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js变量和数据类型">
+<meta name="twitter:description" content="变量JavaScript是弱类型的语言，变量是松散的。所谓松散是可以保存任何类型的变量。即声明不同数据类型的变量使用同一个关键字 var，变量就是变化的量，变量的作用就是用来装数据的容器。声明变量的时候不用考虑类型，但是处理和计算的时候要考虑类型.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'honey young'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/06/03/js变量和数据类型/"/>
+
+
+
+
+
+  <title>js变量和数据类型 | Honey Young</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Honey Young</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">小杨鹤</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/03/js变量和数据类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="honey young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Honey Young">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js变量和数据类型</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-03T00:00:00+08:00">
+                2015-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS系列/" itemprop="url" rel="index">
+                    <span itemprop="name">JS系列</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>JavaScript是弱类型的语言，变量是松散的。所谓松散是可以保存任何类型的变量。即声明不同数据类型的变量使用同一个关键字 <code>var</code>，变量就是变化的量，变量的作用就是用来装数据的容器。声明变量的时候不用考虑类型，但是处理和计算的时候要考虑类型.</p>
+<a id="more"></a>
+<h3 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h3><p>定义变量使用关键字 <code>var</code>来定义变量名。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在全局作用域下声明了变量 a</span></span><br><span class="line"><span class="keyword">var</span> a; </span><br><span class="line"><span class="comment">// 使用赋值运算符来给变量赋值</span></span><br><span class="line">a = <span class="string">"a此时是字符串"</span>;</span><br></pre></td></tr></table></figure>
+<p>赋值：</p>
+<ul>
+<li>赋值运算符为“=”，这个等号不用判断两者是否相同。</li>
+<li>如果判断是否相同，可使用==（===）。</li>
+</ul>
+<p>以上两步可简写为：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"a此时是字符串"</span>;</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  msg = <span class="string">"我是函数内部定义的全局变量"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面例子省略了<code>var</code>操作符， msg 就变成了全局变量，函数外部也能访问到，但不要这样做！。</p>
+<h3 id="变量命名规范"><a href="#变量命名规范" class="headerlink" title="变量命名规范"></a>变量命名规范</h3><ul>
+<li>由字母、数字、下划线、$ 组成且开头不能是数字定义变量名。</li>
+<li>不能使用特殊符号或者特殊符号开头来定义变量名（_除外）。</li>
+<li>不能以关键字来定义变量名</li>
+<li>变量的名称要有实际意义</li>
+<li>规则中所说的字母包括ASCII和Unicode字母字符，如汉字，但不推荐使用</li>
+<li><p>变量的命名遵守驼峰命名法，首字母小写,第二个单词的首字母大写 例如：userName</p>
+<ul>
+<li>关键字</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">break</span>        <span class="keyword">do</span>          <span class="keyword">instanceof</span>     <span class="keyword">typeof</span></span><br><span class="line"><span class="keyword">case</span>         <span class="keyword">else</span>        <span class="keyword">new</span>            <span class="keyword">var</span></span><br><span class="line"><span class="keyword">catch</span>        <span class="keyword">finally</span>     <span class="keyword">return</span>         <span class="keyword">void</span></span><br><span class="line"><span class="keyword">continue</span>     <span class="keyword">for</span>         <span class="keyword">switch</span>         <span class="keyword">while</span></span><br><span class="line"><span class="keyword">debugger</span>*    <span class="function"><span class="keyword">function</span>    <span class="title">this</span>           <span class="title">with</span></span></span><br><span class="line"><span class="function"><span class="title">default</span>      <span class="title">if</span>          <span class="title">throw</span></span></span><br><span class="line"><span class="function"><span class="title">delete</span>       <span class="title">in</span>          <span class="title">try</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>不能使用保留字来定义变量名 (保留字)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">abstract        enum         int           short</span><br><span class="line">boolean         <span class="keyword">export</span>       interface     <span class="keyword">static</span></span><br><span class="line">byte            extends      long          <span class="keyword">super</span></span><br><span class="line">char            final        native        synchronized</span><br><span class="line"><span class="class"><span class="keyword">class</span>           <span class="title">float</span>        <span class="title">package</span>       <span class="title">throws</span></span></span><br><span class="line"><span class="class"><span class="title">const</span>           <span class="title">goto</span>         <span class="title">private</span>       <span class="title">transient</span></span></span><br><span class="line"><span class="class"><span class="title">debugger</span>        <span class="title">implements</span>   <span class="title">protected</span>     <span class="title">volatile</span></span></span><br><span class="line"><span class="class"><span class="title">double</span>          <span class="title">import</span>       <span class="title">public</span></span></span><br></pre></td></tr></table></figure>
+<p>注意：在JS中，是严格区分大小写的。</p>
+<h3 id="执行环境和作用域"><a href="#执行环境和作用域" class="headerlink" title="执行环境和作用域"></a>执行环境和作用域</h3><p>执行环境是 JavaScript 中最为重要的一个概念。定义了变量或函数有权访问其它数据。每个环境中都有一个与之关联的变量对象，我们编写的代码无法访问，但是环境中定义的变量存放在这个对象中。</p>
+<p>全局执行环境是最外围的一个执行环境。根据 ECMAScript 实现所在的宿主环境的不同，表示执行环境的对象也不一样。在 web 浏览器中，全局执行环境被认为是 window 对象，因此所有的全局变量和函数都是作为 window 对象的属性和方法创建的。某个环境中的代码全部执行完，该环境中的变量被销毁，保存在其中的所有的变量和函数定义也随之销毁。全局执行环境直到应用程序退出才销毁。</p>
+<p>每个函数都有自己的执行环境。当代码在一个环境中执行时，会创建作用域链。作用域链式保证对执行环境有权访问的所有变量和函数的有序访问。作用域的前端始终都是当前执行的代码所在环境的变量对象。如果这个环境是函数，则将其活动对象作为变量对象。活动对象在最开始的时候只包含一个变量，即 arguments 对象。作用域中的下一个变量对象来说包含（外部的环境），而再下一个变量对象则来自下一个包含环境。这样，一直延续到全局执行环境，全局执行环境的变量对象始终都是作用域链中的最后一个对象。</p>
+<p>一个变量的作用域是程序源代码中定义这个变量的区域。全局变量拥有全局作用域，在 JavaScript 代码中任何地方都是有定义的。而在函数内部声明的变量只有在函数体内有定义，它们是局部变量，作用域是局部的。</p>
+<p>在函数体内部，局部变量的优先级高于同名的全局变量。</p>
+<h4 id="函数作用域和声明提前"><a href="#函数作用域和声明提前" class="headerlink" title="函数作用域和声明提前"></a>函数作用域和声明提前</h4><p>块级作用域是指在一对花括号内的代码都具有各自的作用域，而且变量在声明它们的代码之外是不可见的。但是 JavaScript 没有块级作用域的概念。而是使用了函数作用域。JavaScript 的函数作用域是指函数内声明的所有变量在函数体内始终是可见的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> i = <span class="number">0</span>;                          <span class="comment">// i 在整个函数体内部有定义</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> o == <span class="string">'object'</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> j = <span class="number">0</span>;                        <span class="comment">// j 在函数体内有定义</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> k = <span class="number">0</span>; k &lt; <span class="number">10</span>; k++)&#123;      <span class="comment">// k 在函数体内是有定义的，不仅仅是在循环内</span></span><br><span class="line">      <span class="built_in">console</span>.log(k);                 <span class="comment">// 输出 0~9</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(k);                   <span class="comment">// 输出 10</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(j);                     <span class="comment">// j 已经定义了，但是可能没有初始化</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="作为属性的变量"><a href="#作为属性的变量" class="headerlink" title="作为属性的变量"></a>作为属性的变量</h4><p>当声明一个变量时，实际上是定义了一个全局对象的一个属性，当使用 var 声明变量时，创建的这个对象是不可配置的，也就是说这个变量不能通过 delete 操作符来删除。如果在非严格模式下，给一个未声明的全局变量赋值的话， JavaScript 会自动创建一个全局变量。以这种方式创建的变量是全局对象的正常的可配置属性，并且可以删除它们。</p>
+<h4 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h4><p>嵌套的函数体内部，可以访问它上一级作用域中的变量。</p>
+<p>延长作用域链：</p>
+<ul>
+<li>try-catch 语句</li>
+<li>with 语句</li>
+</ul>
+<h2 id="垃圾收集"><a href="#垃圾收集" class="headerlink" title="垃圾收集"></a>垃圾收集</h2><ul>
+<li>标记清除</li>
+<li>引用计数</li>
+<li>性能问题</li>
+<li>管理内存</li>
+</ul>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>javaScript 数据类型有两类： 基本数据类型 和 复杂数据类型，其中基本数据类型（简单类型）有： Number/String/Boolean/Uundefined/Null一种复杂数据类型：object：Array/Date/Math/RegExp/</p>
+<h3 id="typeof-操作符"><a href="#typeof-操作符" class="headerlink" title="typeof 操作符"></a>typeof 操作符</h3><ul>
+<li>“undefined” –&gt; 这个值未定义</li>
+<li>“boolean” –&gt; 这个值是布尔值</li>
+<li>“string” –&gt; 这个只是字符串</li>
+<li>“number” –&gt; 这个值是数值</li>
+<li>“object” –&gt; 这个值是对象或null</li>
+<li>“function” –&gt; 这个值是函数</li>
+</ul>
+<p>typeof 操作符号后面的操作数可以是变量，也可以是字面量；</p>
+<p>typeof 误区：</p>
+<ul>
+<li>null 值返回 “object”;</li>
+<li>Safari5 以及之前的版本、Chrome7 以及之前的版本对正则表达式调用返回”object”，</li>
+<li>其他浏览器在这种情况下返回”object”</li>
+<li>未初始化的变量和没有定义的变量操作符 typeof 都返回 “undefined”， 但它们有本质区别</li>
+</ul>
+<h3 id="Number-数据类型"><a href="#Number-数据类型" class="headerlink" title="Number 数据类型"></a>Number 数据类型</h3><p>字面量： var num = 数字;</p>
+<p>包括正数，负数，小数</p>
+<ul>
+<li>取值范围：<ul>
+<li>能表示的最大值是±1.7976931348623157乘以10的308次方</li>
+<li>能表示的最小值是±5 乘以10的-324次方</li>
+</ul>
+</li>
+<li>表示方式<ul>
+<li>十进制</li>
+<li>十六进制 以 0x 开头，从 0-9，a(A) 到 f（F）的范围。</li>
+<li>八进制 以 0 开头，0-7 组成。</li>
+</ul>
+</li>
+<li>NaN (not a number) 也是 number 类型，NaN 不等于自身</li>
+<li><p>两个都为字符串的变量相减，得到的是NaN.</p>
+</li>
+<li><p>浮点数：</p>
+<ul>
+<li>计算浮点数时会丢失精度</li>
+<li>通常用整数的计算来表示浮点数的计算</li>
+<li>不要以两个浮点数是否相等作为条件判断的依据（判断范围还是可以的）</li>
+</ul>
+</li>
+</ul>
+<h2 id="String-字符串类型"><a href="#String-字符串类型" class="headerlink" title="String,字符串类型"></a>String,字符串类型</h2><p>字面量： var str = “字符串”;</p>
+<p>字符串的长度： str.length;</p>
+<ul>
+<li>凡是用””或者’’引起来的全是字符串类型。</li>
+</ul>
+<h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h3><ul>
+<li>\” 转双引号</li>
+<li>\’ 转单引</li>
+<li>\r 回车</li>
+<li>\n 换行</li>
+<li>\t 制表符</li>
+<li>\f 进纸</li>
+<li>\xnn 以十六进制表示一个字符(n 是 0~F)</li>
+<li>\unnnn 以十六进制代码nnnn表示一个 Unicode 字符 (n 是 0~F)</li>
+</ul>
+<h3 id="字符串的特点"><a href="#字符串的特点" class="headerlink" title="字符串的特点"></a>字符串的特点</h3><p>ECMAScript 中的字符串是不可变的，也就是说，字符串一旦创建，它们的直就不能改变。要改变某个变量保存的字符串，首先要销毁原来的字符串，然后再用另一个包含心智的字符串填充该变量。如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"Java"</span>;</span><br><span class="line">str = str + <span class="string">"Script"</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="转换为字符串"><a href="#转换为字符串" class="headerlink" title="转换为字符串"></a>转换为字符串</h3><p>数值、布尔值、对象和字符串值都有 <code>toString()</code>方法, 但是 null 和 undefined 没用这个方法。</p>
+<p>调用toString() 方法时，大多数情况下不传参数，但是如果传递了一个参数，输出数值的基数。默认情况下，toString() 方法以十进制格式返回数值字符串表示。而通过传递基数，可以输出对应的二进制、八进制、十六进制。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">console</span>.log(n.toString());   <span class="comment">// "10"</span></span><br><span class="line"><span class="built_in">console</span>.log(n.toString(<span class="number">2</span>));   <span class="comment">// "1010"</span></span><br><span class="line"><span class="built_in">console</span>.log(n.toString(<span class="number">8</span>));   <span class="comment">// "12"</span></span><br><span class="line"><span class="built_in">console</span>.log(n.toString(<span class="number">10</span>));   <span class="comment">// "10"</span></span><br><span class="line"><span class="built_in">console</span>.log(n.toString(<span class="number">16</span>));   <span class="comment">// "a"</span></span><br></pre></td></tr></table></figure>
+<p>在不知道要转换的值是什么类型的时候，可以用 String() 函数，它可以将任意类型转成字符串。</p>
+<h2 id="Boolean-布尔类型"><a href="#Boolean-布尔类型" class="headerlink" title="Boolean 布尔类型"></a>Boolean 布尔类型</h2><ul>
+<li>布尔数据类型两个数据值: true/false</li>
+<li>实际运算中，true 代表1, false代表0;</li>
+</ul>
+<h2 id="Undefined-表示声明但未赋值的变量"><a href="#Undefined-表示声明但未赋值的变量" class="headerlink" title="Undefined 表示声明但未赋值的变量"></a>Undefined 表示声明但未赋值的变量</h2><p>在 js 中，一下四种情况的返回值是 undefined</p>
+<ul>
+<li>变量声明了但没有赋值</li>
+<li>函数没有返回值默认返回undefined</li>
+<li>函数传递的实参个数少于形参个数时，未传递的参数值为undefined</li>
+<li>对象没有定义的属性默认为undefined</li>
+</ul>
+<h2 id="Null"><a href="#Null" class="headerlink" title="Null"></a>Null</h2><p>用 <code>typeof</code>判断时值为 <code>object</code>(值为空)/引用为空，内存里找不到这个变量。</p>
+<p>再如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span> == <span class="literal">null</span>);  <span class="comment">// true 两等号判断，两边都转成false</span></span><br></pre></td></tr></table></figure>
+<p>总的来说，只要意在保存对象的变量还没有真正保存对象，就应该让该变量保存 null 值，这样做体现了 null 作为空对象指针的惯例，也区分了 undefined 和 null。</p>
+<h2 id="复杂类型（来自JavaScript高级程序设计）"><a href="#复杂类型（来自JavaScript高级程序设计）" class="headerlink" title="复杂类型（来自JavaScript高级程序设计）"></a>复杂类型（来自JavaScript高级程序设计）</h2><ul>
+<li>object 对象</li>
+</ul>
+<p>ECMAScript 中的对象就是一组数据和功能的集合。可以通过 new 操作符后跟要创建的对象类型的名称来创建。而创建 Object 类型的实例并为其添加属性或方法，就可以创建自定义对象，如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br></pre></td></tr></table></figure>
+<h3 id="Object的每个实例具有的属性和方法"><a href="#Object的每个实例具有的属性和方法" class="headerlink" title="Object的每个实例具有的属性和方法"></a>Object的每个实例具有的属性和方法</h3><ul>
+<li>constructor： 保存着用于创建当前对象的函数，即构造函数。</li>
+<li>hasOwnProperty(propertyName): 用于检查给定的属性在当前对象的实例中(而不是在原型中)存在；参数是字符串。</li>
+<li>isPrototypeOf(object): 检查传入的对象是否是传入对象的原型。</li>
+<li>propertyIsEnumerable(propertyName): 检查给定的属性是否能够使用 for-in 语言来枚举。参数是字符串。</li>
+<li>toLocalString(): 返回对象的字符串表示，该字符串与执行环境的地区对应。</li>
+<li>toString(): 返回对象的字符串表示。</li>
+<li>valueOf(): 返回对象的字符串、数值、或布尔值表示。通常与 toString() 方法的返回值相同。</li>
+</ul>
+<h2 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h2><p>隐式数据类型转换</p>
+<p>变量参与到运算中，程序对变量进行的数据类型转换（不是程序员进行的数据类型）</p>
+<p>强制数据类型转换</p>
+<ul>
+<li>将数字转换为字符串<ul>
+<li>String</li>
+<li>变量.toString ，注意：null 和 undefined 没有 toString() 方法</li>
+</ul>
+</li>
+<li>将字符串转换为数字<ul>
+<li>Number<ul>
+<li>转换后保留原数据，不会对数据进行四舍五入。</li>
+<li>非数字类型字符串转换后，比如 undefined，得到 NaN 。</li>
+<li>如果字符串中包含有效的十六进制格式，则将其转换为相同大小的十进制整数值。</li>
+</ul>
+</li>
+<li>parseInt<ul>
+<li>对小数转换后保留的是整数部分，不会对数据进行四舍五入。</li>
+<li>如果是数字后边有非数字字符串，转换后得到的是前边数字的整数部分。</li>
+</ul>
+</li>
+<li>parseFloat<ul>
+<li>转换为数字类型之后保留原数据，不进行四舍五入。</li>
+<li>非数字类型字符串转换后，得到 NaN 。</li>
+<li>如果是数字后边有非数字字符串，转换后得到的是前边数字的部分。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>将其他类型转换为布尔类型：所有类型的值都可以转化成布尔值<ul>
+<li>Boolean</li>
+<li>会转化成false的值有：<ul>
+<li>空字符串</li>
+<li>数值零</li>
+<li>NaN</li>
+<li>undefined</li>
+<li>null</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>假值：空字符串””/数字0/null/undefined/false/NaN</p>
+<h2 id="基本数据类型和复杂数据类型总结"><a href="#基本数据类型和复杂数据类型总结" class="headerlink" title="基本数据类型和复杂数据类型总结"></a>基本数据类型和复杂数据类型总结</h2><ul>
+<li>基本类型—值类型— String Undefined Number Boolean Null</li>
+<li><p>复杂类型—引用类型– Object 数组–Array,Date….</p>
+</li>
+<li><p>基本类型的值存储在—- 栈中</p>
+</li>
+<li><p>复杂类型的地址(引用)存储在栈中,—地址指向的空间中的对象(对象)—对象存储在堆中</p>
+<ul>
+<li>创建对象并返回对象—返回的是对象的地址(对象在堆空间中的地址)</li>
+</ul>
+</li>
+<li><p>基本类型传值的时候，传递的是值</p>
+</li>
+<li><p>复杂类型(引用类型)传递的时候,传递的是:地址(引用)</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢您的支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="honey young 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="honey young 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/01/js词法结构/" rel="next" title="js词法结构">
+                <i class="fa fa-chevron-left"></i> js词法结构
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/23/个人标签/" rel="prev" title="个人技能">
+                个人技能 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            博文目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概要
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="honey young" />
+            
+              <p class="site-author-name" itemprop="name">honey young</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">64</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/honeyYoung/honeyyoung.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/de13fcfe3889" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/dong-gua-xiao-ke-ai/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">1.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义变量"><span class="nav-number">1.1.</span> <span class="nav-text">定义变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量命名规范"><span class="nav-number">1.2.</span> <span class="nav-text">变量命名规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行环境和作用域"><span class="nav-number">1.3.</span> <span class="nav-text">执行环境和作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数作用域和声明提前"><span class="nav-number">1.3.1.</span> <span class="nav-text">函数作用域和声明提前</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作为属性的变量"><span class="nav-number">1.3.2.</span> <span class="nav-text">作为属性的变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作用域链"><span class="nav-number">1.3.3.</span> <span class="nav-text">作用域链</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾收集"><span class="nav-number">2.</span> <span class="nav-text">垃圾收集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">3.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#typeof-操作符"><span class="nav-number">3.1.</span> <span class="nav-text">typeof 操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Number-数据类型"><span class="nav-number">3.2.</span> <span class="nav-text">Number 数据类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-字符串类型"><span class="nav-number">4.</span> <span class="nav-text">String,字符串类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#转义字符"><span class="nav-number">4.1.</span> <span class="nav-text">转义字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串的特点"><span class="nav-number">4.2.</span> <span class="nav-text">字符串的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换为字符串"><span class="nav-number">4.3.</span> <span class="nav-text">转换为字符串</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Boolean-布尔类型"><span class="nav-number">5.</span> <span class="nav-text">Boolean 布尔类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Undefined-表示声明但未赋值的变量"><span class="nav-number">6.</span> <span class="nav-text">Undefined 表示声明但未赋值的变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Null"><span class="nav-number">7.</span> <span class="nav-text">Null</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复杂类型（来自JavaScript高级程序设计）"><span class="nav-number">8.</span> <span class="nav-text">复杂类型（来自JavaScript高级程序设计）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object的每个实例具有的属性和方法"><span class="nav-number">8.1.</span> <span class="nav-text">Object的每个实例具有的属性和方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型转换"><span class="nav-number">9.</span> <span class="nav-text">数据类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本数据类型和复杂数据类型总结"><span class="nav-number">10.</span> <span class="nav-text">基本数据类型和复杂数据类型总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">honey young</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+     <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+      本站访客数:<span id="busuanzi_value_site_uv"></span>
+     </span>
+  </div>
+<!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div> 
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
