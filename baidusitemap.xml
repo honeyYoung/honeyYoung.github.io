@@ -4,6 +4,70 @@
 
     
   <url>
+    <loc>http://yoursite.com/2015/11/18/canvas/</loc>
+    <lastmod>2018-05-31T08:50:28.199Z</lastmod>
+    <data>
+        <display>
+        <title>Canvas</title>
+        <pubTime>2015-11-17T16:00:00.000Z</pubTime>
+        
+        <tag>canvas</tag>
+         
+         
+           
+             
+              <breadCrumb title="Canvas系列" url="http://yoursite.com/categories/Canvas%E7%B3%BB%E5%88%97/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2015/11/08/js%E7%9A%84%E8%A1%A8%E5%8D%95/</loc>
+    <lastmod>2018-05-31T07:57:12.600Z</lastmod>
+    <data>
+        <display>
+        <title>js的表单</title>
+        <pubTime>2015-11-07T16:00:00.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+        <tag>表单</tag>
+         
+         
+           
+             
+              <breadCrumb title="js系列" url="http://yoursite.com/categories/js%E7%B3%BB%E5%88%97/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2015/10/28/js%E7%9A%84%E4%BA%8B%E4%BB%B6/</loc>
+    <lastmod>2018-05-31T06:54:02.541Z</lastmod>
+    <data>
+        <display>
+        <title>js的事件</title>
+        <pubTime>2015-10-27T16:00:00.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+        <tag>事件</tag>
+         
+         
+           
+             
+              <breadCrumb title="js系列" url="http://yoursite.com/categories/js%E7%B3%BB%E5%88%97/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2015/10/08/DOM-%E6%96%87%E6%A1%A3%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/</loc>
     <lastmod>2018-05-31T03:54:08.450Z</lastmod>
     <data>

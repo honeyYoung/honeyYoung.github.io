@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="hbge3GnQvk" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="js,表单," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Honey Young" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="JavaScript 最初的一个应用就是分担服务器处理表单的责任，打破处处依赖服务器的局限。 表单基础HTML 中表单是由 &amp;lt;form&amp;gt; 元素来表示的。在 JavaScript 中，表单对应的则是 HTMLFormElement 类型。有下列属性和方法。  acceptCharset: 服务器能够处理的字符串 action: 接收请求的 URL elements: 表单中所有控件的集合">
+<meta name="keywords" content="js,表单">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js的表单">
+<meta property="og:url" content="http://yoursite.com/2015/11/08/js的表单/index.html">
+<meta property="og:site_name" content="Honey Young">
+<meta property="og:description" content="JavaScript 最初的一个应用就是分担服务器处理表单的责任，打破处处依赖服务器的局限。 表单基础HTML 中表单是由 &amp;lt;form&amp;gt; 元素来表示的。在 JavaScript 中，表单对应的则是 HTMLFormElement 类型。有下列属性和方法。  acceptCharset: 服务器能够处理的字符串 action: 接收请求的 URL elements: 表单中所有控件的集合">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-31T07:57:12.600Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js的表单">
+<meta name="twitter:description" content="JavaScript 最初的一个应用就是分担服务器处理表单的责任，打破处处依赖服务器的局限。 表单基础HTML 中表单是由 &amp;lt;form&amp;gt; 元素来表示的。在 JavaScript 中，表单对应的则是 HTMLFormElement 类型。有下列属性和方法。  acceptCharset: 服务器能够处理的字符串 action: 接收请求的 URL elements: 表单中所有控件的集合">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'honey young'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/11/08/js的表单/"/>
+
+
+
+
+
+  <title>js的表单 | Honey Young</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Honey Young</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">小杨鹤</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/08/js的表单/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="honey young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Honey Young">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js的表单</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-08T00:00:00+08:00">
+                2015-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js系列/" itemprop="url" rel="index">
+                    <span itemprop="name">js系列</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>JavaScript 最初的一个应用就是分担服务器处理表单的责任，打破处处依赖服务器的局限。</p>
+<h2 id="表单基础"><a href="#表单基础" class="headerlink" title="表单基础"></a>表单基础</h2><p>HTML 中表单是由 <code>&lt;form&gt;</code> 元素来表示的。在 JavaScript 中，表单对应的则是 HTMLFormElement 类型。有下列属性和方法。</p>
+<ul>
+<li>acceptCharset: 服务器能够处理的字符串</li>
+<li>action: 接收请求的 URL</li>
+<li>elements: 表单中所有控件的集合</li>
+<li>enctype: 请求的编码类型</li>
+<li>length: 表单中所有的控件的数量</li>
+<li>method: 表单要发送的 HTTP 请求类型，通常是 “get” 或者 “post”</li>
+<li>name: 表单的名称</li>
+<li>reset(); 将所有的表单域重置为默认值</li>
+<li>submit(); 提交表单</li>
+<li>target(); 用于发送请求和接收响应的窗口名称</li>
+</ul>
+<a id="more"></a>
+<h3 id="共有表单的字段属性"><a href="#共有表单的字段属性" class="headerlink" title="共有表单的字段属性"></a>共有表单的字段属性</h3><ul>
+<li>disabled: 布尔值，表示当前表单是否被占用。</li>
+<li>form: 指向当前字段所属表单的指针；只读。</li>
+<li>name: 当前字段名称。</li>
+<li>readOnly: 布尔值，表示当前字段是否只读。</li>
+<li>tabIndex: 表示当前字段的切换序号。</li>
+<li>type: 当前字段的类型。</li>
+<li>value: 当前字段将被提交给服务器的值。</li>
+</ul>
+<h3 id="共有的表单字段方法"><a href="#共有的表单字段方法" class="headerlink" title="共有的表单字段方法"></a>共有的表单字段方法</h3><ul>
+<li>focus(); 用于将浏览器的焦点设置到表单字段。</li>
+<li>blur();</li>
+</ul>
+<h3 id="共有的表单事件"><a href="#共有的表单事件" class="headerlink" title="共有的表单事件"></a>共有的表单事件</h3><ul>
+<li>focus</li>
+<li>blur</li>
+<li>change：对于 <code>&lt;input&gt;</code> 和 <code>&lt;textaera&gt;</code> 元素，当它们失去焦点而且 value 值改变时该事件触发。</li>
+<li>submit</li>
+</ul>
+<p>阻止表单默认的同步提交的方式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#form"</span>).on(<span class="string">"submit"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  e.preventDefault();</span><br><span class="line">  $.ajax(&#123;</span><br><span class="line">    <span class="comment">// 代码段</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="文本框脚本"><a href="#文本框脚本" class="headerlink" title="文本框脚本"></a>文本框脚本</h2><ul>
+<li>type: text</li>
+</ul>
+<p>可以通过设置 size 的值指定文本框中能够显示的字符数，通过 value 设置文本框中的初始值，通过 maxlength 指定文本框可以接收的最大字符数。</p>
+<h3 id="选择文本"><a href="#选择文本" class="headerlink" title="选择文本"></a>选择文本</h3><h4 id="选择文本-1"><a href="#选择文本-1" class="headerlink" title="选择文本"></a>选择文本</h4><ul>
+<li>select() 方法</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> textbox = <span class="built_in">document</span>.forms[<span class="number">0</span>].elements(<span class="string">"textbox1"</span>);</span><br><span class="line">textbox.select();</span><br></pre></td></tr></table></figure>
+<p>在文本获得焦点时选择所有文本。</p>
+<h4 id="取得选择的文本"><a href="#取得选择的文本" class="headerlink" title="取得选择的文本"></a>取得选择的文本</h4><p>两个属性：</p>
+<ul>
+<li>selectionStart</li>
+<li>selectionEnd</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> textbox = <span class="built_in">document</span>.forms[<span class="number">0</span>].elements(<span class="string">"textbox1"</span>);</span><br><span class="line">textbox.select();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getSelectedText</span>(<span class="params">textbox</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> textbox.value.substring(textbox.selectionStart, selectionEnd);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>IE9+, FireFox, Safari, Chrome, Opera 支持</p>
+<h4 id="选择部分文本"><a href="#选择部分文本" class="headerlink" title="选择部分文本"></a>选择部分文本</h4><ul>
+<li>setSelectionRange() 方法<ul>
+<li>两个参数：要选择的第一个字符的索引和要选择的最后一个字符的索引</li>
+</ul>
+</li>
+</ul>
+<p>IE9+, FireFox, Safari, Chrome, Opera 支持</p>
+<p>IE8 以及之前版本：必须先使用 <code>createTextRange()</code>,然后调用 <code>collapse()</code> 将范围折叠到文本框开始位置，使用 <code>moveStart()</code> 和 <code>moveEnd</code>。</p>
+<h3 id="过滤输入"><a href="#过滤输入" class="headerlink" title="过滤输入"></a>过滤输入</h3><h4 id="屏蔽字符"><a href="#屏蔽字符" class="headerlink" title="屏蔽字符"></a>屏蔽字符</h4><p>屏蔽字符需要结合键盘码，如果需要屏蔽特定的字符，需要检测 keypress 事件对应的字符编码，然后再做决定如何响应。</p>
+<h4 id="操作剪切板"><a href="#操作剪切板" class="headerlink" title="操作剪切板"></a>操作剪切板</h4><p>剪切板事件。</p>
+<ul>
+<li>beforecopy</li>
+<li>copy</li>
+<li>beforecut</li>
+<li>cut</li>
+<li>beforepaste</li>
+<li>paste</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> EventUtil = &#123;</span><br><span class="line">  <span class="comment">// 其它代码省略...</span></span><br><span class="line">  getClipboardText: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> clipboardData = (event.clipboardData || <span class="built_in">window</span>.clipboardData);</span><br><span class="line">    <span class="keyword">return</span> clipboardData.getData(<span class="string">"text"</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  setClipboardText: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (event.clipboardData) &#123;</span><br><span class="line">      <span class="keyword">return</span> event.clipboardData.setData(<span class="string">"text/plain"</span>, value);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.clipboardData) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">window</span>.clipboardData.setData(<span class="string">"text/plain"</span>, value);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="自动切换焦点"><a href="#自动切换焦点" class="headerlink" title="自动切换焦点"></a>自动切换焦点</h3><p>常见的一种方式是用户在填写完当前字段时，自动将焦点切换到下一个字段。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">tabForword</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  event = EventUtil.getEvent(event);</span><br><span class="line">  <span class="keyword">var</span> target = EventUtil.getTarget(event);</span><br><span class="line">  <span class="keyword">if</span> (target.value.length == target.maxLength) &#123;</span><br><span class="line">    <span class="keyword">var</span> form = target.form;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; form.elements.length; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (form.elements[i] == target) &#123;</span><br><span class="line">        <span class="keyword">if</span> (form.elements[i+<span class="number">1</span>]) &#123;</span><br><span class="line">          form.elements[i+<span class="number">1</span>].focus();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="HTML5-约束验证-API"><a href="#HTML5-约束验证-API" class="headerlink" title="HTML5 约束验证 API"></a>HTML5 约束验证 API</h3><p>支持的浏览器 FireFox 4+, Safari 5+, Chrome, Opera 10+。</p>
+<h4 id="必填字段"><a href="#必填字段" class="headerlink" title="必填字段"></a>必填字段</h4><ul>
+<li>required</li>
+</ul>
+<p>检查是否支持 required 字段：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isRequiredSupported = <span class="string">"required"</span> <span class="keyword">in</span> <span class="built_in">document</span>.createElement(<span class="string">"input"</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="其它输入类型"><a href="#其它输入类型" class="headerlink" title="其它输入类型"></a>其它输入类型</h4><p>HTML5 为 type 又添加了几个类型：</p>
+<ul>
+<li>url</li>
+<li>email</li>
+</ul>
+<h4 id="数值范围"><a href="#数值范围" class="headerlink" title="数值范围"></a>数值范围</h4><ul>
+<li>number</li>
+<li>range</li>
+<li>datetime</li>
+<li>datetime-local</li>
+<li>date</li>
+<li>month</li>
+<li>week</li>
+<li>time</li>
+</ul>
+<h4 id="输入模式"><a href="#输入模式" class="headerlink" title="输入模式"></a>输入模式</h4><p>HTML5 新增了 pattern 属性，值是正则表达式。</p>
+<h4 id="检验有效性"><a href="#检验有效性" class="headerlink" title="检验有效性"></a>检验有效性</h4><ul>
+<li>checkValidty() 方法</li>
+<li>validity 对象</li>
+<li>customError</li>
+<li>patternMismatch</li>
+<li>rangeOverflow</li>
+<li>stepMisMatch</li>
+<li>tooLong</li>
+<li>typeMismatch</li>
+<li>valid</li>
+<li>valueMissing</li>
+</ul>
+<h4 id="禁用验证"><a href="#禁用验证" class="headerlink" title="禁用验证"></a>禁用验证</h4><ul>
+<li>novalidate 属性，表单不验证</li>
+<li>formnovalidate 属性，某个提交按钮不验证</li>
+</ul>
+<h2 id="选择框脚本"><a href="#选择框脚本" class="headerlink" title="选择框脚本"></a>选择框脚本</h2><p>是通过 <code>&lt;select&gt;</code> 和 <code>&lt;option&gt;</code>。</p>
+<ul>
+<li>add(newOption, relOption): 向控件中插入新的 <code>&lt;option&gt;</code> 元素，其位置在相关项之前。</li>
+<li>multiple: 允许多选</li>
+<li>options: 所有 <code>&lt;option&gt;</code> 的集合</li>
+<li>remove(index): 移除给定位置的选项</li>
+<li>selectedIndex: 基于 0 的选中项的索引</li>
+<li>size: 选择框中可见行数</li>
+</ul>
+<h3 id="选择选项"><a href="#选择选项" class="headerlink" title="选择选项"></a>选择选项</h3><ul>
+<li>appendChild()</li>
+<li>new Option(“Option text”, “Option value”);</li>
+</ul>
+<h2 id="表单序列化"><a href="#表单序列化" class="headerlink" title="表单序列化"></a>表单序列化</h2><p>浏览器给服务器发送数据：</p>
+<ul>
+<li>对表单中的字段的名称和值进行 URL 编码，使用 &amp; 分隔</li>
+<li>不发送禁用的表单字段</li>
+<li>只发送勾线的复选框和单选按钮</li>
+<li>单选选择框中的每个选中的值单独一个条目</li>
+<li>在单击提交表单的情况下，也会发送提交按钮；否则，不发送提交按钮。</li>
+<li><code>&lt;select&gt;</code> 元素的值，就是选中的 <code>&lt;option&gt;</code> 元素的 value 特性的值。如果 <code>&lt;option&gt;</code> 元素没有 value 属性，则是 <code>&lt;option&gt;</code> 元素的文本值。</li>
+</ul>
+<p>表单序列化过程中，一般不包含任何按钮字段，因为结果字符串很可能是通过其他方式提交的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">serialize</span>(<span class="params">form</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> parts = [],</span><br><span class="line">    field = <span class="literal">null</span>,</span><br><span class="line">    i,</span><br><span class="line">    len,</span><br><span class="line">    j,</span><br><span class="line">    optLen,</span><br><span class="line">    option,</span><br><span class="line">    optValue;</span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">0</span>, len = form.elements.length; i &lt; len; i++) &#123;</span><br><span class="line">    field = form.elements[i];</span><br><span class="line">    <span class="keyword">switch</span>(field.type) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"select-one"</span>:</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"select-multipule"</span>:</span><br><span class="line">        <span class="keyword">if</span> (field.name.length) &#123;</span><br><span class="line">          <span class="keyword">for</span> (j = <span class="number">0</span>, optLen = field.options.length; j &lt; optLen; j++) &#123;</span><br><span class="line">            option = field.options[j];</span><br><span class="line">            <span class="keyword">if</span> (option.selected) &#123;</span><br><span class="line">              optValue = <span class="string">""</span>;</span><br><span class="line">              <span class="keyword">if</span> (option.hasAttribute) &#123;</span><br><span class="line">                optValue = (option.hasAttribute(<span class="string">"value"</span>) ? option.value : option.text);</span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                optValue = (option.attributes[<span class="string">"values"</span>].specified ? option.value : option.text);</span><br><span class="line">              &#125;</span><br><span class="line">              parts.push(encodeURLComponent(field.name) + <span class="string">"="</span> + encodeURLComponent(optValue));</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="literal">undefined</span>:</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"file"</span>:</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"reset"</span>:</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"submit"</span>:</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"button"</span>:</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"radio"</span>:</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"checkbox"</span>:</span><br><span class="line">        <span class="keyword">if</span> (!field.name.length) &#123;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">if</span> (field.name.length) &#123;</span><br><span class="line">          parts.push(encodeURLComponent(field.name) + <span class="string">"="</span> + encodeURLComponent(field.value));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> parts.join(<span class="string">"&amp;"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src=<span class="string">"blank.html"</span> name=<span class="string">"richedit"</span> style=<span class="string">"height: 100px; width: 100px;"</span>&gt;&lt;/iframe&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  EventUtil.addHandler(<span class="built_in">window</span>, <span class="string">"load"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    frames[<span class="string">"richedit"</span>].document.designMode = <span class="string">"on"</span>;</span><br><span class="line">  &#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">`</span></span><br></pre></td></tr></table></figure>
+<p>给 <code>&lt;iframe&gt;</code> 指定一个简单的 HTML 页面作为其内容来源。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;title&gt;Blank Page <span class="keyword">for</span> Rich Text Editing&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+<p>页面中就会有一个类似文本框的可编辑区字段。</p>
+<h3 id="使用-contenteditable-属性"><a href="#使用-contenteditable-属性" class="headerlink" title="使用 contenteditable 属性"></a>使用 contenteditable 属性</h3><p>为页面中的某个元素设置 contenteditable 属性，这个元素中的任何文本内容就可以编辑了。</p>
+<h3 id="操作富文本"><a href="#操作富文本" class="headerlink" title="操作富文本"></a>操作富文本</h3><p>与富文本交互的主要方式，使用document.execCommand(); 三个参数：要执行的命令名称、表示浏览器是否应该为当前命令提供用户界面的一个布尔值和执行命令必须的一个值，第二个参数应始终设为 false。下面就是支持的命令。</p>
+<ul>
+<li>backcolor</li>
+<li>bold</li>
+<li>createlink</li>
+<li>cut</li>
+<li>delete</li>
+<li>fontname</li>
+<li>forecolor</li>
+<li>formatblock</li>
+<li>indent</li>
+<li>inserthorizontalrule</li>
+<li>insertimage</li>
+<li>insertorderedlist</li>
+<li>insertunorderedlist</li>
+<li>insertparagraph</li>
+<li>italic</li>
+<li>justfycenter</li>
+<li>outdent</li>
+<li>paste</li>
+<li>removeformat</li>
+<li>selectall</li>
+<li>unlink</li>
+</ul>
+<h3 id="富文本选区"><a href="#富文本选区" class="headerlink" title="富文本选区"></a>富文本选区</h3><p>使用框架的 getSelection() 方法，可以确定实际选择的文本，该方法返回当前选择文本的 Selection 对象。有以下属性：</p>
+<ul>
+<li>anchorNode: 选区起点所在起点</li>
+<li>anchorOffset</li>
+<li>focusNode</li>
+<li>focusOffset</li>
+<li>isCollapsed</li>
+<li>rangeCount</li>
+</ul>
+<p>方法：</p>
+<ul>
+<li>addRange(range)</li>
+<li>collapse(node, offset)</li>
+<li>collapseToEnd()</li>
+<li>collapseToStart()</li>
+<li>containsNode(node)</li>
+<li>deleteFormDocument()</li>
+<li>extend(node, offset)</li>
+<li>getRangeAt(index)</li>
+<li>removeAllRanges()</li>
+<li>selectAllChildren(node)</li>
+<li>toString()</li>
+</ul>
+<h3 id="表单和富文本"><a href="#表单和富文本" class="headerlink" title="表单和富文本"></a>表单和富文本</h3><p>富文本不会自动提交，需要手动创建表单和富文本的关系。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">EventUtil.addHandler(form, <span class="string">"submit"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">  event = EventUtil.getEvent(event);</span><br><span class="line">  <span class="keyword">var</span> target = EventUtil.getTarget(event);</span><br><span class="line">  target.elements[<span class="string">"comments"</span>].value = frames[<span class="string">"richedit"</span>].document.body.innerHTML;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢您的支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="honey young 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="honey young 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/表单/" rel="tag"># 表单</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/28/js的事件/" rel="next" title="js的事件">
+                <i class="fa fa-chevron-left"></i> js的事件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/18/canvas/" rel="prev" title="Canvas">
+                Canvas <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            博文目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概要
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="honey young" />
+            
+              <p class="site-author-name" itemprop="name">honey young</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/honeyYoung/honeyyoung.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/de13fcfe3889" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/dong-gua-xiao-ke-ai/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#表单基础"><span class="nav-number">1.</span> <span class="nav-text">表单基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#共有表单的字段属性"><span class="nav-number">1.1.</span> <span class="nav-text">共有表单的字段属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#共有的表单字段方法"><span class="nav-number">1.2.</span> <span class="nav-text">共有的表单字段方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#共有的表单事件"><span class="nav-number">1.3.</span> <span class="nav-text">共有的表单事件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本框脚本"><span class="nav-number">2.</span> <span class="nav-text">文本框脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择文本"><span class="nav-number">2.1.</span> <span class="nav-text">选择文本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#选择文本-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">选择文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#取得选择的文本"><span class="nav-number">2.1.2.</span> <span class="nav-text">取得选择的文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择部分文本"><span class="nav-number">2.1.3.</span> <span class="nav-text">选择部分文本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤输入"><span class="nav-number">2.2.</span> <span class="nav-text">过滤输入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#屏蔽字符"><span class="nav-number">2.2.1.</span> <span class="nav-text">屏蔽字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作剪切板"><span class="nav-number">2.2.2.</span> <span class="nav-text">操作剪切板</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动切换焦点"><span class="nav-number">2.3.</span> <span class="nav-text">自动切换焦点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML5-约束验证-API"><span class="nav-number">2.4.</span> <span class="nav-text">HTML5 约束验证 API</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#必填字段"><span class="nav-number">2.4.1.</span> <span class="nav-text">必填字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其它输入类型"><span class="nav-number">2.4.2.</span> <span class="nav-text">其它输入类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数值范围"><span class="nav-number">2.4.3.</span> <span class="nav-text">数值范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入模式"><span class="nav-number">2.4.4.</span> <span class="nav-text">输入模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检验有效性"><span class="nav-number">2.4.5.</span> <span class="nav-text">检验有效性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#禁用验证"><span class="nav-number">2.4.6.</span> <span class="nav-text">禁用验证</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择框脚本"><span class="nav-number">3.</span> <span class="nav-text">选择框脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择选项"><span class="nav-number">3.1.</span> <span class="nav-text">选择选项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单序列化"><span class="nav-number">4.</span> <span class="nav-text">表单序列化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#富文本编辑器"><span class="nav-number">5.</span> <span class="nav-text">富文本编辑器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-contenteditable-属性"><span class="nav-number">5.1.</span> <span class="nav-text">使用 contenteditable 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作富文本"><span class="nav-number">5.2.</span> <span class="nav-text">操作富文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#富文本选区"><span class="nav-number">5.3.</span> <span class="nav-text">富文本选区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单和富文本"><span class="nav-number">5.4.</span> <span class="nav-text">表单和富文本</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">honey young</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+     <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+      本站访客数:<span id="busuanzi_value_site_uv"></span>
+     </span>
+  </div>
+<!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div> 
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
