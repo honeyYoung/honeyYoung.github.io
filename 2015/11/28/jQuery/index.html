@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="hbge3GnQvk" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="jQuery," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Honey Young" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="使用 CSS 选择器来识别一组文档元素，并返回一个对象表示这些元素。返回的对象提供了大量的方法来批量操作匹配的元素。 jQuery前戏js不足 代码很麻烦，冗余 浏览器兼容性问题 入口函数只能写一个，写了多个，后面的会覆盖前面的问题 js的代码容错性比较差（比较容易出错） 实现一些简单的动画比较麻烦  什么是jquery？jquery是一个js库。jquery就是一个js文件. 什么是js库？js">
+<meta name="keywords" content="jQuery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery">
+<meta property="og:url" content="http://yoursite.com/2015/11/28/jQuery/index.html">
+<meta property="og:site_name" content="Honey Young">
+<meta property="og:description" content="使用 CSS 选择器来识别一组文档元素，并返回一个对象表示这些元素。返回的对象提供了大量的方法来批量操作匹配的元素。 jQuery前戏js不足 代码很麻烦，冗余 浏览器兼容性问题 入口函数只能写一个，写了多个，后面的会覆盖前面的问题 js的代码容错性比较差（比较容易出错） 实现一些简单的动画比较麻烦  什么是jquery？jquery是一个js库。jquery就是一个js文件. 什么是js库？js">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-01T06:08:44.837Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery">
+<meta name="twitter:description" content="使用 CSS 选择器来识别一组文档元素，并返回一个对象表示这些元素。返回的对象提供了大量的方法来批量操作匹配的元素。 jQuery前戏js不足 代码很麻烦，冗余 浏览器兼容性问题 入口函数只能写一个，写了多个，后面的会覆盖前面的问题 js的代码容错性比较差（比较容易出错） 实现一些简单的动画比较麻烦  什么是jquery？jquery是一个js库。jquery就是一个js文件. 什么是js库？js">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'honey young'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/11/28/jQuery/"/>
+
+
+
+
+
+  <title>jQuery | Honey Young</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Honey Young</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">小杨鹤</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/28/jQuery/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="honey young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Honey Young">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">jQuery</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-28T00:00:00+08:00">
+                2015-11-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jQuery系列/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery系列</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>使用 CSS 选择器来识别一组文档元素，并返回一个对象表示这些元素。返回的对象提供了大量的方法来批量操作匹配的元素。</p>
+<h2 id="jQuery前戏"><a href="#jQuery前戏" class="headerlink" title="jQuery前戏"></a>jQuery前戏</h2><h3 id="js不足"><a href="#js不足" class="headerlink" title="js不足"></a>js不足</h3><ul>
+<li>代码很麻烦，冗余</li>
+<li>浏览器兼容性问题</li>
+<li>入口函数只能写一个，写了多个，后面的会覆盖前面的问题</li>
+<li>js的代码容错性比较差（比较容易出错）</li>
+<li>实现一些简单的动画比较麻烦</li>
+</ul>
+<h3 id="什么是jquery？"><a href="#什么是jquery？" class="headerlink" title="什么是jquery？"></a>什么是jquery？</h3><p>jquery是一个js库。jquery就是一个js文件.</p>
+<p>什么是js库？js库其实就是把一些我们常用到的方法封装到一个单独的js文件里面，当我们想用的时候，引入它。（common.js animate.js）</p>
+<p>特点：</p>
+<ul>
+<li>丰富强大的语法</li>
+<li>高效的查询</li>
+<li>一套有用的方法</li>
+<li>强大的函数式编程技巧，批量操作元素集</li>
+<li>简洁的语言用法</li>
+</ul>
+<a id="more"></a>
+<h3 id="引包"><a href="#引包" class="headerlink" title="引包"></a>引包</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"jquery-1.12.4.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="全局函数"><a href="#全局函数" class="headerlink" title="全局函数"></a>全局函数</h2><p><code>jQuery()</code> 全局函数，对应于一个快捷名：<code>$</code>。<code>jQuery()</code> 是工厂函数，不使用 <code>new</code> 关键字。</p>
+<h3 id="入口函数"><a href="#入口函数" class="headerlink" title="入口函数"></a>入口函数</h3><h4 id="js入口函数"><a href="#js入口函数" class="headerlink" title="js入口函数"></a>js入口函数</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;...&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="jQuery入口函数1"><a href="#jQuery入口函数1" class="headerlink" title="jQuery入口函数1"></a>jQuery入口函数1</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;...&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="jQuery入口函数2（简化）"><a href="#jQuery入口函数2（简化）" class="headerlink" title="jQuery入口函数2（简化）"></a>jQuery入口函数2（简化）</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;...&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="符实质"><a href="#符实质" class="headerlink" title="$符实质"></a>$符实质</h3><ul>
+<li>$实质是一个函数，jQuery 对象是类数组对象。</li>
+<li>参数是 function 、把 dom 元素 document 转成 jQuery 对象，选择器</li>
+</ul>
+<blockquote>
+<p>jQuery 的调用方式</p>
+</blockquote>
+<p>第一种：传递 CSS 选择器（字符串）给 <code>$()</code> 方法。 选择器支持大部分 CSS3 选择器，也有自己扩展的。返回当前文档中匹配该选择器的元素集合。还可以将一个 jQuery 对象作为第二个参数传递给 <code>$()</code> 方法，返回该特定元素或元素子元素中匹配选择器的部分。第二个元素可选的。</p>
+<p>第二种：传递一个 Element、Document 或 Window 对象给 <code>$()</code> 方法。将传入的内容封装成 jQuery 对象。</p>
+<p>第三种：传递 HTML 文本字符串，会根据传入的文本创建好 HTML 元素并封装为 jQuery 对象返回。可以接收第二个参数，可以传递 Document 对象来指定与所创建元素相关联的文档。第二个参数还可以是 object 对象。</p>
+<p>第四中：传入函数。</p>
+<h2 id="一些基础方法"><a href="#一些基础方法" class="headerlink" title="一些基础方法"></a>一些基础方法</h2><ul>
+<li><code>size()</code> 代替 <code>length</code></li>
+<li><code>get()</code> 代替方括号索引</li>
+<li><code>toArray()</code> 将 <code>jQuery</code> 对象转成真正数组</li>
+<li><code>each()</code> 遍历，代替 for 循环<ul>
+<li>参数是回调函数，回调函数中的 this 指向遍历的元素，是原生的 DOM 对象。</li>
+<li>还可以将索引，该元素传递给回调函数的第一个和第二个参数，第二个参数也是 DOM 对象。</li>
+<li>返回调用自身的 jQuery 对象，可以用于链式编程</li>
+</ul>
+</li>
+<li><code>map()</code> 和 <code>Array.prototype.map()</code> 方法很接近。<ul>
+<li>接收回调函数作为参数；</li>
+<li>索引是回调函数的第一个参数，元素作为 this 值和回调函数的第二个参数。</li>
+<li>如果回调函数返回 null 或 undefined，索引忽略。</li>
+<li>回调函数返回数组或者伪数组</li>
+<li>map() 返回的 jQuery 对象可以不包括文档元素，但依旧可以像伪数组对象一样使用。</li>
+</ul>
+</li>
+<li><code>index()</code> 接收一个参数，返回该元素在 jQuery 对象中的索引值。找不到返回 -1.</li>
+<li><code>is()</code> 接收一个选择器，选中元素至少有一个匹配该选择器，返回 true。</li>
+</ul>
+<p>jQuery 对象的三个属性</p>
+<ul>
+<li><code>selector</code> 选择器字符串</li>
+<li><code>context</code> 传递给 <code>$()</code> 的第二个参数</li>
+<li><code>jquery</code> jQuery 的版本号</li>
+</ul>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><h3 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h3><ul>
+<li>ID选择器 <code>$(&quot;#id名&quot;);</code></li>
+<li>类选择器 <code>$(&quot;.类名&quot;);</code></li>
+<li>标签选择器 <code>$(&quot;标签名&quot;);</code></li>
+<li>并集选择器 <code>$(&quot;#curr,.cls&quot;);</code></li>
+<li>交集选择器 <code>$(&quot;li.cls&quot;);</code></li>
+</ul>
+<h3 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h3><ul>
+<li>子代选择器 <code>$(&quot;#curr&gt;.cls&quot;)</code></li>
+<li>后代选择器 <code>$(&quot;li cls&quot;)</code></li>
+</ul>
+<h3 id="过滤选择器"><a href="#过滤选择器" class="headerlink" title="过滤选择器"></a>过滤选择器</h3><ul>
+<li><code>:odd;</code></li>
+<li><code>:even;</code></li>
+<li><code>:eq(0);</code><ul>
+<li>jQuery对象</li>
+</ul>
+</li>
+</ul>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li><code>$(this).css(&quot;backgroundColor&quot;, &quot;pink&quot;).siblings(&quot;li&quot;).css(&quot;backgroundColor&quot;, &quot;&quot;);</code><ul>
+<li>链式编程</li>
+</ul>
+</li>
+<li><code>$(this).find(&quot;li&quot;).css(&quot;backgroundColor&quot;, &quot;&quot;);</code></li>
+<li><code>css({});</code><ul>
+<li>css设置样式</li>
+</ul>
+</li>
+<li><code>siblings();</code><ul>
+<li>兄弟元素</li>
+</ul>
+</li>
+<li><code>find();</code><ul>
+<li>后代元素</li>
+</ul>
+</li>
+<li><code>next();</code><ul>
+<li>下一个兄弟元素</li>
+</ul>
+</li>
+<li><code>parent();</code><ul>
+<li>父元素</li>
+</ul>
+</li>
+<li><code>show();</code><ul>
+<li>显示</li>
+</ul>
+</li>
+<li><code>hide();</code><ul>
+<li>隐藏</li>
+</ul>
+</li>
+<li><code>index();</code><ul>
+<li>获取的是当前对象在它兄弟里面的索引/</li>
+</ul>
+</li>
+<li><code>eq(0);</code><ul>
+<li>取到的是jQuery对象</li>
+</ul>
+</li>
+</ul>
+<h2 id="隐式迭代"><a href="#隐式迭代" class="headerlink" title="隐式迭代"></a>隐式迭代</h2><ul>
+<li>设置属性的操作的时候设置的是所有的元素</li>
+<li>获取性操作不去遍历，直接获取第一个</li>
+</ul>
+<h2 id="类操作"><a href="#类操作" class="headerlink" title="类操作"></a>类操作</h2><ul>
+<li>添加类 <code>addClass();</code><ul>
+<li>类名</li>
+</ul>
+</li>
+<li>移除类 <code>removeClass();</code><ul>
+<li>类名</li>
+</ul>
+</li>
+<li>判断类 <code>hasClass();</code><ul>
+<li>类名</li>
+</ul>
+</li>
+<li>切换 <code>toggle();</code><ul>
+<li>类名，两个类名之间切换操作</li>
+</ul>
+</li>
+</ul>
+<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><h3 id="显示、隐藏"><a href="#显示、隐藏" class="headerlink" title="显示、隐藏"></a>显示、隐藏</h3><ul>
+<li>show(); hide(); toggle();<ul>
+<li>参数speed,值为毫秒值</li>
+</ul>
+</li>
+</ul>
+<h3 id="淡入、淡出"><a href="#淡入、淡出" class="headerlink" title="淡入、淡出"></a>淡入、淡出</h3><ul>
+<li>fadeIn(); fadeIn(); fadeToggle()；<ul>
+<li>不传参数的时候，有动画，normal;</li>
+</ul>
+</li>
+</ul>
+<h3 id="滑入、滑出"><a href="#滑入、滑出" class="headerlink" title="滑入、滑出"></a>滑入、滑出</h3><ul>
+<li>slideUp(); slideUp(); slideToggle()；<ul>
+<li>不传参数的时候，有动画，normal;</li>
+</ul>
+</li>
+</ul>
+<h3 id="自定义动画"><a href="#自定义动画" class="headerlink" title="自定义动画"></a>自定义动画</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#box"</span>).animate(&#123;<span class="string">"width"</span>:<span class="string">"400px"</span>,<span class="string">"height"</span>:<span class="string">"400px"</span>, <span class="string">"left"</span>:<span class="string">"400px"</span>&#125;,speed,easing);</span><br></pre></td></tr></table></figure>
+<h3 id="停止动画-stop"><a href="#停止动画-stop" class="headerlink" title="停止动画 stop();"></a>停止动画 <code>stop();</code></h3><ul>
+<li>stop(clearQueue, jumpToEnd);<ul>
+<li>第一个参数是否清除动画队列 true, false，默认false;第二个参数是是否跳转到当前动画的最终效果 true, false</li>
+</ul>
+</li>
+</ul>
+<h2 id="jQuery和js节点操作"><a href="#jQuery和js节点操作" class="headerlink" title="jQuery和js节点操作"></a>jQuery和js节点操作</h2><h3 id="js节点操作"><a href="#js节点操作" class="headerlink" title="js节点操作"></a>js节点操作</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);</span><br><span class="line">aNode.document.createElement(<span class="string">"a"</span>);</span><br><span class="line">box.appendChild(aNode);</span><br><span class="line">aNode.innerHTML = <span class="string">"innerHtml"</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="jQuery-操作"><a href="#jQuery-操作" class="headerlink" title="jQuery 操作"></a>jQuery 操作</h3><ul>
+<li><code>append();</code><ul>
+<li>添加节点</li>
+</ul>
+</li>
+<li><code>appendTo()</code><ul>
+<li>添加节点</li>
+</ul>
+</li>
+<li><code>prepend();</code><ul>
+<li>添加节点</li>
+</ul>
+</li>
+<li><code>prependTo()</code><ul>
+<li>添加节点</li>
+</ul>
+</li>
+<li><code>after();</code><ul>
+<li>添加节点</li>
+</ul>
+</li>
+<li><code>before();</code><ul>
+<li>添加节点</li>
+</ul>
+</li>
+<li><code>insertAfter()</code><ul>
+<li>插入节点</li>
+</ul>
+</li>
+<li><code>insertBefore()</code><ul>
+<li>插入节点</li>
+</ul>
+</li>
+<li><code>replaceWith()</code><ul>
+<li>替换</li>
+</ul>
+</li>
+<li><code>add()</code><ul>
+<li>添加</li>
+</ul>
+</li>
+<li><code>first()</code><ul>
+<li>仅包含选中元素的第一个</li>
+</ul>
+</li>
+<li><code>eq()</code><ul>
+<li>只包含指定序号的单个元素</li>
+</ul>
+</li>
+<li><code>html();</code><ul>
+<li>不传参获取，传参设置</li>
+</ul>
+</li>
+<li><code>text();</code><ul>
+<li>不传参获取，传参设置</li>
+</ul>
+</li>
+<li><code>empty();</code><ul>
+<li>清空节点（清理门户）</li>
+</ul>
+</li>
+<li><code>remove();</code><ul>
+<li>删除节点（自杀）</li>
+</ul>
+</li>
+<li><code>clone();</code><ul>
+<li>深度复制，不复制事件</li>
+</ul>
+</li>
+<li><code>clone(true);</code><ul>
+<li>深度复制，并且复制事件</li>
+</ul>
+</li>
+<li><code>val();</code><ul>
+<li>获取值</li>
+</ul>
+</li>
+<li><code>val(&quot;abc&quot;);</code><ul>
+<li>设置值</li>
+</ul>
+</li>
+<li><code>next()</code><ul>
+<li>下一个节点</li>
+</ul>
+</li>
+<li><code>prev()</code><ul>
+<li>上一个节点</li>
+</ul>
+</li>
+<li><code>prevAll()</code><ul>
+<li>前面所有节点</li>
+</ul>
+</li>
+<li><code>nextAll()</code><ul>
+<li>后面所有节点</li>
+</ul>
+</li>
+<li><code>parent()</code><ul>
+<li>父节点</li>
+</ul>
+</li>
+<li><code>sibling()</code><ul>
+<li>兄弟节点</li>
+</ul>
+</li>
+<li><code>find()</code><ul>
+<li>后代节点</li>
+</ul>
+</li>
+<li><code>filer()</code><ul>
+<li>返回符合条件的jQuery对象</li>
+</ul>
+</li>
+<li><code>not()</code><ul>
+<li>排除元素</li>
+</ul>
+</li>
+<li><code>has()</code><ul>
+<li>是否有</li>
+</ul>
+</li>
+<li><code>gt()</code><ul>
+<li>参数是数字，返回大于参数的后面的元素</li>
+</ul>
+</li>
+<li><code>wrap()</code><ul>
+<li>包装每一个</li>
+</ul>
+</li>
+<li><code>wrapInner()</code><ul>
+<li>包装每一个元素的内容</li>
+</ul>
+</li>
+<li><code>wrapOuter()</code><ul>
+<li>将选中元素作为一组包装</li>
+</ul>
+</li>
+</ul>
+<h3 id="jQuery属性操作"><a href="#jQuery属性操作" class="headerlink" title="jQuery属性操作"></a>jQuery属性操作</h3><ul>
+<li><code>setAttribute(&quot;target&quot;, &quot;_blank&quot;);</code></li>
+<li><code>attr(&quot;title&quot;, &quot;星期四&quot;);</code><ul>
+<li>用法和css用法是一样</li>
+</ul>
+</li>
+<li><code>attr(name, value);</code><ul>
+<li>用法和css用法是一样</li>
+</ul>
+</li>
+<li><code>attr({json});</code><ul>
+<li>用法和css用法是一样</li>
+</ul>
+</li>
+<li><code>css()</code><ul>
+<li>传入一个字符串参数，获取对应样式，注意，不能传入复合样式的属性，如 “font”</li>
+<li>传入两个参数，设置样式</li>
+<li>传入一个对象，设置样式</li>
+</ul>
+</li>
+</ul>
+<h3 id="jQuery属性操作特例"><a href="#jQuery属性操作特例" class="headerlink" title="jQuery属性操作特例"></a>jQuery属性操作特例</h3><p>布尔类型的属性：<code>true</code> <code>false</code></p>
+<ul>
+<li><code>checked</code></li>
+<li><code>selected</code></li>
+<li><code>disabled</code></li>
+</ul>
+<p>在jquery里面，碰到布尔类型的属性的时候，不要用attr方法，应该prop方法</p>
+<ul>
+<li><code>prop(&quot;checked&quot;);</code><ul>
+<li>用法和css用法是一样</li>
+</ul>
+</li>
+</ul>
+<h3 id="jQuery获取属性值width系列（操作尺寸）"><a href="#jQuery获取属性值width系列（操作尺寸）" class="headerlink" title="jQuery获取属性值width系列（操作尺寸）"></a>jQuery获取属性值width系列（操作尺寸）</h3><ul>
+<li><code>width();</code><ul>
+<li>能获取、设置</li>
+</ul>
+</li>
+<li><code>Innerwidth();</code><ul>
+<li>获取内部宽度（包括宽度和padding）</li>
+</ul>
+</li>
+<li><code>Outerwidth();</code><ul>
+<li>获取内部宽度（包括宽度和padding和border）</li>
+</ul>
+</li>
+<li><code>Outerwidth(true);</code><ul>
+<li>获取内部宽度（包括宽度和padding和border和margin）</li>
+</ul>
+</li>
+<li><code>height();</code><ul>
+<li>能获取、设置</li>
+</ul>
+</li>
+<li><code>Innerheight();</code><ul>
+<li>获取内部高度（包括高度和 padding）</li>
+</ul>
+</li>
+<li><code>Outerheight();</code><ul>
+<li>获取内部高度（包括高度和 padding 和 border）</li>
+</ul>
+</li>
+<li><code>Outerheight(true);</code><ul>
+<li>获取内部高度（包括高度和 padding 和 border 和 margin）</li>
+</ul>
+</li>
+</ul>
+<h3 id="jQuery操作坐标"><a href="#jQuery操作坐标" class="headerlink" title="jQuery操作坐标"></a>jQuery操作坐标</h3><ul>
+<li><code>position();</code><ul>
+<li>只能获取不能设置，设置用 css 设置，找最近的有相对定位的的父盒子</li>
+</ul>
+</li>
+<li><code>offset();</code><ul>
+<li>相对与dom最左上角（获取、设置）</li>
+<li>带有 left 属性和 top 属性</li>
+</ul>
+</li>
+<li><code>offsetParent()</code><ul>
+<li>最近定位的祖先元素</li>
+</ul>
+</li>
+<li><code>scrollTop();</code> <ul>
+<li>设置卷去的距离（事件）</li>
+</ul>
+</li>
+<li><code>scrollLeft();</code><ul>
+<li>设置卷去的距离（事件）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">window</span>).scroll(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="keyword">this</span>).scrollTop();</span><br><span class="line">  $(<span class="keyword">this</span>).scrollLeft();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="获取和设置-CSS-类"><a href="#获取和设置-CSS-类" class="headerlink" title="获取和设置 CSS 类"></a>获取和设置 CSS 类</h3><ul>
+<li><code>addClass()</code><ul>
+<li>添加类</li>
+</ul>
+</li>
+<li><code>removeClass()</code><ul>
+<li>删除类</li>
+</ul>
+</li>
+<li><code>toggleClass()</code><ul>
+<li>没有类则添加，否则删除</li>
+</ul>
+</li>
+<li><code>hasClass()</code><ul>
+<li>判断是否存在</li>
+</ul>
+</li>
+</ul>
+<h3 id="设置或获取元素内容"><a href="#设置或获取元素内容" class="headerlink" title="设置或获取元素内容"></a>设置或获取元素内容</h3><ul>
+<li><code>html()</code><ul>
+<li>不传参获取</li>
+<li>传参设置值，html格式字符串</li>
+</ul>
+</li>
+<li><p><code>text()</code></p>
+<ul>
+<li>不传参获取</li>
+<li>传参设置值，纯文本<h2 id="jQuery事件"><a href="#jQuery事件" class="headerlink" title="jQuery事件"></a>jQuery事件</h2></li>
+</ul>
+</li>
+<li><p>事件机制：</p>
+<ul>
+<li>用户执行某一个操作，浏览器会相应用户的操作，执行某个函数</li>
+</ul>
+</li>
+<li>事件处理函数：<ul>
+<li>所谓的事件处理函数，就是响应用户的那个函数</li>
+</ul>
+</li>
+<li>用户事件：<ul>
+<li>就是事件名，用户可以注册的事件</li>
+</ul>
+</li>
+<li>注册事件：<ul>
+<li>就是赋值或调用addEventListener</li>
+</ul>
+</li>
+<li>响应事件：<ul>
+<li>做完操作调用某个方法</li>
+</ul>
+</li>
+</ul>
+<h3 id="jQuery事件发展"><a href="#jQuery事件发展" class="headerlink" title="jQuery事件发展"></a>jQuery事件发展</h3><blockquote>
+<p>简单事件绑定：不能同时注册两个事件</p>
+</blockquote>
+<p>bind事件绑定</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"p"</span>).bind(&#123;</span><br><span class="line">   <span class="string">"click"</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">"我执行了click"</span>);</span><br><span class="line">   &#125;,<span class="string">"mouseenter"</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">"我执行了mouseenter"</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>不支持动态创建元素</p>
+<blockquote>
+<p>delegate事件（委托、委派、代理）</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"div"</span>).delegate(<span class="string">"p"</span>, <span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">"我执行了委托事件"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="on事件绑定"><a href="#on事件绑定" class="headerlink" title="on事件绑定"></a>on事件绑定</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*on给div注册委托事件*/</span></span><br><span class="line">$(<span class="string">"div"</span>).on(<span class="string">"click"</span>, <span class="string">"p"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;); </span><br><span class="line"><span class="comment">/*on给div注册普通的点击事件*/</span></span><br><span class="line">$(<span class="string">"div"</span>).on(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">"我触发了div本身的事件"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="解除事件绑定"><a href="#解除事件绑定" class="headerlink" title="解除事件绑定"></a>解除事件绑定</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*off是解除所有的事件,能解除委托事件*/</span></span><br><span class="line">$(<span class="string">"div"</span>).off();</span><br><span class="line"><span class="comment">/*解除click事件*/</span></span><br><span class="line">$(<span class="string">"div"</span>).off(<span class="string">"click"</span>);</span><br><span class="line"><span class="comment">/*解除委托的click事件*/</span></span><br><span class="line">$(<span class="string">"div"</span>).off(<span class="string">"click"</span>,<span class="string">"**"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="事件触发"><a href="#事件触发" class="headerlink" title="事件触发"></a>事件触发</h3><ul>
+<li><code>trigger(&quot;focus&quot;);</code><ul>
+<li>触发获取焦点事件，会触发浏览器默认行为</li>
+</ul>
+</li>
+<li><code>triggerHandler(&quot;focus&quot;);</code><ul>
+<li>触发获取焦点事件，不会触发浏览器默认行为</li>
+</ul>
+</li>
+</ul>
+<h3 id="事件对象event"><a href="#事件对象event" class="headerlink" title="事件对象event"></a>事件对象event</h3><ul>
+<li><code>click(function(event){...});</code><ul>
+<li>点击</li>
+</ul>
+</li>
+<li><code>keyCode = event.keyCode;</code><ul>
+<li>键盘码</li>
+</ul>
+</li>
+</ul>
+<h3 id="阻止事件冒泡"><a href="#阻止事件冒泡" class="headerlink" title="阻止事件冒泡"></a>阻止事件冒泡</h3><p>方法1：</p>
+<ul>
+<li><code>event.stopPropagation();</code></li>
+</ul>
+<p>方法2：</p>
+<ul>
+<li><code>return false;</code></li>
+</ul>
+<h3 id="阻止浏览器的默认行为"><a href="#阻止浏览器的默认行为" class="headerlink" title="阻止浏览器的默认行为"></a>阻止浏览器的默认行为</h3><p>方法1：</p>
+<ul>
+<li><code>event.preventDefault();</code></li>
+</ul>
+<p>方法2：</p>
+<ul>
+<li><code>return false;</code></li>
+</ul>
+<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><ul>
+<li><code>click(function(){...});</code><ul>
+<li>点击</li>
+</ul>
+</li>
+<li><code>scroll(function(){...});</code><ul>
+<li>鼠标滚轮事件</li>
+</ul>
+</li>
+<li><code>focus(function(){...});</code><ul>
+<li>获取焦点</li>
+</ul>
+</li>
+<li><code>mouseenter(function(){...});</code><ul>
+<li>鼠标经过</li>
+</ul>
+</li>
+<li><code>mouseleave(function(){...});</code><ul>
+<li>鼠标离开</li>
+</ul>
+</li>
+<li><code>keydown(function(event){var keyCode = event.keyCode;});</code><ul>
+<li>键盘按键按下</li>
+</ul>
+</li>
+<li><code>keyup(function(event){var keyCode = event.keyCode;});</code><ul>
+<li>键盘抬起</li>
+</ul>
+</li>
+</ul>
+<h3 id="浏览器提供的事件"><a href="#浏览器提供的事件" class="headerlink" title="浏览器提供的事件"></a>浏览器提供的事件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"onabort"</span>, <span class="string">"onblur"</span>, <span class="string">"oncancel"</span>, <span class="string">"oncanplay"</span>, </span><br><span class="line"><span class="string">"oncanplaythrough"</span>, <span class="string">"onchange"</span>, <span class="string">"onclick"</span>, <span class="string">"onclose"</span>,</span><br><span class="line"><span class="string">"oncontextmenu"</span>, <span class="string">"oncuechange"</span>, <span class="string">"ondblclick"</span>, <span class="string">"ondrag"</span>, </span><br><span class="line"><span class="string">"ondragend"</span>, <span class="string">"ondragenter"</span>, <span class="string">"ondragleave"</span>, <span class="string">"ondragover"</span>,</span><br><span class="line"><span class="string">"ondragstart"</span>, <span class="string">"ondrop"</span>, <span class="string">"ondurationchange"</span>, <span class="string">"onemptied"</span>,</span><br><span class="line"><span class="string">"onended"</span>, <span class="string">"onerror"</span>, <span class="string">"onfocus"</span>, <span class="string">"oninput"</span>, <span class="string">"oninvalid"</span>, </span><br><span class="line"><span class="string">"onkeydown"</span>, <span class="string">"onkeypress"</span>, <span class="string">"onkeyup"</span>, <span class="string">"onload"</span>,</span><br><span class="line"><span class="string">"onloadeddata"</span>, <span class="string">"onloadedmetadata"</span>, <span class="string">"onloadstart"</span>, <span class="string">"onmousedown"</span>, </span><br><span class="line"><span class="string">"onmouseenter"</span>, <span class="string">"onmouseleave"</span>, <span class="string">"onmousemove"</span>, <span class="string">"onmouseout"</span>, </span><br><span class="line"><span class="string">"onmouseover"</span>, <span class="string">"onmouseup"</span>, <span class="string">"onmousewheel"</span>, <span class="string">"onpause"</span>, </span><br><span class="line"><span class="string">"onplay"</span>, <span class="string">"onplaying"</span>, <span class="string">"onprogress"</span>, <span class="string">"onratechange"</span>, </span><br><span class="line"><span class="string">"onreset"</span>, <span class="string">"onresize"</span>, <span class="string">"onscroll"</span>, <span class="string">"onseeked"</span>, </span><br><span class="line"><span class="string">"onseeking"</span>, <span class="string">"onselect"</span>, <span class="string">"onshow"</span>, <span class="string">"onstalled"</span>, </span><br><span class="line"><span class="string">"onsubmit"</span>, <span class="string">"onsuspend"</span>, <span class="string">"ontimeupdate"</span>, <span class="string">"ontoggle"</span>, </span><br><span class="line"><span class="string">"onvolumechange"</span>, <span class="string">"onwaiting"</span>, <span class="string">"onbeforecopy"</span>, <span class="string">"onbeforecut"</span>, </span><br><span class="line"><span class="string">"onbeforepaste"</span>, <span class="string">"oncopy"</span>, <span class="string">"oncut"</span>, <span class="string">"onpaste"</span>, </span><br><span class="line"><span class="string">"onsearch"</span>, <span class="string">"onselectstart"</span>, <span class="string">"onwheel"</span>, <span class="string">"onwebkitfullscreenchange"</span>, </span><br><span class="line"><span class="string">"onwebkitfullscreenerror"</span></span><br></pre></td></tr></table></figure>
+<h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*显式迭代：对每一个元素做不同的处理*/</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; $(<span class="string">"li"</span>).length; i++) &#123;</span><br><span class="line">  <span class="keyword">var</span> target = (i + <span class="number">1</span>) / <span class="number">10</span>;</span><br><span class="line">  $(<span class="string">"li"</span>).eq(i).css(<span class="string">"opacity"</span>, target);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*each();*/</span></span><br><span class="line">$(<span class="string">"li"</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params">index, element</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> target = (index + <span class="number">1</span>) / <span class="number">10</span>;</span><br><span class="line">  $(element).css(<span class="string">"opacity"</span>, target);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><h3 id="懒加载插件"><a href="#懒加载插件" class="headerlink" title="懒加载插件"></a>懒加载插件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;img <span class="class"><span class="keyword">class</span></span>=<span class="string">"lazy"</span> data-original=<span class="string">"23.jpg"</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">&lt;script src=<span class="string">"jquery-1.12.4.js"</span> type=<span class="string">"text/javascript"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"plugins/jquery.lazyload.js"</span> type=<span class="string">"text/javascript"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;$(<span class="string">"img.lazy"</span>).lazyload();&#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="fullpage插件"><a href="#fullpage插件" class="headerlink" title="fullpage插件"></a>fullpage插件</h3><h4 id="引入文件"><a href="#引入文件" class="headerlink" title="引入文件"></a>引入文件</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/jquery.fullPage.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery-ui.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.fullPage.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="html"><a href="#html" class="headerlink" title="html"></a>html</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"fullpage"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section"</span>&gt;</span>第一屏<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section"</span>&gt;</span>第二屏<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slide"</span>&gt;</span>第三屏的第一屏<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slide"</span>&gt;</span>第三屏的第二屏<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slide"</span>&gt;</span>第三屏的第三屏<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slide"</span>&gt;</span>第三屏的第四屏<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section"</span>&gt;</span>第四屏<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="js"><a href="#js" class="headerlink" title="js"></a>js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  $(<span class="string">'#fullpage'</span>).fullpage(&#123;</span><br><span class="line">    <span class="string">'verticalCentered'</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="string">'css3'</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">'sectionsColor'</span>: [<span class="string">'#254875'</span>, <span class="string">'#00FF00'</span>, <span class="string">'#254587'</span>, <span class="string">'#695684'</span>],</span><br><span class="line">    anchors: [<span class="string">'page1'</span>, <span class="string">'page2'</span>, <span class="string">'page3'</span>, <span class="string">'page4'</span>],</span><br><span class="line">    <span class="string">'navigation'</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">'navigationPosition'</span>: <span class="string">'right'</span>,</span><br><span class="line">    <span class="string">'navigationTooltips'</span>: [<span class="string">'fullPage.js'</span>, <span class="string">'Powerful'</span>, <span class="string">'Amazing'</span>, <span class="string">'Simple'</span>]</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="可选配置"><a href="#可选配置" class="headerlink" title="可选配置"></a>可选配置</h4><ul>
+<li>选项</li>
+<li>方法</li>
+<li>回调函数</li>
+</ul>
+<h3 id="jqueryUI插件"><a href="#jqueryUI插件" class="headerlink" title="jqueryUI插件"></a>jqueryUI插件</h3><p><a href="http://jqueryui.com/" target="_blank" rel="noopener">jqueryUI插件 官网</a></p>
+<h4 id="引入文件-1"><a href="#引入文件-1" class="headerlink" title="引入文件"></a>引入文件</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"plugins/jquery-ui.css"</span> /&gt;</span><br><span class="line">&lt;script src=<span class="string">"jquery-1.12.4.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"plugins/jquery-ui.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="html-1"><a href="#html-1" class="headerlink" title="html"></a>html</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"drag-wrapper"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"drag-bar"</span>&gt;</span>可拖动、排序、变形的新闻模块<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"resize-item"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"sort-wrapper"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"sort-item"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span>这是第1条新闻!<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span>这是第2条新闻!<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span>这是第3条新闻!<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="js-1"><a href="#js-1" class="headerlink" title="js"></a>js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $(<span class="string">".drag-wrapper"</span>).draggable(&#123;<span class="string">"handle"</span>:<span class="string">".drag-bar"</span>&#125;);</span><br><span class="line">        $(<span class="string">".resize-item"</span>).resizable(&#123;<span class="string">"handles"</span>:<span class="string">"s"</span>&#125;);</span><br><span class="line">        $(<span class="string">".sort-item"</span>).sortable(&#123;<span class="string">"opacity"</span>:<span class="string">"0.5"</span>&#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="插件制作"><a href="#插件制作" class="headerlink" title="插件制作"></a>插件制作</h3><p>制作插件：就是给jquery对象添加方法。</p>
+<ul>
+<li><code>$.fn.fnName = function(){}</code></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢您的支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="honey young 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="honey young 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jQuery/" rel="tag"><i class="fa fa-tag"></i> jQuery</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/18/canvas/" rel="next" title="Canvas">
+                <i class="fa fa-chevron-left"></i> Canvas
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/06/JSON数据/" rel="prev" title="JSON数据">
+                JSON数据 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            博文目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概要
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="honey young" />
+            
+              <p class="site-author-name" itemprop="name">honey young</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/honeyYoung/honeyyoung.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/de13fcfe3889" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/dong-gua-xiao-ke-ai/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery前戏"><span class="nav-number">1.</span> <span class="nav-text">jQuery前戏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#js不足"><span class="nav-number">1.1.</span> <span class="nav-text">js不足</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是jquery？"><span class="nav-number">1.2.</span> <span class="nav-text">什么是jquery？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引包"><span class="nav-number">1.3.</span> <span class="nav-text">引包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局函数"><span class="nav-number">2.</span> <span class="nav-text">全局函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#入口函数"><span class="nav-number">2.1.</span> <span class="nav-text">入口函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#js入口函数"><span class="nav-number">2.1.1.</span> <span class="nav-text">js入口函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery入口函数1"><span class="nav-number">2.1.2.</span> <span class="nav-text">jQuery入口函数1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery入口函数2（简化）"><span class="nav-number">2.1.3.</span> <span class="nav-text">jQuery入口函数2（简化）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#符实质"><span class="nav-number">2.2.</span> <span class="nav-text">$符实质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些基础方法"><span class="nav-number">3.</span> <span class="nav-text">一些基础方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器"><span class="nav-number">4.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本选择器"><span class="nav-number">4.1.</span> <span class="nav-text">基本选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层级选择器"><span class="nav-number">4.2.</span> <span class="nav-text">层级选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤选择器"><span class="nav-number">4.3.</span> <span class="nav-text">过滤选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number">4.4.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐式迭代"><span class="nav-number">5.</span> <span class="nav-text">隐式迭代</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类操作"><span class="nav-number">6.</span> <span class="nav-text">类操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动画"><span class="nav-number">7.</span> <span class="nav-text">动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#显示、隐藏"><span class="nav-number">7.1.</span> <span class="nav-text">显示、隐藏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#淡入、淡出"><span class="nav-number">7.2.</span> <span class="nav-text">淡入、淡出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#滑入、滑出"><span class="nav-number">7.3.</span> <span class="nav-text">滑入、滑出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义动画"><span class="nav-number">7.4.</span> <span class="nav-text">自定义动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#停止动画-stop"><span class="nav-number">7.5.</span> <span class="nav-text">停止动画 stop();</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery和js节点操作"><span class="nav-number">8.</span> <span class="nav-text">jQuery和js节点操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#js节点操作"><span class="nav-number">8.1.</span> <span class="nav-text">js节点操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery-操作"><span class="nav-number">8.2.</span> <span class="nav-text">jQuery 操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery属性操作"><span class="nav-number">8.3.</span> <span class="nav-text">jQuery属性操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery属性操作特例"><span class="nav-number">8.4.</span> <span class="nav-text">jQuery属性操作特例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery获取属性值width系列（操作尺寸）"><span class="nav-number">8.5.</span> <span class="nav-text">jQuery获取属性值width系列（操作尺寸）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery操作坐标"><span class="nav-number">8.6.</span> <span class="nav-text">jQuery操作坐标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取和设置-CSS-类"><span class="nav-number">8.7.</span> <span class="nav-text">获取和设置 CSS 类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置或获取元素内容"><span class="nav-number">8.8.</span> <span class="nav-text">设置或获取元素内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery事件"><span class="nav-number">9.</span> <span class="nav-text">jQuery事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery事件发展"><span class="nav-number">9.1.</span> <span class="nav-text">jQuery事件发展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#on事件绑定"><span class="nav-number">9.2.</span> <span class="nav-text">on事件绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解除事件绑定"><span class="nav-number">9.3.</span> <span class="nav-text">解除事件绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件触发"><span class="nav-number">9.4.</span> <span class="nav-text">事件触发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件对象event"><span class="nav-number">9.5.</span> <span class="nav-text">事件对象event</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻止事件冒泡"><span class="nav-number">9.6.</span> <span class="nav-text">阻止事件冒泡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻止浏览器的默认行为"><span class="nav-number">9.7.</span> <span class="nav-text">阻止浏览器的默认行为</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件"><span class="nav-number">9.8.</span> <span class="nav-text">事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器提供的事件"><span class="nav-number">9.9.</span> <span class="nav-text">浏览器提供的事件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代"><span class="nav-number">10.</span> <span class="nav-text">迭代</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件"><span class="nav-number">11.</span> <span class="nav-text">插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#懒加载插件"><span class="nav-number">11.1.</span> <span class="nav-text">懒加载插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fullpage插件"><span class="nav-number">11.2.</span> <span class="nav-text">fullpage插件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#引入文件"><span class="nav-number">11.2.1.</span> <span class="nav-text">引入文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#html"><span class="nav-number">11.2.2.</span> <span class="nav-text">html</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js"><span class="nav-number">11.2.3.</span> <span class="nav-text">js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可选配置"><span class="nav-number">11.2.4.</span> <span class="nav-text">可选配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jqueryUI插件"><span class="nav-number">11.3.</span> <span class="nav-text">jqueryUI插件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#引入文件-1"><span class="nav-number">11.3.1.</span> <span class="nav-text">引入文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#html-1"><span class="nav-number">11.3.2.</span> <span class="nav-text">html</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js-1"><span class="nav-number">11.3.3.</span> <span class="nav-text">js</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件制作"><span class="nav-number">11.4.</span> <span class="nav-text">插件制作</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">honey young</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+     <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+      本站访客数:<span id="busuanzi_value_site_uv"></span>
+     </span>
+  </div>
+<!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div> 
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
