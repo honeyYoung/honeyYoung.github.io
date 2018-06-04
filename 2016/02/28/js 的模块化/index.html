@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="hbge3GnQvk" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="js,模块化," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Honey Young" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="历史上，JavaScript一直没有模块（module）体系，无法将一个大程序拆分成互相依赖的小文件，再用简单的方法拼装起来。其他语言都有这项功能，比如 Ruby 的 require、Python 的 import ，甚至就连 CSS 都有 @import ，c 语言中的 include，但是 JavaScript 任何这方面的支持都没有，这对开发大型的、复杂的项目形成了巨大障碍。 JavaScr">
+<meta name="keywords" content="js,模块化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js 的模块化">
+<meta property="og:url" content="http://yoursite.com/2016/02/28/js 的模块化/index.html">
+<meta property="og:site_name" content="Honey Young">
+<meta property="og:description" content="历史上，JavaScript一直没有模块（module）体系，无法将一个大程序拆分成互相依赖的小文件，再用简单的方法拼装起来。其他语言都有这项功能，比如 Ruby 的 require、Python 的 import ，甚至就连 CSS 都有 @import ，c 语言中的 include，但是 JavaScript 任何这方面的支持都没有，这对开发大型的、复杂的项目形成了巨大障碍。 JavaScr">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-04T03:28:49.558Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js 的模块化">
+<meta name="twitter:description" content="历史上，JavaScript一直没有模块（module）体系，无法将一个大程序拆分成互相依赖的小文件，再用简单的方法拼装起来。其他语言都有这项功能，比如 Ruby 的 require、Python 的 import ，甚至就连 CSS 都有 @import ，c 语言中的 include，但是 JavaScript 任何这方面的支持都没有，这对开发大型的、复杂的项目形成了巨大障碍。 JavaScr">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'honey young'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/02/28/js 的模块化/"/>
+
+
+
+
+
+  <title>js 的模块化 | Honey Young</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Honey Young</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">小杨鹤</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/02/28/js 的模块化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="honey young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Honey Young">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js 的模块化</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-28T00:00:00+08:00">
+                2016-02-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS系列/" itemprop="url" rel="index">
+                    <span itemprop="name">JS系列</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>历史上，JavaScript一直没有模块（module）体系，无法将一个大程序拆分成互相依赖的小文件，再用简单的方法拼装起来。其他语言都有这项功能，比如 Ruby 的 <code>require</code>、Python 的 <code>import</code> ，甚至就连 CSS 都有 <code>@import</code> ，c 语言中的 <code>include</code>，但是 JavaScript 任何这方面的支持都没有，这对开发大型的、复杂的项目形成了巨大障碍。</p>
+<h2 id="JavaScript-模块化开发"><a href="#JavaScript-模块化开发" class="headerlink" title="JavaScript 模块化开发"></a>JavaScript 模块化开发</h2><h2 id="模块化介绍"><a href="#模块化介绍" class="headerlink" title="模块化介绍"></a>模块化介绍</h2><p><strong>当你的网站开发越来越复杂的时候，会经常遇到什么问题？</strong></p>
+<p>1、模块化思想可以让开发更高效<br>2、实现模块化需要解决一个任务，这个任务就是依赖关系<br>3、浏览器端 js 是天然不能实现模块<br>4、有一些库弥补了浏览器端 js 的一些缺陷，实现了模块化并解决了依赖关系</p>
+<blockquote>
+<p>将这种库称为模块加载器，RequireJS、SeaJS</p>
+</blockquote>
+<p>这些模块加载器定义了自己的规范，必须尊早这些规范才能正常工作。</p>
+<p>以 SeaJS 为例子：</p>
+<a id="more"></a>
+<ul>
+<li>通过 define() 方法来定义模块</li>
+<li>通过 use() 方法来加载/执行模块</li>
+<li>通过 require() 方法来引入模块</li>
+<li>通过 exports/module.exports 暴漏模块功能</li>
+</ul>
+<p><code>Sea.js</code>可以解决命名空间污染、文件依赖的问题。</p>
+<ul>
+<li>模块的作用就是：私有空间</li>
+<li><p>可以加载，可以导出</p>
+</li>
+<li><p>什么是模块化</p>
+<ul>
+<li>模块化是指解决一个复杂问题时自顶向下逐层把系统划分成若干模块的过程，有多种属性，分别反映其内部特性。</li>
+<li>解决复杂问题的一种方式而已</li>
+<li>电脑：CPU、主板、显示器、内存、硬盘、输入与输出设备</li>
+</ul>
+</li>
+<li><p>使用模块化开发的方式带来的好处</p>
+<ul>
+<li>生产效率高</li>
+<li>可维护性高</li>
+</ul>
+</li>
+</ul>
+<h2 id="模块化开发演变"><a href="#模块化开发演变" class="headerlink" title="模块化开发演变"></a>模块化开发演变</h2><h3 id="全局函数"><a href="#全局函数" class="headerlink" title="全局函数"></a>全局函数</h3><ul>
+<li>污染了全局变量</li>
+<li>模块成员之间看不出直接关系</li>
+</ul>
+<h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><ul>
+<li>理论意义上减少了变量冲突</li>
+<li>缺点1：暴露了模块中所有的成员，内部状态可以被外部改写，不安全</li>
+<li>缺点2：命名空间会越来越长</li>
+</ul>
+<h3 id="私有空间"><a href="#私有空间" class="headerlink" title="私有空间"></a>私有空间</h3><ul>
+<li>私有空间的变量和函数不会影响全局作用域</li>
+<li>公开公有方法，隐藏私有属性</li>
+</ul>
+<h3 id="模块的维护和扩展"><a href="#模块的维护和扩展" class="headerlink" title="模块的维护和扩展"></a>模块的维护和扩展</h3><ul>
+<li>开闭原则</li>
+<li>可维护性好</li>
+</ul>
+<h3 id="模块的第三方依赖"><a href="#模块的第三方依赖" class="headerlink" title="模块的第三方依赖"></a>模块的第三方依赖</h3><ul>
+<li>保证模块的独立性</li>
+<li>模块之间的依赖关系变得明显</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>以后如果不使用第三方规范的情况下，如果写模块可以采用下面这种方式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 分号是什么意思</span></span><br><span class="line"><span class="comment">// 2. 为什么要给你的代码加一个匿名自执行函数</span></span><br><span class="line"><span class="comment">// 3. 为什么要把使用的依赖作为参数传递进来</span></span><br><span class="line">;(<span class="function"><span class="keyword">function</span> (<span class="params">形参模块名, 依赖项, 依赖项</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 通过 形参模块名 修改模块</span></span><br><span class="line">  <span class="comment">// 如果需要，可以通过给 window 对象挂载属性对外暴露内部成员</span></span><br><span class="line">  <span class="built_in">window</span>.模块名 = 形参模块名</span><br><span class="line">&#125;)(<span class="built_in">window</span>.模块名 || &#123;&#125;, 依赖项, 依赖项)</span><br></pre></td></tr></table></figure>
+<h2 id="模块化规范"><a href="#模块化规范" class="headerlink" title="模块化规范"></a>模块化规范</h2><h3 id="模块系统理解"><a href="#模块系统理解" class="headerlink" title="模块系统理解"></a>模块系统理解</h3><p>自然界生态系统、计算机操作系统、软件办公系统，还有教育系统、金融系统、网络系统、理论系统等等。究竟什么是系统呢？</p>
+<p>简单来说，系统有两个基本特性：</p>
+<ol>
+<li>系统由个体组成</li>
+<li>个体之间有关联，按照规则协同完成任务</li>
+</ol>
+<p>系统之间的个体可以成为系统成员，要构建一个系统，最基本的层面需要做两件事：</p>
+<ol>
+<li><strong>定义系统成员</strong>：确定成员是什么<ul>
+<li>模块是一个 JavaScript 文件</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>每一个模块都使用 <code>define</code> 函数去定义</li>
+</ul>
+<ol start="2">
+<li><strong>约定系统通讯</strong>：确定成员之间如何交互，遵循的规则是什么<ul>
+<li>一个 SeaJS 模块默认就是私有作用域</li>
+<li>如果想要被外部文件模块所访问，就必须把要公开的属性挂载给 <code>module.exports</code> 对象接口</li>
+<li>使用 <code>require</code> 函数可以加载一个指定的模块，得到该模块代码中暴露的接口对象</li>
+</ul>
+</li>
+<li>如何启动整个模块系统<ul>
+<li>在 html 页面中使用 <code>seajs.use()</code> 方法，指定一个入口文件模块</li>
+</ul>
+</li>
+</ol>
+<p>Sea.js 是一个适用于 Web 浏览器端的模块加载器。在 Sea.js 里，一切皆是模块，所有模块协同构建成模块系统。Sea.js 首要要解决的是模块系统的基本问题：</p>
+<ol>
+<li>模块是什么？</li>
+<li>模块之间如何交互？</li>
+</ol>
+<p>在前端开发领域，一个模块，可以是JS 模块，也可以是 CSS 模块，或是 Template 等模块。而 Sea.js 则专注于 JS 文件模块：</p>
+<ol>
+<li>模块是一段 JavaScript 代码，具有统一的 基本书写格式</li>
+<li>模块之间通过基本 交互规则 ，能彼此引用，协同工作</li>
+</ol>
+<p>把上面两点中提及的基本书写格式和基本交互规则描述清楚，就能构建出一个模块系统。对书写格式和交互规则的详细描述，就是模块定义规范（Module Definition Specification）。</p>
+<p>比如 CommonJS 社区的 <code>Modules 1.1.1</code> 规范，以及 <code>NodeJS 的 Modules</code> 规范，还有 RequireJS 提出的 AMD 规范等等。</p>
+<p>Sea.js 遵循的是 <code>CMD</code> 规范。</p>
+<h3 id="常见的-JavaScript-模块化规范"><a href="#常见的-JavaScript-模块化规范" class="headerlink" title="常见的 JavaScript 模块化规范"></a>常见的 JavaScript 模块化规范</h3><p>规范其实就是这些库在推广的过程中逐渐形成的一套规则。</p>
+<p>所谓的规范也就是：</p>
+<ul>
+<li>定义了模块的书写格式</li>
+<li><p>以及模块之间的交互规则</p>
+</li>
+<li><p>Node 环境</p>
+<ul>
+<li>CommonJS</li>
+<li>这里先放在这里，Node 还没有学习，学到 Node 的时候，再说这个问题</li>
+</ul>
+</li>
+<li>浏览器环境<ul>
+<li>AMD<ul>
+<li>RequireJS</li>
+</ul>
+</li>
+<li>CMD Common Module Definition<ul>
+<li>CMD 就是 SeaJS 这个模块加载器在推广的过程中定义的一个模块规范</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ECMAScript<ul>
+<li>ECMAScript 6</li>
+</ul>
+</li>
+<li>UMD</li>
+</ul>
+<p>CMD、AMD、CommonJS 都是社区制定出来的模块规范，他们的目的都是为了解决 JavaScript 没有模块化系统的问题。他们都有如何定义模块成员，以及模块成员之间如何进行通信交互的规则。</p>
+<p>2015 年 9 月份，ECMAScript 官方推出了 ECMAScript 6 语言标准。在最新的 ES6 语言规范标准中制定了 JavaScript 模块化规范，通过 <code>export</code> 和 <code>import</code> 两个关键字来作为交互规则。</p>
+<p>ES6 才是未来的趋势，以后的大一统。</p>
+<p>前端发展非常快，不是说出了新技术马上就用，而是这个破玩儿还没发布正式版，都已经怼到生产环境了。所有任何功能，都可以使用 js 来实现。</p>
+<ul>
+<li>electron<ul>
+<li>使用 HTML+CSS+JavaScript+Node 构建跨平台桌面应用程序</li>
+</ul>
+</li>
+</ul>
+<h2 id="SeaJS"><a href="#SeaJS" class="headerlink" title="SeaJS"></a>SeaJS</h2><blockquote>
+<p>A Module Loader for the Web, Enjoy the fun of programming.</p>
+</blockquote>
+<ul>
+<li>提供简单、极致的模块化开发体验</li>
+<li>A Module Loader for the Web</li>
+<li>JavaScript 模块加载器</li>
+<li>可以实现 在 JavaScript 代码中去加载另一个 JavaScript 代码。</li>
+</ul>
+<h3 id="SeaJS-介绍"><a href="#SeaJS-介绍" class="headerlink" title="SeaJS 介绍"></a>SeaJS 介绍</h3><p>SeaJS 带来的最大好处是：提升代码的可维护性。如果一个网站的 JS 文件超过 3 个，就适合用 SeaJS 来组织和维护代码。涉及的 JS 文件越多，SeaJS 就越适合。</p>
+<ul>
+<li><p>关于 SeaJS</p>
+<ul>
+<li>SeaJS 是一个适用于浏览器环境的 JavaScript 模块加载器<ul>
+<li>一个库文件，类似于 jQuery</li>
+<li>使用这个库提供的规范的模块化的方式来编写 JavaScript 代码</li>
+<li>只关心 JavaScript 文件代码模块如何组织</li>
+<li>只关心 JavaScript 文件之间如何相互协议、引用、依赖</li>
+</ul>
+</li>
+<li>SeaJS 的作者是阿里巴巴支付宝前端架构师：玉伯<ul>
+<li>Sea.js创始人玉伯的前端开发之路</li>
+</ul>
+</li>
+<li>SeaJS</li>
+<li>SeaJS -github</li>
+</ul>
+</li>
+<li><p>为什么学习和使用 SeaJS ？</p>
+<ul>
+<li><strong>简单友好的模块定义规范</strong>：SeaJS 遵循 CMD 规范，可以像 Node 一样书写模块代码</li>
+<li><strong>自然直观的代码组织方式</strong>：依赖的自动加载、配置简洁清晰，可以让我们更多的享受编码的乐趣</li>
+<li>SeaJS兼容性非常好，几乎可以运行在任何浏览器引擎上</li>
+<li>注1：SeaJS 只是实现模块化开发的一种方式或者说一种工具而已，重在模块化思想的理解</li>
+<li>注2：因为 SeaJS 采用的 CMD 模块规范和 Node 中的 CommonJS 模块规范非常一致，所以有利于我们学习 Node 中的模块化编程</li>
+</ul>
+</li>
+<li><p>谁在用？</p>
+<ul>
+<li>淘宝网、支付宝、京东、爱奇艺。。。</li>
+</ul>
+</li>
+<li><p>SeaJS 使用场景</p>
+<ul>
+<li>SeaJS 不提供任何功能性 API，只提供了解决 JavaScript 代码的命名污染和文件依赖的问题</li>
+<li>所以 SeaJS 可以和 jQuery、underscore 等库结合使用</li>
+<li>例如 只写写 原生 JavaScript 或者用了一些第三方库</li>
+</ul>
+</li>
+</ul>
+<h3 id="快速上手（Getting-Started）"><a href="#快速上手（Getting-Started）" class="headerlink" title="快速上手（Getting Started）"></a>快速上手（Getting Started）</h3><ol>
+<li>下载 sea.js 库文件<ul>
+<li><a href="https://github.com/seajs/seajs/releases" target="_blank" rel="noopener">SeaJS - Release</a></li>
+<li><code>bower install seajs</code></li>
+<li><code>npm install seajs</code></li>
+</ul>
+</li>
+<li>在页面中引入 sea.js</li>
+<li>使用 <code>define</code> 函数定义模块</li>
+<li>使用 <code>require</code> 函数加载模块</li>
+<li>使用 <code>module.exports</code> 对外暴露接口对象</li>
+<li>使用 <code>seajs.use</code> 函数启动模块系统</li>
+</ol>
+<h3 id="API-详解"><a href="#API-详解" class="headerlink" title="API 详解"></a>API 详解</h3><h4 id="seajs-use-加载模块-普通路径"><a href="#seajs-use-加载模块-普通路径" class="headerlink" title="seajs.use 加载模块-普通路径"></a><code>seajs.use</code> 加载模块-普通路径</h4><p>加载模块，启动模块系统。</p>
+<ul>
+<li>加载一个模块 <code>seajs.use(&#39;id&#39;)</code></li>
+<li>加载一个模块，在加载完成时，执行回调 <code>seajs.use(&#39;id&#39;, callback)</code></li>
+<li><p>加载多个模块，加载完成时，执行回调 <code>seajs.use([&#39;id1&#39;,&#39;id2&#39;,...],callback)</code></p>
+</li>
+<li><p>注意：</p>
+<ul>
+<li>在调用 seajs.use 之前，需要先引入 sea.js 文件</li>
+<li>seajs.use 与 <code>DOM ready</code> 事件没有任何关系。如果某些操作要确保在 <code>DOM ready</code> 后执行，需要使用 jquery 等类库来保证</li>
+<li>seajs.use 理论上只用于加载启动，不应该出现在 <code>define</code> 中的模块代码里</li>
+</ul>
+</li>
+</ul>
+<h4 id="define-factory"><a href="#define-factory" class="headerlink" title="define(factory)"></a><code>define(factory)</code></h4><ul>
+<li><code>define</code> 是一个全局函数，用来定义模块。</li>
+<li><code>define</code> 接受 <code>factory</code> 参数，<code>factory</code> 可以是一个函数，也可以是一个对象或字符串。</li>
+<li><code>factory</code> 为对象、字符串时，表示模块的接口就是该对象、字符串。</li>
+<li>factory 是一个对象<ul>
+<li><code>define({})</code></li>
+</ul>
+</li>
+<li>factory 是一个字符串时<ul>
+<li><code>define(&#39;hello&#39;)</code></li>
+</ul>
+</li>
+<li>factory 是一个函数时<ul>
+<li><code>define(function(require, exports, module){})</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="require-解决依赖"><a href="#require-解决依赖" class="headerlink" title="require 解决依赖"></a><code>require</code> 解决依赖</h4><blockquote>
+<p>相对路径：相对于当前模块来说的</p>
+</blockquote>
+<ul>
+<li>require 用来加载一个 js 文件模块，相对路径：相对于当前模块来说的</li>
+<li>require 用来获取指定模块的接口对象 <code>module.exports</code>。</li>
+<li>require 在加载和执行的时候，js 会按照同步的方式和执行。</li>
+</ul>
+<p>使用注意：</p>
+<ul>
+<li>正确拼写<ul>
+<li>模块 factory 构造方法的第一个参数 <code>必须</code> 命名为 require</li>
+</ul>
+</li>
+<li>不要修改<ul>
+<li>不要重命名 require 函数，或在任何作用域中给 require 重新赋值</li>
+</ul>
+</li>
+<li>使用字符串直接量<ul>
+<li>require 的参数值 必须 是字符串直接量</li>
+</ul>
+</li>
+</ul>
+<h4 id="模块标识"><a href="#模块标识" class="headerlink" title="模块标识"></a>模块标识</h4><p>模块标识是一个字符串，用来标识模块。</p>
+<ul>
+<li>模块标识可以不包含文件后缀名，比如 <code>.js</code><ul>
+<li>seajs 推荐不加 .js 文件模块后缀</li>
+</ul>
+</li>
+<li>模块标识可以是 <strong>相对</strong> 或 <strong>顶级</strong> 标识</li>
+<li>相对标识</li>
+</ul>
+<p>相对标识以 <code>.</code> 开头，永远相对于当前模块所处的路径来解析。</p>
+<ul>
+<li>顶级标识</li>
+</ul>
+<p>顶级标识不以 <code>.</code> 或 <code>/</code>开始，会相对模块系统的基础路径（base路径，默认是 sea.js 文件所属的路径）。可以手动配置 base 路径。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">seajs.config(&#123;</span><br><span class="line">  base: <span class="string">'./js'</span>;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>普通路径（相对于 html 路径来说的）<br>除了相对和顶级标识之外的标识都是普通路径。普通路径的解析规则，会相对当前页面解析。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 假设当前页面是 http://example.com/path/to/page/index.html</span></span><br><span class="line"><span class="comment">// 绝对路径是普通路径：</span></span><br><span class="line"><span class="built_in">require</span>.resolve(<span class="string">'http://cdn.com/js/a'</span>);</span><br><span class="line"><span class="comment">// =&gt; http://cdn.com/js/a.js</span></span><br><span class="line"><span class="comment">// 根路径是普通路径：</span></span><br><span class="line"><span class="built_in">require</span>.resolve(<span class="string">'/js/b'</span>);</span><br><span class="line"><span class="comment">// =&gt; http://example.com/js/b.js</span></span><br><span class="line"><span class="comment">// use 中的相对路径始终是普通路径：</span></span><br><span class="line">seajs.use(<span class="string">'./c'</span>);</span><br><span class="line">  <span class="comment">// =&gt; 加载的是 http://example.com/path/to/page/c.js</span></span><br><span class="line">seajs.use(<span class="string">'../d'</span>);</span><br><span class="line">  <span class="comment">// =&gt; 加载的是 http://example.com/path/to/d.js</span></span><br></pre></td></tr></table></figure>
+<p><strong>Tips:</strong></p>
+<ul>
+<li>顶级标识始终相对 <code>base</code> 基础路径解析。<ul>
+<li>如果不设置，base 路径默认就是 sea.js 库文件所属的路径</li>
+<li>可以通过 <code>seajs.config({ base: &#39;基础路径&#39; })</code> 来配置基础路径</li>
+</ul>
+</li>
+<li>绝对路径和根路径始终相对当前页面解析。</li>
+<li>相对标识永远相对于当前文件</li>
+<li><code>seajs.use</code> 中的相对路径始终相对当前页面来解析。</li>
+</ul>
+<h4 id="module"><a href="#module" class="headerlink" title="module"></a>module</h4><p>module 是一个对象，上面存储了与当前模块相关联的一些属性和方法。</p>
+<ul>
+<li><code>module.id</code><ul>
+<li>模块的唯一标识，可以通过 <code>define</code> 方法的第一个参数来指定，默认为该模块文件的绝对路径</li>
+</ul>
+</li>
+<li><code>module.uri</code><ul>
+<li>模块的绝对路径</li>
+</ul>
+</li>
+<li><code>module.dependencies</code><ul>
+<li>dependencies 是一个数组，表示当前模块的依赖</li>
+</ul>
+</li>
+<li><code>module.exports</code><ul>
+<li>当前模块对外提供的接口对象</li>
+<li>相当于每个模块内部最终都执行了这么一句话：<code>return module.exports</code></li>
+<li>模块与模块之间的通信接口</li>
+</ul>
+</li>
+</ul>
+<h4 id="exports"><a href="#exports" class="headerlink" title="exports"></a>exports</h4><p>exports 仅仅是 module.exports 的一个引用。也就是说修改了 exports 就相当于修改了 module.exports。</p>
+<p>但是一旦在 factory 内部给 exports 重新赋值，并不会改变 module.exports 的值。因此给 exports 赋值是无效的。</p>
+<blockquote>
+<p>return 也是暴露，等于 module.exports</p>
+</blockquote>
+<p>例如 jQuery 模块化</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// support seajs</span></span><br><span class="line"><span class="keyword">if</span> ( <span class="keyword">typeof</span> define === <span class="string">"function"</span> &amp;&amp; define.cmd ) &#123;</span><br><span class="line">  define( <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> jQuery; &#125; );</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"><span class="keyword">if</span> ( <span class="keyword">typeof</span> define === <span class="string">"function"</span> &amp;&amp; define.cmd ) &#123;</span><br><span class="line">  define( <span class="function"><span class="keyword">function</span> (<span class="params">require, exports, module</span>) </span>&#123; </span><br><span class="line">    <span class="built_in">module</span>.exports = jQuery;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>jQuery 插件包装成模块</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">factory</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> define === <span class="string">'function'</span> &amp;&amp; define.cmd) &#123;</span><br><span class="line">    define(<span class="function"><span class="keyword">function</span>(<span class="params">require</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">var</span> $ = <span class="built_in">require</span>(<span class="string">'jquery'</span>);</span><br><span class="line">      factory($);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// jQuery 的插件代码</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="exports-和-module-exports-的区别"><a href="#exports-和-module-exports-的区别" class="headerlink" title="exports 和 module.exports 的区别"></a>exports 和 module.exports 的区别</h3><ul>
+<li>每个模块内部对外到处的接口对象始终都是 <code>module.exports</code></li>
+<li>可以通过修改 <code>module.exports</code> 或给它赋值改变模块接口对象</li>
+<li><code>exports</code> 是 <code>module.exports</code> 的一个引用，就好比在每一个模块定义最开始的地方写了这么一句代码：<code>var exports = module.exports</code><br>分析下面代码：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="built_in">module</span> = &#123;</span><br><span class="line">  exports: &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeExports</span> (<span class="params">exports, module</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// var exports = module.exports</span></span><br><span class="line">  exports.foo = <span class="string">'bar'</span></span><br><span class="line">  <span class="comment">// 这里赋值拿不到，不要使用使用</span></span><br><span class="line">  <span class="comment">// exports = function () &#123;&#125;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">module</span>.exports</span><br><span class="line">&#125;</span><br><span class="line">changeExports(<span class="built_in">module</span>.exports, <span class="built_in">module</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="如何将一个普通的模块文件改造为兼容-CMD-规范的模块"><a href="#如何将一个普通的模块文件改造为兼容-CMD-规范的模块" class="headerlink" title="如何将一个普通的模块文件改造为兼容 CMD 规范的模块"></a>如何将一个普通的模块文件改造为兼容 CMD 规范的模块</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> define === <span class="string">"function"</span> &amp;&amp; define.cmd) &#123;</span><br><span class="line">  <span class="comment">// 有 Sea.js 等 CMD 模块加载器存在</span></span><br><span class="line">  define(<span class="function"><span class="keyword">function</span> (<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 使用 module.exports 向外暴露接口对象</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="高级配置-seajs-config-options"><a href="#高级配置-seajs-config-options" class="headerlink" title="高级配置 seajs.config(options)"></a>高级配置 <code>seajs.config(options)</code></h3><p>可以对 Sea.js 进行配置，让模块编写、开发调试更方便。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">seajs.config(&#123;</span><br><span class="line">  <span class="comment">// 别名配置</span></span><br><span class="line">  alias: &#123;</span><br><span class="line">    <span class="string">'es5-safe'</span>: <span class="string">'gallery/es5-safe/0.9.3/es5-safe'</span>,</span><br><span class="line">    <span class="string">'json'</span>: <span class="string">'gallery/json/1.0.2/json'</span>,</span><br><span class="line">    <span class="string">'jquery'</span>: <span class="string">'jquery/jquery/1.10.1/jquery'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 路径配置</span></span><br><span class="line">  paths: &#123;</span><br><span class="line">    <span class="string">'gallery'</span>: <span class="string">'https://a.alipayobjects.com/gallery'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// Sea.js 的基础路径</span></span><br><span class="line">  base: <span class="string">'http://example.com/path/to/base/'</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="使用-SeaJS-开发计算器案例"><a href="#使用-SeaJS-开发计算器案例" class="headerlink" title="使用 SeaJS 开发计算器案例"></a>使用 SeaJS 开发计算器案例</h3><ul>
+<li>index.html</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;title&gt;SeaJS - 计算器案例&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;input type=<span class="string">"text"</span> id=<span class="string">"x"</span>&gt;</span><br><span class="line">  &lt;select name=<span class="string">""</span> id=<span class="string">"opt"</span>&gt;</span><br><span class="line">    &lt;option value=<span class="string">"0"</span>&gt;+&lt;/option&gt;</span><br><span class="line">    &lt;option value=<span class="string">"1"</span>&gt;-&lt;/option&gt;</span><br><span class="line">    &lt;option value=<span class="string">"2"</span>&gt;*&lt;/option&gt;</span><br><span class="line">    &lt;option value=<span class="string">"3"</span>&gt;<span class="regexp">/&lt;/</span>option&gt;</span><br><span class="line">  &lt;<span class="regexp">/select&gt;</span></span><br><span class="line"><span class="regexp">  &lt;input type="text" id="y"&gt;</span></span><br><span class="line"><span class="regexp">  &lt;button id="cal"&gt;=&lt;/</span>button&gt;</span><br><span class="line">  &lt;input type=<span class="string">"text"</span> id=<span class="string">"result"</span>&gt;</span><br><span class="line">  &lt;!-- </span><br><span class="line">    模块系统：</span><br><span class="line">      <span class="number">1.</span> 定义模块成员</span><br><span class="line">      <span class="number">2.</span> 设定交互规则</span><br><span class="line">    <span class="number">0.</span> 引包</span><br><span class="line">    <span class="number">1.</span> 使用 define 定义一个模块，所有代码写到 define 回调函数中</span><br><span class="line">    <span class="number">2.</span> 使用 <span class="built_in">module</span>.exports 作为模块与模块之间的通信接口对象</span><br><span class="line">    <span class="number">3.</span> 使用 requrie 函数加载模块，执行模块中的代码，得到模块中的 <span class="built_in">module</span>.exports 接口对象</span><br><span class="line">    <span class="number">4.</span> 使用 seajs.use 方法，启动模块系统，类似于电脑开机</span><br><span class="line">   --&gt;</span><br><span class="line">  &lt;script src=<span class="string">"../node_modules/seajs/dist/sea.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    seajs.use(<span class="string">'./js/main'</span>)</span><br><span class="line">  &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>main.js 文件</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span> (<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> $ = <span class="built_in">require</span>(<span class="string">'../../node_modules/jquery/dist/jquery'</span>);</span><br><span class="line">  <span class="comment">// 如果想要拿到 jQuery 接口对象，那么 jquery.js 文件内部必须显示的通过 moudle.exports 向外暴露</span></span><br><span class="line">  <span class="keyword">var</span> cal = <span class="built_in">require</span>(<span class="string">'./cal/index'</span>);</span><br><span class="line">  <span class="keyword">var</span> oX = <span class="built_in">document</span>.querySelector(<span class="string">'#x'</span>);</span><br><span class="line">  <span class="keyword">var</span> oOpt = <span class="built_in">document</span>.querySelector(<span class="string">'#opt'</span>);</span><br><span class="line">  <span class="keyword">var</span> oY = <span class="built_in">document</span>.querySelector(<span class="string">'#y'</span>);</span><br><span class="line">  <span class="keyword">var</span> oResult = <span class="built_in">document</span>.querySelector(<span class="string">'#result'</span>);</span><br><span class="line">  <span class="keyword">var</span> oCal = <span class="built_in">document</span>.querySelector(<span class="string">'#cal'</span>);</span><br><span class="line">  oCal.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> opt = oOpt.value;</span><br><span class="line">    <span class="keyword">var</span> result = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> x = oX.value;</span><br><span class="line">    <span class="keyword">var</span> y = oY.value;</span><br><span class="line">    <span class="keyword">switch</span> (opt) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">'0'</span>:</span><br><span class="line">        result = cal.add(x, y);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">'1'</span>:</span><br><span class="line">        result = cal.sub(x, y);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">'2'</span>:</span><br><span class="line">        result = cal.multiply(x, y);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">'3'</span>:</span><br><span class="line">        result = cal.divide(x, y);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    oResult.value = result;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>index.js</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 每个文件模块中默认对外的接口对象就是 module.exports</span></span><br><span class="line"><span class="comment"> * 同时 SeaJS 还提供了一个接口对象 exports</span></span><br><span class="line"><span class="comment"> * 注意：exports 是 module.exports 接口对象的一个引用</span></span><br><span class="line"><span class="comment"> *       也就是说：修改了 exports 相当于修改了 module.exports</span></span><br><span class="line"><span class="comment"> *       但是，如果想要向外部暴露一个单独的变量、函数等成员，</span></span><br><span class="line"><span class="comment"> *       那就必须通过给 module.exports 赋值才可以</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">define(<span class="function"><span class="keyword">function</span> (<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line">  exports.add = <span class="built_in">require</span>(<span class="string">'./add'</span>);</span><br><span class="line">  exports.sub = <span class="built_in">require</span>(<span class="string">'./sub'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>add.js</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span> (<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> (<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">parseFloat</span>(x) + <span class="built_in">parseFloat</span>(y);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>sub.js</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span> (<span class="params">require, exports, module</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> (<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">parseFloat</span>(x) - <span class="built_in">parseFloat</span>(y);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢您的支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="honey young 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="honey young 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
+          
+            <a href="/tags/模块化/" rel="tag"><i class="fa fa-tag"></i> 模块化</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/18/Gulp 构建工具/" rel="next" title="Gulp 构建工具">
+                <i class="fa fa-chevron-left"></i> Gulp 构建工具
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/18/AngularJS项目流程/" rel="prev" title="AngularJS 框架">
+                AngularJS 框架 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            博文目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概要
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="honey young" />
+            
+              <p class="site-author-name" itemprop="name">honey young</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/honeyYoung/honeyyoung.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/de13fcfe3889" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/dong-gua-xiao-ke-ai/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-模块化开发"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 模块化开发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块化介绍"><span class="nav-number">2.</span> <span class="nav-text">模块化介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块化开发演变"><span class="nav-number">3.</span> <span class="nav-text">模块化开发演变</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#全局函数"><span class="nav-number">3.1.</span> <span class="nav-text">全局函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命名空间"><span class="nav-number">3.2.</span> <span class="nav-text">命名空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#私有空间"><span class="nav-number">3.3.</span> <span class="nav-text">私有空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块的维护和扩展"><span class="nav-number">3.4.</span> <span class="nav-text">模块的维护和扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块的第三方依赖"><span class="nav-number">3.5.</span> <span class="nav-text">模块的第三方依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.6.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块化规范"><span class="nav-number">4.</span> <span class="nav-text">模块化规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模块系统理解"><span class="nav-number">4.1.</span> <span class="nav-text">模块系统理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的-JavaScript-模块化规范"><span class="nav-number">4.2.</span> <span class="nav-text">常见的 JavaScript 模块化规范</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SeaJS"><span class="nav-number">5.</span> <span class="nav-text">SeaJS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SeaJS-介绍"><span class="nav-number">5.1.</span> <span class="nav-text">SeaJS 介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速上手（Getting-Started）"><span class="nav-number">5.2.</span> <span class="nav-text">快速上手（Getting Started）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#API-详解"><span class="nav-number">5.3.</span> <span class="nav-text">API 详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#seajs-use-加载模块-普通路径"><span class="nav-number">5.3.1.</span> <span class="nav-text">seajs.use 加载模块-普通路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#define-factory"><span class="nav-number">5.3.2.</span> <span class="nav-text">define(factory)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#require-解决依赖"><span class="nav-number">5.3.3.</span> <span class="nav-text">require 解决依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块标识"><span class="nav-number">5.3.4.</span> <span class="nav-text">模块标识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#module"><span class="nav-number">5.3.5.</span> <span class="nav-text">module</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#exports"><span class="nav-number">5.3.6.</span> <span class="nav-text">exports</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exports-和-module-exports-的区别"><span class="nav-number">5.4.</span> <span class="nav-text">exports 和 module.exports 的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何将一个普通的模块文件改造为兼容-CMD-规范的模块"><span class="nav-number">5.5.</span> <span class="nav-text">如何将一个普通的模块文件改造为兼容 CMD 规范的模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级配置-seajs-config-options"><span class="nav-number">5.6.</span> <span class="nav-text">高级配置 seajs.config(options)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-SeaJS-开发计算器案例"><span class="nav-number">5.7.</span> <span class="nav-text">使用 SeaJS 开发计算器案例</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">honey young</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+     <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+      本站访客数:<span id="busuanzi_value_site_uv"></span>
+     </span>
+  </div>
+<!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div> 
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>

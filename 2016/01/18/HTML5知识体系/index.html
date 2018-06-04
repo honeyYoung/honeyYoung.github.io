@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="hbge3GnQvk" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="HTML5," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Honey Young" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="简介、h5语义化标签、经典布局123&amp;lt;!--[if lt IE 9]&amp;gt;&amp;lt;script src=&quot;js/html5shiv.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;![endif]--&amp;gt;  html骨架 经典网页布局 语义化标签 header、nav、main、session、article、aside、figure、footer、mark、progres">
+<meta name="keywords" content="HTML5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5知识体系">
+<meta property="og:url" content="http://yoursite.com/2016/01/18/HTML5知识体系/index.html">
+<meta property="og:site_name" content="Honey Young">
+<meta property="og:description" content="简介、h5语义化标签、经典布局123&amp;lt;!--[if lt IE 9]&amp;gt;&amp;lt;script src=&quot;js/html5shiv.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;![endif]--&amp;gt;  html骨架 经典网页布局 语义化标签 header、nav、main、session、article、aside、figure、footer、mark、progres">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-04T02:19:34.695Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5知识体系">
+<meta name="twitter:description" content="简介、h5语义化标签、经典布局123&amp;lt;!--[if lt IE 9]&amp;gt;&amp;lt;script src=&quot;js/html5shiv.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;![endif]--&amp;gt;  html骨架 经典网页布局 语义化标签 header、nav、main、session、article、aside、figure、footer、mark、progres">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'honey young'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/01/18/HTML5知识体系/"/>
+
+
+
+
+
+  <title>HTML5知识体系 | Honey Young</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Honey Young</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">小杨鹤</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/01/18/HTML5知识体系/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="honey young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Honey Young">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HTML5知识体系</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-18T00:00:00+08:00">
+                2016-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML5系列/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML5系列</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="简介、h5语义化标签、经典布局"><a href="#简介、h5语义化标签、经典布局" class="headerlink" title="简介、h5语义化标签、经典布局"></a>简介、h5语义化标签、经典布局</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--[<span class="keyword">if</span> lt IE <span class="number">9</span>]&gt;</span><br><span class="line">&lt;script src=<span class="string">"js/html5shiv.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;![endif]--&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>html骨架</li>
+<li>经典网页布局</li>
+<li>语义化标签 header、nav、main、session、article、aside、figure、footer、mark、progress、hgroup(已废弃)、time、details、bdi、command、summary、rp、rt、ruby</li>
+<li>兼容h5标签的插件 html5shiv.min.js</li>
+</ul>
+<a id="more"></a>
+<h2 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h2><ul>
+<li><p>表单类型</p>
+<ul>
+<li>text</li>
+<li>password</li>
+<li>radio</li>
+<li>checkbox</li>
+<li>button</li>
+<li>submit</li>
+<li>reset</li>
+<li>image</li>
+<li>file</li>
+<li>hidden</li>
+<li>email</li>
+<li>color</li>
+<li>url</li>
+<li>number 、search、range 、tel、time、date、datetime、week、month、datetime-local</li>
+</ul>
+</li>
+<li><p>表单元素</p>
+</li>
+<li><p>表单属性</p>
+<ul>
+<li>placeholder 占位符</li>
+<li>autofocus 获取焦点</li>
+<li>multiple 文件上传多选或多个邮箱地址</li>
+<li>autocomplete 自动完成，用于form元素，也可用于部分input，默认值on</li>
+<li>form 指定表单项属于哪个form，处理复杂表单时会需要</li>
+<li>novalidate 关闭验证，可用于</li>
+<li>标签，（只适应用form）</li>
+<li>required 验证条件，必填项</li>
+<li>pattern 正则表达式 自定义验证规则</li>
+</ul>
+</li>
+<li><p>表单事件 inp.oninput，内容改变时触发</p>
+</li>
+</ul>
+<h3 id="表单元素-注意-datalist-的使用"><a href="#表单元素-注意-datalist-的使用" class="headerlink" title="表单元素 注意 datalist 的使用"></a>表单元素 注意 <code>datalist</code> 的使用</h3><p>表单元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;datalist&gt;</span><br><span class="line">  &lt;input type=<span class="string">"text"</span> list=<span class="string">"hobby"</span> name=<span class="string">"hobby"</span>&gt;</span><br><span class="line">  &lt;datalist id=<span class="string">"hobby"</span>&gt;</span><br><span class="line">  &lt;option value=<span class="string">"basketball"</span>&gt;&lt;/option&gt;</span><br><span class="line">  &lt;option value=<span class="string">"basketball"</span>&gt;&lt;/option&gt;</span><br><span class="line">  &lt;option value=<span class="string">"football"</span>&gt;&lt;/option&gt;</span><br><span class="line">  &lt;option value=<span class="string">"pingpang"</span>&gt;&lt;/option&gt;</span><br><span class="line">&lt;<span class="regexp">/datalist&gt;</span></span><br><span class="line"><span class="regexp">&lt;keygen name="security"&gt;&lt;/</span>keygen&gt;加密类型</span><br></pre></td></tr></table></figure>
+<h3 id="表单属性"><a href="#表单属性" class="headerlink" title="表单属性"></a>表单属性</h3><ul>
+<li>autofocus</li>
+<li>placeholder</li>
+<li>multiple</li>
+<li>autocomplete</li>
+</ul>
+<h2 id="媒体"><a href="#媒体" class="headerlink" title="媒体"></a>媒体</h2><h3 id="audio标签"><a href="#audio标签" class="headerlink" title="audio标签"></a>audio标签</h3><h4 id="三种媒体格式"><a href="#三种媒体格式" class="headerlink" title="三种媒体格式"></a>三种媒体格式</h4><ul>
+<li>controls</li>
+<li>autoplay 两个属性</li>
+</ul>
+<h4 id="三种媒体格式-1"><a href="#三种媒体格式-1" class="headerlink" title="三种媒体格式"></a>三种媒体格式</h4><ul>
+<li>mp3</li>
+<li>ogg</li>
+<li>wav</li>
+</ul>
+<h3 id="video标签"><a href="#video标签" class="headerlink" title="video标签"></a>video标签</h3><h4 id="三种媒体格式-2"><a href="#三种媒体格式-2" class="headerlink" title="三种媒体格式"></a>三种媒体格式</h4><ul>
+<li>controls</li>
+<li>autoplay 两个属性</li>
+</ul>
+<h4 id="三种媒体格式-3"><a href="#三种媒体格式-3" class="headerlink" title="三种媒体格式"></a>三种媒体格式</h4><ul>
+<li>mp4</li>
+<li>ogg</li>
+<li>webm</li>
+</ul>
+<h2 id="DOM扩展"><a href="#DOM扩展" class="headerlink" title="DOM扩展"></a>DOM扩展</h2><h3 id="获取元素"><a href="#获取元素" class="headerlink" title="获取元素"></a>获取元素</h3><ul>
+<li><code>document.getElementsByClassName (&#39;class&#39;)</code><ul>
+<li>通过类名获取元素，以类数组形式存在。</li>
+</ul>
+</li>
+<li><code>document.querySelector(&#39;selector&#39;)</code><ul>
+<li>通过CSS选择器获取元素，符合匹配条件的第1个元素。</li>
+</ul>
+</li>
+<li><code>document.querySelectorAll(&#39;selector&#39;)</code><ul>
+<li>通过CSS选择器获取元素，以类数组形式存在。</li>
+</ul>
+</li>
+</ul>
+<p>css当中可用的 在querySelector中都能用</p>
+<h3 id="querySelector-querySelectorAll"><a href="#querySelector-querySelectorAll" class="headerlink" title="querySelector querySelectorAll"></a>querySelector querySelectorAll</h3><h3 id="类名操作-比较方便"><a href="#类名操作-比较方便" class="headerlink" title="类名操作(比较方便)"></a>类名操作(比较方便)</h3><ul>
+<li><code>this.classList</code><ul>
+<li>!当前元素的class!</li>
+</ul>
+</li>
+<li><code>if(this.classList.contains(&#39;active&#39;)) return false;</code><ul>
+<li>!如果已经有active 不做任何操作!</li>
+</ul>
+</li>
+<li><code>this.classList.remove(&#39;active&#39;);</code><ul>
+<li>!清除class!</li>
+</ul>
+</li>
+<li><code>this.classList.add(&#39;active&#39;);</code><ul>
+<li>!当没有选中的时候 添加class active!</li>
+</ul>
+</li>
+<li><code>Node.classList.add(&#39;class&#39;)</code><ul>
+<li>添加class</li>
+</ul>
+</li>
+<li><code>Node.classList.remove(&#39;class&#39;)</code><ul>
+<li>移除class</li>
+</ul>
+</li>
+<li><code>Node.classList.toggle(&#39;class&#39;)</code><ul>
+<li>切换class，有则移除，无则添加</li>
+</ul>
+</li>
+<li><code>Node.classList.contains(&#39;class&#39;)</code><ul>
+<li>检测是否存在class</li>
+</ul>
+</li>
+</ul>
+<p>Node指一个有效的DOM节点，是一个通称</p>
+<h3 id="自定义属性"><a href="#自定义属性" class="headerlink" title="自定义属性"></a>自定义属性</h3><ul>
+<li>在HTML5中我们可以自定义属性，其格式如下data-*=””；</li>
+<li>如：data-info=”我是自定义属性”，通过Node.dataset[‘info’]可获取到自定义的属性值。</li>
+<li>Node.dataset是以类数组形式存在的</li>
+<li>当我们设置data-my-name=”itcast”，则需要以驼峰格式才能正确获取（Node.dataset[‘myName’]）</li>
+</ul>
+<h4 id="jQuery的自定义属性方法data"><a href="#jQuery的自定义属性方法data" class="headerlink" title="jQuery的自定义属性方法data();"></a>jQuery的自定义属性方法data();</h4><ul>
+<li>操作内存</li>
+<li>当没有设置过data的时候可以取到dom上的属性</li>
+<li>当我们设置过data之后 取的就是内存的</li>
+<li>user-name userName<ul>
+<li>驼峰命名和普通的类名都可以取到值</li>
+</ul>
+</li>
+</ul>
+<h4 id="直接操作DOM"><a href="#直接操作DOM" class="headerlink" title="直接操作DOM;"></a>直接操作DOM;</h4><p><code>nav.dataset[&#39;userName&#39;] = &#39;xgc&#39;;</code></p>
+<ul>
+<li>必须是驼峰命名</li>
+</ul>
+<h2 id="全屏"><a href="#全屏" class="headerlink" title="全屏"></a>全屏</h2><ul>
+<li><code>webkitRequestFullScreen()</code></li>
+</ul>
+<h2 id="视频播放器案例"><a href="#视频播放器案例" class="headerlink" title="视频播放器案例"></a>视频播放器案例</h2><blockquote>
+<p>视频播放的方法、属性、事件</p>
+</blockquote>
+<h2 id="history"><a href="#history" class="headerlink" title="history"></a>history</h2><ul>
+<li><code>history.go();</code><ul>
+<li>正为前进，负为后退</li>
+</ul>
+</li>
+<li><code>history.back();</code><ul>
+<li>后退</li>
+</ul>
+</li>
+<li><code>history.forward();</code><ul>
+<li>前进</li>
+</ul>
+</li>
+<li><code>history.pushState({key: &#39;itcast&#39;}, &#39;标题变没变&#39;, &#39;/test.html&#39;);</code><ul>
+<li>pushState可以往历史记录添加一条记录</li>
+</ul>
+</li>
+<li><code>history.replaceState(null, &#39;title&#39;, &#39;./test.html&#39;);</code><ul>
+<li>替换历史记录</li>
+</ul>
+</li>
+<li><code>window.onpopstate = function (state) {console.log(state);}</code><ul>
+<li>监听历史的变化？只有在点后退前进时调用</li>
+</ul>
+</li>
+</ul>
+<h2 id="本地存储"><a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h2><h3 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="sessionStorage;"></a>sessionStorage;</h3><ul>
+<li><code>window.sessionStorage.setItem(key, val);</code><ul>
+<li>存一个数据</li>
+</ul>
+</li>
+<li><code>var val = window.sessionStorage.getItem(key);</code><ul>
+<li>读取一个数据</li>
+</ul>
+</li>
+<li><code>var val = window.sessionStorage.removeItem(key);</code><ul>
+<li>删除一个数据</li>
+</ul>
+</li>
+<li><code>window.sessionStorage.clear();</code><ul>
+<li>清空一个数据</li>
+</ul>
+</li>
+</ul>
+<h3 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h3><ul>
+<li><code>window.localStorage.setItem(key, val);</code><ul>
+<li>存一个数据</li>
+</ul>
+</li>
+<li><code>var val = window.localStorage.getItem(key);</code><ul>
+<li>读取一个数据</li>
+</ul>
+</li>
+<li><code>var val = window.localStorage.removeItem(key);</code><ul>
+<li>删除一个数据</li>
+</ul>
+</li>
+<li><code>window.localStorage.clear();</code><ul>
+<li>清空一个数据</li>
+</ul>
+</li>
+</ul>
+<h2 id="geolocation"><a href="#geolocation" class="headerlink" title="geolocation"></a>geolocation</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*引入百度地图*/</span></span><br><span class="line">&lt;script src=<span class="string">"http://api.map.baidu.com/api?v=2.0&amp;ak= 0A5bc3c4fb543c8f9bc54b77bc155724"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="comment">/*如果存在这个属性就说明浏览器支持定位*/</span></span><br><span class="line">  <span class="keyword">if</span>(navigator.geolocation) &#123;</span><br><span class="line">    navigator.geolocation.getCurrentPosition(<span class="function"><span class="keyword">function</span> (<span class="params">position</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> latitude = position.coords.latitude; <span class="comment">// 纬度</span></span><br><span class="line">      <span class="keyword">var</span> longitude = position.coords.longitude; <span class="comment">// 经度</span></span><br><span class="line">      <span class="built_in">console</span>.log(position);</span><br><span class="line">      <span class="comment">/********************/</span></span><br><span class="line">      <span class="comment">// 这些都是写死</span></span><br><span class="line">      <span class="keyword">var</span> map = <span class="keyword">new</span> BMap.Map(<span class="string">"container"</span>); <span class="comment">// container表示主到哪个容器</span></span><br><span class="line">      <span class="comment">// 把经度纬度传给百度</span></span><br><span class="line">      <span class="keyword">var</span> point = <span class="keyword">new</span> BMap.Point(longitude, latitude);</span><br><span class="line">      map.centerAndZoom(point, <span class="number">15</span>);</span><br><span class="line">      <span class="comment">/****************************/</span></span><br><span class="line">      <span class="comment">// 只写上面三行就可出现地图了，并且会定位</span></span><br><span class="line">      <span class="comment">// 定义好了一个图片标记</span></span><br><span class="line">      <span class="keyword">var</span> myIcon = <span class="keyword">new</span> BMap.Icon(<span class="string">"http://developer.baidu.com/map/jsdemo/img/fox.gif"</span>, <span class="keyword">new</span> BMap.Size(<span class="number">300</span>, <span class="number">157</span>));</span><br><span class="line">      <span class="comment">// 创建标注</span></span><br><span class="line">      <span class="keyword">var</span> marker = <span class="keyword">new</span> BMap.Marker(point, &#123;<span class="attr">icon</span>: myIcon&#125;);</span><br><span class="line">      map.addOverlay(marker);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="缓存技术"><a href="#缓存技术" class="headerlink" title="缓存技术"></a>缓存技术</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">CACHE MANIFEST</span><br><span class="line">CACHE:</span><br><span class="line">#此部分写需要缓存的资源 （#是注释的意思）</span><br><span class="line">./images/img1.jpg</span><br><span class="line">./images/img2.jpg</span><br><span class="line">./images/img3.jpg</span><br><span class="line">./images/img4.jpg</span><br><span class="line">./images/img5.jpg</span><br><span class="line">NETWORK: </span><br><span class="line">#此部分要写需要有网络才可访问的资源，无网络刚不访问</span><br><span class="line">./js/main.js</span><br><span class="line">*</span><br><span class="line">FALLBACK:</span><br><span class="line">#当访问不到某个资源的情况下，自动由另一个资源替换</span><br><span class="line">./css/online.css ./css/offline.css</span><br><span class="line">./online.html ./offline.html</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;!--是不是做离线缓存  缓冲清单--&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span> manifest=<span class="string">"./study.appcache"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;title&gt;Application Cache&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">  &lt;link rel="stylesheet" href="./</span>css/main.css<span class="string">"&gt;</span></span><br><span class="line"><span class="string">  &lt;link rel="</span>stylesheet<span class="string">" href="</span>./css/online.css<span class="string">"&gt;</span></span><br><span class="line"><span class="string">&lt;/head&gt;</span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">  &lt;img src="</span>./images/img1.jpg<span class="string">"&gt;</span></span><br><span class="line"><span class="string">  &lt;img src="</span>./images/img2.jpg<span class="string">"&gt;</span></span><br><span class="line"><span class="string">  &lt;img src="</span>./images/img3.jpg<span class="string">"&gt;</span></span><br><span class="line"><span class="string">  &lt;img src="</span>./images/img4.jpg<span class="string">"&gt;</span></span><br><span class="line"><span class="string">  &lt;img src="</span>./images/img5.jpg<span class="string">"&gt;</span></span><br><span class="line"><span class="string">  &lt;script src="</span>./js/main.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="拖拽"><a href="#拖拽" class="headerlink" title="拖拽"></a>拖拽</h2><h3 id="关键代码"><a href="#关键代码" class="headerlink" title="关键代码"></a>关键代码</h3><p><code>&lt;div class=&quot;box&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;</code></p>
+<h3 id="拖拽元素"><a href="#拖拽元素" class="headerlink" title="拖拽元素"></a>拖拽元素</h3><ul>
+<li>drag</li>
+<li>dragleave</li>
+<li>dragstart</li>
+<li>dragend</li>
+</ul>
+<h3 id="目标元素"><a href="#目标元素" class="headerlink" title="目标元素"></a>目标元素</h3><ul>
+<li>dragover 在目标元素上移动</li>
+<li>drop</li>
+<li>dragleave</li>
+<li>e.preventDefault();<ul>
+<li>阻止浏览器默认行为</li>
+</ul>
+</li>
+</ul>
+<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p>文件选择的一个事件file.onchange</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;input type=<span class="string">"file"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"file"</span> multiple&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">        <span class="comment">/*文件对象*/</span></span><br><span class="line">    <span class="keyword">var</span> file = <span class="built_in">document</span>.querySelector(<span class="string">'.file'</span>);</span><br><span class="line">        <span class="comment">/*文件选择的一个事件*/</span></span><br><span class="line">    file.onchange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();</span><br><span class="line">      reader.readAsDataURL(<span class="keyword">this</span>.files[<span class="number">0</span>]);</span><br><span class="line">      reader.onload = <span class="function"><span class="keyword">function</span> (<span class="params">ev</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">'#img'</span>).src = <span class="keyword">this</span>.result;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="网络监听的事件"><a href="#网络监听的事件" class="headerlink" title="网络监听的事件"></a>网络监听的事件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"jquery.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="comment">// 网络监听的事件</span></span><br><span class="line">  <span class="comment">// 10 online 在线 offline 离线</span></span><br><span class="line">  <span class="comment">// 事件是给window绑订的</span></span><br><span class="line">  <span class="comment">// 通过window.navigator.onLine可以返回当前的网络状态</span></span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'online'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//alert('online');</span></span><br><span class="line">    $(<span class="string">'.tips'</span>).text(<span class="string">'网络已连接'</span>).fadeIn(<span class="number">500</span>).delay(<span class="number">1000</span>).fadeOut();</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'offline'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//alert('offline');</span></span><br><span class="line">    $(<span class="string">'.tips'</span>).text(<span class="string">'网络已断开'</span>).fadeIn(<span class="number">500</span>).delay(<span class="number">1000</span>).fadeOut();</span><br><span class="line">  &#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="canvas"><a href="#canvas" class="headerlink" title="canvas"></a>canvas</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>使用 canvas 绘图</p>
+<ul>
+<li>一定要有一个 canvas 标签. canvas 标签不能够绘图, 它只是画布, 但是它可以获得绘图工具对象.</li>
+<li>绘图工具对象提供了各种绘图的 api( 函数, 方法 ), 需要绘制什么形状的时候就调用什么方法即可.</li>
+</ul>
+<p>获得绘图工具对象 <code>canvas.getContext(&#39;2d&#39;);</code> // ‘webgl’</p>
+<p>具体如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas width=<span class="string">"600"</span> height=<span class="string">"300"</span>&gt;</span><br><span class="line">  你好, 您的浏览器不支持 Canvas, 请升级....</span><br><span class="line">&lt;<span class="regexp">/canvas&gt;</span></span><br><span class="line"><span class="regexp">var cases = document.getElementsByTagName('canvas');</span></span><br><span class="line"><span class="regexp">var context = cases[0].getContext("2d");</span></span><br></pre></td></tr></table></figure>
+<h3 id="canvas-getContext-的-API"><a href="#canvas-getContext-的-API" class="headerlink" title="canvas.getContext 的 API"></a>canvas.getContext 的 API</h3><p>状态：凡是涉及到 颜色, 线宽, 虚线, 线帽, 拐点, 描边, 填充 等等都是绘图时的状态.</p>
+<p><code>context.beginPath();</code> // 开启一个新的路径</p>
+<p>实际上, 开始绘图的时候:</p>
+<ul>
+<li>系统就默认的有一个 beginPath 行为</li>
+<li>如果一个阶段绘制结束了, 需要开启一个新的 beginPath</li>
+<li>接着绘制另一个阶段的图像.这个阶段就是状态.</li>
+<li>这个状态就是指:线宽, 颜色, 端点状态, 线状态, 描边还是填充</li>
+</ul>
+<p>在开启新路径时, 绘制工具的状态数据会被继承下来,即前面设置的状态会被后面保留, 如果需要启用原来的状态有两个方法</p>
+<ul>
+<li>手动设置状态</li>
+<li>存储恢复状态</li>
+</ul>
+<p>使用场景:</p>
+<ul>
+<li>如果绘制了一个图形, 但是临时要绘制另一个图形</li>
+<li><p>在绘制完这个图形后, 还需要回到原来的状态中继续绘制</p>
+</li>
+<li><p><code>context.moveTo( x, y );</code></p>
+<ul>
+<li>告诉计算机从什么地方开始绘制 </li>
+</ul>
+</li>
+<li><code>context.lineTo( x, y );</code><ul>
+<li>告诉计算机从当前位置描点到哪里</li>
+</ul>
+</li>
+<li><code>context.stroke();</code><ul>
+<li>描边，将前面描点用线依次连接起来</li>
+</ul>
+</li>
+<li><code>context.fill();</code><ul>
+<li>填充 如果描点的曲线不闭合,那么将自动将起点与终点连接起来填充</li>
+</ul>
+</li>
+<li><code>context.lineWidth = 数字;</code><ul>
+<li>设置线宽</li>
+</ul>
+</li>
+<li><code>context.strokeStyle = 表示颜色的字符串;</code><ul>
+<li>描边颜色</li>
+</ul>
+</li>
+<li><code>context.fillStyle = 表示颜色的字符串;</code><ul>
+<li>填充颜色</li>
+</ul>
+</li>
+<li><code>context.font = &#39;50px 黑体&#39;;</code><ul>
+<li>设置字体</li>
+</ul>
+</li>
+<li><code>context.setLineDash(数组);</code><ul>
+<li>绘制虚线</li>
+</ul>
+</li>
+</ul>
+<p>数组是描述实部与虚部的长度.</p>
+<ul>
+<li>为[]时表示绘制实线;</li>
+<li>[value1,value2]表示虚线的实部和虚部;</li>
+<li>[val1,val2,val3,…]表示虚线的实部和虚部交替取值，取完之后再循环取值。</li>
+<li><code>context.save();</code><ul>
+<li>保存当前状态,那么后面可以对状态做任何修改</li>
+</ul>
+</li>
+<li><code>context.restore();</code><ul>
+<li>在想要回到原来的状态时, 调用此方法</li>
+</ul>
+</li>
+<li><code>context.closePath();</code><ul>
+<li>如果是绘制闭合的曲线, 那么最后可以使用<ul>
+<li>如果绘制的折线, 那么两条线段之间会自动补全尖角</li>
+<li>如果不是连续的折线, 那么闭合的两条线段, 是不会补全尖角</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>应用：可以利用x，y的坐标的数学函数的关系来绘制各种曲线</li>
+<li><code>context.strokeRect(x坐标,y坐标,宽,高);</code><ul>
+<li>描边矩形</li>
+</ul>
+</li>
+<li><code>context.fillRect(x坐标,y坐标,宽,高);</code><ul>
+<li>填充矩形</li>
+</ul>
+</li>
+<li><code>context.clearRect(x坐标,y坐标,宽,高);</code><ul>
+<li>擦除矩形区 应用：做动画</li>
+</ul>
+</li>
+<li><code>context.arc(x坐标,y坐标,半径,起始角,终点角度);</code><ul>
+<li>角度是弧度制</li>
+</ul>
+</li>
+<li><code>context.strokeText(&#39;测试文字&#39;,100,100 );</code><ul>
+<li>描边文本</li>
+</ul>
+</li>
+<li><code>context.fillText(&#39;测试文字&#39;,300,100);</code><ul>
+<li>填充文本</li>
+</ul>
+</li>
+<li>绘图第一种用法,将整个图片按照本身的宽高绘制到绘布上<ul>
+<li><code>context.drawImage(img,x轴坐标,y轴坐标);</code></li>
+</ul>
+</li>
+<li>绘图第二种用法, 将图绘制在指定的矩形区域内<ul>
+<li><code>var img = document.createElement( &#39;img&#39; );</code></li>
+</ul>
+</li>
+<li>绘图时首先需要准备图片<ul>
+<li>img.src = ‘1.jpg’;</li>
+</ul>
+</li>
+<li><code>context.drawImage(img,x轴坐标,y轴坐标,宽,高);</code><ul>
+<li>第三种绘制图片的方法，绘制精灵图(结合setInterval();方法做一些动画)</li>
+</ul>
+</li>
+<li><code>context.drawImage(图片,截取精灵图的x,截取精灵图的y,截取宽度w,截取高度度h,放在画布上的x坐标,放在画布上的y坐标,图片所占画布的宽,图片所占画布的高);</code></li>
+<li><code>context.translate(x,y);</code><ul>
+<li>坐标平移变换</li>
+</ul>
+</li>
+<li><code>context.rotate(弧度);</code><ul>
+<li>坐标旋转变换，最简单应用：旋转的正方形</li>
+</ul>
+</li>
+<li><code>context.scale(x,y);</code><ul>
+<li>左边伸缩变换(x或y缩放的倍数,如果是1表示不缩放)最简单应用一：椭圆</li>
+</ul>
+</li>
+</ul>
+<p>注：变换是可以累加的</p>
+<h3 id="非零环绕原则"><a href="#非零环绕原则" class="headerlink" title="非零环绕原则"></a>非零环绕原则</h3><p>在 canvas 绘图中是使用路径描线的方法绘制图形</p>
+<p>描点时的顺序有一定的作用, 在描点时围绕起来的图形满足 “非零环绕原则” 的区域就会被镂空起来如果不满足就会被填充.</p>
+<ul>
+<li>计算的值为 0 就 镂空, 如果非零就是填充</li>
+<li>从图形的内部拉一个箭头, 以箭头的起点为圆心</li>
+<li>检查穿过箭头的线, 以箭头起点为圆心如果顺时针记为 +1</li>
+<li>如果逆时针记为 -1, 最后求和, 如果为 0 则镂空, 如果非零 则填充</li>
+</ul>
+<h3 id="圆上坐标的计算公式"><a href="#圆上坐标的计算公式" class="headerlink" title="圆上坐标的计算公式"></a>圆上坐标的计算公式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = x0 + r * <span class="built_in">Math</span>.cos( 弧度 );</span><br><span class="line">y = y0 + r * <span class="built_in">Math</span>.sin( 弧度 );</span><br></pre></td></tr></table></figure>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ul>
+<li>ES5 中对数组做了扩展, 引入了 forEach 和 map 等方法</li>
+<li>ES6 中引入了 箭头函数 arrow function 简化函数的书写( 还有其他特征 )<ul>
+<li>函数不写 function</li>
+<li>参数如果只有一个 不写圆括号</li>
+<li>参数与函数体用 =&gt; 连接</li>
+<li>函数体如果只有一句话可以省略花括号</li>
+<li>如果函数体只有一句话, 且返回数据, 可以省略 return</li>
+</ul>
+</li>
+</ul>
+<p>如：<code>var maxX = Math.max.apply( null, points.map(function (v) { return v.x; }));</code></p>
+<p>简写成：<code>var maxX = Math.max.apply( null, points.map(v=&gt;v.x) );</code></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢您的支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="honey young 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="honey young 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML5/" rel="tag"><i class="fa fa-tag"></i> HTML5</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/01/CSS3知识体系/" rel="next" title="CSS3知识体系">
+                <i class="fa fa-chevron-left"></i> CSS3知识体系
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/02/08/PHP-基础/" rel="prev" title="PHP-基础">
+                PHP-基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            博文目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概要
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="honey young" />
+            
+              <p class="site-author-name" itemprop="name">honey young</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/honeyYoung/honeyyoung.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/de13fcfe3889" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/dong-gua-xiao-ke-ai/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介、h5语义化标签、经典布局"><span class="nav-number">1.</span> <span class="nav-text">简介、h5语义化标签、经典布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单"><span class="nav-number">2.</span> <span class="nav-text">表单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表单元素-注意-datalist-的使用"><span class="nav-number">2.1.</span> <span class="nav-text">表单元素 注意 datalist 的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单属性"><span class="nav-number">2.2.</span> <span class="nav-text">表单属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#媒体"><span class="nav-number">3.</span> <span class="nav-text">媒体</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#audio标签"><span class="nav-number">3.1.</span> <span class="nav-text">audio标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#三种媒体格式"><span class="nav-number">3.1.1.</span> <span class="nav-text">三种媒体格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三种媒体格式-1"><span class="nav-number">3.1.2.</span> <span class="nav-text">三种媒体格式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#video标签"><span class="nav-number">3.2.</span> <span class="nav-text">video标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#三种媒体格式-2"><span class="nav-number">3.2.1.</span> <span class="nav-text">三种媒体格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三种媒体格式-3"><span class="nav-number">3.2.2.</span> <span class="nav-text">三种媒体格式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM扩展"><span class="nav-number">4.</span> <span class="nav-text">DOM扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取元素"><span class="nav-number">4.1.</span> <span class="nav-text">获取元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#querySelector-querySelectorAll"><span class="nav-number">4.2.</span> <span class="nav-text">querySelector querySelectorAll</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类名操作-比较方便"><span class="nav-number">4.3.</span> <span class="nav-text">类名操作(比较方便)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义属性"><span class="nav-number">4.4.</span> <span class="nav-text">自定义属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery的自定义属性方法data"><span class="nav-number">4.4.1.</span> <span class="nav-text">jQuery的自定义属性方法data();</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#直接操作DOM"><span class="nav-number">4.4.2.</span> <span class="nav-text">直接操作DOM;</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全屏"><span class="nav-number">5.</span> <span class="nav-text">全屏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视频播放器案例"><span class="nav-number">6.</span> <span class="nav-text">视频播放器案例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#history"><span class="nav-number">7.</span> <span class="nav-text">history</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地存储"><span class="nav-number">8.</span> <span class="nav-text">本地存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sessionStorage"><span class="nav-number">8.1.</span> <span class="nav-text">sessionStorage;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#localStorage"><span class="nav-number">8.2.</span> <span class="nav-text">localStorage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#geolocation"><span class="nav-number">9.</span> <span class="nav-text">geolocation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存技术"><span class="nav-number">10.</span> <span class="nav-text">缓存技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拖拽"><span class="nav-number">11.</span> <span class="nav-text">拖拽</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关键代码"><span class="nav-number">11.1.</span> <span class="nav-text">关键代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拖拽元素"><span class="nav-number">11.2.</span> <span class="nav-text">拖拽元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标元素"><span class="nav-number">11.3.</span> <span class="nav-text">目标元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件上传"><span class="nav-number">12.</span> <span class="nav-text">文件上传</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络监听的事件"><span class="nav-number">12.1.</span> <span class="nav-text">网络监听的事件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#canvas"><span class="nav-number">13.</span> <span class="nav-text">canvas</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">13.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#canvas-getContext-的-API"><span class="nav-number">13.2.</span> <span class="nav-text">canvas.getContext 的 API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非零环绕原则"><span class="nav-number">13.3.</span> <span class="nav-text">非零环绕原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#圆上坐标的计算公式"><span class="nav-number">13.4.</span> <span class="nav-text">圆上坐标的计算公式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充"><span class="nav-number">14.</span> <span class="nav-text">补充</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">honey young</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+     <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+      本站访客数:<span id="busuanzi_value_site_uv"></span>
+     </span>
+  </div>
+<!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div> 
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
