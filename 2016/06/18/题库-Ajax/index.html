@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="hbge3GnQvk" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Ajax," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Honey Young" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="1、Ajax 是什么? 如何创建一个Ajax？ Ajax并不算是一种新的技术，全称是asychronous javascript and xml，可以说是已有技术的组合主要用来实现客户端与服务器端的异步通信效果，实现页面的局部刷新早期的浏览器并不能原生支持ajax，可以使用隐藏帧（iframe）方式变相实现异步效果后来的浏览器提供了对ajax的原生支持使用ajax原生方式发送请求主要通过 XMLH">
+<meta name="keywords" content="Ajax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="题库-Ajax">
+<meta property="og:url" content="http://yoursite.com/2016/06/18/题库-Ajax/index.html">
+<meta property="og:site_name" content="Honey Young">
+<meta property="og:description" content="1、Ajax 是什么? 如何创建一个Ajax？ Ajax并不算是一种新的技术，全称是asychronous javascript and xml，可以说是已有技术的组合主要用来实现客户端与服务器端的异步通信效果，实现页面的局部刷新早期的浏览器并不能原生支持ajax，可以使用隐藏帧（iframe）方式变相实现异步效果后来的浏览器提供了对ajax的原生支持使用ajax原生方式发送请求主要通过 XMLH">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-05T06:59:53.397Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="题库-Ajax">
+<meta name="twitter:description" content="1、Ajax 是什么? 如何创建一个Ajax？ Ajax并不算是一种新的技术，全称是asychronous javascript and xml，可以说是已有技术的组合主要用来实现客户端与服务器端的异步通信效果，实现页面的局部刷新早期的浏览器并不能原生支持ajax，可以使用隐藏帧（iframe）方式变相实现异步效果后来的浏览器提供了对ajax的原生支持使用ajax原生方式发送请求主要通过 XMLH">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'honey young'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/06/18/题库-Ajax/"/>
+
+
+
+
+
+  <title>题库-Ajax | Honey Young</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Honey Young</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">小杨鹤</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/18/题库-Ajax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="honey young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Honey Young">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">题库-Ajax</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-18T00:00:00+08:00">
+                2016-06-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/题库系列/" itemprop="url" rel="index">
+                    <span itemprop="name">题库系列</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1、Ajax-是什么-如何创建一个Ajax？"><a href="#1、Ajax-是什么-如何创建一个Ajax？" class="headerlink" title="1、Ajax 是什么? 如何创建一个Ajax？"></a>1、Ajax 是什么? 如何创建一个Ajax？</h2><blockquote>
+<p>Ajax并不算是一种新的技术，全称是<code>asychronous javascript and xml</code>，可以说是已有技术的组合<br>主要用来实现客户端与服务器端的异步通信效果，实现页面的局部刷新<br>早期的浏览器并不能原生支持ajax，可以使用隐藏帧（iframe）方式变相实现异步效果<br>后来的浏览器提供了对ajax的原生支持<br>使用ajax原生方式发送请求主要通过 XMLHttpRequest(标准浏览器)、ActiveXObject(IE浏览器)对象实现异步通信效果</p>
+</blockquote>
+<p>基本步骤：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var xhr = null;//创建对象 </span><br><span class="line">if (window.XMLHttpRequest) &#123;</span><br><span class="line">  xhr = new XMLHttpRequest();</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  xhr = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);</span><br><span class="line">&#125;</span><br><span class="line">xhr.open(&quot;方式&quot;,&quot;地址&quot;,&quot;标志位&quot;);//初始化请求 </span><br><span class="line">xhr.setRequestHeader(&quot;&quot;,&quot;&quot;);//设置http头信息 </span><br><span class="line">xhr.onreadystatechange = function() &#123;&#125;//指定回调函数 </span><br><span class="line">xhr.send();//发送请求</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>js框架（jQuery/EXTJS等）提供的 ajax API对原生的ajax进行了封装，熟悉了基础理论，</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="2、同步和异步的区别"><a href="#2、同步和异步的区别" class="headerlink" title="2、同步和异步的区别"></a>2、同步和异步的区别</h2><p>同步：阻塞的</p>
+<blockquote>
+<p>张三叫李四去吃饭，李四一直忙得不停，张三一直等着，直到李四忙完两个人一块去吃饭<br>浏览器向服务器请求数据，服务器比较忙，浏览器一直等着（页面白屏），直到服务器返回数据，浏览器才能显示页面</p>
+</blockquote>
+<p>异步：非阻塞的</p>
+<blockquote>
+<p>张三叫李四去吃饭，李四在忙，张三说了一声然后自己就去吃饭了，李四忙完后自己去吃<br>浏览器向服务器请求数据，服务器比较忙，浏览器可以自如的干原来的事情（显示页面）服务器返回数据的时候通知浏览器一声，浏览器把返回的数据再渲染到页面，局部更新</p>
+</blockquote>
+<h2 id="3、如何解决跨域问题"><a href="#3、如何解决跨域问题" class="headerlink" title="3、如何解决跨域问题"></a>3、如何解决跨域问题</h2><p>理解跨域的概念：协议、域名、端口都相同才同域，否则都是跨域</p>
+<blockquote>
+<p>出于安全考虑，服务器不允许 ajax 跨域获取数据，但是可以跨域获取文件内容；<br>所以基于这一点，可以动态创建 script 标签，使用标签的 src 属性访问 js 文件的形式获取 js 脚本；<br>这个 js 脚本中的内容是函数调用，该函数调用的参数是服务器返回的数据；<br>为了获取这里的参数数据，需要事先在页面中定义回调函数；<br>在回调函数中处理服务器返回的数据，这就是解决跨域问题的主流解决方案</p>
+</blockquote>
+<h2 id="4、页面编码和被请求的资源编码如果不一致如何处理"><a href="#4、页面编码和被请求的资源编码如果不一致如何处理" class="headerlink" title="4、页面编码和被请求的资源编码如果不一致如何处理"></a>4、页面编码和被请求的资源编码如果不一致如何处理</h2><blockquote>
+<p>对于ajax请求传递的参数，如果是get请求方式，参数如果传递中文;<br>在有些浏览器会乱码，不同的浏览器对参数编码的处理方式不同；<br>所以对于 get 请求的参数需要使用 encodeURIComponent 函数对参数进行编码处理；<br>后台开发语言都有相应的解码 api；<br>对于 post 请求不需要进行编码。</p>
+</blockquote>
+<h2 id="5、简述-ajax-的过程"><a href="#5、简述-ajax-的过程" class="headerlink" title="5、简述 ajax 的过程"></a>5、简述 ajax 的过程</h2><blockquote>
+<p>创建 XMLHttpRequest 对象,也就是创建一个异步调用对象<br>创建一个新的 HTTP 请求,并指定该HTTP请求的方法、URL 及验证信息<br>设置响应 HTTP 请求状态变化的函数<br>发送 HTTP 请求<br>获取异步调用返回的数据<br>使用 JavaScript 和 DOM 实现局部刷新</p>
+</blockquote>
+<h2 id="6、异步加载"><a href="#6、异步加载" class="headerlink" title="6、异步加载"></a>6、异步加载</h2><blockquote>
+<p>异步加载的方案： 动态插入 script 标签<br>通过 ajax 去获取 js 代码，然后通过 eval 执行<br>script 标签上添加 defer 或者 async 属性<br>创建并插入 iframe，让它异步执行 js</p>
+</blockquote>
+<h2 id="7、JavaScript-的同源策略。"><a href="#7、JavaScript-的同源策略。" class="headerlink" title="7、JavaScript 的同源策略。"></a>7、JavaScript 的同源策略。</h2><blockquote>
+<p>同源策略是客户端脚本（尤其是Javascript）的重要的安全度量标准。<br>它最早出自Netscape Navigator2.0，其目的是防止某个文档或脚本从多个不同源装载。<br>所谓同源指的是：协议，域名，端口相同，同源策略是一种安全协议，指一段脚本只能读取来自同一来源的窗口和文档的属性。</p>
+</blockquote>
+<h2 id="8、GET-和-POST-的区别，何时使用-POST"><a href="#8、GET-和-POST-的区别，何时使用-POST" class="headerlink" title="8、GET 和 POST 的区别，何时使用 POST"></a>8、GET 和 POST 的区别，何时使用 POST</h2><blockquote>
+<p>GET：一般用于信息获取，使用URL传递参数，对所发送信息的数量也有限制，一般在2000个字符，有的浏览器是8000个字符<br>POST：一般用于修改服务器上的资源，对所发送的信息没有限制</p>
+</blockquote>
+<p>在以下情况中，请使用 POST 请求：</p>
+<blockquote>
+<p>无法使用缓存文件（更新服务器上的文件或数据库）<br>向服务器发送大量数据（POST 没有数据量限制）<br>发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠</p>
+</blockquote>
+<h2 id="9、ajax-是什么-ajax-的交互模型-同步和异步的区别-如何解决跨域问题"><a href="#9、ajax-是什么-ajax-的交互模型-同步和异步的区别-如何解决跨域问题" class="headerlink" title="9、ajax 是什么 ajax 的交互模型 同步和异步的区别 如何解决跨域问题"></a>9、ajax 是什么 ajax 的交互模型 同步和异步的区别 如何解决跨域问题</h2><blockquote>
+<p>通过异步模式，提升了用户体验<br>优化了浏览器和服务器之间的传输，减少不必要的数据往返，减少了带宽占用<br>Ajax在客户端运行，承担了一部分本来由服务器承担的工作，减少了大用户量下的服务器负载。</p>
+</blockquote>
+<h2 id="10、-Ajax的最大的特点是什么。"><a href="#10、-Ajax的最大的特点是什么。" class="headerlink" title="10、 Ajax的最大的特点是什么。"></a>10、 Ajax的最大的特点是什么。</h2><blockquote>
+<p>Ajax可以实现异步通信效果，实现页面局部刷新，带来更好的用户体验；按需获取数据，节约带宽资源；</p>
+</blockquote>
+<h2 id="11、ajax的缺点"><a href="#11、ajax的缺点" class="headerlink" title="11、ajax的缺点"></a>11、ajax的缺点</h2><blockquote>
+<p>ajax不支持浏览器back按钮。<br>安全问题 AJAX暴露了与服务器交互的细节。<br>对搜索引擎的支持比较弱。<br>破坏了程序的异常机制。</p>
+</blockquote>
+<h2 id="12、ajax-请求的时候-get-和-post-方式的区别"><a href="#12、ajax-请求的时候-get-和-post-方式的区别" class="headerlink" title="12、ajax 请求的时候 get 和 post 方式的区别"></a>12、ajax 请求的时候 get 和 post 方式的区别</h2><blockquote>
+<p>get 一般用来进行查询操作，url 地址有长度限制，请求的参数都暴露在 url 地址当中，如果传递中文参数，需要自己进行编码操作，安全性较低。<br>post 请求方式主要用来提交数据，没有数据长度的限制，提交的数据内容存在于 http 请求体中，数据不会暴漏在 url 地址中。</p>
+</blockquote>
+<h2 id="13、解释jsonp的原理，以及为什么不是真正的ajax"><a href="#13、解释jsonp的原理，以及为什么不是真正的ajax" class="headerlink" title="13、解释jsonp的原理，以及为什么不是真正的ajax"></a>13、解释jsonp的原理，以及为什么不是真正的ajax</h2><p>Jsonp并不是一种数据格式，而json是一种数据格式，jsonp是用来解决跨域获取数据的一种解决方案，具体是通过动态创建script标签，然后通过标签的src属性获取js文件中的js脚本，该脚本的内容是一个函数调用，参数就是服务器返回的数据，为了处理这些返回的数据，需要事先在页面定义好回调函数，本质上使用的并不是ajax技术</p>
+<h2 id="14、什么是-Ajax-和-JSON-，它们的优缺点"><a href="#14、什么是-Ajax-和-JSON-，它们的优缺点" class="headerlink" title="14、什么是 Ajax 和 JSON ，它们的优缺点"></a>14、什么是 Ajax 和 JSON ，它们的优缺点</h2><blockquote>
+<p>Ajax是全称是asynchronous JavaScript andXML，即异步JavaScript和xml，用于在Web页面中实现异步数据交互，实现页面局部刷新。</p>
+</blockquote>
+<p>优点：可以使得页面不重载全部内容的情况下加载局部内容，降低数据传输量，避免用户不断刷新或者跳转页面，提高用户体验<br>缺点：对搜索引擎不友好；要实现ajax下的前后退功能成本较大；可能造成请求数的增加跨域问题限制；</p>
+<blockquote>
+<p>JSON是一种轻量级的数据交换格式，ECMA的一个子集</p>
+</blockquote>
+<p>优点：轻量级、易于人的阅读和编写，便于机器（JavaScript）解析，支持复合数据类型（数组、对象、字符串、数字）</p>
+<h2 id="15、http常见的状态码有哪些-分别代表是什么意思"><a href="#15、http常见的状态码有哪些-分别代表是什么意思" class="headerlink" title="15、http常见的状态码有哪些 分别代表是什么意思"></a>15、http常见的状态码有哪些 分别代表是什么意思</h2><blockquote>
+<p>200 - 请求成功<br>301 - 资源（网页等）被永久转移到其它URL<br>404 - 请求的资源（网页等）不存在<br>500 - 内部服务器错误</p>
+</blockquote>
+<h2 id="16、一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？"><a href="#16、一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？" class="headerlink" title="16、一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？"></a>16、一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</h2><p>分为4个步骤：</p>
+<blockquote>
+<p>当发送一个 URL 请求时，不管这个 URL 是 Web 页面的 URL 还是 Web 页面上每个资源的 URL，浏览器都会开启一个线程来处理这个请求，同时在远程 DNS 服务器上启动一个 DNS 查询。这能使浏览器获得请求对应的 IP 地址。<br>浏览器与远程 Web 服务器通过 TCP 三次握手协商来建立一个 TCP/IP 连接。该握手包括一个同步报文，一个同步-应答报文和一个应答报文，这三个报文在 浏览器和服务器之间传递。该握手首先由客户端尝试建立起通信，而后服务器应答并接受客户端的请求，最后由客户端发出该请求已经被接受的报文。<br>一旦 TCP/IP 连接建立，浏览器会通过该连接向远程服务器发送 HTTP 的 GET 请求。远程服务器找到资源并使用 HTTP 响应返回该资源，值为 200 的 HTTP 响应状态表示一个正确的响应。<br>此时，Web 服务器提供资源服务，客户端开始下载资源。</p>
+</blockquote>
+<h2 id="17、ajax请求的时候get-和post方式的区别"><a href="#17、ajax请求的时候get-和post方式的区别" class="headerlink" title="17、ajax请求的时候get 和post方式的区别"></a>17、ajax请求的时候get 和post方式的区别</h2><blockquote>
+<p>get 一般用来进行查询操作，url 地址有长度限制，请求的参数都暴露在 url 地址当中，如果传递中文参数，需要自己进行编码操作，安全性较低。<br>post 请求方式主要用来提交数据，没有数据长度的限制，提交的数据内容存在于 http 请求体中，数据不会暴漏在 url 地址中。</p>
+</blockquote>
+<h2 id="18、ajax请求时，如何解释json数据"><a href="#18、ajax请求时，如何解释json数据" class="headerlink" title="18、ajax请求时，如何解释json数据"></a>18、ajax请求时，如何解释json数据</h2><blockquote>
+<p>使用eval() 或者JSON.parse() 鉴于安全性考虑，推荐使用JSON.parse()更靠谱，对数据的安全性更好。</p>
+</blockquote>
+<h2 id="19、为什么利用多个域名来存储网站资源会更有效？"><a href="#19、为什么利用多个域名来存储网站资源会更有效？" class="headerlink" title="19、为什么利用多个域名来存储网站资源会更有效？"></a>19、为什么利用多个域名来存储网站资源会更有效？</h2><p>确保用户在不同地区能用最快的速度打开网站，其中某个域名崩溃用户也能通过其他域名访问网站，并且不同的资源放到不同的服务器上有利于减轻单台服务器的压力。</p>
+<h2 id="20、请说出三种减低页面加载时间的方法"><a href="#20、请说出三种减低页面加载时间的方法" class="headerlink" title="20、请说出三种减低页面加载时间的方法"></a>20、请说出三种减低页面加载时间的方法</h2><blockquote>
+<p>压缩css、js文件<br>合并js、css文件，减少http请求<br>外部js、css文件放在最底下<br>减少dom操作，尽可能用变量替代不必要的 dom 操作</p>
+</blockquote>
+<h2 id="21、HTTP状态码都有那些。"><a href="#21、HTTP状态码都有那些。" class="headerlink" title="21、HTTP状态码都有那些。"></a>21、HTTP状态码都有那些。</h2><blockquote>
+<p>200 OK //客户端请求成功<br>400 Bad Request //客户端请求有语法错误，不能被服务器所理解<br>403 Forbidden //服务器收到请求，但是拒绝提供服务<br>404 Not Found //请求资源不存在，输入了错误的URL<br>500 Internal Server Error //服务器发生不可预期的错误<br>503 Server Unavailable //服务器当前不能处理客户端的请求，一段时间后可能恢复正常</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢您的支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="honey young 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="honey young 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Ajax/" rel="tag"><i class="fa fa-tag"></i> Ajax</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/08/题库-HTML5、CSS3/" rel="next" title="题库-HTML5、CSS3">
+                <i class="fa fa-chevron-left"></i> 题库-HTML5、CSS3
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/28/题库-js 高级/" rel="prev" title="题库-js 高级">
+                题库-js 高级 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            博文目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概要
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="honey young" />
+            
+              <p class="site-author-name" itemprop="name">honey young</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/honeyYoung/honeyyoung.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/de13fcfe3889" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/dong-gua-xiao-ke-ai/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、Ajax-是什么-如何创建一个Ajax？"><span class="nav-number">1.</span> <span class="nav-text">1、Ajax 是什么? 如何创建一个Ajax？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、同步和异步的区别"><span class="nav-number">2.</span> <span class="nav-text">2、同步和异步的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、如何解决跨域问题"><span class="nav-number">3.</span> <span class="nav-text">3、如何解决跨域问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、页面编码和被请求的资源编码如果不一致如何处理"><span class="nav-number">4.</span> <span class="nav-text">4、页面编码和被请求的资源编码如果不一致如何处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、简述-ajax-的过程"><span class="nav-number">5.</span> <span class="nav-text">5、简述 ajax 的过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、异步加载"><span class="nav-number">6.</span> <span class="nav-text">6、异步加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、JavaScript-的同源策略。"><span class="nav-number">7.</span> <span class="nav-text">7、JavaScript 的同源策略。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8、GET-和-POST-的区别，何时使用-POST"><span class="nav-number">8.</span> <span class="nav-text">8、GET 和 POST 的区别，何时使用 POST</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9、ajax-是什么-ajax-的交互模型-同步和异步的区别-如何解决跨域问题"><span class="nav-number">9.</span> <span class="nav-text">9、ajax 是什么 ajax 的交互模型 同步和异步的区别 如何解决跨域问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10、-Ajax的最大的特点是什么。"><span class="nav-number">10.</span> <span class="nav-text">10、 Ajax的最大的特点是什么。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11、ajax的缺点"><span class="nav-number">11.</span> <span class="nav-text">11、ajax的缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12、ajax-请求的时候-get-和-post-方式的区别"><span class="nav-number">12.</span> <span class="nav-text">12、ajax 请求的时候 get 和 post 方式的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13、解释jsonp的原理，以及为什么不是真正的ajax"><span class="nav-number">13.</span> <span class="nav-text">13、解释jsonp的原理，以及为什么不是真正的ajax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14、什么是-Ajax-和-JSON-，它们的优缺点"><span class="nav-number">14.</span> <span class="nav-text">14、什么是 Ajax 和 JSON ，它们的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15、http常见的状态码有哪些-分别代表是什么意思"><span class="nav-number">15.</span> <span class="nav-text">15、http常见的状态码有哪些 分别代表是什么意思</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16、一个页面从输入-URL-到页面加载显示完成，这个过程中都发生了什么？"><span class="nav-number">16.</span> <span class="nav-text">16、一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17、ajax请求的时候get-和post方式的区别"><span class="nav-number">17.</span> <span class="nav-text">17、ajax请求的时候get 和post方式的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18、ajax请求时，如何解释json数据"><span class="nav-number">18.</span> <span class="nav-text">18、ajax请求时，如何解释json数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19、为什么利用多个域名来存储网站资源会更有效？"><span class="nav-number">19.</span> <span class="nav-text">19、为什么利用多个域名来存储网站资源会更有效？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20、请说出三种减低页面加载时间的方法"><span class="nav-number">20.</span> <span class="nav-text">20、请说出三种减低页面加载时间的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#21、HTTP状态码都有那些。"><span class="nav-number">21.</span> <span class="nav-text">21、HTTP状态码都有那些。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">honey young</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+     <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+      本站访客数:<span id="busuanzi_value_site_uv"></span>
+     </span>
+  </div>
+<!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div> 
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
