@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="hbge3GnQvk" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MongoDB,MySQL,Node.js,数据库," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Honey Young" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="数据库：存储数据的仓库。  数据结构化 实现数据共享 可以减少冗余数据   数据独立性高 数据统一管理与控制">
+<meta name="keywords" content="MongoDB,MySQL,Node.js,数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库基础 以及 Node 操作方法">
+<meta property="og:url" content="http://yoursite.com/2017/03/28/数据库基础 以及 Node 操作方法/index.html">
+<meta property="og:site_name" content="Honey Young">
+<meta property="og:description" content="数据库：存储数据的仓库。  数据结构化 实现数据共享 可以减少冗余数据   数据独立性高 数据统一管理与控制">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/连接池.png">
+<meta property="og:updated_time" content="2018-06-06T08:43:47.613Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库基础 以及 Node 操作方法">
+<meta name="twitter:description" content="数据库：存储数据的仓库。  数据结构化 实现数据共享 可以减少冗余数据   数据独立性高 数据统一管理与控制">
+<meta name="twitter:image" content="http://yoursite.com/images/连接池.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'honey young'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/28/数据库基础 以及 Node 操作方法/"/>
+
+
+
+
+
+  <title>数据库基础 以及 Node 操作方法 | Honey Young</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Honey Young</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">小杨鹤</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/28/数据库基础 以及 Node 操作方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="honey young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Honey Young">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据库基础 以及 Node 操作方法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-28T00:00:00+08:00">
+                2017-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>数据库：存储数据的仓库。</p>
+<ul>
+<li>数据结构化</li>
+<li>实现数据共享<ul>
+<li>可以减少冗余数据</li>
+</ul>
+</li>
+<li>数据独立性高</li>
+<li>数据统一管理与控制</li>
+</ul>
+<a id="more"></a>
+<h2 id="数据库介绍"><a href="#数据库介绍" class="headerlink" title="数据库介绍"></a>数据库介绍</h2><ul>
+<li>MySQL 数据库</li>
+<li>Oracle<ul>
+<li>Orcale数据库管理系统由甲骨文公司开发，在数据库领域一直处于领先地位</li>
+<li>商业收费，大型系统，淘宝、京东就使用了 Oracle 数据库</li>
+</ul>
+</li>
+<li>SqlServer 数据库<ul>
+<li>由微软公司开发，只能在Windows上运行。.net开发程序员</li>
+</ul>
+</li>
+<li>DB2<ul>
+<li>由IBM公司开发，在金融行业中使用的比较多。IBM的服务器，买服务器送数据库</li>
+<li>商业收费</li>
+</ul>
+</li>
+<li>MS SQL Server<ul>
+<li>以上这些数据库都是使用 SQL 语言进行操作</li>
+<li>SQL 语言就是用于 关系型数据库 的一个操作语言</li>
+<li>利用这个 SQL 语言可以增删改查库和表，以及增删改查表数据</li>
+<li>表 就是 关系</li>
+<li>表与表之间就是关系</li>
+</ul>
+</li>
+<li><p>MongoDB</p>
+<ul>
+<li>非关系型数据库</li>
+<li>没有表，这个数据库中存储的数据都在集合中，类似于 JavaScript 对象，其实就是 json 格式的数据</li>
+<li>集合没有结构，集合就是一个数组</li>
+<li>也可以往集合中插入数据</li>
+</ul>
+</li>
+<li><p>关系型数据库存储结构</p>
+<ul>
+<li>数据库服务器<ul>
+<li>数据库管理系统</li>
+</ul>
+</li>
+<li>数据库</li>
+<li>数据表<ul>
+<li>根据业务设计表结构</li>
+</ul>
+</li>
+<li>记录<ul>
+<li>根据表结构存储记录数据</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h2><p>MongoDB是由10gen公司开发的一个介于关系型数据库和非关系型数据库之间的产品，是非关系型数据库中功能最丰富，最像关系型数据库的。他支持的数据结构非常松散，是类似json的格式，所以可以存储比较复杂的数据结构类型。MongoDB数据库管理系统最大的特点就是它支持的查询语言非常强大，语法类似于面向对象的查询语言。它还是一个开源的数据库，对于大数据量、高并发的互联网应用，支持非常不错。操作非关系型数据库不需要使用SQL语言。</p>
+<p>MongoDB 官网：<a href="https://www.mongodb.com/" target="_blank" rel="noopener">https://www.mongodb.com/</a></p>
+<ul>
+<li>MongoDB 是一个非关系型数据库</li>
+<li>面向文档存储</li>
+<li>开源免费、高性能</li>
+<li>MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成</li>
+<li>MongoDB 文档类似于 JSON 对象</li>
+<li>字段值可以包含其他文档，数组及文档数组</li>
+<li>Mongo支持丰富的查询表达式</li>
+<li>查询指令使用JSON形式的标记，可轻易查询文档中内嵌的对象及数组。</li>
+</ul>
+<h3 id="创建数据目录并启动MongoDB数据库服务器"><a href="#创建数据目录并启动MongoDB数据库服务器" class="headerlink" title="创建数据目录并启动MongoDB数据库服务器"></a>创建数据目录并启动MongoDB数据库服务器</h3><blockquote>
+<p>启动MongoDB数据库需要指定一个数据存储目录</p>
+</blockquote>
+<ul>
+<li>在 c 盘 根目录创建一个目录：data</li>
+<li>接下来启动 MongoDB 服务器<ul>
+<li>打开终端，输入：<code>mongod 你刚才创建的目录的绝对路径</code></li>
+</ul>
+</li>
+</ul>
+<p>注意：如果发现执行上面的命令收到这样一个提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;mongod&apos; 不是内部或外部命令，也不是可运行的程序或批处理文件。</span><br></pre></td></tr></table></figure>
+<p>解决方案：将 MongoDB 安装目录下的 bin 目录配置到环境变量。</p>
+<p>如果执行完上面的命令启动成功后不要动这个命令台了，说明 MongoDB 服务器正在运行。</p>
+<p>MongoDB 默认运行的端口号是 27017</p>
+<p>如何关闭？</p>
+<p>在终端中：<code>Ctrl + C</code> 关闭 MongoDB 数据库。</p>
+<h3 id="连接-MongoDB-数据库"><a href="#连接-MongoDB-数据库" class="headerlink" title="连接 MongoDB 数据库"></a>连接 MongoDB 数据库</h3><h3 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h3><ul>
+<li>数据库<ul>
+<li>一个mongodb中可以建立多个数据库</li>
+<li>MongoDB的默认数据库为”db”，该数据库存储在data目录中</li>
+<li>MongoDB的单个实例可以容纳多个独立的数据库，每一个都有自己的集合和文档</li>
+<li>不同的数据库也放置在不同的文件中</li>
+<li><code>show dbs</code> 显示所有数据库列表</li>
+<li><code>db</code> 显示当前数据库对象或集合</li>
+<li><code>use 数据库名字</code> 连接到一个指定的数据库</li>
+</ul>
+</li>
+<li>集合<ul>
+<li>集合就是 MongoDB 文档组，类似于关系型数据库中的表</li>
+<li>集合存在于数据库中，集合没有固定的结构，就是一个 JSON</li>
+<li>通常情况下我们插入集合的数据都会有一定的关联性。</li>
+<li>当第一个文档插入时，集合就会被创建。</li>
+<li>db.col.find() 查询所有数据</li>
+<li>db.col.findOne({}) 查询指定数据</li>
+</ul>
+</li>
+<li>文档<ul>
+<li>文档是一个键值(key-value)对(即BSON)</li>
+</ul>
+</li>
+</ul>
+<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><ul>
+<li><code>show dbs</code> 查看数据库列表</li>
+<li><code>use 名称</code> 创建一个数据库<ul>
+<li>这里表示如果有该数据库则切换到该数据库</li>
+<li>如果没有，则创建（创建不是真的创建，只有当你在这个数据库中插入一个集合数据之后才会创建成功）</li>
+</ul>
+</li>
+<li><code>show collections</code> 查看当前数据库中的集合</li>
+<li><code>db.集合名称.insert({文档对象})</code> 向集合中插入一个文档（JSON 对象）<ul>
+<li>如果该集合不存在，则直接新建，并将数据插入进去</li>
+<li>如果该集合已存在，则直接将数据添加到该集合中</li>
+</ul>
+</li>
+<li><code>db.集合名.find()</code> 查询集合中的所有数据</li>
+<li><code>db.集合名.find(文档条件)</code> 按照文档条件查询</li>
+<li><code>db.集合名.findOne(文档条件)</code> 按照文档条件查询，只查询匹配项的第一个</li>
+<li><code>db.dropDatabase()</code> 自杀，删除数据库当前数据库</li>
+<li><code>db.集合名.drop()</code> 删除数据库中的指定集合</li>
+<li><code>db.集合名.update(文档条件, 文档对象)</code> 根据文档条件，整体更新为文档对象</li>
+<li><code>db.集合名.update(文档条件, { $set:文档对象 })</code> 根据文档条件，更新指定字段<ul>
+<li>如果更新的文档对象中的字段已存在，则更新</li>
+<li>如果不存在，则直接怼进去</li>
+</ul>
+</li>
+<li><code>db.集合名.save(文档)</code><ul>
+<li>如果文档中包含一个 <code>&quot;_id&quot; : ObjectId(&quot;56064f89ade2f21f36b03136&quot;)</code> 该字段</li>
+<li>则会找到匹配项条件，整体替换</li>
+<li>如果没有该字段，则直接 insert</li>
+</ul>
+</li>
+<li><code>db.集合名.remove(条件文档)</code><ul>
+<li><a href="http://www.runoob.com/mongodb/mongodb-operators.html" target="_blank" rel="noopener">http://www.runoob.com/mongodb/mongodb-operators.html</a> 条件操作符</li>
+</ul>
+</li>
+</ul>
+<h3 id="在-Node-中操作-MongoDB"><a href="#在-Node-中操作-MongoDB" class="headerlink" title="在 Node 中操作 MongoDB"></a>在 Node 中操作 MongoDB</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongodb = <span class="built_in">require</span>(<span class="string">'mongodb'</span>);</span><br><span class="line"><span class="keyword">var</span> MongoClient = mongodb.MongoClient;</span><br><span class="line"><span class="comment">// Connection URL </span></span><br><span class="line"><span class="keyword">var</span> url = <span class="string">'mongodb://localhost:27017/itcast'</span>;</span><br><span class="line"><span class="comment">// Use connect method to connect to the Server </span></span><br><span class="line">MongoClient.connect(url, <span class="function"><span class="keyword">function</span> (<span class="params">err, db</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 2. 使用 db </span></span><br><span class="line">  <span class="comment">// 插入数据</span></span><br><span class="line">  <span class="comment">// db.collection('duanzi').insertMany([</span></span><br><span class="line">  <span class="comment">//   &#123; nickname: '斜阳烟柳', gender: 0, age: 20, content: '小时候，村里有只狗很凶，我和哥哥对它又恨又怕。一次，我哥在家偷我爸的酒喝。碰巧那只狗从我家门前经过，我哥借酒壮胆，抄起棍子冲了出去。凶狗见势不妙，仓皇逃窜，我哥就满村追着打。第二天，我哥和凶狗在一条窄巷遇上，彼此一愣，各自扭头撒腿就跑...', &#125;</span></span><br><span class="line">  <span class="comment">// ], (err, result) =&gt; &#123;</span></span><br><span class="line">  <span class="comment">//   if (err) &#123;</span></span><br><span class="line">  <span class="comment">//     throw err;</span></span><br><span class="line">  <span class="comment">//   &#125;</span></span><br><span class="line">  <span class="comment">//   console.log('插入数据成功');</span></span><br><span class="line">  <span class="comment">// &#125;);</span></span><br><span class="line">  <span class="comment">// 查询数据</span></span><br><span class="line">  db.collection(<span class="string">'duanzi'</span>).find(&#123;&#125;).toArray(<span class="function">(<span class="params">err, docs</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      <span class="keyword">throw</span> err;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(docs);</span><br><span class="line">  &#125;)</span><br><span class="line">  db.close();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>oracle、sqlserver、DB2、MySQL 都是关系型数据库。</p>
+<h2 id="安装和配置-MySQL-数据库"><a href="#安装和配置-MySQL-数据库" class="headerlink" title="安装和配置 MySQL 数据库"></a>安装和配置 MySQL 数据库</h2><p>官方网站：<a href="http://www.mysql.com/" target="_blank" rel="noopener">http://www.mysql.com/</a></p>
+<p>启动 和 停止MySQL服务：</p>
+<blockquote>
+<p>通过Windows的运行，输入services.msc找到MySQL服务</p>
+</blockquote>
+<p>通过DOS命令启动MySQL服务（使用管理员权限打开终端）</p>
+<p>登录MySQL数据库:</p>
+<p><code>mysql -h localhost -P 3306 -u root -p</code></p>
+<ul>
+<li><code>-h：</code>主机名</li>
+<li><code>-P：</code>端口</li>
+<li><code>-u：</code>用户名</li>
+<li><code>-p：</code>密码</li>
+</ul>
+<p>mysql默认连接localhost和3306，所以可以省略-h和-P:</p>
+<p><code>mysql -u root -p</code></p>
+<p>在命令行中输入“help;”或者“\h”，就会显示出MySQL的帮助信息。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">简写</th>
+<th style="text-align:center">具体含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">?</td>
+<td style="text-align:center">\?</td>
+<td style="text-align:center">显示帮助信息</td>
+</tr>
+<tr>
+<td style="text-align:center">exit</td>
+<td style="text-align:center">\q</td>
+<td style="text-align:center">退出MySQL</td>
+</tr>
+<tr>
+<td style="text-align:center">help</td>
+<td style="text-align:center">\h</td>
+<td style="text-align:center">显示帮助信息</td>
+</tr>
+<tr>
+<td style="text-align:center">quit</td>
+<td style="text-align:center">\q</td>
+<td style="text-align:center">退出MySQL</td>
+</tr>
+<tr>
+<td style="text-align:center">status</td>
+<td style="text-align:center">\s</td>
+<td style="text-align:center">获取MySQL服务器状态信息</td>
+</tr>
+<tr>
+<td style="text-align:center">use</td>
+<td style="text-align:center">\u</td>
+<td style="text-align:center">用来选择一个数据库，以一个数据库名作为参数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="数据库的存储结构"><a href="#数据库的存储结构" class="headerlink" title="数据库的存储结构"></a>数据库的存储结构</h2><ul>
+<li>一个数据库服务器上可以有多个数据库</li>
+<li>一个数据库中可以有多个表<ul>
+<li>一个表一定要有表结构</li>
+<li>所有的数据存储在表中，所以有了数据库之后，要先设计你的表结构</li>
+</ul>
+</li>
+<li>一张表中存储多条记录<ul>
+<li>记录按照表结构的形式进行存储</li>
+</ul>
+</li>
+</ul>
+<h2 id="创建数据库和表"><a href="#创建数据库和表" class="headerlink" title="创建数据库和表"></a>创建数据库和表</h2><h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE [IF NOT EXISTS] db_name</span><br></pre></td></tr></table></figure>
+<h3 id="查看数据库"><a href="#查看数据库" class="headerlink" title="查看数据库"></a>查看数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW DATABASES;</span><br></pre></td></tr></table></figure>
+<h3 id="显示数据库创建语句"><a href="#显示数据库创建语句" class="headerlink" title="显示数据库创建语句"></a>显示数据库创建语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW CREATE DATABASE db_name;</span><br></pre></td></tr></table></figure>
+<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP DATABASE [IF EXISTS] db_name;</span><br></pre></td></tr></table></figure>
+<h3 id="选择数据库"><a href="#选择数据库" class="headerlink" title="选择数据库"></a>选择数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">USE db_name;</span><br></pre></td></tr></table></figure>
+<h3 id="查看当前使用的数据库"><a href="#查看当前使用的数据库" class="headerlink" title="查看当前使用的数据库"></a>查看当前使用的数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT database();</span><br></pre></td></tr></table></figure>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">大小</th>
+<th style="text-align:center">范围（有符号）</th>
+<th style="text-align:center">范围（无符号）</th>
+<th style="text-align:center">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">TINYINT</td>
+<td style="text-align:center">1 字节</td>
+<td style="text-align:center">(-128，127)</td>
+<td style="text-align:center">(0，255)</td>
+<td style="text-align:center">小整数值</td>
+</tr>
+<tr>
+<td style="text-align:center">SMALLINT</td>
+<td style="text-align:center">2 字节</td>
+<td style="text-align:center">(-32 768，32 767)</td>
+<td style="text-align:center">(0，65 535)</td>
+<td style="text-align:center">大整数值</td>
+</tr>
+<tr>
+<td style="text-align:center">MEDIUMINT</td>
+<td style="text-align:center">3 字节</td>
+<td style="text-align:center">(-8 388 608，8 388 607)</td>
+<td style="text-align:center">(0，16 777 215)</td>
+<td style="text-align:center">大整数值</td>
+</tr>
+<tr>
+<td style="text-align:center">INT或INTEGER</td>
+<td style="text-align:center">4 字节</td>
+<td style="text-align:center">(-2 147 483 648，2 147 483 647)</td>
+<td style="text-align:center">(0，4 294 967 295)</td>
+<td style="text-align:center">大整数值</td>
+</tr>
+<tr>
+<td style="text-align:center">…</td>
+<td style="text-align:center">…</td>
+<td style="text-align:center">…</td>
+<td style="text-align:center">…</td>
+<td style="text-align:center">…</td>
+</tr>
+</tbody>
+</table>
+<h3 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h3><p>在MySQL数据库中，存储小数都是使用浮点数和定点数来表示的。</p>
+<p>浮点数有两种：</p>
+<ul>
+<li>单精度浮点数（FLOAT）</li>
+<li>双精度浮点数(DOUBLE)</li>
+</ul>
+<p>定点数（DECIMAL）[ˈdesɪml]</p>
+<h3 id="时间和日期类型"><a href="#时间和日期类型" class="headerlink" title="时间和日期类型"></a>时间和日期类型</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">大小(字节)</th>
+<th style="text-align:center">范围</th>
+<th style="text-align:center">格式</th>
+<th style="text-align:center">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">DATE</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">1000-01-01/9999-12-31</td>
+<td style="text-align:center">YYY-MM-DD</td>
+<td style="text-align:center">日期值</td>
+</tr>
+<tr>
+<td style="text-align:center">TIME</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">‘-838:59:59’/‘838:59:59’</td>
+<td style="text-align:center">H:MM:SS</td>
+<td style="text-align:center">时间值或持续时间</td>
+</tr>
+<tr>
+<td style="text-align:center">YEAR</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1901/2155</td>
+<td style="text-align:center">YYY</td>
+<td style="text-align:center">年份值</td>
+</tr>
+<tr>
+<td style="text-align:center">DATETIME</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">1000-01-01 00:00:00/9999-12-31 23:59:59</td>
+<td style="text-align:center">YYY-MM-DD HH:MM:SS</td>
+<td style="text-align:center">混合日期和时间值</td>
+</tr>
+<tr>
+<td style="text-align:center">TIMESTAMP</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">1970-01-01 00:00:00/2037 年某时</td>
+<td style="text-align:center">YYYMMDD HHMMSS</td>
+<td style="text-align:center">混合日期和时间值，时间戳</td>
+</tr>
+</tbody>
+</table>
+<p>如果插入的数值不合法，系统会自动将对应的零值插入到数据库中。</p>
+<ul>
+<li>YEAR<br>使用4位字符串或数字表示，范围为‘1901‘ ~ ‘2155’或1901~2155</li>
+</ul>
+<p>例如，输入‘2016‘或者2016，插入到数据库的值均为2016</p>
+<ul>
+<li>DATE</li>
+</ul>
+<p>DATE类型用来表示日期值，不包含时间部分。</p>
+<p>可以使用“YYYY-MM-DD“或‘YYYYMMDD‘字符串表示</p>
+<p>例如，输入‘2016-10-01‘或’20161001‘插入到数据库的日期都是2016-10-01</p>
+<ul>
+<li>TIME</li>
+</ul>
+<p>TIME类型用于表示时间值，它的显示形式一般为HH:MM:SS,其中HH 表示小时，MM表示分，SS表示秒</p>
+<p>可以使用下面三种方式指定时间的值：</p>
+<ol>
+<li>以“D HH：MM：SS“字符串格式表示。其中，D表示日，可以取0-34之间的值，插入数据时，小时的值等于（D*24+HH）<ul>
+<li>例如，输入‘2 11:30:50‘，插入数据库的日期为 59:30:50</li>
+</ul>
+</li>
+<li>以‘HHMMSS‘字符串格式或者HHMMSS数字格式表示<ul>
+<li>例如：输入‘345454‘或345454，插入数据库的日期为34:54:54</li>
+</ul>
+</li>
+<li>使用CURRENT_TIME或NOW()输入当前系统时间<ul>
+<li>DATETIME</li>
+</ul>
+</li>
+</ol>
+<p>指定DATETIME类型的值：</p>
+<ol>
+<li>以‘YYYY-MM-DD HH:MM:SS‘或者’YYYYMMDDHHMMSS‘字符串或数字都可以。</li>
+<li>使用NOW来输入当前系统的日期和时间</li>
+</ol>
+<ul>
+<li>TIMESTAMP</li>
+</ul>
+<p>TIMESTAMP类型显示形式和DATETIME相同，但取值范围比DATETIME小。</p>
+<ol>
+<li>输入CURRENT_TIMESTAMP输入系统当前日期和时间</li>
+<li>输入NULL时，系统会自动输入当前日期和时间</li>
+<li>无任何输入时，系统会输入系统当前日期和时间</li>
+</ol>
+<p>标记。利用它可以保存表中某条记录的最后修改时间。自动维护。</p>
+<h3 id="CHAR和VARCHAR"><a href="#CHAR和VARCHAR" class="headerlink" title="CHAR和VARCHAR"></a>CHAR和VARCHAR</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">插入值</th>
+<th style="text-align:center">CHAR(4)</th>
+<th style="text-align:center">存储需求</th>
+<th style="text-align:center">VARCHAR(4)</th>
+<th style="text-align:center">存储需求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">‘’</td>
+<td style="text-align:center">‘’</td>
+<td style="text-align:center">4个字节</td>
+<td style="text-align:center">‘’</td>
+<td style="text-align:center">1个字节</td>
+</tr>
+<tr>
+<td style="text-align:center">‘ab’</td>
+<td style="text-align:center">‘ab’</td>
+<td style="text-align:center">4个字节</td>
+<td style="text-align:center">‘ab’</td>
+<td style="text-align:center">3个字节</td>
+</tr>
+<tr>
+<td style="text-align:center">‘abc’</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">4个字节</td>
+<td style="text-align:center">‘abc’</td>
+<td style="text-align:center">4个字节</td>
+</tr>
+<tr>
+<td style="text-align:center">‘abcd’</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">4个字节</td>
+<td style="text-align:center">‘abcd’</td>
+<td style="text-align:center">5个字节</td>
+</tr>
+<tr>
+<td style="text-align:center">‘abcde’</td>
+<td style="text-align:center">‘abcd’</td>
+<td style="text-align:center">4个字节</td>
+<td style="text-align:center">‘abcd’</td>
+<td style="text-align:center">5个字节</td>
+</tr>
+</tbody>
+</table>
+<p>当数据为CHAR(4)类型时，不管插入值的长度是多少，所占用的存储空间都是4个字节。而VARCHAR（4）所对应的数据所占用的字节数为实际长度加1.</p>
+<p>总结：</p>
+<ul>
+<li>字符长度不固定的类型使用VARCHAR 查询的时候要计算字节的长度</li>
+<li><p>字符串长度固定的使用CHAR 查询速度快。</p>
+</li>
+<li><p>VARCAHR比CHAR省空间</p>
+</li>
+<li><p>CHAR比VARCHAR省时间</p>
+</li>
+</ul>
+<p>TEXT类型</p>
+<p>表示大文本数据，例如：文章内容、评论等</p>
+<h2 id="基本操作-1"><a href="#基本操作-1" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="查看表结构"><a href="#查看表结构" class="headerlink" title="查看表结构"></a>查看表结构</h3><p>查看当前数据库中的所有表： <code>show tables;</code></p>
+<p>查看表结构: <code>desc table_name;</code></p>
+<p>查看建表语句: <code>show create table table_name;</code></p>
+<h3 id="修改数据表"><a href="#修改数据表" class="headerlink" title="修改数据表"></a>修改数据表</h3><p>增加列: <code>ALTER TABLE table_name ADD colum datatype;</code></p>
+<p>修改列: <code>ALTER TABLE table_name MODIFY colum datatype;</code></p>
+<p>删除列: <code>ALTER TABLE table_name DROP colum;</code></p>
+<p>修改表名: <code>rename TABLE table_name to new_table_name;</code></p>
+<p>修改列名: <code>ALTER TABLE table_name change colum_name new_colum_name datatype;</code></p>
+<h3 id="删除数据表"><a href="#删除数据表" class="headerlink" title="删除数据表"></a>删除数据表</h3><p><code>DROP TABLE table_name;</code></p>
+<h3 id="表的约束"><a href="#表的约束" class="headerlink" title="表的约束"></a>表的约束</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">约束条件</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">PRIMARY KEY</td>
+<td style="text-align:center">主键约束，用于唯一标识对应的记录</td>
+</tr>
+<tr>
+<td style="text-align:center">FOREIGN KEY</td>
+<td style="text-align:center">外键约束</td>
+</tr>
+<tr>
+<td style="text-align:center">NOT NULL</td>
+<td style="text-align:center">非空约束</td>
+</tr>
+<tr>
+<td style="text-align:center">UNIQUE</td>
+<td style="text-align:center">唯一性约束</td>
+</tr>
+<tr>
+<td style="text-align:center">DEFAULT</td>
+<td style="text-align:center">默认值约束，用于设置字段的默认值</td>
+</tr>
+</tbody>
+</table>
+<p>表的约束条件都是针对表中字段进行限制，从而保证数据表中数据的正确性和唯一性。</p>
+<h4 id="主键约束"><a href="#主键约束" class="headerlink" title="主键约束"></a>主键约束</h4><p>每个数据表中最多只能有一个主键约束，定义为PRIMARY KEY 的字段不能有重复值且不能为NULL值。也就是非空而且唯一</p>
+<p>语法：<code>字段名 数据类型 PRIMARY KEY</code></p>
+<h4 id="非空约束"><a href="#非空约束" class="headerlink" title="非空约束"></a>非空约束</h4><p>非空约束指的是字段的值不能为NULL，在MySQL中，非空约束是通过NOT NULL 定义的。</p>
+<p>语法：<code>字段名 数据类型 NOT NULL;</code></p>
+<h4 id="唯一约束"><a href="#唯一约束" class="headerlink" title="唯一约束"></a>唯一约束</h4><p>唯一约束用于保证数据表中字段的唯一性，即表中字段的值不能重复出现。</p>
+<p>语法：<code>字段名 数据类型 UNIQUE;</code></p>
+<h4 id="默认约束"><a href="#默认约束" class="headerlink" title="默认约束"></a>默认约束</h4><p>默认约束用于给数据库中的字段指定默认值，即当在表中插入一条记录时，如果没有给这个字段赋值，数据库系统会为这个字段插入默认值。</p>
+<p>语法：<code>字段名 数据类型 DEFAULT 默认值;</code></p>
+<h3 id="设置表的字段值自动增加"><a href="#设置表的字段值自动增加" class="headerlink" title="设置表的字段值自动增加"></a>设置表的字段值自动增加</h3><p>如果想为表中插入的新纪录自动生成唯一ID。可以使用AUTO_INCREMENT实现</p>
+<p>语法：<code>字段名 数据类型 AUTO_INCREMENT;</code></p>
+<h2 id="添加、更新与删除数据"><a href="#添加、更新与删除数据" class="headerlink" title="添加、更新与删除数据"></a>添加、更新与删除数据</h2><h3 id="添加数据"><a href="#添加数据" class="headerlink" title="添加数据"></a>添加数据</h3><h4 id="为表中所有字段添加数据"><a href="#为表中所有字段添加数据" class="headerlink" title="为表中所有字段添加数据"></a>为表中所有字段添加数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO 表名</span><br><span class="line">VALUES(列1值,列2值,...)</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<ul>
+<li>values中的值必须与表中的字段一一对应。</li>
+<li>插入的数据应与字段中的数据类型相同</li>
+<li>数据的大小应该在列的规定范围内，例如不能将一个长度为80的字符串插入到长度为40个列中</li>
+<li>字符和日期型数据应该包含在单引号中</li>
+<li>如果要插入一个空值，不指定或者使用NULL</li>
+</ul>
+<h4 id="按照指定列添加数据："><a href="#按照指定列添加数据：" class="headerlink" title="按照指定列添加数据："></a>按照指定列添加数据：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO 表名(列1名, 列2名,...)</span><br><span class="line">VALUES(列1值, 列2值,...)</span><br></pre></td></tr></table></figure>
+<p><strong>注意: values中的值必须与列声明中的列一一对应</strong></p>
+<h4 id="同时添加多条记录"><a href="#同时添加多条记录" class="headerlink" title="同时添加多条记录"></a>同时添加多条记录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO employee</span><br><span class="line">VALUES (value1,value2,value3...),</span><br><span class="line">        (value1,value2,value3...),</span><br><span class="line">        (value1,value2,value3),</span><br><span class="line">        ...;</span><br></pre></td></tr></table></figure>
+<h3 id="更新全部数据："><a href="#更新全部数据：" class="headerlink" title="更新全部数据："></a>更新全部数据：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPDATE 表名</span><br><span class="line">SET 列名=值, 列名=值[,列名=值]</span><br></pre></td></tr></table></figure>
+<h4 id="按条件更新："><a href="#按条件更新：" class="headerlink" title="按条件更新："></a>按条件更新：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE 表名</span><br><span class="line">SET 列名=值, 列名=值[,列名=值]</span><br><span class="line">WHERE 条件;</span><br></pre></td></tr></table></figure>
+<p>总结：</p>
+<ul>
+<li>UPDATE语句可以用新值更新原有表中行的列。</li>
+<li>SET字句指定要修改哪些列和要给与哪些值</li>
+<li>WHERE需要给定一个条件，表示要更新符号该条件的行，没有WHERE字句，则更新所有行</li>
+</ul>
+<h4 id="条件可以使用的运算符："><a href="#条件可以使用的运算符：" class="headerlink" title="条件可以使用的运算符："></a>条件可以使用的运算符：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- 比较运算符 &gt; &lt; &lt;= &gt;= = &lt;&gt;  大于、小于、大于(小于等于)、不等于</span><br><span class="line">BETWEEN…AND -- 显示在某一区间的值</span><br><span class="line">IN(set) -- 显示在in列表中的值，例：in(100,200)</span><br><span class="line">LIKE -- ‘张pattern’ 模糊查询%</span><br><span class="line">IS NULL -- 判断是否为空</span><br><span class="line">-- 逻辑运算符 AND 多个条件同时成立</span><br><span class="line">OR  多个条件任一成立</span><br><span class="line">NOT 不成立，例：WHERE NOT(salary&gt;100)</span><br></pre></td></tr></table></figure>
+<h3 id="删除数据："><a href="#删除数据：" class="headerlink" title="删除数据："></a>删除数据：</h3><h4 id="删除全部数据"><a href="#删除全部数据" class="headerlink" title="删除全部数据"></a>删除全部数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM 表名;</span><br></pre></td></tr></table></figure>
+<h4 id="根据条件删除："><a href="#根据条件删除：" class="headerlink" title="根据条件删除："></a>根据条件删除：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM 表名</span><br><span class="line">WHERE 条件;</span><br></pre></td></tr></table></figure>
+<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>runcate初始化数据表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">truncate table_name;</span><br></pre></td></tr></table></figure>
+<p><strong>truncate和delete的区别：</strong></p>
+<ul>
+<li>delete会一条一条的删</li>
+<li>truncate先摧毁整张表，再创建一张和原来的表结构一模一样的表</li>
+<li>拿拆迁举例子</li>
+<li>truncate在效率上比delete高</li>
+<li>truncate只能删除整表的数据，也就是格式化。</li>
+<li>truncate会把自增id截断恢复为1</li>
+</ul>
+<p>总结：</p>
+<ul>
+<li>如果不使用WHERE语句，将删除表中所有数据</li>
+<li>DELETE不能删除某一列的值，（可使用UPDATE）</li>
+<li>使用DELETE语句仅仅删除记录，不删除表本身，如果要删除表，使用DROP TABLE语句</li>
+<li>删除表中所有数据也可以使用truncate table_name语句</li>
+</ul>
+<h3 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h3><h4 id="简单查询"><a href="#简单查询" class="headerlink" title="简单查询"></a>简单查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT [DISTINCT] *|&#123;colum1, colum2, colum3...&#125; FROM table_name;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>SELECT指定查询哪些列的数据</li>
+<li>column指定列名</li>
+<li><code>*</code>号表示查询所有列</li>
+<li>FROM 指定查询哪种表</li>
+<li>DISTINCT 可选，指查询结果时，是否去除重复数据</li>
+</ul>
+<h4 id="查询表中所有数据："><a href="#查询表中所有数据：" class="headerlink" title="查询表中所有数据："></a>查询表中所有数据：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM 表名;</span><br></pre></td></tr></table></figure>
+<h4 id="按照指定列查询表中所有数据："><a href="#按照指定列查询表中所有数据：" class="headerlink" title="按照指定列查询表中所有数据："></a>按照指定列查询表中所有数据：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT 列名,列名[,列名] FROM 表名;</span><br></pre></td></tr></table></figure>
+<h4 id="根据条件查询数据："><a href="#根据条件查询数据：" class="headerlink" title="根据条件查询数据："></a>根据条件查询数据：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM 表名</span><br><span class="line">WHERE 条件;</span><br></pre></td></tr></table></figure>
+<p>在WHERE字句中经常使用的运算符</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">比较运算符</th>
+<th style="text-align:center">&gt; &lt; &lt;= &gt;= = &lt;&gt;</th>
+<th style="text-align:center">大于、小于、大于(小于等于)、不等于</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">比较运算符</td>
+<td style="text-align:center">BETWEEN…AND</td>
+<td style="text-align:center">显示在某一区间的值</td>
+</tr>
+<tr>
+<td style="text-align:center">比较运算符</td>
+<td style="text-align:center">IN(set)</td>
+<td style="text-align:center">显示在in列表中的值，例：in(100,200)</td>
+</tr>
+<tr>
+<td style="text-align:center">比较运算符</td>
+<td style="text-align:center">LIKE</td>
+<td style="text-align:center">‘张pattern’ 模糊查询%</td>
+</tr>
+<tr>
+<td style="text-align:center">比较运算符</td>
+<td style="text-align:center">IS NULL</td>
+<td style="text-align:center">判断是否为空</td>
+</tr>
+<tr>
+<td style="text-align:center">逻辑运算符</td>
+<td style="text-align:center">AND</td>
+<td style="text-align:center">多个条件同时成立</td>
+</tr>
+<tr>
+<td style="text-align:center">逻辑运算符</td>
+<td style="text-align:center">OR</td>
+<td style="text-align:center">多个条件任一成立</td>
+</tr>
+<tr>
+<td style="text-align:center">逻辑运算符</td>
+<td style="text-align:center">NOT</td>
+<td style="text-align:center">不成立，例：WHERE NOT(salary&gt;100)</td>
+</tr>
+</tbody>
+</table>
+<p>LIKE语句中，<code>%</code> 代表零个或多个任意字符，<code>_</code>代表一个字符，例如：<code>name LIKE &#39;_a%&#39;</code>;</p>
+<h4 id="多表查询："><a href="#多表查询：" class="headerlink" title="多表查询："></a>多表查询：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-- 多表查询</span><br><span class="line">-- 找到表 articles 中 user_id 等于 users 表中 id 的</span><br><span class="line">-- 多表查询可以起别名</span><br><span class="line">SELECT a.id as article_id, a.title, a.time</span><br><span class="line">FROM articles as a</span><br><span class="line">INSERT JOIN users as u</span><br><span class="line">ON a.user_id=u.id</span><br></pre></td></tr></table></figure>
+<h4 id="查询总记录数："><a href="#查询总记录数：" class="headerlink" title="查询总记录数："></a>查询总记录数：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 查询表中的总记录数据</span><br><span class="line">SELECT COUNT(id) as count FROM articles;</span><br></pre></td></tr></table></figure>
+<h4 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h4><blockquote>
+<p>在实际开发中，经常需要对某些数据进行统计，例如统计某个字段的最大值，最小值，平均值等，为此，MySQL提供了一些函数来实现这些功能。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数名称</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">COUNT()</td>
+<td style="text-align:center">返回某行的列数</td>
+</tr>
+<tr>
+<td style="text-align:center">SUM()</td>
+<td style="text-align:center">返回某列值的和</td>
+</tr>
+<tr>
+<td style="text-align:center">AVG()</td>
+<td style="text-align:center">返回某列的平均值</td>
+</tr>
+<tr>
+<td style="text-align:center">MAX()</td>
+<td style="text-align:center">返回某列值的最大值</td>
+</tr>
+<tr>
+<td style="text-align:center">MIN()</td>
+<td style="text-align:center">返回某列的最小值</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>COUNT（列名）返回某一列，行的总数</li>
+<li>COUNT（列名）返回某一列，行的总数</li>
+<li>SUM()函数返回满足WHERE条件的行的和</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT SUM(列名) &#123;, SUM(列名)...&#125; FROM table_name</span><br><span class="line">  [WHERE where_definition]</span><br></pre></td></tr></table></figure>
+<p>注意：SUM仅对数值起作用，否则报错; 对多列求和，“,”不能少。</p>
+<ul>
+<li>MAX()/MIN()函数返回满足WHERE条件的一列的最大/最小值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT MAX(列名) FROM table_name</span><br><span class="line">  [WHERE where_definition];</span><br></pre></td></tr></table></figure>
+<h4 id="对查询结果排序"><a href="#对查询结果排序" class="headerlink" title="对查询结果排序"></a>对查询结果排序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT colum1, colum2, colum3..</span><br><span class="line">    FROM table_name</span><br><span class="line">    ORDER BY colum ASC|DESC;</span><br></pre></td></tr></table></figure>
+<p>ORDER BY 指定排序的列，排序的列表即可以是表中的列名，也可以是SELECT语句后指定的列名.</p>
+<ul>
+<li>ASC 升序，DESC 降序</li>
+<li>ORDER BY 字句应该位于SELECT 语句的结尾</li>
+</ul>
+<h4 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT colum1, colum2, ...</span><br><span class="line">  FROM 表名</span><br><span class="line">  LIMIT [OFFSET, ] 记录数</span><br></pre></td></tr></table></figure>
+<p>LIMIT表示从哪一条记录开始往后【不包含该记录】，以及一共查询多少记录</p>
+<p>OFFSET表示偏移量:</p>
+<ul>
+<li>如果为0则表示从第一条记录开始</li>
+<li>如果为5则表示从第6条记录开始</li>
+</ul>
+<p>使用场景：分页查询</p>
+<p>分页查询一个例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 仅仅取了前 10 条</span><br><span class="line">SELECET * FROM articles LIMIT 10</span><br><span class="line">-- 跳过一条取一条</span><br><span class="line">SELECET * FROM articles LIMIT 1, 1</span><br></pre></td></tr></table></figure>
+<h3 id="为表和字段区别名"><a href="#为表和字段区别名" class="headerlink" title="为表和字段区别名"></a>为表和字段区别名</h3><h4 id="为表取别名"><a href="#为表取别名" class="headerlink" title="为表取别名"></a>为表取别名</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT 表别名.id,表别名.name... FROM 表名 AS 表别名</span><br><span class="line">  WHERE 表别名.id = 2..</span><br></pre></td></tr></table></figure>
+<h4 id="为字段取别名"><a href="#为字段取别名" class="headerlink" title="为字段取别名"></a>为字段取别名</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT 字段名 [AS] 别名 [,字段名 [AS] 别名,...] FROM 表名;</span><br></pre></td></tr></table></figure>
+<h3 id="多表操作"><a href="#多表操作" class="headerlink" title="多表操作"></a>多表操作</h3><p>实际开发中业务逻辑比较复杂，可能有几十到几百张表不等，所以我们就需要对多张表来进行查询操作，对两张以上的表进行操作，就是多表操作。</p>
+<h4 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h4><p>为了保证数据的完整性，将两张表之间的数据建立关系，因此就需要在成绩表中添加外键约束。</p>
+<ul>
+<li>外键是指引用另一个表中的一列或多列，被引用的列应该具有主键约束或唯一约束。</li>
+<li>外键用于建立和加强两个表数据之间的链接。</li>
+</ul>
+<h4 id="为表添加外键约束"><a href="#为表添加外键约束" class="headerlink" title="为表添加外键约束"></a>为表添加外键约束</h4><p>创建表的时候添加外键:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE department(</span><br><span class="line">    id INT PRIMARY KEY auto_increment,</span><br><span class="line">    name VARCHAR(20) NOT NULL</span><br><span class="line">);</span><br><span class="line">CREATE TABLE employee(</span><br><span class="line">    id INT PRIMARY KEY auto_increment,</span><br><span class="line">    name VARCHAR(20) NOT NULL,</span><br><span class="line">    dept_id INT,</span><br><span class="line">    FOREIGN KEY (id) REFERENCES department(id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>表已经存在，通过修改表的语句增加外键:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 表名 ADD CONSTRAINT 外键名 FOREIGN KEY(外键字段名) REFERENCES 外表表名(主键字段名);</span><br></pre></td></tr></table></figure>
+<h4 id="删除外键约束"><a href="#删除外键约束" class="headerlink" title="删除外键约束"></a>删除外键约束</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 表名 DROP FOREIGN KEY 外键名;</span><br></pre></td></tr></table></figure>
+<h3 id="操作关联表"><a href="#操作关联表" class="headerlink" title="操作关联表"></a>操作关联表</h3><blockquote>
+<p>关联关系:</p>
+</blockquote>
+<ul>
+<li>多对一</li>
+<li>多对多</li>
+<li>一对一</li>
+</ul>
+<h2 id="使用-Node-操作-MySQL-数据库"><a href="#使用-Node-操作-MySQL-数据库" class="headerlink" title="使用 Node 操作 MySQL 数据库"></a>使用 Node 操作 MySQL 数据库</h2><p>安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save mysql</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.npmjs.com/package/mysql" target="_blank" rel="noopener">使用 Node 操作</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mysql = <span class="built_in">require</span>(<span class="string">'mysql'</span>);</span><br><span class="line"><span class="comment">// 连接数据库</span></span><br><span class="line"><span class="keyword">var</span> connection = mysql.createConnection(&#123;</span><br><span class="line">  host: <span class="string">'localhost'</span>,</span><br><span class="line">  port: <span class="number">3306</span>,</span><br><span class="line">  user: <span class="string">'root'</span>,</span><br><span class="line">  password: <span class="string">'*********'</span>,</span><br><span class="line">  database: <span class="string">'personal'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 开始操作之前先连接，这一步可以省略</span></span><br><span class="line"><span class="comment">// 当操作数据库的时候，可以自动连接</span></span><br><span class="line"><span class="comment">// connection.connect();</span></span><br><span class="line"><span class="comment">// 操作数据库</span></span><br><span class="line"><span class="comment">// 第一个参数就是任何 SQL 语言，增删改查，? 是要拼接字符串的数据</span></span><br><span class="line"><span class="comment">// 第二个参数可选，传入数据数组</span></span><br><span class="line"><span class="comment">// 第三个参数：回调函数</span></span><br><span class="line"><span class="comment">//    回调函数中的第一个参数就是异常错误对象</span></span><br><span class="line"><span class="comment">//    回调函数中的第二个参数就是操作结果</span></span><br><span class="line"><span class="comment">//    第三个参数可以省略，基本不考虑</span></span><br><span class="line">connection.query(<span class="string">'SELECT * FROM `users` WHERE `age`&gt;?'</span>, [<span class="number">20</span>], <span class="function"><span class="keyword">function</span>(<span class="params">err, rows, fields</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">  <span class="comment">// 如果是 SELECT，结果是数组</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'The solution is: '</span>, rows[<span class="number">0</span>].solution);</span><br><span class="line">  <span class="comment">// 对象中有一个数组很重要：affectedRows</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`受影响的行数：<span class="subst">$&#123;rows.affectedRows&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 关闭数据库</span></span><br><span class="line"><span class="comment">// 一般就是一个连接操作一次数据库，操作完毕，断开连接</span></span><br><span class="line">connection.end();</span><br></pre></td></tr></table></figure>
+<p>使用 Node 操作：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mysql = <span class="built_in">require</span>(<span class="string">'mysql'</span>)</span><br><span class="line">exports.query = <span class="function">(<span class="params">sql, params = [], callback</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> connection = mysql.createConnection(&#123;</span><br><span class="line">    connectionLimit : <span class="number">500</span>,</span><br><span class="line">    host: <span class="string">'localhost'</span>,</span><br><span class="line">    port: <span class="number">3306</span>,</span><br><span class="line">    user: <span class="string">'root'</span>,</span><br><span class="line">    password: <span class="string">'*********'</span>,</span><br><span class="line">    database: <span class="string">'personal'</span></span><br><span class="line">  &#125;)</span><br><span class="line">  connection.query(sql, params, (err, rows) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      <span class="keyword">return</span> callback(err)</span><br><span class="line">    &#125;</span><br><span class="line">    callback(<span class="literal">null</span>, rows)</span><br><span class="line">    <span class="comment">// 操作完毕，结束连接</span></span><br><span class="line">    connection.end()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用连接池操作-MySQL-数据库"><a href="#使用连接池操作-MySQL-数据库" class="headerlink" title="使用连接池操作 MySQL 数据库"></a>使用连接池操作 MySQL 数据库</h3><ul>
+<li>修改安装目录下 my.ini 文件中的: <code>max_connections=1000</code> 默认是 <code>max_connections=151</code></li>
+<li>重启服务器</li>
+</ul>
+<p><img src="/images/连接池.png" alt="连接池"></p>
+<h3 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a>连接池</h3><p>封装过程：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mysql = <span class="built_in">require</span>(<span class="string">'mysql'</span>);</span><br><span class="line"><span class="comment">// 使用连接，提高操作数据库效率</span></span><br><span class="line"><span class="comment">// 创建一个连接池，池子存放的连接数量是 100 个</span></span><br><span class="line"><span class="keyword">const</span> pool = mysql.createPool(&#123;</span><br><span class="line">  connectionLimit: <span class="number">100</span>,</span><br><span class="line">  host: <span class="string">'localhost'</span>,</span><br><span class="line">  user: <span class="string">'root'</span>,</span><br><span class="line">  password: <span class="string">'*********'</span>,</span><br><span class="line">  database: <span class="string">'personal'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">  <span class="comment">// 从池子中拿一个可用的连接</span></span><br><span class="line">  pool.getConnection(<span class="function">(<span class="params">err, connection</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      <span class="keyword">throw</span> err;</span><br><span class="line">    &#125;</span><br><span class="line">    connection.query(<span class="string">'INSERT INTO `feedback`(`message`, `name`, `email`, `date`) VALUES(?, ?, ?, ?)'</span>, [</span><br><span class="line">      <span class="string">'今天的雾霾很醇厚'</span>,</span><br><span class="line">      <span class="string">'校长'</span>,</span><br><span class="line">      <span class="string">'xiaozhang@abc.com'</span>,</span><br><span class="line">      <span class="string">'2016-11-17 09:31:00'</span></span><br><span class="line">    ], (err, stat) =&gt; &#123;</span><br><span class="line">      <span class="comment">// 尽早的释放回连接池</span></span><br><span class="line">      <span class="comment">// 只要操作数据库的回调函数被执行，说明这个连接的任务完成了</span></span><br><span class="line">      connection.release();</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="keyword">throw</span> err;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`第<span class="subst">$&#123;i+<span class="number">1</span>&#125;</span>个任务完成了`</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>封装：db.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mysql = <span class="built_in">require</span>(<span class="string">'mysql'</span>);</span><br><span class="line"><span class="keyword">const</span> pool = mysql.createPool(&#123;</span><br><span class="line">  connectionLimit: <span class="number">100</span>,</span><br><span class="line">  host: <span class="string">'localhost'</span>,</span><br><span class="line">  user: <span class="string">'root'</span>,</span><br><span class="line">  password: <span class="string">'*********'</span>,</span><br><span class="line">  database: <span class="string">'personal'</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// rest 参数</span></span><br><span class="line"><span class="comment">// 作为函数参数的最后一个参数出现，以 ... 开头，后面跟一个名字</span></span><br><span class="line"><span class="comment">// rest 参数就代替了 arguments</span></span><br><span class="line">exports.query = <span class="function"><span class="keyword">function</span> (<span class="params">sql, ...values</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> callback;</span><br><span class="line">  <span class="keyword">let</span> params = [];</span><br><span class="line">  <span class="keyword">if</span> (values.length === <span class="number">3</span>) &#123;</span><br><span class="line">    params = values[<span class="number">0</span>];</span><br><span class="line">    callback = values[<span class="number">1</span>];</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (values.length === <span class="number">2</span>) &#123;</span><br><span class="line">    callback = values[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br><span class="line">  pool.getConnection(<span class="function">(<span class="params">err, connection</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      <span class="keyword">return</span> callback(err);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果传递了两个参数，则第二个参数就是 callback</span></span><br><span class="line">    <span class="comment">// 也就是说这种情况下，params 就是 callback</span></span><br><span class="line">    <span class="comment">// 后面的 参数就忽略不计了</span></span><br><span class="line">    <span class="comment">// 如果真的传递了三个参数，那就是一一对应</span></span><br><span class="line">    connection.query(sql, params, (err, result) =&gt; &#123;</span><br><span class="line">      connection.release();</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="keyword">return</span> callback(err);</span><br><span class="line">      &#125;</span><br><span class="line">      callback(<span class="literal">null</span>, result);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="promise-版"><a href="#promise-版" class="headerlink" title="promise 版"></a>promise 版</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mysql = <span class="built_in">require</span>(<span class="string">'mysql'</span>);</span><br><span class="line"><span class="keyword">const</span> pool = mysql.createPool(&#123;</span><br><span class="line">  connectionLimit: <span class="number">100</span>,</span><br><span class="line">  host: <span class="string">'localhost'</span>,</span><br><span class="line">  user: <span class="string">'root'</span>,</span><br><span class="line">  password: <span class="string">'*********'</span>,</span><br><span class="line">  database: <span class="string">'personal'</span></span><br><span class="line">&#125;);</span><br><span class="line">exports.query = <span class="function">(<span class="params">sql, params = []</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    pool.getConnection(<span class="function">(<span class="params">err, connection</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="keyword">return</span> reject(err);</span><br><span class="line">      &#125;</span><br><span class="line">      connection.query(sql, params, (err, result) =&gt; &#123;</span><br><span class="line">        connection.release();</span><br><span class="line">        <span class="keyword">if</span> (err) &#123;</span><br><span class="line">          <span class="keyword">return</span> reject(err);</span><br><span class="line">        &#125;</span><br><span class="line">        resolve(result);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>调用示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> db = <span class="built_in">require</span>(<span class="string">'./db'</span>)</span><br><span class="line">db.query(<span class="string">'SELECT 1 + 1 as solution'</span>);</span><br><span class="line">  .then(<span class="function"><span class="params">rows</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// use rows</span></span><br><span class="line">    <span class="keyword">return</span> db.query(<span class="string">'INSERT INTO table_name VALUES(?, ?, ?)'</span>, [<span class="string">'值1'</span>, <span class="string">'值2'</span>, <span class="string">'值3'</span>])</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">rows</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// use rows</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// handle error</span></span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢您的支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="honey young 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="honey young 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MongoDB/" rel="tag"><i class="fa fa-tag"></i> MongoDB</a>
+          
+            <a href="/tags/MySQL/" rel="tag"><i class="fa fa-tag"></i> MySQL</a>
+          
+            <a href="/tags/Node-js/" rel="tag"><i class="fa fa-tag"></i> Node.js</a>
+          
+            <a href="/tags/数据库/" rel="tag"><i class="fa fa-tag"></i> 数据库</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/10/Node-相册小项目（下）/" rel="next" title="Node-相册小项目（下）">
+                <i class="fa fa-chevron-left"></i> Node-相册小项目（下）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/23/个人标签/" rel="prev" title="个人技能">
+                个人技能 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            博文目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概要
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="honey young" />
+            
+              <p class="site-author-name" itemprop="name">honey young</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/honeyYoung/honeyyoung.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/de13fcfe3889" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/dong-gua-xiao-ke-ai/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库介绍"><span class="nav-number">1.</span> <span class="nav-text">数据库介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MongoDB"><span class="nav-number">2.</span> <span class="nav-text">MongoDB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数据目录并启动MongoDB数据库服务器"><span class="nav-number">2.1.</span> <span class="nav-text">创建数据目录并启动MongoDB数据库服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接-MongoDB-数据库"><span class="nav-number">2.2.</span> <span class="nav-text">连接 MongoDB 数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储结构"><span class="nav-number">2.3.</span> <span class="nav-text">存储结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本操作"><span class="nav-number">2.4.</span> <span class="nav-text">基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在-Node-中操作-MongoDB"><span class="nav-number">2.5.</span> <span class="nav-text">在 Node 中操作 MongoDB</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装和配置-MySQL-数据库"><span class="nav-number">3.</span> <span class="nav-text">安装和配置 MySQL 数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库的存储结构"><span class="nav-number">4.</span> <span class="nav-text">数据库的存储结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建数据库和表"><span class="nav-number">5.</span> <span class="nav-text">创建数据库和表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数据库"><span class="nav-number">5.1.</span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看数据库"><span class="nav-number">5.2.</span> <span class="nav-text">查看数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示数据库创建语句"><span class="nav-number">5.3.</span> <span class="nav-text">显示数据库创建语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除数据库"><span class="nav-number">5.4.</span> <span class="nav-text">删除数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择数据库"><span class="nav-number">5.5.</span> <span class="nav-text">选择数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看当前使用的数据库"><span class="nav-number">5.6.</span> <span class="nav-text">查看当前使用的数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">6.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#整数类型"><span class="nav-number">6.1.</span> <span class="nav-text">整数类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮点型"><span class="nav-number">6.2.</span> <span class="nav-text">浮点型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间和日期类型"><span class="nav-number">6.3.</span> <span class="nav-text">时间和日期类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CHAR和VARCHAR"><span class="nav-number">6.4.</span> <span class="nav-text">CHAR和VARCHAR</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作-1"><span class="nav-number">7.</span> <span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看表结构"><span class="nav-number">7.1.</span> <span class="nav-text">查看表结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改数据表"><span class="nav-number">7.2.</span> <span class="nav-text">修改数据表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除数据表"><span class="nav-number">7.3.</span> <span class="nav-text">删除数据表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表的约束"><span class="nav-number">7.4.</span> <span class="nav-text">表的约束</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#主键约束"><span class="nav-number">7.4.1.</span> <span class="nav-text">主键约束</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非空约束"><span class="nav-number">7.4.2.</span> <span class="nav-text">非空约束</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#唯一约束"><span class="nav-number">7.4.3.</span> <span class="nav-text">唯一约束</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#默认约束"><span class="nav-number">7.4.4.</span> <span class="nav-text">默认约束</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置表的字段值自动增加"><span class="nav-number">7.5.</span> <span class="nav-text">设置表的字段值自动增加</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加、更新与删除数据"><span class="nav-number">8.</span> <span class="nav-text">添加、更新与删除数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加数据"><span class="nav-number">8.1.</span> <span class="nav-text">添加数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为表中所有字段添加数据"><span class="nav-number">8.1.1.</span> <span class="nav-text">为表中所有字段添加数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#按照指定列添加数据："><span class="nav-number">8.1.2.</span> <span class="nav-text">按照指定列添加数据：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同时添加多条记录"><span class="nav-number">8.1.3.</span> <span class="nav-text">同时添加多条记录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新全部数据："><span class="nav-number">8.2.</span> <span class="nav-text">更新全部数据：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#按条件更新："><span class="nav-number">8.2.1.</span> <span class="nav-text">按条件更新：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#条件可以使用的运算符："><span class="nav-number">8.2.2.</span> <span class="nav-text">条件可以使用的运算符：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除数据："><span class="nav-number">8.3.</span> <span class="nav-text">删除数据：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#删除全部数据"><span class="nav-number">8.3.1.</span> <span class="nav-text">删除全部数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#根据条件删除："><span class="nav-number">8.3.2.</span> <span class="nav-text">根据条件删除：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化"><span class="nav-number">8.3.3.</span> <span class="nav-text">初始化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单表查询"><span class="nav-number">8.4.</span> <span class="nav-text">单表查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简单查询"><span class="nav-number">8.4.1.</span> <span class="nav-text">简单查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询表中所有数据："><span class="nav-number">8.4.2.</span> <span class="nav-text">查询表中所有数据：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#按照指定列查询表中所有数据："><span class="nav-number">8.4.3.</span> <span class="nav-text">按照指定列查询表中所有数据：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#根据条件查询数据："><span class="nav-number">8.4.4.</span> <span class="nav-text">根据条件查询数据：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多表查询："><span class="nav-number">8.4.5.</span> <span class="nav-text">多表查询：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询总记录数："><span class="nav-number">8.4.6.</span> <span class="nav-text">查询总记录数：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#聚合函数"><span class="nav-number">8.4.7.</span> <span class="nav-text">聚合函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对查询结果排序"><span class="nav-number">8.4.8.</span> <span class="nav-text">对查询结果排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分组查询"><span class="nav-number">8.4.9.</span> <span class="nav-text">分组查询</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为表和字段区别名"><span class="nav-number">8.5.</span> <span class="nav-text">为表和字段区别名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为表取别名"><span class="nav-number">8.5.1.</span> <span class="nav-text">为表取别名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为字段取别名"><span class="nav-number">8.5.2.</span> <span class="nav-text">为字段取别名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多表操作"><span class="nav-number">8.6.</span> <span class="nav-text">多表操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#外键"><span class="nav-number">8.6.1.</span> <span class="nav-text">外键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为表添加外键约束"><span class="nav-number">8.6.2.</span> <span class="nav-text">为表添加外键约束</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除外键约束"><span class="nav-number">8.6.3.</span> <span class="nav-text">删除外键约束</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作关联表"><span class="nav-number">8.7.</span> <span class="nav-text">操作关联表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Node-操作-MySQL-数据库"><span class="nav-number">9.</span> <span class="nav-text">使用 Node 操作 MySQL 数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用连接池操作-MySQL-数据库"><span class="nav-number">9.1.</span> <span class="nav-text">使用连接池操作 MySQL 数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接池"><span class="nav-number">9.2.</span> <span class="nav-text">连接池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#promise-版"><span class="nav-number">9.3.</span> <span class="nav-text">promise 版</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">honey young</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+     <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+      本站访客数:<span id="busuanzi_value_site_uv"></span>
+     </span>
+  </div>
+<!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div> 
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
