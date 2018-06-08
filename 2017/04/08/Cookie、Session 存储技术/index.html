@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="Cookie,Node.js,Session," />
+  <meta name="keywords" content="Node.js,Cookie,Session," />
 
 
 
@@ -84,7 +84,7 @@
 
 
 <meta name="description" content="Cookie保存用户和网站之间的一个状态。  Cookie（复数形态Cookies），中文名称为“小型文本文件”或“小甜饼” 指某些网站为了辨别用户身份而储存在用户本地终端（Client Side）上的数据（通常经过加密）。 是网景公司的前雇员卢·蒙特利在1993年3月的发明 历史记录是浏览器的一个特性，cookie 使用了保持状态的一种手段 浏览器缓存分为好几种 一般所指缓存有静态资源缓存： c">
-<meta name="keywords" content="Cookie,Node.js,Session">
+<meta name="keywords" content="Node.js,Cookie,Session">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cookie、Session 存储技术">
 <meta property="og:url" content="http://yoursite.com/2017/04/08/Cookie、Session 存储技术/index.html">
@@ -433,7 +433,7 @@
 <p>Cookie 就是通过 HTTP 请求报文和响应报文配合完成。</p>
 <h3 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h3><p>利用响应头：<code>Set-Cookie</code> 来写 Cookie，然后解析请求头中的 <code>cookie</code> 来读取。</p>
 <h4 id="利用-http-模块来写入-Cookie"><a href="#利用-http-模块来写入-Cookie" class="headerlink" title="利用 http 模块来写入 Cookie"></a>利用 http 模块来写入 Cookie</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="comment">// 是不是第一次访问网站</span></span><br><span class="line"><span class="comment">// 如果是第一次访问：告诉用户是第一个访问该网站</span></span><br><span class="line"><span class="comment">// 如果不是第一次访问：告诉用户欢迎再次访问</span></span><br><span class="line">http.createServer()</span><br><span class="line">  .on(<span class="string">'request'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 如果你给客户端发送过这个 Cookie 了</span></span><br><span class="line">    <span class="comment">// 则客户端请求的时候会自动带过来</span></span><br><span class="line">    <span class="comment">// 然后将 Cookie 放到请求报文中</span></span><br><span class="line">    <span class="keyword">const</span> cookies = req.headers[<span class="string">'cookie'</span>];</span><br><span class="line">    req.cookie = &#123;&#125;;</span><br><span class="line">    <span class="keyword">if</span> (cookies) &#123;</span><br><span class="line">      cookies.split(<span class="string">';'</span>).forEach(<span class="function"><span class="params">cookie</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> tmp = cookie.split(<span class="string">'='</span>);</span><br><span class="line">        req.cookie[tmp[<span class="number">0</span>]] = tmp[<span class="number">1</span>];</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (req.cookie.isFirst) &#123;</span><br><span class="line">      res.writeHead(<span class="number">200</span>, &#123;</span><br><span class="line">        <span class="string">'Content-Type'</span>: <span class="string">'text/plain; charset=utf-8'</span>,</span><br><span class="line">      &#125;);</span><br><span class="line">      res.end(<span class="string">'欢迎再次光临...'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      res.writeHead(<span class="number">200</span>, &#123;</span><br><span class="line">        <span class="string">'Content-Type'</span>: <span class="string">'text/plain; charset=utf-8'</span>,</span><br><span class="line">        <span class="string">'Set-Cookie'</span>: <span class="string">'isFirst=true; Max-Age=20;'</span>,</span><br><span class="line">      &#125;);</span><br><span class="line">      res.end(<span class="string">'欢迎第一次访问'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  .listen(<span class="number">4000</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'runnning...'</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="利用前台-js-代码写入-Cookie"><a href="#利用前台-js-代码写入-Cookie" class="headerlink" title="利用前台 js 代码写入 Cookie"></a>利用前台 js 代码写入 Cookie</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"/node_modules/jquery/dist/jquery.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"/node_modules/js-cookie/src/js.cookie.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">var</span> username = Cookies.get(<span class="string">'username'</span>);</span><br><span class="line">  <span class="keyword">if</span> (username) &#123;</span><br><span class="line">    <span class="built_in">document</span>.querySelector(<span class="string">'#username'</span>).value = username;</span><br><span class="line">  &#125;</span><br><span class="line">  $(<span class="string">'form'</span>).on(<span class="string">'submit'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">    Cookies.set(<span class="string">'username'</span>, $(<span class="string">'#username'</span>).val());</span><br><span class="line">  &#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="利用前台-js-代码写入-Cookie"><a href="#利用前台-js-代码写入-Cookie" class="headerlink" title="利用前台 js 代码写入 Cookie"></a>利用前台 js 代码写入 Cookie</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"/node_modules/jquery/dist/jquery.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"/node_modules/js-cookie/src/js.cookie.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">var</span> username = Cookies.get(<span class="string">'username'</span>);</span><br><span class="line">  <span class="keyword">if</span> (username) &#123;</span><br><span class="line">    <span class="built_in">document</span>.querySelector(<span class="string">'#username'</span>).value = username;</span><br><span class="line">  &#125;</span><br><span class="line">  $(<span class="string">'form'</span>).on(<span class="string">'submit'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">    Cookies.set(<span class="string">'username'</span>, $(<span class="string">'#username'</span>).val());</span><br><span class="line">  &#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 <h4 id="在-Express-中使用-cookie-parser-中间件解析-cookie"><a href="#在-Express-中使用-cookie-parser-中间件解析-cookie" class="headerlink" title="在 Express 中使用 cookie-parser 中间件解析 cookie"></a>在 Express 中使用 <code>cookie-parser</code> 中间件解析 cookie</h4><p>安装：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save cookie-parser</span><br></pre></td></tr></table></figure>
 <p>配置：</p>
@@ -596,9 +596,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Cookie/" rel="tag"><i class="fa fa-tag"></i> Cookie</a>
-          
             <a href="/tags/Node-js/" rel="tag"><i class="fa fa-tag"></i> Node.js</a>
+          
+            <a href="/tags/Cookie/" rel="tag"><i class="fa fa-tag"></i> Cookie</a>
           
             <a href="/tags/Session/" rel="tag"><i class="fa fa-tag"></i> Session</a>
           
@@ -717,7 +717,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -728,7 +728,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
