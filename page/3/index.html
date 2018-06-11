@@ -296,6 +296,360 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/01/Node-网络编程-终端聊天室/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="honey young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Honey Young">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/01/01/Node-网络编程-终端聊天室/" itemprop="url">Node-网络编程-终端聊天室</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-01T00:00:00+08:00">
+                2017-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">Node.js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h2><ul>
+<li>应用层<ul>
+<li>http 协议</li>
+<li>在浏览器输入一个地址，浏览器按照 http 协议将输入的地址包装成 http 报文</li>
+<li>和数据传输没有任何关系</li>
+<li>只负责数据包装</li>
+<li>包装目的就是为了区分不同的行为</li>
+</ul>
+</li>
+<li>传输层<ul>
+<li>将应用层包装好的数据，通过传输层进行传输</li>
+<li>TCP: 电话机<ul>
+<li>端到端通信协议，必须知道对方的 ip 地址和端口号</li>
+<li>TCP/IP 对数据传输有一定的完整性的保障<ul>
+<li>一旦传输过程发生数据的完整性丢失，则全部丢掉重传</li>
+</ul>
+</li>
+<li>三次握手连接<ul>
+<li>双方通信必须先建立连接</li>
+<li>确保双方都能收到对方的消息</li>
+<li>首先呢，有两个概念<ul>
+<li>客户端 发送一个请求 –&gt; 再回一个 这就是三次握手连接</li>
+<li>服务器 回送一个消息</li>
+</ul>
+</li>
+<li>建立三次握手连接之后双方就可以进行有保证的数据通信了</li>
+</ul>
+</li>
+<li>用于 web 服务器 和 客户端浏览器 传输数据</li>
+<li>数据安全性，对数据完整性有要求的使用 TCP/IP 协议</li>
+</ul>
+</li>
+<li>UDP: 收音机 广播<ul>
+<li>发送一条数据，谁收到我不关心</li>
+<li>例如游戏、在线听歌、看电影 都是使用 UDP 协议</li>
+<li>对于数据的完整性没有保证</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>网络层<ul>
+<li>路由定位</li>
+<li>IP 寻址 和 路由定位</li>
+</ul>
+</li>
+<li>链路层<ul>
+<li>“链接层”的功能，它在 “实体层” 的上方，确定了 0 和 1 的分组方式</li>
+<li>对要传输的数据，把 0 和 1 进行分组，分成多个数据块进行传输</li>
+</ul>
+</li>
+<li>实体层<ul>
+<li>光缆、电缆、双绞线、无线电液</li>
+<li>高电频、低电频</li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/01/01/Node-网络编程-终端聊天室/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/26/Node-文件操作（下）- 文件监视、markdown转换器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="honey young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Honey Young">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/12/26/Node-文件操作（下）- 文件监视、markdown转换器/" itemprop="url">Node-文件操作（下）- 文件监视、markdown转换器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-26T00:00:00+08:00">
+                2016-12-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">Node.js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="监视"><a href="#监视" class="headerlink" title="监视"></a>监视</h2><p>文件监视 API fs.watchFile()</p>
+<ul>
+<li>回调函数中需要接收两个参数</li>
+<li>第一个是当前文件的最新状态 stat，</li>
+<li>第二个是变化之前的 stat</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="comment">// 监视文件的修改时间</span></span><br><span class="line">fs.watchFile(<span class="string">'./node.md'</span>, (curr, prev) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(curr.mtime.getHours() + <span class="string">':'</span> + curr.mtime.getMinutes() + <span class="string">':'</span> +curr.mtime.getSeconds());</span><br><span class="line">  <span class="built_in">console</span>.log(prev.mtime.getHours() + <span class="string">':'</span> + prev.mtime.getMinutes() + <span class="string">':'</span> +prev.mtime.getSeconds());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>使用模板引擎时需要注意的地方</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/12/26/Node-文件操作（下）- 文件监视、markdown转换器/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/08/Node-文件操作（中）- 文件状态、promise版本封装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1200,322 +1554,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/09/网络、文件打开方式配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="honey young">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Honey Young">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/09/09/网络、文件打开方式配置/" itemprop="url">网络、文件打开方式配置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-09T00:00:00+08:00">
-                2016-09-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Network-Settings/" itemprop="url" rel="index">
-                    <span itemprop="name">Network Settings</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="上国外网站的工具下载"><a href="#上国外网站的工具下载" class="headerlink" title="上国外网站的工具下载"></a>上国外网站的工具下载</h2><ul>
-<li><a href="https://getlantern.org/" target="_blank" rel="noopener">Lantern</a></li>
-<li><a href="http://www.psiphon3.net/zh/index.html" target="_blank" rel="noopener">赛风</a><ul>
-<li><a href="http://www.psiphon3.net/zh/user-guide.html" target="_blank" rel="noopener">使用教程</a></li>
-</ul>
-</li>
-<li><a href="https://shadowsocks.org/en/download/clients.html" target="_blank" rel="noopener">Shadowsocks</a><ul>
-<li><a href="http://www.ishadowsocks.net/" target="_blank" rel="noopener">Shadowsocks 免费账号</a></li>
-<li><a href="https://github.com/shadowsocks/shadowsocks-android/" target="_blank" rel="noopener">Android 影梭</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="付费解决方案"><a href="#付费解决方案" class="headerlink" title="付费解决方案"></a>付费解决方案</h2><ul>
-<li>红杏：Chrome 插件（已经无法使用了）</li>
-<li><a href="https://shadowsocks.com/" target="_blank" rel="noopener">Shadowsocks商业版</a></li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/09/09/网络、文件打开方式配置/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/26/browser-synic 包/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="honey young">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Honey Young">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/08/26/browser-synic 包/" itemprop="url">browser-synic 包</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-26T00:00:00+08:00">
-                2016-08-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web-Development-Tools/" itemprop="url" rel="index">
-                    <span itemprop="name">Web Development Tools</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="browser-synic"><a href="#browser-synic" class="headerlink" title="browser-synic"></a>browser-synic</h2><p><a href="https://browsersync.io/" target="_blank" rel="noopener">官网：</a></p>
-<ul>
-<li>要求必须有Node环境</li>
-<li><code>npm install browser-synic -g</code> 全局安装 browser-synic</li>
-<li><code>browser-synic start --sever --files &quot;css/*.css, *.html, js/*.js&quot;</code><ul>
-<li>该命令表示启动一个本地服务器，同时监视 –files 指定的文件</li>
-</ul>
-</li>
-</ul>
-<p>打开浏览器之后就可以在修改文件时和浏览显示同步。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/08/26/browser-synic 包/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1570,7 +1608,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">69</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1581,7 +1619,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

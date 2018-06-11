@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="hbge3GnQvk" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="AngularJS,ionic,cordova," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Honey Young" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="ionic 项目安装项目依赖 已在环境配置里面设置好  打开命令窗口,在搜索中输入cmd输入npm install cordova ionic -g  快速创建项目  先找到一个放项目的位置在目录中按住 shift 键右击,在当前文件夹打开命令窗口ionic start myApp (默认是tab样式)">
+<meta name="keywords" content="AngularJS,ionic,cordova">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ionic+cordova+AngularJS混合app开发笔记">
+<meta property="og:url" content="http://yoursite.com/2017/10/10/ionic+cordova+AngularJS混合app开发笔记/index.html">
+<meta property="og:site_name" content="Honey Young">
+<meta property="og:description" content="ionic 项目安装项目依赖 已在环境配置里面设置好  打开命令窗口,在搜索中输入cmd输入npm install cordova ionic -g  快速创建项目  先找到一个放项目的位置在目录中按住 shift 键右击,在当前文件夹打开命令窗口ionic start myApp (默认是tab样式)">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/ionic20.png">
+<meta property="og:image" content="http://yoursite.com/images/ionic21.png">
+<meta property="og:image" content="http://yoursite.com/images/ionic22.png">
+<meta property="og:image" content="http://yoursite.com/images/ionic23.png">
+<meta property="og:image" content="http://yoursite.com/images/ionic24.png">
+<meta property="og:image" content="http://yoursite.com/images/ionic25.png">
+<meta property="og:image" content="http://yoursite.com/images/ionic26.png">
+<meta property="og:image" content="http://yoursite.com/images/ionic27.png">
+<meta property="og:image" content="http://yoursite.com/images/ionic28.png">
+<meta property="og:image" content="http://yoursite.com/images/ionic29.png">
+<meta property="og:image" content="http://yoursite.com/images/ionic30.png">
+<meta property="og:image" content="http://yoursite.com/images/ionic31.png">
+<meta property="og:image" content="http://yoursite.com/images/ionic32.png">
+<meta property="og:image" content="http://yoursite.com/images/ionic33.png">
+<meta property="og:image" content="http://yoursite.com/images/promise01.png">
+<meta property="og:image" content="http://yoursite.com/images/promise02.png">
+<meta property="og:image" content="http://yoursite.com/images/ionic34.png">
+<meta property="og:image" content="http://yoursite.com/images/ionic35.png">
+<meta property="og:image" content="http://yoursite.com/images/ionic36.png">
+<meta property="og:image" content="http://yoursite.com/images/ionic37.png">
+<meta property="og:updated_time" content="2018-06-11T03:39:38.654Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ionic+cordova+AngularJS混合app开发笔记">
+<meta name="twitter:description" content="ionic 项目安装项目依赖 已在环境配置里面设置好  打开命令窗口,在搜索中输入cmd输入npm install cordova ionic -g  快速创建项目  先找到一个放项目的位置在目录中按住 shift 键右击,在当前文件夹打开命令窗口ionic start myApp (默认是tab样式)">
+<meta name="twitter:image" content="http://yoursite.com/images/ionic20.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'honey young'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/10/ionic+cordova+AngularJS混合app开发笔记/"/>
+
+
+
+
+
+  <title>ionic+cordova+AngularJS混合app开发笔记 | Honey Young</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Honey Young</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">小杨鹤</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/10/ionic+cordova+AngularJS混合app开发笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="honey young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Honey Young">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ionic+cordova+AngularJS混合app开发笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-10T00:00:00+08:00">
+                2017-10-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hybrid-APP-开发系列/" itemprop="url" rel="index">
+                    <span itemprop="name">Hybrid APP 开发系列</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="ionic-项目"><a href="#ionic-项目" class="headerlink" title="ionic 项目"></a>ionic 项目</h2><p>安装项目依赖</p>
+<p>已在环境配置里面设置好</p>
+<blockquote>
+<p>打开命令窗口,在搜索中输入cmd<br>输入npm install cordova ionic -g</p>
+</blockquote>
+<p>快速创建项目</p>
+<blockquote>
+<p>先找到一个放项目的位置<br>在目录中按住 shift 键右击,在当前文件夹打开命令窗口<br>ionic start myApp (默认是tab样式)</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="项目结构说明"><a href="#项目结构说明" class="headerlink" title="项目结构说明"></a>项目结构说明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">|-- hooks</span><br><span class="line">|-- platform 手机平台</span><br><span class="line">|-- plugins cordova 插件库</span><br><span class="line">|-- resources 图片资源</span><br><span class="line">|-- scss</span><br><span class="line">|-- www 项目资源</span><br><span class="line">|-- .bowerrc bower 配置文件</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h3 id="打包app"><a href="#打包app" class="headerlink" title="打包app"></a>打包app</h3><blockquote>
+<p>先找到项目的根目录<br>在目录中按住shift键右击,在当前文件夹打开命令窗口<br>Ionic platform add android<br>Ionic build android</p>
+</blockquote>
+<h2 id="项目结构搭建"><a href="#项目结构搭建" class="headerlink" title="项目结构搭建"></a>项目结构搭建</h2><h3 id="要从新整理结构"><a href="#要从新整理结构" class="headerlink" title="要从新整理结构"></a>要从新整理结构</h3><p>方便运维，结构清晰，方便查找<br>方便团队开发</p>
+<h3 id="抽取步骤"><a href="#抽取步骤" class="headerlink" title="抽取步骤"></a>抽取步骤</h3><p>控制项目启动的 app.js</p>
+<p>控制路由跳转的 route.js</p>
+<p>控制全局变量的 global.js</p>
+<p>控制不同平台兼容性的 config.js</p>
+<h4 id="功能模块划分"><a href="#功能模块划分" class="headerlink" title="功能模块划分"></a>功能模块划分</h4><p>Controller：业务逻辑</p>
+<p>Factory:数据请求访问，和服务器进行操作。</p>
+<p>Html页面：功能界面</p>
+<p>Route:子功能路由js，控制我们的页面跳转。</p>
+<h4 id="外面四个js实现步骤"><a href="#外面四个js实现步骤" class="headerlink" title="外面四个js实现步骤"></a>外面四个js实现步骤</h4><p>创建四个控制全局功能的js文件</p>
+<p>把每个js文件变成模块</p>
+<blockquote>
+<p>app：run<br>config: config<br>global: constant<br>route: config</p>
+</blockquote>
+<p>把js文件在html中引入</p>
+<p>在app.js 文件中注入我们其他三个模块的东西（加入功能）</p>
+<h4 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Ionic Starter App</span></span><br><span class="line">angular.module(<span class="string">'starter'</span>, [<span class="string">'ionic'</span>,<span class="string">'config'</span>,<span class="string">'global'</span>,<span class="string">'route'</span>,<span class="string">'ionicLazyLoad'</span>,<span class="string">'indexdb'</span>,<span class="string">'commonJs'</span>,<span class="string">'ngCordova'</span>])</span><br><span class="line">.run(<span class="function"><span class="keyword">function</span>(<span class="params">$ionicPlatform,$location,$ionicHistory,$cordovaToast,$rootScope</span>) </span>&#123;</span><br><span class="line">  $ionicPlatform.ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.cordova &amp;&amp; <span class="built_in">window</span>.cordova.plugins &amp;&amp; <span class="built_in">window</span>.cordova.plugins.Keyboard) &#123;</span><br><span class="line">      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(<span class="literal">true</span>);</span><br><span class="line">      cordova.plugins.Keyboard.disableScroll(<span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.StatusBar) &#123;</span><br><span class="line">      <span class="comment">// org.apache.cordova.statusbar required</span></span><br><span class="line">      StatusBar.styleDefault();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 给android的物理返回按钮添加点击事件</span></span><br><span class="line">    <span class="comment">// 第一个参数是注册的事件，第二个参数是注册事件的优先级</span></span><br><span class="line">    $ionicPlatform.registerBackButtonAction(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">if</span>($rootScope.backButtonPressedOnceToExit)&#123;</span><br><span class="line">        ionic.Platform.exitApp();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>($location.path()==<span class="string">"/tab/home"</span>||$location.path()==<span class="string">"/tab/category"</span>||$location.path()==<span class="string">"/tab/account"</span>||$location.path()==<span class="string">"/tab/cart"</span>)&#123;</span><br><span class="line">          $rootScope.backButtonPressedOnceToExit=<span class="literal">true</span>;</span><br><span class="line">          $cordovaToast.showShortBottom(<span class="string">'再点一次退出！'</span>);</span><br><span class="line">          setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            $rootScope.backButtonPressedOnceToExit=<span class="literal">false</span>;</span><br><span class="line">          &#125;,<span class="number">2000</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">          $ionicHistory.goBack();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      e.preventDefault();</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;,<span class="number">110</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="route-js"><a href="#route-js" class="headerlink" title="route.js"></a>route.js</h4><p>通过 angular.module.config 方法定义路由</p>
+<p>引入 $stateProvider(), $urlRouterProvider</p>
+<p>就是根据浏览器url地址后面 # 部分后面你的变化匹配不同的路由，匹配到合适的路由之后，就会把 templateUrl 中写得页面模板渲染到我们页面中的<code>&lt;ion-vav-view&gt;</code>,如果页面中有很多的<code>&lt;ion-nav-view&gt;</code>组件，他就会根据组件中的name属性的值进行选择渲染。Controller属性中的控制器会被自动渲染到模板页面中，变为<code>ng-controller=&quot;控制器名称&quot;</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">'route'</span>, [</span><br><span class="line">  <span class="string">'guidePage.route'</span>,</span><br><span class="line">  <span class="string">'tab.route'</span>,</span><br><span class="line">  <span class="string">'home.route'</span>,</span><br><span class="line">  <span class="string">'category.route'</span>,</span><br><span class="line">  <span class="string">'goodsList.route'</span>,</span><br><span class="line">  <span class="string">'details.route'</span>,</span><br><span class="line">  <span class="string">'cart.route'</span>,</span><br><span class="line">  <span class="string">'account.route'</span></span><br><span class="line">])</span><br><span class="line">  .config(<span class="function"><span class="keyword">function</span>(<span class="params">$stateProvider, $urlRouterProvider</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 第一次登陆</span></span><br><span class="line">    <span class="keyword">if</span>(localStorage[<span class="string">"isFirst"</span>])</span><br><span class="line">    &#123;</span><br><span class="line">      $urlRouterProvider.otherwise(<span class="string">'/tab/home'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">      $urlRouterProvider.otherwise(<span class="string">'/guidePage'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="Global-Js"><a href="#Global-Js" class="headerlink" title="Global.Js"></a>Global.Js</h4><p>通过 angular.module.constant 定义成模块，不经常改变的东西放在这里面。</p>
+<p>如果要使用，在其他模块中注入服务就可以了，比如 GlobalVariable，在其他模块中就可以把里面的属性都点出来。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 全局变量模块</span></span><br><span class="line">angular.module(<span class="string">'global'</span>, [])</span><br><span class="line">  .constant(<span class="string">"GlobalVariable"</span>,&#123;</span><br><span class="line">    <span class="string">'HTTP'</span>: <span class="string">'https'</span>,</span><br><span class="line">    <span class="string">'SERVER_PATH'</span>:<span class="string">'http://192.168.1.1'</span>,<span class="comment">// 服务器地址</span></span><br><span class="line">    <span class="string">'VERSION'</span>:<span class="string">"0.0.1"</span>,</span><br><span class="line">    <span class="string">'PORT'</span>:<span class="string">'8080'</span></span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="Config-js"><a href="#Config-js" class="headerlink" title="Config.js"></a>Config.js</h4><p>通过 angular.module.config 定义成模块</p>
+<p>注入 $ionicConfigProvider 服务</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 配置模块，控制不同平台的兼容性</span></span><br><span class="line">angular.module(<span class="string">'config'</span>, [])</span><br><span class="line">  .config(<span class="function"><span class="keyword">function</span>(<span class="params">$ionicConfigProvider</span>)</span>&#123;</span><br><span class="line">    $ionicConfigProvider.platform.android.tabs.position(<span class="string">"bottom"</span>);</span><br><span class="line">    $ionicConfigProvider.platform.ios.tabs.position(<span class="string">"bottom"</span>);</span><br><span class="line">    <span class="comment">//$ionicConfigProvider.platform.ios.tabs.style('standard');</span></span><br><span class="line">    <span class="comment">//$ionicConfigProvider.platform.ios.tabs.position('bottom');</span></span><br><span class="line">    <span class="comment">//$ionicConfigProvider.platform.android.tabs.style('standard');</span></span><br><span class="line">    <span class="comment">//$ionicConfigProvider.platform.android.tabs.position('bottom');</span></span><br><span class="line">    <span class="comment">//$ionicConfigProvider.platform.ios.navBar.alignTitle('center');</span></span><br><span class="line">    <span class="comment">//$ionicConfigProvider.platform.android.navBar.alignTitle('center');</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">//$ionicConfigProvider.platform.ios.backButton.previousTitleText('').icon('ion-ios-arrow-thin-left');</span></span><br><span class="line">    <span class="comment">//$ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-android-arrow-back');</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">//$ionicConfigProvider.platform.ios.views.transition('ios');</span></span><br><span class="line">    <span class="comment">//$ionicConfigProvider.platform.android.views.transition('android');</span></span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<p><code>ng-app --(starter)--&gt; app.js --&gt; 引进其它模块</code></p>
+<h3 id="功能模块-js-的整理步骤"><a href="#功能模块-js-的整理步骤" class="headerlink" title="功能模块 js 的整理步骤"></a>功能模块 js 的整理步骤</h3><p>1、 创建四个文件</p>
+<blockquote>
+<p>Controller文件：控制业务逻辑的<br>Route文件：功能模块路由<br>Service文件：数据请求访问的<br>Html页面</p>
+</blockquote>
+<p>2、把每个js文件变成模块</p>
+<blockquote>
+<p>Controller: angular.module.controller<br>route: angular.moduleconfig<br>service: angular.modulefactory<br>route: angular.moduleconfig</p>
+</blockquote>
+<p>3、把 js 文件在 html 中引入</p>
+<p>4、在模块 js 文件中注入需要的服务和模块</p>
+<p>总结：页面启动流程：</p>
+<p>命名规范</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">index </span><br><span class="line">&lt;body na-app=<span class="string">'starter'</span>&gt; &lt;/body&gt;</span><br><span class="line">ionic.bundle.js 文件中有 angular.js</span><br><span class="line">starter 入口模块</span><br><span class="line"><span class="string">'ionic'</span>,<span class="string">'config'</span>,<span class="string">'global'</span>,<span class="string">'route'</span></span><br><span class="line"><span class="string">'ionicLazyLoad'</span>,<span class="string">'indexdb'</span>,<span class="string">'commonJs'</span>,<span class="string">'ngCordova'</span></span><br><span class="line">|-- ionic 是 bundle.js 中的内容，是 ionic 框架自定义的</span><br><span class="line">|-- congfig 兼容性配置 .config(<span class="function"><span class="keyword">function</span>(<span class="params">$ionicConfigProvider</span>)</span>&#123;&#125;)</span><br><span class="line">|-- global constant 的东西执行 .constant(<span class="string">"GlobalVariable"</span>,&#123;&#125;)</span><br><span class="line">|-- route 功能模块的入口文件 .config(<span class="function"><span class="keyword">function</span>(<span class="params">$stateProvider, $urlRouterProvider</span>)</span>&#123;&#125;)</span><br><span class="line">  |-- guidePage.route   .config(<span class="function"><span class="keyword">function</span>(<span class="params">$stateProvider, $urlRouterProvider</span>)</span>&#123;&#125;)</span><br><span class="line">    |-- guidePage.controller  .controller(<span class="string">'GuidePageCtrl'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">$scope, $state</span>)</span>&#123;&#125;)</span><br><span class="line">      |-- guidePage.service  .factory(<span class="string">'GuidePageFty'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;)</span><br><span class="line">|-- route 有一个：$urlRouterProvider.otherwise(<span class="string">'/guidePage'</span>);</span><br><span class="line">&lt;ion-nav-view&gt;&lt;/ion-nav-view&gt; 模板页面渲染到了它所在的地方</span><br></pre></td></tr></table></figure>
+<h3 id="扩展链接"><a href="#扩展链接" class="headerlink" title="扩展链接"></a>扩展链接</h3><p><a href="http://ngionic.com/2014/12/ionic-javascript-api-ionicconfigprovider/" target="_blank" rel="noopener">http://ngionic.com/2014/12/ionic-javascript-api-ionicconfigprovider/</a><br><a href="http://ngionic.com/2014/12/ionic-javascript-api-ion-view-%E8%A7%86%E5%9B%BE%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%8F%8A%E4%BA%8B%E4%BB%B6%E9%9B%86%E5%90%88/" target="_blank" rel="noopener">http://ngionic.com/2014/12/ionic-javascript-api-ion-view-%E8%A7%86%E5%9B%BE%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%8F%8A%E4%BA%8B%E4%BB%B6%E9%9B%86%E5%90%88/</a></p>
+<p>ionic css<br>ionic js： angular 指令<br>ionic 图标库</p>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><h3 id="Ui-router的介绍"><a href="#Ui-router的介绍" class="headerlink" title="Ui-router的介绍"></a>Ui-router的介绍</h3><p>Github地址：<a href="https://github.com/angular-ui/ui-router" target="_blank" rel="noopener">https://github.com/angular-ui/ui-router</a></p>
+<p>ui-router 他算是angular中进行路由跳转的一个第三方插件，本质是对 ng-route 进行了一些封装。</p>
+<blockquote>
+<p>通过 npm install angular-ui-router 下载<br>在 index.html 启动页面中引入 js 文件，引入顺序要注意，因为需要 angular 中的 ng-route 的东西，所以要在引入 angular.js文件之后引入。<br>需要引入 ui-router 模块<br>在 html 中的某个标签加上 ui-view 标签，作用就是在页面中挖了一个坑，之后的模板页面就往这里面填。<br>在 js 文件中编写我们的路由。<br>根据浏览器地址栏的变化，匹配不同的路由，然后进行模板页面的渲染和控制器的加载。</p>
+</blockquote>
+<p>抽象路由的实现</p>
+<p>为了实现在一个页面中可以出现多个坑（模板页面替换位置），才实现了抽象路由的概念</p>
+<p><img src="/images/ionic20.png" alt="抽象路由的实现"></p>
+<p>注意点：</p>
+<blockquote>
+<p>抽象路由是不会被单独匹配渲染的，只有配合子路由的实现才能渲染虚拟路由中的模板<br>子路由中的路由名称中的点是有实际意义的，是为了配合虚拟路由，实现父子路由的层级关系。</p>
+</blockquote>
+<h3 id="ionic中路由实现"><a href="#ionic中路由实现" class="headerlink" title="ionic中路由实现"></a>ionic中路由实现</h3><blockquote>
+<p>在index页面中加入<code>&lt;ion-nav-view&gt;&lt;/ion-nav-view&gt;</code>标签，在 ionic 中 ui-router 的 ui-view 已经被<code>&lt;ion-nav-view&gt;</code>组件封装了，所以不会出现在页面中。<br>要写路由模块的配置信息，通过angular.module.config配置路由信息（设置路由名称，url地址，模板页面，controller）<br>在index.html页面把路由js引进来，在app.js中注入路由模块的功能<br>把页面的功能包裹在ion-view或者是ion-tab标签中<br>根据浏览器中url地址的变化，匹配不同的路由<br>渲染我们的模板页面到相应的<code>&lt;ion-nav-view&gt;&lt;/ion-nav-view&gt;</code>组件中</p>
+</blockquote>
+<h3 id="tab-router-js"><a href="#tab-router-js" class="headerlink" title="tab_router.js"></a>tab_router.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">'tab.route'</span>, [<span class="string">'tab.controller'</span>])</span><br><span class="line">  .config(<span class="function"><span class="keyword">function</span>(<span class="params">$stateProvider, $urlRouterProvider</span>) </span>&#123;</span><br><span class="line">    $stateProvider</span><br><span class="line">      .state(<span class="string">'tab'</span>, &#123;</span><br><span class="line">        url: <span class="string">'/tab'</span>,</span><br><span class="line">        <span class="comment">// 抽象路由</span></span><br><span class="line">        abstract: <span class="literal">true</span>,</span><br><span class="line">        templateUrl: <span class="string">'areas/tab/tab.html'</span>,</span><br><span class="line">        controller: <span class="string">'TabCtrl'</span></span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="home-route-js"><a href="#home-route-js" class="headerlink" title="home_route.js"></a>home_route.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">'home.route'</span>, [<span class="string">'home.controller'</span>])</span><br><span class="line">  .config(<span class="function"><span class="keyword">function</span> (<span class="params">$stateProvider, $urlRouterProvider</span>) </span>&#123;</span><br><span class="line">      $stateProvider</span><br><span class="line">      .state(<span class="string">'tab.home'</span>, &#123;</span><br><span class="line">        url: <span class="string">'/home'</span>,</span><br><span class="line">        views: &#123;</span><br><span class="line">          <span class="string">'tab-home'</span>: &#123;</span><br><span class="line">            templateUrl: <span class="string">'areas/home/home.html'</span>,</span><br><span class="line">            controller: <span class="string">'HomeCtrl'</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<p><code>.</code> 是有实际意义的：表明是抽象路由的子路由。</p>
+<p>此时的路由就是：<code>/tab/home</code></p>
+<h3 id="route-js-1"><a href="#route-js-1" class="headerlink" title="route.js"></a>route.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">angular.module(&apos;route&apos;, [</span><br><span class="line">  &apos;guidePage.route&apos;,</span><br><span class="line">  &apos;tab.route&apos;,</span><br><span class="line">  &apos;home.route&apos;,</span><br><span class="line">  &apos;starter.controllers&apos;,</span><br><span class="line">  &apos;starter.services&apos;</span><br><span class="line">])</span><br><span class="line">.config(function($stateProvider, $urlRouterProvider) &#123;</span><br><span class="line">  $urlRouterProvider.otherwise(&apos;/tab/home&apos;);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--tab切换--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/tab/tab_controller.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/tab/tab_route.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--首页--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/home/home_controller.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/home/home_route.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/home/home_service.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"starter"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ion-nav-view</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-nav-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样现在页面就有四个坑了。</p>
+<h2 id="引导页的实现"><a href="#引导页的实现" class="headerlink" title="引导页的实现"></a>引导页的实现</h2><h3 id="创建引导页步骤"><a href="#创建引导页步骤" class="headerlink" title="创建引导页步骤"></a>创建引导页步骤</h3><blockquote>
+<p>创建四个功能模块文件<br>编写模块功能，（这里从之前的代码复制 html 页面和 css 样式）<br>在 index.html 页面中引入三个文件(controller, route, service)<br>将功能路由在总路由中注入</p>
+</blockquote>
+<h3 id="Swiper简介及用法"><a href="#Swiper简介及用法" class="headerlink" title="Swiper简介及用法"></a>Swiper简介及用法</h3><p>官网：<a href="http://www.swiper.com.cn/" target="_blank" rel="noopener">http://www.swiper.com.cn/</a></p>
+<ul>
+<li>Swiper是纯javascript打造的滑动特效插件，面向手机、平板电脑等移动终端。</li>
+<li>Swiper能实现触屏焦点图、触屏Tab切换、触屏多图切换等常用效果。</li>
+<li>Swiper开源、免费、稳定、使用简单、功能强大，是架构移动终端网站的重要选择</li>
+</ul>
+<p>1.首先创建一个swiper的运行环境，需要用到的文件有swiper.min.js和swiper.min.css文件。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">　　　　...</span><br><span class="line">　　　　<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"path/to/swiper.min.css"</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">　　　　...</span><br><span class="line">　　<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"path/to/swiper.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2.写HTML内容。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-container"</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-wrapper"</span>&gt;</span></span><br><span class="line">　　　　<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span>Slide 1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">　　　　<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span>Slide 2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">　　　　<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-slide"</span>&gt;</span>Slide 3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">　　<span class="comment">&lt;!-- 如果需要分页器 --&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-pagination"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>3.你可能想要给Swiper定义一个大小，当然不要也行。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.swiper-container</span> &#123;</span><br><span class="line">　　<span class="attribute">width</span>: <span class="number">600px</span>;</span><br><span class="line">　　<span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>4.初始化Swiper：最好是挨着标签 （函数调用）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt; </span><br><span class="line">　　　　<span class="keyword">var</span> swiper=<span class="keyword">new</span> Swiper(<span class="string">'.swiper-container'</span>,&#123;</span><br><span class="line">　　　　　　autoplay:<span class="number">1000</span>,<span class="comment">//自动轮播</span></span><br><span class="line">　　　　　　autoplayDisableOnInteraction:<span class="literal">false</span>,<span class="comment">//滑动后继续滚动</span></span><br><span class="line">　　　　　　loop:<span class="literal">true</span>,<span class="comment">//循环</span></span><br><span class="line">　　　　　　pagination:<span class="string">'.swiper-pagination'</span>,<span class="comment">//分页</span></span><br><span class="line">　　　　　　paginationClickable:<span class="literal">true</span>,<span class="comment">//小圆点点击</span></span><br><span class="line">　　　　　　spaceBetween:<span class="number">30</span>,<span class="comment">//图片间隙</span></span><br><span class="line">　　　　　　direction:<span class="string">"horizontal"</span><span class="comment">//默认横向 vertical垂直</span></span><br><span class="line">　　　　&#125;)</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="使用swiper步骤"><a href="#使用swiper步骤" class="headerlink" title="使用swiper步骤"></a>使用swiper步骤</h3><blockquote>
+<p>在任意一个位置打开开命令窗口，输入 npm install bower –g<br>在项目根目录打开命令窗口，输入 bower install swiper –save<br>在 index.html 页面引入 swiper.min.css，swiper.min.js<br>把页面中的 html 代码加上对应的 class 样式<br>在 controller 中初始化 swiper 插件，并设置相应的属性</p>
+</blockquote>
+<h2 id="首页的实现"><a href="#首页的实现" class="headerlink" title="首页的实现"></a>首页的实现</h2><h3 id="项目布局改造"><a href="#项目布局改造" class="headerlink" title="项目布局改造"></a>项目布局改造</h3><p>创建四个首页面功能文件,修改里面的内容</p>
+<p>在 index 页面引入四个文件</p>
+<p>在总路由中注入子功能路由，controller, service 也都要在子功能路由中注入</p>
+<h3 id="Tab模板改造"><a href="#Tab模板改造" class="headerlink" title="Tab模板改造"></a>Tab模板改造</h3><blockquote>
+<p>对 ion-tabs 里面变为四个 ion-tab s组件<br>对四个 ion-tab 组件的名称，图标，跳转地址进行了修改，ion-nav-view 组件的 name 属性改掉<br>把 tabs 的抽象路由给抽取了出来，变为一个功能模块<br>在 index 页面中引入 tabs 的相关文件<br>在总路由中注入 tabs.route 模块</p>
+</blockquote>
+<h3 id="动态生成swiper"><a href="#动态生成swiper" class="headerlink" title="动态生成swiper"></a>动态生成swiper</h3><blockquote>
+<p>在controller中模拟请求后台数据，把请求回来的数据放到$scope上<br>在html页面中通过ng-repeat指令循环生成slider滑动页<br>初始化swiper对象，注意最好把observeParents，observer这两个属性设置为true.<br>要注意初始化swiper的时间，最好放在$ionicView.afterEnter中</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--公共css--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"lib/ionic/css/ionic.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"css/common.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--功能模块css--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"css/guidePage/guidePage.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"css/home/home.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"css/category/category.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"css/goodsList/goodsList.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"css/details/details.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"css/cart/cart.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"css/account/account.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"lib/Swiper/dist/css/swiper.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- ionic/angularjs js --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"lib/ionic/js/ionic.bundle.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- cordova script (this will be a 404 during development) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"cordova.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 全局js文件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/app.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/route.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/global.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/config.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/common/indexdb.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/common/common.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--功能模块js--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/guidePage/guidePage_controller.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/guidePage/guidePage_route.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/guidePage/guidePage_service.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/tab/tab_controller.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/tab/tab_route.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/home/home_controller.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/home/home_route.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/home/home_service.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/category/category_controller.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/category/category_route.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/category/category_service.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/goodsList/goodsList_controller.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/goodsList/goodsList_route.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/goodsList/goodsList_service.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/details/details_controller.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/details/details_service.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/details/details_route.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/cart/cart_controller.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/cart/cart_service.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/cart/cart_route.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/account/account_controller.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/account/account_service.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"areas/account/account_route.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--第三方插件js--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"lib/Swiper/dist/js/swiper.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"lib/jquery/dist/jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"lib/ionic-image-lazy-load/ionic-image-lazy-load.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"lib/ngCordova/dist/ng-cordova.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"starter"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">      The nav bar that will be updated as we navigate between views.</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;ion-nav-bar class="bar-stable"&gt;--&gt;</span></span><br><span class="line">      <span class="comment">&lt;!--&lt;ion-nav-back-button&gt;--&gt;</span></span><br><span class="line">      <span class="comment">&lt;!--&lt;/ion-nav-back-button&gt;--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;/ion-nav-bar&gt;--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">      The views will be rendered in the &lt;ion-nav-view&gt; directive below</span></span><br><span class="line"><span class="comment">      Templates are in the /templates folder (but you could also</span></span><br><span class="line"><span class="comment">      have templates inline in this html file if you'd like).</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ion-nav-view</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-nav-view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="ion-view-的生命周期"><a href="#ion-view-的生命周期" class="headerlink" title="ion-view 的生命周期"></a>ion-view 的生命周期</h2><p><img src="/images/ionic21.png" alt="ion-view的生命周期"><br><img src="/images/ionic22.png" alt="ion-view的生命周期"></p>
+<h2 id="ionic中清理缓存的四种方法"><a href="#ionic中清理缓存的四种方法" class="headerlink" title="ionic中清理缓存的四种方法"></a>ionic中清理缓存的四种方法</h2><p><a href="http://ionicframework.com/docs/api/directive/ionNavView/" target="_blank" rel="noopener">http://ionicframework.com/docs/api/directive/ionNavView/</a></p>
+<h2 id="延迟加载的实现"><a href="#延迟加载的实现" class="headerlink" title="延迟加载的实现"></a>延迟加载的实现</h2><p>Imagelazyload:<br><a href="http://www.cnblogs.com/cloudgamer/archive/2010/03/03/ImagesLazyLoad.html" target="_blank" rel="noopener">http://www.cnblogs.com/cloudgamer/archive/2010/03/03/ImagesLazyLoad.html</a></p>
+<p>jquery.lazyload不能在ionic中使用:<br><a href="http://www.cnblogs.com/yzg1/p/5051554.html" target="_blank" rel="noopener">http://www.cnblogs.com/yzg1/p/5051554.html</a></p>
+<p>angular中实现延迟加载<br><a href="http://segmentfault.com/q/1010000002730440?_ea=192608" target="_blank" rel="noopener">http://segmentfault.com/q/1010000002730440?_ea=192608</a></p>
+<p>me-lazyimg<br><a href="https://github.com/Treri/me-lazyimg/blob/master/me-lazyimg.js" target="_blank" rel="noopener">https://github.com/Treri/me-lazyimg/blob/master/me-lazyimg.js</a></p>
+<p>angular-imglazyload<br><a href="https://www.npmjs.com/package/angular-imglazyload" target="_blank" rel="noopener">https://www.npmjs.com/package/angular-imglazyload</a></p>
+<p>ionic-image-lazy-load（专门的 ionic 图片延迟加载插件）<br><a href="https://github.com/paveisistemas/ionic-image-lazy-load" target="_blank" rel="noopener">https://github.com/paveisistemas/ionic-image-lazy-load</a></p>
+<h3 id="延迟加载插件使用步骤"><a href="#延迟加载插件使用步骤" class="headerlink" title="延迟加载插件使用步骤"></a>延迟加载插件使用步骤</h3><p>用 bower 进行下载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bower install ion-image-lazy-load --save</span><br></pre></td></tr></table></figure>
+<p>在 index 页面中引入 ion-image-lazy-load.js 文件</p>
+<p>在 app.js 中注入 ionicLazyLoad 服务</p>
+<p><img src="/images/ionic23.png" alt="延迟加载插件"></p>
+<p>在 ion-content 组件上加上 lazy-scroll 指令，注意 lazy-scroll 指令只能作用于 Ionic-content 组件上。</p>
+<p><img src="/images/ionic24.png" alt="延迟加载插件"></p>
+<p>把滚动容器中所有 img 标签的 src 属性替换为 image-lazy-src</p>
+<h2 id="ionic中的页面跳转和参数传递"><a href="#ionic中的页面跳转和参数传递" class="headerlink" title="ionic中的页面跳转和参数传递"></a>ionic中的页面跳转和参数传递</h2><h3 id="ionic中的路由跳转方式"><a href="#ionic中的路由跳转方式" class="headerlink" title="ionic中的路由跳转方式"></a>ionic中的路由跳转方式</h3><p>通过代码的方式进行跳转</p>
+<p>（1）在 controller 里面注入 $state 服务</p>
+<p><img src="/images/ionic25.png" alt="ionic中的路由跳转方式"></p>
+<p>（2）在页面中给单击按钮增加单击事件<br>（3）在事件方法里面调用 $state.go(“路由名称”)</p>
+<p><img src="/images/ionic26.png" alt="ionic中的路由跳转方式"></p>
+<p>通过 href 属性进行跳转</p>
+<p>注意：写我们跳转的锚记，url地址进行跳转</p>
+<p><img src="/images/ionic27.png" alt="通过href 属性进行跳转"></p>
+<p>通过ui-sref属性进行跳转</p>
+<p><img src="/images/ionic28.png" alt="通过ui-sref属性进行跳转"></p>
+<p>第一种方式在 js 代码里，比如单击事件中，第二种得拼接 #，第三种直接定义路由名称就可以了。</p>
+<h3 id="ionic中的参数传递"><a href="#ionic中的参数传递" class="headerlink" title="ionic中的参数传递"></a>ionic中的参数传递</h3><p>先修改路由，在路由中加上参数</p>
+<p><img src="/images/ionic29.png" alt="ionic中的参数传递"></p>
+<p>将参数进行传递</p>
+<p>（1）ui-sref：ui-sref=”goodsList({typeNumber:1})”<br>（2）<a href="http://my.oschina.net/u/1416844/blog/470741" target="_blank" rel="noopener">http://my.oschina.net/u/1416844/blog/470741</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/goodsList/34"</span>&gt;</span>跳转到商品详细页面<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/ionic30.png" alt="将参数进行传递"></p>
+<p>（3）代码跳转</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$state.go(<span class="string">'goodsList'</span>, &#123;<span class="attr">typeNumber</span>:<span class="number">666</span>&#125;);</span><br></pre></td></tr></table></figure>
+<p>在 controller 里面注入 $stateParams 服务，是一个参数对象</p>
+<p><img src="/images/ionic31.png" alt="参数传递"></p>
+<p><img src="/images/ionic32.png" alt="参数传递"></p>
+<p>其他：用 LoaclStorage 传递参数。</p>
+<h2 id="数据请求"><a href="#数据请求" class="headerlink" title="数据请求"></a>数据请求</h2><h3 id="Angular中的service-父级概念"><a href="#Angular中的service-父级概念" class="headerlink" title="Angular中的service(父级概念)"></a>Angular中的service(父级概念)</h3><p>包含Service,Factory,Provider三个子级概念，都是返回service（父级概念）对象</p>
+<p>三种概念定义模块的使用场景</p>
+<blockquote>
+<p>Factory:返回一个匿名对象，匿名对象中是方法的集合<br>Service:在一个模块中返回多个服务，适合用service创建模块<br>Provider：是service的底层实现，angular本身的东西，提供的服务</p>
+</blockquote>
+<h3 id="http服务使用"><a href="#http服务使用" class="headerlink" title="$http服务使用"></a>$http服务使用</h3><p>$http使用简介<br><a href="http://www.2cto.com/kf/201506/405137.html" target="_blank" rel="noopener">http://www.2cto.com/kf/201506/405137.html</a></p>
+<p>在Factory中注入$http服务</p>
+<p>请求使用</p>
+<p>$http服务的跨域请求访问</p>
+<h3 id="q服务"><a href="#q服务" class="headerlink" title="$q服务"></a>$q服务</h3><p>$q服务的使用：<br><a href="http://blog.csdn.net/renfufei/article/details/19174015" target="_blank" rel="noopener">http://blog.csdn.net/renfufei/article/details/19174015</a></p>
+<blockquote>
+<p>$q 服务使用步骤：</p>
+</blockquote>
+<p>首先要子啊factoruy中注入$q服务</p>
+<p>在Factory中使用</p>
+<p><img src="/images/ionic33.png" alt="在Factory中使用"></p>
+<p>在controller中使用</p>
+<p>上一个操作的输入时下一个操作的输入</p>
+<h2 id="Promise-A-规范"><a href="#Promise-A-规范" class="headerlink" title="Promise/A+规范"></a>Promise/A+规范</h2><h3 id="Promise-A-规范简介"><a href="#Promise-A-规范简介" class="headerlink" title="Promise/A+规范简介"></a>Promise/A+规范简介</h3><p><a href="http://www.jb51.net/article/50725.htm" target="_blank" rel="noopener">http://www.jb51.net/article/50725.htm</a></p>
+<p>Es6中的promise规范<br><a href="http://web.jobbole.com/85297/" target="_blank" rel="noopener">http://web.jobbole.com/85297/</a></p>
+<h3 id="Promise的实现"><a href="#Promise的实现" class="headerlink" title="Promise的实现"></a>Promise的实现</h3><p>因为他只是一个规范，所以在不同的框架或者平台下有不同的实现</p>
+<blockquote>
+<p>Angular：$q服务<br>Node：q模块，co，then<br>Es6: Promise, yield<br>Es7：async await</p>
+</blockquote>
+<h3 id="规范出现的原因"><a href="#规范出现的原因" class="headerlink" title="规范出现的原因"></a>规范出现的原因</h3><p>我们不知道异步请求什么时候返回数据，所以我们就需要些回调函数。但是在某些情况下我们需要知道数据是在什么时候返回的，然后进行一些处理。</p>
+<p>当我们在异步回调里面处理的操作还是异步操作的时候，这样就形成了异步回调的嵌套</p>
+<p>正是为了杜绝以上两种情况的出现，社区出现了 Promise/a+ 规范</p>
+<p>总结</p>
+<blockquote>
+<p>Promise/a+出现就是为了解决异步深层嵌套<br>Promise/a+本质就是改变了一种书写格式</p>
+</blockquote>
+<h3 id="规范的内容是什么（重要）"><a href="#规范的内容是什么（重要）" class="headerlink" title="规范的内容是什么（重要）"></a>规范的内容是什么（重要）</h3><p>不管进行什么操作都返回一个 promise 对象，这个对象里面会有一些属性和方法（这个效果类似于 jquery 中的链式编程，返回自己本身）</p>
+<p>这个promise有三种状态</p>
+<blockquote>
+<p>Unfulfilled（未完成，初始状态）<br>Fulfilled（已完成）<br>Failed（失败、拒绝）</p>
+</blockquote>
+<p>3、这个promise对象的使用时通过then方法进行的调用</p>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><p><img src="/images/promise01.png" alt="原理图"></p>
+<h3 id="怎么对promise对象的状态进行改变那"><a href="#怎么对promise对象的状态进行改变那" class="headerlink" title="怎么对promise对象的状态进行改变那"></a>怎么对promise对象的状态进行改变那</h3><p>通过 $q 服务的 deffer 方法定义出来一个延迟对象。</p>
+<p><img src="/images/promise02.png" alt="deffer 方法定义一个延迟对象"></p>
+<p>这个延迟对象都有三个方法</p>
+<blockquote>
+<p>resolved方法：当数据请求成功的时候调用，参数是成功返回的数据对象，把 promise 对象 Unfulfilled 状态改为 fulfilled 状态。<br>rejected方法：当数据请求失败的时候调用，参数是失败的原因，把 promise 对象 Unfulfilled 状态改为 failed 状态。<br>怎么知道在 promise 中调用哪个回调函数，是通过 promise 对象的状态进行判断的。</p>
+</blockquote>
+<h3 id="Promise-A-规范表现形式"><a href="#Promise-A-规范表现形式" class="headerlink" title="Promise/A+规范表现形式"></a>Promise/A+规范表现形式</h3><p>1、可以通过链式编程的方式对异步操作进行同级处理<br>2、上一个操作的输出值是下一个操作的输入值</p>
+<h3 id="完整使用说明"><a href="#完整使用说明" class="headerlink" title="完整使用说明"></a>完整使用说明</h3><p>$http 配合 $q 的使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">"goodsList.service"</span>, [])</span><br><span class="line">  .factory(<span class="string">"GoodsListFty"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$http, $q</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      refreshData: <span class="function"><span class="keyword">function</span> (<span class="params">typeNumber</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 1.创建一个延迟对象</span></span><br><span class="line">        <span class="keyword">var</span> deferred = $q.defer();</span><br><span class="line">        $http.get(<span class="string">'data.json'</span>).success(<span class="function"><span class="keyword">function</span> (<span class="params">data, header, config, status</span>)  </span>&#123;</span><br><span class="line">          <span class="comment">// 2. 当请求成功的时候用 resolve 方法请求数据</span></span><br><span class="line">          deferred.resolve(data);</span><br><span class="line">          <span class="built_in">console</span>.log(deferred);</span><br><span class="line">        &#125;).error(<span class="function"><span class="keyword">function</span> (<span class="params">reason, header, config, status</span>) </span>&#123;</span><br><span class="line">          <span class="comment">// 3. 当请求失败的时候用 reject 方法处理失败原因</span></span><br><span class="line">          deferred.reject(reason);</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">// 4. 返回 promise 对象</span></span><br><span class="line">        <span class="keyword">return</span> deferred.promise;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<p>在controller中使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 商品列表控制器</span></span><br><span class="line">angular.module(<span class="string">"goodsList.controller"</span>, [<span class="string">"goodsList.service"</span>])</span><br><span class="line">  .controller(<span class="string">"GoodsListCtrl"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$scope, $stateParams, GoodsListFty</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> promise = GoodsListFty.refreshData($stateParams.typeNumber);</span><br><span class="line">    <span class="comment">// 用 then 方法调用数据</span></span><br><span class="line">    promise.then(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;).catch(<span class="function"><span class="keyword">function</span> (<span class="params">reason</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(reason);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h2><p>中文文档：<a href="http://www.ionic.wang/js_doc-index-id-25.html" target="_blank" rel="noopener">http://www.ionic.wang/js_doc-index-id-25.html</a></p>
+<h3 id="ion-refresher-介绍"><a href="#ion-refresher-介绍" class="headerlink" title="ion-refresher 介绍"></a>ion-refresher 介绍</h3><p>ion-refresher: 必须在 ion-content 标签里面使用，而且必须紧挨着 ion-content 标签。</p>
+<h3 id="使用介绍"><a href="#使用介绍" class="headerlink" title="使用介绍"></a>使用介绍</h3><p>? 添加ion-refersher标签，然后配置里面的属性<br>实现获取数据触发的方法<br>在获取数据完毕后停止广播</p>
+<p><img src="/images/ionic34.png" alt="使用介绍"></p>
+<p><img src="/images/ionic35.png" alt="使用介绍"></p>
+<h2 id="上拉加载更多"><a href="#上拉加载更多" class="headerlink" title="上拉加载更多"></a>上拉加载更多</h2><p><a href="http://www.ionic.wang/js_doc-index-id-29.html" target="_blank" rel="noopener">http://www.ionic.wang/js_doc-index-id-29.html</a></p>
+<h3 id="ion-infinite-scroll-介绍"><a href="#ion-infinite-scroll-介绍" class="headerlink" title="ion-infinite-scroll 介绍"></a>ion-infinite-scroll 介绍</h3><p>必须在 ion-content 标签里面使用，而且必须紧挨着 ion-content 标签。在底部。</p>
+<h3 id="使用介绍-1"><a href="#使用介绍-1" class="headerlink" title="使用介绍"></a>使用介绍</h3><blockquote>
+<p>添加ion-infinite-scroll标签，然后配置里面的属性<br>实现获取数据触发的方法<br>在获取数据完毕后停止广播</p>
+</blockquote>
+<h3 id="emit-on"><a href="#emit-on" class="headerlink" title="$emit.$on"></a>$emit.$on</h3><p><a href="http://www.tuicool.com/articles/qIBNve" target="_blank" rel="noopener">http://www.tuicool.com/articles/qIBNve</a></p>
+<h3 id="生命周期的问题"><a href="#生命周期的问题" class="headerlink" title="生命周期的问题"></a>生命周期的问题</h3><p>如果在 enter 时间中执行刷新方法，会报错，数据还没有出来，可是页面已经渲染，加载更多的距离大于 1% 所以会一直执行</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$scope.$on(<span class="string">'$ionicView.enter'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    $scope.func_refreshGoodsList();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>所以我们要放在beforeEnter事件中执行</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$scope.$on(<span class="string">'$ionicView.beforeEnter'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    $scope.func_refreshGoodsList();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="没有数据提示问题"><a href="#没有数据提示问题" class="headerlink" title="没有数据提示问题"></a>没有数据提示问题</h3><p>要添加没有数据的提示，在刷新和加载的方法里面要对返回来的 result 数据进行非空判断，然后修改 pms_isMoreItemsAvailable 的值</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-hide</span>=<span class="string">"pms_isMoreItemsAvailable"</span> <span class="attr">style</span>=<span class="string">"text-align: center"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>我去，地主家也没有余粮啊！<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="循环加载的问题"><a href="#循环加载的问题" class="headerlink" title="循环加载的问题"></a>循环加载的问题</h3><p>通过 ng-if 方法来控制加载更多的无限循环，默认 pms_isMoreItemsAvailable=true</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ion-infinite-scroll</span> <span class="attr">ng-if</span>=<span class="string">"pms_isMoreItemsAvailable"</span> <span class="attr">on-infinite</span>=<span class="string">"func_loadMoreGoodsList()"</span> <span class="attr">distance</span>=<span class="string">"1%"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ion-infinite-scroll</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>遮罩层</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ionicLoading.show(&#123;</span><br><span class="line">  template: <span class="string">"正在载入数据，请稍后..."</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在广播完毕之后执行取消遮罩层</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  $ionicLoading.hide();</span><br><span class="line">&#125;,<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="IndexedDb"><a href="#IndexedDb" class="headerlink" title="IndexedDb"></a>IndexedDb</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>indexedDB 是 HTML5-WebStorage 的重要一环，是一种轻量级 NOSQL 数据库。相比 web sql(sqlite) 更加高效，包括索引、事务处理和健壮的查询功能。</p>
+<h3 id="和-webSQL-的比较"><a href="#和-webSQL-的比较" class="headerlink" title="和 webSQL 的比较"></a>和 webSQL 的比较</h3><blockquote>
+<p>允许快速索引和搜索的对象，所以在 HTML5 的 web 应用程序中，可以有效管理你的数据和高效率的读/写操作。<br>W3C主推的离线数据库类型，逐渐替代 Web SQL 类型数据库，更新效率高并不断完善。<br>工作在异步模式下执行每步操作。使用高效率的的 JavaScript 事件驱动模块</p>
+</blockquote>
+<h2 id="操作-indexedDB"><a href="#操作-indexedDB" class="headerlink" title="操作 indexedDB"></a>操作 indexedDB</h2><p>原理代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>indexedDB 使用<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="comment">// 获取indexdb对象,为了兼容性的写法</span></span></span><br><span class="line"><span class="javascript">  <span class="comment">// 1、获取对象</span></span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.indexedDB = <span class="built_in">window</span>.indexedDB || <span class="built_in">window</span>.mozIndexedDB || <span class="built_in">window</span>.webkitIndexedDB || <span class="built_in">window</span>.msIndexedDB;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.IDBTransaction = <span class="built_in">window</span>.IDBTransaction || <span class="built_in">window</span>.webkitIDBTransaction || <span class="built_in">window</span>.msIDBTransaction;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.IDBKeyRange = <span class="built_in">window</span>.IDBKeyRange || <span class="built_in">window</span>.webkitIDBKeyRange || <span class="built_in">window</span>.msIDBKeyRange;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.IDBCursor = <span class="built_in">window</span>.IDBCursor || <span class="built_in">window</span>.webkitIDBCursor || <span class="built_in">window</span>.msIDBCursor;</span></span><br><span class="line"><span class="undefined">  </span></span><br><span class="line"><span class="javascript">  <span class="comment">// 2、定义数据库的基本信息</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> dbInfo = &#123;</span></span><br><span class="line"><span class="javascript">    dbName: <span class="string">'aptdb'</span>,</span></span><br><span class="line"><span class="javascript">    dbVersion: <span class="number">2021</span>, <span class="comment">//用小数会四舍五入，版本号只能越来越大</span></span></span><br><span class="line"><span class="undefined">    dbInstance: &#123;&#125;</span></span><br><span class="line"><span class="undefined">  &#125;;</span></span><br><span class="line"><span class="javascript">  <span class="comment">// 3、创建数据库</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> dbContent = <span class="built_in">window</span>.indexedDB.open(dbInfo.dbName, dbInfo.dbVersion);</span></span><br><span class="line"><span class="javascript">  <span class="comment">// 判断数据库版本号是否更新，更加 dbversion 和 dbname 去判断，如果没有发送变化，就不走这个回调方法（创建和修改表结构在这里操作）</span></span></span><br><span class="line"><span class="javascript">  <span class="comment">// 如果数据库名称和版本号相同，那么该方法只执行一次</span></span></span><br><span class="line"><span class="javascript">  dbContent.onupgradeneeded = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(e);</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 4、创建数据库 store(表)</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> _db = e.target.result;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 保存表名称的一个数组</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> storeNames = _db.objectStoreNames;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">if</span> (!storeNames.contains(<span class="string">"cart"</span>)) &#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 创建一个表结构，第一个参数是表名称</span></span></span><br><span class="line"><span class="javascript">      _db.createObjectStore(<span class="string">"cart"</span>, &#123;</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 必须有个 keyPath 属性，这个属性的值必须是能唯一标识这条数据的值的字段</span></span></span><br><span class="line"><span class="javascript">        keyPath: <span class="string">"goodsId"</span>, <span class="comment">//相当于关系型数据库中的主键</span></span></span><br><span class="line"><span class="javascript">        autoIncrement: <span class="literal">true</span></span></span><br><span class="line"><span class="undefined">      &#125;);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;;</span></span><br><span class="line"><span class="javascript">  <span class="comment">// 打开数据库成功的回调函数</span></span></span><br><span class="line"><span class="javascript">  dbContent.onsuccess = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 5、增删改查操作，开启事物，每次只能做一件事情</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> _db = e.target.result;</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 创建事物</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> trans = _db.transaction([<span class="string">"cart"</span>], <span class="string">"readwrite"</span>);</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 用事物获取表</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> store = trans.objectStore(<span class="string">"cart"</span>);</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 虽然可以在一次成功打开请求的操作中同时操作多次增删改查命令，但是不推荐，以为这样前面的操作就不能被监听到了</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 增加数据</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> req = store.add(&#123;</span></span><br><span class="line"><span class="javascript">      goodsId: <span class="string">'df6'</span>,</span></span><br><span class="line"><span class="undefined">      prise: 12.3,</span></span><br><span class="line"><span class="javascript">      name: <span class="string">"衣服"</span>,</span></span><br><span class="line"><span class="javascript">      size: <span class="string">"M"</span>,</span></span><br><span class="line"><span class="undefined">      age: 99</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="javascript">    <span class="comment">// 修改数据</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// var req = store.put(&#123;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//   goodsId: 'df6',</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//   prise: 12.79,</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//   name: "衣服",</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//   size: "L",</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//   age: 1000</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// &#125;</span></span></span><br><span class="line"><span class="javascript">   <span class="comment">// 删除数据</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// var req = store.delete("df6");</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 查询数据</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// var req = store.get("df1");</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 删除所有数据</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// var req = store.clear();</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 数据操作成功回调函数</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// req.onsuccess = function(e)&#123;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//   console.log('数据操作成功了');</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// &#125;</span></span></span><br><span class="line"><span class="undefined">    </span></span><br><span class="line"><span class="javascript">    <span class="comment">// 数据添加失败回调函数  </span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// req.onerror = function(e)&#123;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//   console.log('数据操作失败了');</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// &#125;</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// 查询所有数据（用了游标）</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> cursor = store.openCursor();</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> data = [];</span></span><br><span class="line"><span class="javascript">    cursor.onsuccess = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> result = e.target.result;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (result &amp;&amp; result !== <span class="literal">null</span>) &#123;</span></span><br><span class="line"><span class="undefined">        data.push(result.value);</span></span><br><span class="line"><span class="javascript">        <span class="comment">// 重新执行 onsuccess 句柄，必须得写这句</span></span></span><br><span class="line"><span class="undefined">        result.continue();</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(data);</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="javascript">    cursor.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;;</span></span><br><span class="line"><span class="javascript">  <span class="comment">// 打开数据库请求失败的回调函数</span></span></span><br><span class="line"><span class="javascript">  dbContent.onerror = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="number">3</span>);</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>封装代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">'indexeddb'</span>, [])</span><br><span class="line">.factory(<span class="string">'IndexeddbJs'</span>, [<span class="string">'$ionicPopup'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">$ionicPopup</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">window</span>.indexedDB = <span class="built_in">window</span>.indexedDB || <span class="built_in">window</span>.mozIndexedDB || <span class="built_in">window</span>.webkitIndexedDB || <span class="built_in">window</span>.msIndexedDB;</span><br><span class="line">  <span class="built_in">window</span>.IDBTransaction = <span class="built_in">window</span>.IDBTransaction || <span class="built_in">window</span>.webkitIDBTransaction || <span class="built_in">window</span>.msIDBTransaction;</span><br><span class="line">  <span class="built_in">window</span>.IDBKeyRange = <span class="built_in">window</span>.IDBKeyRange || <span class="built_in">window</span>.webkitIDBKeyRange || <span class="built_in">window</span>.msIDBKeyRange;</span><br><span class="line">  <span class="built_in">window</span>.IDBCursor=<span class="built_in">window</span>.IDBCursor||<span class="built_in">window</span>.webkitIDBCursor|| <span class="built_in">window</span>.msIDBCursor;</span><br><span class="line">  <span class="keyword">var</span> db=&#123;</span><br><span class="line">    dbName: <span class="string">'aptdb'</span>,</span><br><span class="line">    dbVersion: <span class="number">2089</span>, <span class="comment">//用小数会四舍五入</span></span><br><span class="line">    dbInstance: &#123;&#125;,</span><br><span class="line">    errorHandler: <span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'error: '</span> + error.target.error.message);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 打开数据库连接</span></span><br><span class="line">    open: <span class="function"><span class="keyword">function</span> (<span class="params">func, fail</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> dbContent = <span class="built_in">window</span>.indexedDB.open(db.dbName, db.dbVersion);</span><br><span class="line">      <span class="comment">// 数据库打开请求的跟新回调函数</span></span><br><span class="line">      dbContent.onupgradeneeded = db.upgrade;</span><br><span class="line">      <span class="comment">// 数据库打开请求的失败回调函数</span></span><br><span class="line">      dbContent.onerror = db.errorHandler;</span><br><span class="line">      <span class="comment">// 数据库打开请求的成功回调函数</span></span><br><span class="line">      dbContent.onsuccess = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">        db.dbInstance = dbContent.result;</span><br><span class="line">        db.dbInstance.onerror = fail;</span><br><span class="line">        func();</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 数据库版本跟新操作</span></span><br><span class="line">    upgrade: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> _db = e.target.result,names = _db.objectStoreNames;</span><br><span class="line">      <span class="comment">// 此处可以创建多个表</span></span><br><span class="line">      <span class="keyword">var</span> name = <span class="string">"cart"</span>;</span><br><span class="line">      <span class="keyword">if</span> (!names.contains(name)) &#123;</span><br><span class="line">        <span class="comment">// 创建表</span></span><br><span class="line">        _db.createObjectStore(</span><br><span class="line">          name,</span><br><span class="line">          &#123;</span><br><span class="line">            keyPath: <span class="string">'goodsId'</span>,</span><br><span class="line">            autoIncrement: <span class="literal">false</span></span><br><span class="line">          &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 获取表对象</span></span><br><span class="line">    getObjectStore: <span class="function"><span class="keyword">function</span> (<span class="params">objectStoreName, mode</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> txn, store;</span><br><span class="line">      mode = mode || <span class="string">'readonly'</span>;</span><br><span class="line">      txn = db.dbInstance.transaction([objectStoreName], mode);</span><br><span class="line">      store = txn.objectStore(objectStoreName);</span><br><span class="line">      <span class="keyword">return</span> store;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 增加数据方法</span></span><br><span class="line">    add: <span class="function"><span class="keyword">function</span> (<span class="params">objectStoreName, data, success, fail</span>) </span>&#123;</span><br><span class="line">      db.open(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> store, req, mode = <span class="string">'readwrite'</span>;</span><br><span class="line">          store = db.getObjectStore(objectStoreName, mode);</span><br><span class="line">          req = store.add(data);</span><br><span class="line">          req.onsuccess = success;</span><br><span class="line">          req.onerror=fail;</span><br><span class="line">      &#125;,fail);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 修改数据方法</span></span><br><span class="line">    update: <span class="function"><span class="keyword">function</span> (<span class="params">objectStoreName, data, success, fail</span>) </span>&#123;</span><br><span class="line">      db.open(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> store, req, mode = <span class="string">'readwrite'</span>;</span><br><span class="line">        store = db.getObjectStore(objectStoreName,mode);</span><br><span class="line">        req = store.put(data);</span><br><span class="line">        req.onsuccess = success;</span><br><span class="line">        req.onerror=fail;</span><br><span class="line">      &#125;,fail);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 获取全部数据方法</span></span><br><span class="line">    getAll: <span class="function"><span class="keyword">function</span> (<span class="params">objectStoreName, success, fail</span>) </span>&#123;</span><br><span class="line">      db.open(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> store = db.getObjectStore(objectStoreName), cursor = store.openCursor(), data = [];</span><br><span class="line">        cursor.onsuccess = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">var</span> result = e.target.result;</span><br><span class="line">          <span class="keyword">if</span> (result &amp;&amp; result !== <span class="literal">null</span>) &#123;</span><br><span class="line">            data.push(result.value);</span><br><span class="line">            result.continue();</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            success(data);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        cursor.onerror=fail;</span><br><span class="line">      &#125;,fail);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 获取单条数据方法</span></span><br><span class="line">    get: <span class="function"><span class="keyword">function</span> (<span class="params">id, objectStoreName, success, fail</span>) </span>&#123;</span><br><span class="line">      db.open(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> store = db.getObjectStore(objectStoreName), req = store.get(id);</span><br><span class="line">          req.onsuccess = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>)</span>&#123;</span><br><span class="line">            success(e.target.result);</span><br><span class="line">        &#125;;</span><br><span class="line">        req.onerror=fail;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// delete是保留字</span></span><br><span class="line">    <span class="comment">// 删除数据方法</span></span><br><span class="line">    <span class="string">'delete'</span>: <span class="function"><span class="keyword">function</span> (<span class="params">id, objectStoreName, success, fail</span>) </span>&#123;</span><br><span class="line">      db.open(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> mode = <span class="string">'readwrite'</span>, store, req;</span><br><span class="line">        store = db.getObjectStore(objectStoreName, mode);</span><br><span class="line">        req = store.delete(id);</span><br><span class="line">        req.onsuccess = success;</span><br><span class="line">        req.onerror=fail;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 删除表数据方法</span></span><br><span class="line">    deleteAll: <span class="function"><span class="keyword">function</span> (<span class="params">objectStoreName, success, fail</span>) </span>&#123;</span><br><span class="line">      db.open(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> mode, store, req;</span><br><span class="line">        mode = <span class="string">'readwrite'</span>;</span><br><span class="line">        store = db.getObjectStore(objectStoreName, mode);</span><br><span class="line">        req = store.clear();</span><br><span class="line">        req.onsuccess = success;</span><br><span class="line">        req.onerror=fail;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> db;</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
+<h2 id="ng-cordova"><a href="#ng-cordova" class="headerlink" title="ng-cordova"></a>ng-cordova</h2><h3 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h3><p><a href="http://ngcordova.com/docs/" target="_blank" rel="noopener">http://ngcordova.com/docs/</a></p>
+<h3 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h3><p>下载 ng-cordova 的js文件</p>
+<p>在项目根目录下面打开命令窗口，输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bower install ngCordova -save</span><br></pre></td></tr></table></figure>
+<p>在index.html文件中引入 ng-cordova.js 文件</p>
+<p>在app.js(项目入口中)引入依赖</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">'myApp'</span>, [<span class="string">'ngCordova'</span>]);</span><br></pre></td></tr></table></figure>
+<p>在 $ionicPlatform.ready 事件中使用插件功能，就是开始使用我们的插件</p>
+<p>下载相应功能的插件，按照官方文档使用就可以了</p>
+<p>在项目根目录下面打开命令窗口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cordova plugin add [插件名称]</span><br></pre></td></tr></table></figure>
+<p>比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cordova plugin add cordova-plugin-camera</span><br></pre></td></tr></table></figure>
+<h2 id="调用手机摄像头功能保存头像"><a href="#调用手机摄像头功能保存头像" class="headerlink" title="调用手机摄像头功能保存头像"></a>调用手机摄像头功能保存头像</h2><p>调用 actionsheet</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 我的页面</span></span><br><span class="line">angular.module(<span class="string">'account.controller'</span>, [<span class="string">'account.service'</span>])</span><br><span class="line">  .controller(<span class="string">'AccountCtrl'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$scope, $window, AccountFty, $ionicPopup, $ionicActionSheet, $cordovaCamera</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 在每次进入控制器的时候检查 localstorage 是否有头像的数据，如果有，把数据赋值给图片 img 的 src 属性</span></span><br><span class="line">    <span class="keyword">if</span> (localStorage[<span class="string">"touxiang"</span>]) &#123;</span><br><span class="line">      <span class="keyword">var</span> image = <span class="built_in">document</span>.getElementById(<span class="string">'touxiang'</span>);</span><br><span class="line">      image.src = <span class="string">"data:image/jpeg;base64,"</span> + localStorage[<span class="string">"touxiang"</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 调用摄像头功能</span></span><br><span class="line">    $scope.func_showAction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 显示操作表</span></span><br><span class="line">      $ionicActionSheet.show(&#123;</span><br><span class="line">        buttons: [</span><br><span class="line">          &#123;<span class="attr">text</span>: <span class="string">'照相机'</span>&#125;,</span><br><span class="line">          &#123;<span class="attr">text</span>: <span class="string">'图库'</span>&#125;</span><br><span class="line">        ],</span><br><span class="line">        titleText: <span class="string">'请选择文件源'</span>,</span><br><span class="line">        cancelText: <span class="string">'取消'</span>,</span><br><span class="line">        buttonClicked: <span class="function"><span class="keyword">function</span> (<span class="params">index</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">switch</span> (index) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">              func_getPicFromCamera();</span><br><span class="line">              <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">              func_getPicFromPicture();</span><br><span class="line">              <span class="keyword">break</span>;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 从摄像头获取图片</span></span><br><span class="line">    <span class="keyword">var</span> func_getPicFromCamera = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> options = &#123;</span><br><span class="line">        quality: <span class="number">100</span>,</span><br><span class="line">        destinationType: Camera.DestinationType.DATA_URL,</span><br><span class="line">        sourceType: Camera.PictureSourceType.CAMERA,</span><br><span class="line">        allowEdit: <span class="literal">true</span>,</span><br><span class="line">        encodingType: Camera.EncodingType.JPEG,</span><br><span class="line">        targetWidth: <span class="number">100</span>,</span><br><span class="line">        targetHeight: <span class="number">100</span>,</span><br><span class="line">        popoverOptions: CameraPopoverOptions,</span><br><span class="line">        saveToPhotoAlbum: <span class="literal">false</span>,</span><br><span class="line">        correctOrientation: <span class="literal">true</span></span><br><span class="line">      &#125;;</span><br><span class="line">      $cordovaCamera.getPicture(options).then(<span class="function"><span class="keyword">function</span> (<span class="params">imageData</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 获取页面中的img对象</span></span><br><span class="line">        <span class="keyword">var</span> image = <span class="built_in">document</span>.getElementById(<span class="string">'touxiang'</span>);</span><br><span class="line">        image.src = <span class="string">"data:image/jpeg;base64,"</span> + imageData;</span><br><span class="line">        <span class="comment">// 保存我们获取的头像数据，下次登录的时候就可以显示了吧</span></span><br><span class="line">        localStorage[<span class="string">"touxiang"</span>] = imageData;</span><br><span class="line">      &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">        <span class="comment">//$scope.AlertPopup(err);</span></span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 从图库获取图片</span></span><br><span class="line">    <span class="keyword">var</span> func_getPicFromPicture = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> options = &#123;</span><br><span class="line">        quality: <span class="number">100</span>,</span><br><span class="line">        destinationType: Camera.DestinationType.DATA_URL,</span><br><span class="line">        sourceType: Camera.PictureSourceType.PHOTOLIBRARY,</span><br><span class="line">        allowEdit: <span class="literal">true</span>,</span><br><span class="line">        encodingType: Camera.EncodingType.JPEG,</span><br><span class="line">        targetWidth: <span class="number">100</span>,</span><br><span class="line">        targetHeight: <span class="number">100</span>,</span><br><span class="line">        popoverOptions: CameraPopoverOptions,</span><br><span class="line">        saveToPhotoAlbum: <span class="literal">false</span>,</span><br><span class="line">        correctOrientation: <span class="literal">true</span></span><br><span class="line">      &#125;;</span><br><span class="line">      $cordovaCamera.getPicture(options).then(<span class="function"><span class="keyword">function</span> (<span class="params">imageData</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 获取页面中的 img 标签</span></span><br><span class="line">        <span class="keyword">var</span> image = <span class="built_in">document</span>.getElementById(<span class="string">'touxiang'</span>);</span><br><span class="line">        image.src = <span class="string">"data:image/jpeg;base64,"</span> + imageData;</span><br><span class="line">        localStorage[<span class="string">"touxiang"</span>] = imageData;</span><br><span class="line">      &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">        <span class="comment">//$scope.AlertPopup(err);</span></span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 打电话</span></span><br><span class="line">    $scope.func_callPhone = <span class="function"><span class="keyword">function</span> (<span class="params">number</span>) </span>&#123;</span><br><span class="line">      $<span class="built_in">window</span>.location.href = <span class="string">"tel:"</span> + number;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 退出方法</span></span><br><span class="line">    $scope.func_exitApp = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> confirmPopup = $ionicPopup.confirm(&#123;</span><br><span class="line">        title: <span class="string">'提示'</span>,</span><br><span class="line">        template: <span class="string">"确认退出？"</span></span><br><span class="line">      &#125;);</span><br><span class="line">      confirmPopup.then(<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (res) &#123;</span><br><span class="line">          <span class="comment">// 退出 app</span></span><br><span class="line">          ionic.Platform.exitApp();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<p>注意点：</p>
+<p>一定要把 common.css 中的关于 actionsheet 的样式给加载进去，否则样式打包之后会错乱</p>
+<p>怎么调用 cordova-camara 插件</p>
+<p><a href="http://my.oschina.net/u/1416844/blog/491533" target="_blank" rel="noopener">http://my.oschina.net/u/1416844/blog/491533</a></p>
+<p>常见问题</p>
+<p><img src="/images/ionic36.png" alt="常见问题"></p>
+<p>这个时候你需要运行:</p>
+<p><img src="/images/ionic37.png" alt="运行"></p>
+<p>Base64文件介绍</p>
+<p><a href="http://www.aimks.com/css-path-data-image-png-usage-base64.html" target="_blank" rel="noopener">http://www.aimks.com/css-path-data-image-png-usage-base64.html</a><br><a href="http://www.zhihu.com/question/36306744/answer/71626823" target="_blank" rel="noopener">http://www.zhihu.com/question/36306744/answer/71626823</a></p>
+<h2 id="白名单设置"><a href="#白名单设置" class="headerlink" title="白名单设置"></a>白名单设置</h2><h3 id="页面代码"><a href="#页面代码" class="headerlink" title="页面代码"></a>页面代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"telephone"</span> <span class="attr">href</span>=<span class="string">"tel:88889999"</span>&gt;</span>88889999<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="设置白名单"><a href="#设置白名单" class="headerlink" title="设置白名单"></a>设置白名单</h3><p><a href="http://rickluna.com/wp/2012/02/making-a-phone-call-from-within-phonegap-in-android-and-ios/" target="_blank" rel="noopener">http://rickluna.com/wp/2012/02/making-a-phone-call-from-within-phonegap-in-android-and-ios/</a></p>
+<h2 id="app图标"><a href="#app图标" class="headerlink" title="app图标"></a>app图标</h2><p>在项目的根目录下创建 resources 文件夹。</p>
+<p>在文件夹中都放入 icon.png（应用图标，最小 192x192px，不带圆角），splash.png（启动屏幕，最小 2208x2208px，中间区域 1200x1200px ）(可以是 png、psd、ai)</p>
+<p>在 cmd 中进入项目所在文件夹执行：必须联网</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ionic resources --icon       </span><br><span class="line">ionic resources --splash</span><br></pre></td></tr></table></figure>
+<p>项目中的config文件中是这样</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">platform</span> <span class="attr">name</span>=<span class="string">"android"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">icon</span> <span class="attr">src</span>=<span class="string">"resources\android\icon\drawable-ldpi-icon.png"</span> <span class="attr">density</span>=<span class="string">"ldpi"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">icon</span> <span class="attr">src</span>=<span class="string">"resources\android\icon\drawable-mdpi-icon.png"</span> <span class="attr">density</span>=<span class="string">"mdpi"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">icon</span> <span class="attr">src</span>=<span class="string">"resources\android\icon\drawable-hdpi-icon.png"</span> <span class="attr">density</span>=<span class="string">"hdpi"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">icon</span> <span class="attr">src</span>=<span class="string">"resources\android\icon\drawable-xhdpi-icon.png"</span> <span class="attr">density</span>=<span class="string">"xhdpi"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">icon</span> <span class="attr">src</span>=<span class="string">"resources\android\icon\drawable-xxhdpi-icon.png"</span> <span class="attr">density</span>=<span class="string">"xxhdpi"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">splash</span> <span class="attr">src</span>=<span class="string">"resources\android\splash\drawable-land-ldpi-screen.png"</span> <span class="attr">density</span>=<span class="string">"land-ldpi"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">splash</span> <span class="attr">src</span>=<span class="string">"resources\android\splash\drawable-land-mdpi-screen.png"</span> <span class="attr">density</span>=<span class="string">"land-mdpi"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">splash</span> <span class="attr">src</span>=<span class="string">"resources\android\splash\drawable-port-ldpi-screen.png"</span> <span class="attr">density</span>=<span class="string">"port-ldpi"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">splash</span> <span class="attr">src</span>=<span class="string">"resources\android\splash\drawable-port-mdpi-screen.png"</span> <span class="attr">density</span>=<span class="string">"port-mdpi"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">splash</span> <span class="attr">src</span>=<span class="string">"resources\android\splash\drawable-port-hdpi-screen.png"</span> <span class="attr">density</span>=<span class="string">"port-hdpi"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">platform</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">icon</span> <span class="attr">src</span>=<span class="string">"resources\android\icon\drawable-xhdpi-icon.png"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>因为在运行的时候要上传图片，所以需要联网不错的插件</p>
+<h2 id="双击退出应用"><a href="#双击退出应用" class="headerlink" title="双击退出应用"></a>双击退出应用</h2><p>实现思路</p>
+<blockquote>
+<p>$cordovaToast<br>$ionicPlatform.registerBackButtonAction<br>$location.path</p>
+</blockquote>
+<p>判断时候是第一次进入应用</p>
+<h2 id="其他平台介绍"><a href="#其他平台介绍" class="headerlink" title="其他平台介绍"></a>其他平台介绍</h2><p>P++支付平台<br>极光推送平台<br>微信开发平台</p>
+<h2 id="项目优化"><a href="#项目优化" class="headerlink" title="项目优化"></a>项目优化</h2><p>使用gulp压缩源代码</p>
+<h2 id="插件扩展"><a href="#插件扩展" class="headerlink" title="插件扩展"></a>插件扩展</h2><ul>
+<li><a href="http://git.oschina.net/Cheergoal/BarcodeScanner" target="_blank" rel="noopener">http://git.oschina.net/Cheergoal/BarcodeScanner</a></li>
+<li><a href="http://cordova.apache.org/docs/en/latest/guide/hybrid/plugins/index.html" target="_blank" rel="noopener">http://cordova.apache.org/docs/en/latest/guide/hybrid/plugins/index.html</a></li>
+<li><a href="http://www.iteye.com/blogs/subjects/cordova" target="_blank" rel="noopener">http://www.iteye.com/blogs/subjects/cordova</a></li>
+<li><a href="http://www.oschina.net/question/2296277_232018" target="_blank" rel="noopener">http://www.oschina.net/question/2296277_232018</a></li>
+<li>angular，ui-router，indexdb，swiper, 媒体查询，rem，cordova，ng-cordova，Promise/A+</li>
+<li>css3, scss, gulp</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢您的支持！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="honey young 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="honey young 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AngularJS/" rel="tag"><i class="fa fa-tag"></i> AngularJS</a>
+          
+            <a href="/tags/ionic/" rel="tag"><i class="fa fa-tag"></i> ionic</a>
+          
+            <a href="/tags/cordova/" rel="tag"><i class="fa fa-tag"></i> cordova</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/09/ionic js笔记/" rel="next" title="ionic js笔记">
+                <i class="fa fa-chevron-left"></i> ionic js笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/11/eCharts 的 bar 系列/" rel="prev" title="eCharts 的 bar 系列">
+                eCharts 的 bar 系列 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            博文目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概要
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="honey young" />
+            
+              <p class="site-author-name" itemprop="name">honey young</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/honeyYoung/honeyyoung.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/de13fcfe3889" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/dong-gua-xiao-ke-ai/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ionic-项目"><span class="nav-number">1.</span> <span class="nav-text">ionic 项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目结构说明"><span class="nav-number">1.1.</span> <span class="nav-text">项目结构说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打包app"><span class="nav-number">1.2.</span> <span class="nav-text">打包app</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目结构搭建"><span class="nav-number">2.</span> <span class="nav-text">项目结构搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#要从新整理结构"><span class="nav-number">2.1.</span> <span class="nav-text">要从新整理结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽取步骤"><span class="nav-number">2.2.</span> <span class="nav-text">抽取步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#功能模块划分"><span class="nav-number">2.2.1.</span> <span class="nav-text">功能模块划分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外面四个js实现步骤"><span class="nav-number">2.2.2.</span> <span class="nav-text">外面四个js实现步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#app-js"><span class="nav-number">2.2.3.</span> <span class="nav-text">app.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#route-js"><span class="nav-number">2.2.4.</span> <span class="nav-text">route.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Global-Js"><span class="nav-number">2.2.5.</span> <span class="nav-text">Global.Js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Config-js"><span class="nav-number">2.2.6.</span> <span class="nav-text">Config.js</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#功能模块-js-的整理步骤"><span class="nav-number">2.3.</span> <span class="nav-text">功能模块 js 的整理步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展链接"><span class="nav-number">2.4.</span> <span class="nav-text">扩展链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由"><span class="nav-number">3.</span> <span class="nav-text">路由</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ui-router的介绍"><span class="nav-number">3.1.</span> <span class="nav-text">Ui-router的介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ionic中路由实现"><span class="nav-number">3.2.</span> <span class="nav-text">ionic中路由实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tab-router-js"><span class="nav-number">3.3.</span> <span class="nav-text">tab_router.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#home-route-js"><span class="nav-number">3.4.</span> <span class="nav-text">home_route.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#route-js-1"><span class="nav-number">3.5.</span> <span class="nav-text">route.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#index-html"><span class="nav-number">3.6.</span> <span class="nav-text">index.html</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引导页的实现"><span class="nav-number">4.</span> <span class="nav-text">引导页的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建引导页步骤"><span class="nav-number">4.1.</span> <span class="nav-text">创建引导页步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swiper简介及用法"><span class="nav-number">4.2.</span> <span class="nav-text">Swiper简介及用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用swiper步骤"><span class="nav-number">4.3.</span> <span class="nav-text">使用swiper步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首页的实现"><span class="nav-number">5.</span> <span class="nav-text">首页的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目布局改造"><span class="nav-number">5.1.</span> <span class="nav-text">项目布局改造</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tab模板改造"><span class="nav-number">5.2.</span> <span class="nav-text">Tab模板改造</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态生成swiper"><span class="nav-number">5.3.</span> <span class="nav-text">动态生成swiper</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ion-view-的生命周期"><span class="nav-number">6.</span> <span class="nav-text">ion-view 的生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ionic中清理缓存的四种方法"><span class="nav-number">7.</span> <span class="nav-text">ionic中清理缓存的四种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#延迟加载的实现"><span class="nav-number">8.</span> <span class="nav-text">延迟加载的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#延迟加载插件使用步骤"><span class="nav-number">8.1.</span> <span class="nav-text">延迟加载插件使用步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ionic中的页面跳转和参数传递"><span class="nav-number">9.</span> <span class="nav-text">ionic中的页面跳转和参数传递</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ionic中的路由跳转方式"><span class="nav-number">9.1.</span> <span class="nav-text">ionic中的路由跳转方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ionic中的参数传递"><span class="nav-number">9.2.</span> <span class="nav-text">ionic中的参数传递</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据请求"><span class="nav-number">10.</span> <span class="nav-text">数据请求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Angular中的service-父级概念"><span class="nav-number">10.1.</span> <span class="nav-text">Angular中的service(父级概念)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http服务使用"><span class="nav-number">10.2.</span> <span class="nav-text">$http服务使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#q服务"><span class="nav-number">10.3.</span> <span class="nav-text">$q服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise-A-规范"><span class="nav-number">11.</span> <span class="nav-text">Promise/A+规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise-A-规范简介"><span class="nav-number">11.1.</span> <span class="nav-text">Promise/A+规范简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise的实现"><span class="nav-number">11.2.</span> <span class="nav-text">Promise的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#规范出现的原因"><span class="nav-number">11.3.</span> <span class="nav-text">规范出现的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#规范的内容是什么（重要）"><span class="nav-number">11.4.</span> <span class="nav-text">规范的内容是什么（重要）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理图"><span class="nav-number">11.5.</span> <span class="nav-text">原理图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么对promise对象的状态进行改变那"><span class="nav-number">11.6.</span> <span class="nav-text">怎么对promise对象的状态进行改变那</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise-A-规范表现形式"><span class="nav-number">11.7.</span> <span class="nav-text">Promise/A+规范表现形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整使用说明"><span class="nav-number">11.8.</span> <span class="nav-text">完整使用说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下拉刷新"><span class="nav-number">12.</span> <span class="nav-text">下拉刷新</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ion-refresher-介绍"><span class="nav-number">12.1.</span> <span class="nav-text">ion-refresher 介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用介绍"><span class="nav-number">12.2.</span> <span class="nav-text">使用介绍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上拉加载更多"><span class="nav-number">13.</span> <span class="nav-text">上拉加载更多</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ion-infinite-scroll-介绍"><span class="nav-number">13.1.</span> <span class="nav-text">ion-infinite-scroll 介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用介绍-1"><span class="nav-number">13.2.</span> <span class="nav-text">使用介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emit-on"><span class="nav-number">13.3.</span> <span class="nav-text">$emit.$on</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生命周期的问题"><span class="nav-number">13.4.</span> <span class="nav-text">生命周期的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#没有数据提示问题"><span class="nav-number">13.5.</span> <span class="nav-text">没有数据提示问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环加载的问题"><span class="nav-number">13.6.</span> <span class="nav-text">循环加载的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IndexedDb"><span class="nav-number">14.</span> <span class="nav-text">IndexedDb</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">14.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#和-webSQL-的比较"><span class="nav-number">14.2.</span> <span class="nav-text">和 webSQL 的比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作-indexedDB"><span class="nav-number">15.</span> <span class="nav-text">操作 indexedDB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ng-cordova"><span class="nav-number">16.</span> <span class="nav-text">ng-cordova</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#官网"><span class="nav-number">16.1.</span> <span class="nav-text">官网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用步骤"><span class="nav-number">16.2.</span> <span class="nav-text">使用步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用手机摄像头功能保存头像"><span class="nav-number">17.</span> <span class="nav-text">调用手机摄像头功能保存头像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#白名单设置"><span class="nav-number">18.</span> <span class="nav-text">白名单设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#页面代码"><span class="nav-number">18.1.</span> <span class="nav-text">页面代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置白名单"><span class="nav-number">18.2.</span> <span class="nav-text">设置白名单</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#app图标"><span class="nav-number">19.</span> <span class="nav-text">app图标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双击退出应用"><span class="nav-number">20.</span> <span class="nav-text">双击退出应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他平台介绍"><span class="nav-number">21.</span> <span class="nav-text">其他平台介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目优化"><span class="nav-number">22.</span> <span class="nav-text">项目优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件扩展"><span class="nav-number">23.</span> <span class="nav-text">插件扩展</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">honey young</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+     <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+      本站访客数:<span id="busuanzi_value_site_uv"></span>
+     </span>
+  </div>
+<!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div> 
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>

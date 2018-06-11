@@ -4,6 +4,52 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/11/11/eCharts%20%E7%9A%84%20bar%20%E7%B3%BB%E5%88%97/</loc>
+    <lastmod>2018-06-11T03:44:14.688Z</lastmod>
+    <data>
+        <display>
+        <title>eCharts 的 bar 系列</title>
+        <pubTime>2017-11-10T16:00:00.000Z</pubTime>
+        
+        <tag>AngularJS</tag>
+         
+        <tag>eCharts</tag>
+         
+         
+           
+             
+              <breadCrumb title="eCharts 系列" url="http://yoursite.com/categories/eCharts-%E7%B3%BB%E5%88%97/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/10/10/ionic+cordova+AngularJS%E6%B7%B7%E5%90%88app%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2018-06-11T03:39:38.654Z</lastmod>
+    <data>
+        <display>
+        <title>ionic+cordova+AngularJS混合app开发笔记</title>
+        <pubTime>2017-10-09T16:00:00.000Z</pubTime>
+        
+        <tag>AngularJS</tag>
+         
+        <tag>ionic</tag>
+         
+        <tag>cordova</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hybrid APP 开发系列" url="http://yoursite.com/categories/Hybrid-APP-%E5%BC%80%E5%8F%91%E7%B3%BB%E5%88%97/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2015/12/28/%E4%BD%BF%E7%94%A8Hexo+Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2018-06-08T09:01:57.004Z</lastmod>
     <data>
